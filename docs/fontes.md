@@ -169,8 +169,43 @@ Lacunas:
 - Host: `https://api.portaldatransparencia.gov.br/api-de-dados/`
 - Autenticação: header `chave-api-dados`. Chave gratuita gerada com conta gov.br que tenha verificação em duas etapas.
 - Limites: 400 requisições/min (700 entre 00h e 06h); acima disso a chave fica suspensa por 8 h.
-- Endpoints relevantes: `convenios`, emendas, despesas por favorecido. **Nomes exatos A VERIFICAR no Swagger oficial.**
 - Referência: [cliente portaldatransparencia](https://github.com/guizsantos/portaldatransparencia).
+
+**VERIFICADO em 29/10/2026** (T1.4, POC `scripts/poc_portal_transparencia.py`, 52 requisições; amostras em `tests/fixtures/portal_transparencia/`).
+
+Acesso:
+- **OpenAPI oficial** (público, sem chave): `https://api.portaldatransparencia.gov.br/v3/api-docs` (109 caminhos); Swagger em `/swagger-ui/index.html`. Os nomes abaixo vêm dele. O script valida cada parâmetro contra ele antes de chamar.
+- **Chave:** header `chave-api-dados` (confirmado no OpenAPI). Sem chave a API responde HTTP 401 e cita a página de cadastro `portaldatransparencia.gov.br/api-de-dados/cadastrar-email`. A chave fica só em `PORTAL_TRANSPARENCIA_KEY` (variável de ambiente ou `.env`); o script nunca imprime nem grava o valor.
+- **Limite:** 400 requisições/min (docs). O script usa intervalo mínimo de 0,2 s (300/min, `config/regras.yaml`), teto de 400 requisições por execução e **para na hora em 401, 403 ou 429, sem nova tentativa** (uma chave suspensa fica 8 h fora do ar). Nenhum cabeçalho de limite é devolvido; não houve 429.
+- **Paginação:** `pagina` é obrigatório; **15 itens por página, sem total**: paginar até a página vir vazia. Valores monetários às vezes em número (`valor` de `/convenios`) e às vezes em texto brasileiro (`"1.234,56"`; estornos como `"- 7.174,10"`, com sinal e espaço): converter para centavos com `Decimal`, nunca com `float`.
+
+Endpoints usados para o município:
+
+| Endpoint | Filtro | Resultado para Neves Paulista |
+| --- | --- | --- |
+| `convenios` | `codigoIBGE` (funciona) | **63 convênios**, desde 1996: 62 da prefeitura e 1 da Santa Casa; inclui os históricos (dataInicioVigencia de 10/04/1996 a 30/12/2025) |
+| `emendas` | sem filtro de município (só `codigoEmenda`, `numeroEmenda`, `nomeAutor`, `tipoEmenda`, `ano`, função) | **a emenda vem agregada**: `localidadeDoGasto = MÚLTIPLO` e os valores são os da emenda inteira (ex.: R$ 9,98 milhões empenhados numa emenda da qual o município recebe R$ 100 mil) |
+| `despesas/recursos-recebidos` | `codigoFavorecido` (CNPJ) funciona; **`codigoIBGE` devolve vazio** (testado com 7 e 6 dígitos) | 103 linhas mensais para a prefeitura e os 2 fundos |
+| `despesas/documentos-por-favorecido` | `codigoPessoa` (CNPJ), `fase` (1 empenho, 2 liquidação, 3 pagamento) e `ano`, todos obrigatórios | pagamentos (fase 3) de 2024 a 2026: 10 documentos |
+
+`convenios` (campos): `id`, `dimConvenio.numero` e `.objeto`, `situacao`, `convenente`, `municipioConvenente.codigoIBGE`, `orgao`, `tipoInstrumento`, `subfuncao`, `dataInicioVigencia`, `dataFinalVigencia`, `dataPublicacao`, `dataUltimaLiberacao`, `dataConclusao`, `valor` (**repasse da União**, não o valor global: R$ 481.104,00 contra R$ 486.124,06 no Siconv), `valorContrapartida`, `valorLiberado`, `valorDaUltimaLiberacao`, `numeroProcesso`.
+- **`situacao` (11 valores, 63 convênios):** CONCLUÍDO 26, PRESTAÇÃO DE CONTAS APROVADA 11, ARQUIVADO 7, CONVÊNIO ANULADO 5, NORMAL 3, EM EXECUÇÃO 3, PRESTAÇÃO DE CONTAS EM ANÁLISE 3, EXCLUÍDO 2, ADIMPLENTE 1, INADIMPLÊNCIA SUSPENSA 1, PRESTAÇÃO DE CONTAS REJEITADA 1. Vocabulário mais grosso que o do Siconv.
+- **Ligação com o Siconv:** `dimConvenio.numero` é o **`NR_PROPOSTA`** do Siconv (formato `33961/2024`), **não** o `NR_CONVENIO` (0 em comum), e **com zeros à esquerda diferentes** (`04431/2016` no Portal, `4431/2016` no Siconv): normalizar antes de comparar. Os 63 convênios do Portal viram 61 números distintos (2 repetidos: `1586/1999` e um número no formato `CR.NR.0107614-79/`). **Dos 28 convênios do Siconv, 19 casam**; os 9 sem par são 8 antigos (2009 a 2011, entre eles prestações de contas em análise e uma rejeitada) e 1 de 2021 ainda em "Proposta/Plano de Trabalho Complementado em Análise" (sem convênio assinado, o que explica a ausência).
+- **Nos 19 que casam a situação é consistente, e o vocabulário se traduz:** Convênio Anulado → CONVÊNIO ANULADO (4), Em execução → EM EXECUÇÃO (3), Prestação de Contas Aprovada → PRESTAÇÃO DE CONTAS APROVADA (9) e **Prestação de Contas Concluída → NORMAL (3 de 3)**.
+- **O Portal é mais atual que a carga do Siconv (17/07/2026):** o convênio `33961/2024` mostra R$ 938.758,79 liberados no Portal; o Siconv tinha R$ 288.758,79, e a diferença é exatamente a ordem bancária de R$ 650.000,00 de 23/07/2026 (`2026OB000885`).
+- Filtro de datas: `dataInicial`/`dataFinal` ("data referência") com `codigoIBGE` devolveu vazio para um ano inteiro; **não usar** sem entender melhor.
+
+`despesas/recursos-recebidos` (`mesAnoInicio` e `mesAnoFim` obrigatórios, `MM/AAAA`): períodos de até 13 meses funcionam; **34 meses deram HTTP 400**. Usar janelas de 12 meses. `codigoPessoa` volta formatado (`45.145.414/0001-47`). Campos: `anoMes`, `codigoPessoa`, `nomePessoa`, `municipioPessoa`, `nomeUG`, `nomeOrgao`, `nomeOrgaoSuperior`, `valor`. Soma por ano (prefeitura + Fundo Municipal de Saúde + Fundo Municipal de Assistência Social): **2024 R$ 4.378.747,04; 2025 R$ 4.120.779,24; 2026 (jan a out) R$ 3.736.911,51**, vindos de Saúde (34 linhas), Educação (33), Desenvolvimento e Assistência Social (32), Cidades (3) e Cultura (1).
+
+`despesas/documentos-por-favorecido` (pagamentos, 2024 a 2026): Fundo Municipal de Saúde 5 documentos, R$ 292.825,90 líquidos (inclui um **estorno de R$ 7.174,10**); Fundo Municipal de Assistência Social 2, R$ 100.000,00; prefeitura 3, R$ 975.000,00 (Ministério das Cidades/FNHIS). Campos úteis: `data`, `documentoResumido`, `observacao`, `valor`, `orgaoSuperior`, `numeroProcesso`, **`autor`** (nas emendas, `4289 - DELEGADO BRUNO LIMA`: o código bate com o de `nr_emenda` do Transferegov) e `favorecidoIntermediario`. A `observacao` cita o instrumento (`CR.NR.0033961-PC2024`). Estornos aparecem como valor negativo.
+
+Emendas: `codigoEmenda` = **ano + código do autor (4 dígitos) + sequência (4 dígitos)**, que é o `nr_emenda` do Transferegov sem os pontos (`2025.4289.0003` → `202542890003`); as 13 emendas distintas indicadas ao município foram achadas. `numeroEmenda` é só o sufixo de 4 dígitos e o filtro devolve emendas de qualquer lugar. Então **o Portal não dá o valor da emenda para o município**: quem diz que a emenda foi indicada é o Transferegov, e o que o município recebeu sai dos pagamentos (`autor` + `observacao`).
+
+Lacunas:
+- **Inexplicado:** `recursos-recebidos` mostra 34 linhas mensais do Fundo Municipal de Saúde, mas `documentos-por-favorecido` só lista 5 pagamentos dele. Os repasses regulares do fundo a fundo parecem não aparecer nesse endpoint.
+- Não achei endpoint de "data da última atualização" nesta API.
+- `documentos-por-favorecido` ainda não foi testado nas fases 1 (empenho) e 2 (liquidação).
+- Nenhuma situação do Portal foi mapeada para `status_site` (o Portal não define status, D11). `ARQUIVADO` (7), `CONCLUÍDO` (26), `EXCLUÍDO` (2), `ADIMPLENTE` (1) e `INADIMPLÊNCIA SUSPENSA` (1) não casaram com instrumentos do Siconv na comparação (provavelmente são convênios antigos, pré-Siconv), então seu significado não foi confirmado.
 
 ## CAUC (Tesouro Nacional)
 

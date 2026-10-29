@@ -33,7 +33,7 @@ Postura: iniciativa cidadã **independente**. Tom informativo, nunca acusatório
 | `tipo` | Nome no site | Fonte principal |
 | --- | --- | --- |
 | `voluntaria` | Convênio ou contrato de repasse | Transferegov (Discricionárias e Legais, CSV) |
-| `emenda_finalidade` | Emenda com finalidade definida | Transferegov + Portal da Transparência |
+| `emenda_finalidade` | Emenda com finalidade definida | Transferegov (emenda indicada ao município, `nr_emenda`) + Portal da Transparência (pagamentos ligados pelo código do autor; a emenda no Portal vem agregada, sem o valor do município) |
 | `emenda_pix` | Emenda Pix (transferência especial) | Transferegov API, módulo `especiais` |
 | `fundo_a_fundo` | Repasse fundo a fundo | Transferegov API, módulo `fundoafundo` (FNS só na fase 1.5; repasses de saúde podem estar incompletos na fase 1 e o site avisa em "Como funciona") |
 | `programa_adesao` | Programa por adesão ou seleção | Transferegov `parcerias`, FNDE, Obrasgov |
@@ -56,6 +56,8 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 `em_risco` **não é status**. É um alerta (booleano + lista de motivos) que pode existir em `proposta`, `aprovada`, `execucao` e `prestacao`.
 
 O mapeamento de cada situação de cada fonte para `status_site` vive em `config/status_map.yaml`. **Papel do Obrasgov:** é fonte auxiliar e **não define `status_site`** (o cadastro dos gestores fica desatualizado: obras "Cadastrada" sem medição, com convênio "Em execução" no Siconv). Um projeto do Obrasgov só entra quando a prefeitura (CNPJ em `executores`) é a executora e ele se liga a um instrumento do Transferegov/Siconv (ponte `siconv_dados_obrasgov_geral`); ele alimenta o alerta `obra_parada`, `execucao_fisica_pct` e o dossiê da curadoria. Projetos de outros executores (ex.: manutenção rodoviária do DNIT) ficam de fora.
+
+**Papel do Portal da Transparência:** é fonte de complemento e **não define `status_site`**. O status vem do Transferegov/Siconv; o Portal atualiza `valor_liberado` e os pagamentos (a carga do Siconv fica atrás), lista pagamentos recebidos pelos CNPJs da prefeitura e dos fundos municipais (estornos, valores negativos, são candidatos a `valor_devolvido`), liga pagamento a emenda pelo código do autor e serve de conferência (a situação coincide com a do Siconv nos instrumentos que casam por `NR_PROPOSTA`, ignorados zeros à esquerda). O filtro por `codigoIBGE` de `recursos-recebidos` não funciona: consultar por CNPJ, em janelas de 12 meses.
 
 **Oportunidades (`oportunidade`):** vêm do Siconv em lote (`siconv_programa` e `siconv_programa_proponentes`). Entra o programa com `SIT_PROGRAMA = DISPONIBILIZADO` e (a) janela de recebimento de propostas voluntárias aberta na data de referência, natureza jurídica "Administração Pública Municipal" e UF do município ou sem UF, ou (b) o município como proponente específico (`siconv_programa_proponentes`) com alguma janela aberta. A data final da janela vira o prazo `adesao`. Ficam de fora os programas que só valem para beneficiário de emenda (exigem emenda indicada), os `CADASTRADO` e os `INATIVO`. O arquivo do Siconv é uma carga antiga, então "aberto" é um mínimo e cada oportunidade mostra a data da carga. O mesmo programa aparece em várias linhas (uma por UF e natureza jurídica): deduplicar por `ID_PROGRAMA`.
 

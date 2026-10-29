@@ -1,0 +1,4310 @@
+{
+  "endpoint": "convenios",
+  "params": {
+    "codigoIBGE": "3532504"
+  },
+  "coletado_em": "2026-10-29T17:33:45-03:00",
+  "total_itens": 63,
+  "amostra": [
+    {
+      "id": 353521234,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2010-12-28",
+      "dataFinalVigencia": "2013-05-20",
+      "dataPublicacao": "2011-01-06",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": "2013-05-20",
+      "dimConvenio": {
+        "codigo": "734297",
+        "objeto": "obra de pavimentacao asfaltica tipo cbuq no  municipio de NEVES PAULISTA.",
+        "numero": "28154/2010"
+      },
+      "situacao": "CONVÊNIO ANULADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 98200.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 2800.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "028154/2010"
+    },
+    {
+      "id": 353915989,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2011-12-30",
+      "dataFinalVigencia": "2014-10-20",
+      "dataPublicacao": "2012-01-05",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": "2014-10-20",
+      "dimConvenio": {
+        "codigo": "758684",
+        "objeto": "Obra de Recapeamento Asfaltico no Municipio.",
+        "numero": "58232/2011"
+      },
+      "situacao": "CONVÊNIO ANULADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 146950.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 4050.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "058232/2011"
+    },
+    {
+      "id": 353918997,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2016-12-16",
+      "dataFinalVigencia": "2019-07-20",
+      "dataPublicacao": "2016-12-20",
+      "dataUltimaLiberacao": "2018-07-05",
+      "dataConclusao": "2019-07-20",
+      "dimConvenio": {
+        "codigo": "828551",
+        "objeto": "RECAPEAMENTO EM ALGUMAS VIAS PUBLICAS URBANAS DO MUNICIPIO DE NEVES PAULISTA - SP.",
+        "numero": "04431/2016"
+      },
+      "situacao": "NORMAL",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "451",
+        "descricaoSubfuncap": "infra-estrutura urbana",
+        "funcao": {
+          "codigoFuncao": "15",
+          "descricaoFuncao": "Urbanismo"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 245850.0,
+      "valorLiberado": 245850.0,
+      "valorContrapartida": 250.0,
+      "valorDaUltimaLiberacao": 122925.0,
+      "numeroProcesso": "0044312016"
+    },
+    {
+      "id": 354374611,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2013-11-06",
+      "dataFinalVigencia": "2016-03-20",
+      "dataPublicacao": "2013-11-25",
+      "dataUltimaLiberacao": "2014-07-02",
+      "dataConclusao": "2016-03-20",
+      "dimConvenio": {
+        "codigo": "772763",
+        "objeto": "Mecanizacao agricola com aquisicao de uma Motoniveladora.",
+        "numero": "13139/2012"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "605",
+        "descricaoSubfuncap": "Abastecimento",
+        "funcao": {
+          "codigoFuncao": "20",
+          "descricaoFuncao": "Agricultura"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 332718.75,
+      "valorLiberado": 332718.75,
+      "valorContrapartida": 17281.25,
+      "valorDaUltimaLiberacao": 332718.75,
+      "numeroProcesso": "013139/2012"
+    },
+    {
+      "id": 354472982,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2011-12-29",
+      "dataFinalVigencia": "2014-09-20",
+      "dataPublicacao": "2012-01-05",
+      "dataUltimaLiberacao": "2012-12-26",
+      "dataConclusao": "2014-09-20",
+      "dimConvenio": {
+        "codigo": "763801",
+        "objeto": "Aquisicao de Patrulha Agricola.",
+        "numero": "67339/2011"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 126750.0,
+      "valorLiberado": 126750.0,
+      "valorContrapartida": 3250.0,
+      "valorDaUltimaLiberacao": 126750.0,
+      "numeroProcesso": "067339/2011"
+    },
+    {
+      "id": 354574672,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2001-11-21",
+      "dataFinalVigencia": "2002-07-18",
+      "dataPublicacao": "2001-12-14",
+      "dataUltimaLiberacao": "2001-12-18",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "425665",
+        "objeto": "- AQUISICAO DE VEICULO AUTOMOTOR DE TRANSPORTE COLETIVO, ZERO QUILOMETRO, COM CAPACIDADE DE 9 (NOVE) ATE 20 (VINTE) PASSAGEIROS, CONFORME O PLANO DE TRABALHO, DESTINADO EXCLUSIVAMENTE AO TRANSPORTE DE ALUNOS MATRICULADOS NO ENSINO PUBLICO FUNDAMENTAL, RESIDENTES PRIORITARIAMENTE NA ZONA RURAL, DE MODO A GARANTIR O SEU ACESSO E PERMANENCIA NA ESCOLA",
+        "numero": "750164/2001"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 50000.0,
+      "valorLiberado": 50000.0,
+      "valorContrapartida": 5000.0,
+      "valorDaUltimaLiberacao": 50000.0,
+      "numeroProcesso": "23400004524200151"
+    },
+    {
+      "id": 357550041,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2000-12-30",
+      "dataFinalVigencia": "2002-01-06",
+      "dataPublicacao": "2001-01-04",
+      "dataUltimaLiberacao": "2001-03-12",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "409249",
+        "objeto": "ASSISTENCIA FINANCEIRA PARA A SANTA CASA DE MISERICORDIA - NEVES PAULISTA/SP",
+        "numero": "997/2000"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 3720387,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.208/0001-37",
+        "numeroInscricaoSocial": "",
+        "nome": "IRMANDADE SANTA CASA DE MISERICORDIA DE NEVES PAULISTA",
+        "razaoSocialReceita": "IRMANDADE SANTA CASA DE MISERICORDIA DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "",
+        "tipo": "Entidades Sem Fins Lucrativos"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 40000.0,
+      "valorLiberado": 40000.0,
+      "valorContrapartida": 0.0,
+      "valorDaUltimaLiberacao": 40000.0,
+      "numeroProcesso": "00025004006058200066"
+    },
+    {
+      "id": 358167183,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2023-12-28",
+      "dataFinalVigencia": "2026-12-20",
+      "dataPublicacao": "2024-01-02",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": "2026-12-20",
+      "dimConvenio": {
+        "codigo": "925702",
+        "objeto": "Recapeamento Asfaltico em diversas vias no municipio de Neves Paulista",
+        "numero": "55371/2021"
+      },
+      "situacao": "EM EXECUÇÃO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 481104.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 5020.06,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "553712021"
+    },
+    {
+      "id": 360147083,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2001-12-31",
+      "dataFinalVigencia": "2003-07-30",
+      "dataPublicacao": "2002-01-31",
+      "dataUltimaLiberacao": "2002-07-04",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "453922",
+        "objeto": "DESTINADO AS ACOES SOCIAIS COMUNITARIAS, CONFORME PLANO DE TRABALHO E A PORTARIA CONSTANTES DO PROCESSO.",
+        "numero": "PT/SEAS/MPAS/2114/01"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Assistência Social",
+        "codigoSIAFI": "55001",
+        "cnpj": "05526783000165",
+        "sigla": "FNAS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "330013",
+        "nome": "FUNDO NACIONAL DE ASSISTENCIA SOCIAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "55001",
+          "cnpj": "05526783000165",
+          "sigla": "FNAS",
+          "nome": "Fundo Nacional de Assistência Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 84000.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 21000.0,
+      "valorDaUltimaLiberacao": 84000.0,
+      "numeroProcesso": "44005.001227/2001-97"
+    },
+    {
+      "id": 360199819,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2009-12-31",
+      "dataFinalVigencia": "2012-12-20",
+      "dataPublicacao": "2010-01-18",
+      "dataUltimaLiberacao": "2012-10-15",
+      "dataConclusao": "2012-12-20",
+      "dimConvenio": {
+        "codigo": "710137",
+        "objeto": "RUA FLORIANO PEIXOTO - ENTRE RUI BARBOSAS E RUA JORGE ASSAD,RUA FLORIANO PEIXOTO - ESQUINA DA RUA BARBOSA,RUA JORGE ASSAD - ENTRE RUA FLORIANO PEIXOTO E BENJAMIN CONTANT,RUA BENJAMIN CONSTANT - ENTRE RUA JORGE ASSAD E INDEPENDENCIA,RUA JOSE BONIFACIO - ENTRE RUA BENJAMIN CONTANT E RUA CAPITAO NEVES,RUA INDEPENDENCIA - ENTRE RUA CAPITAO NEVES E RUA BRASIL.",
+        "numero": "38641/2009"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 98200.0,
+      "valorLiberado": 98200.0,
+      "valorContrapartida": 16283.88,
+      "valorDaUltimaLiberacao": 3338.8,
+      "numeroProcesso": "038641/2009"
+    },
+    {
+      "id": 361476039,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2009-12-31",
+      "dataFinalVigencia": "2012-11-20",
+      "dataPublicacao": "2010-01-20",
+      "dataUltimaLiberacao": "2014-07-28",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "660250",
+        "objeto": "RECAPEAMENTO  GUIAS  SARJETAS E PAVIMENTACAO",
+        "numero": "CR.NR.0119672-PC"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Turismo - Unidades com vínculo direto",
+        "codigoSIAFI": "54000",
+        "cnpj": "05457283000119",
+        "sigla": "MTUR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "540007",
+        "nome": "CAIXA - SNINFRA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "54000",
+          "cnpj": "05457283000119",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 97500.0,
+      "valorLiberado": 97500.0,
+      "valorContrapartida": 8879.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "CR.NR.0119672-PC"
+    },
+    {
+      "id": 361476103,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2006-08-02",
+      "dataFinalVigencia": "2008-06-30",
+      "dataPublicacao": "2006-08-21",
+      "dataUltimaLiberacao": "2008-06-05",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "567182",
+        "objeto": "5040 00 M2 DE PAVIMENTACAO ASFALTICA",
+        "numero": "CR.NR.0195066-97"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 97500.0,
+      "valorLiberado": 97500.0,
+      "valorContrapartida": 25782.41,
+      "valorDaUltimaLiberacao": 70307.25,
+      "numeroProcesso": "CR.NR.0195066-97"
+    },
+    {
+      "id": 361527047,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2000-01-07",
+      "dataFinalVigencia": "2001-02-10",
+      "dataPublicacao": "2000-01-10",
+      "dataUltimaLiberacao": "2000-02-22",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "384170",
+        "objeto": "DESENVOLVIMENTO DE ACOES SOCIAIS E COMUNITARIAS, CONF. PLANO DE TRABALHO E PROJETO TECNICO",
+        "numero": "PT/SEAS/MPAS/1882000"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Assistência Social",
+        "codigoSIAFI": "55001",
+        "cnpj": "05526783000165",
+        "sigla": "FNAS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "330013",
+        "nome": "FUNDO NACIONAL DE ASSISTENCIA SOCIAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "55001",
+          "cnpj": "05526783000165",
+          "sigla": "FNAS",
+          "nome": "Fundo Nacional de Assistência Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 53000.0,
+      "valorLiberado": 53000.0,
+      "valorContrapartida": 10600.0,
+      "valorDaUltimaLiberacao": 53000.0,
+      "numeroProcesso": "44005.002001/99-09"
+    },
+    {
+      "id": 361568839,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2001-12-31",
+      "dataFinalVigencia": "2002-12-31",
+      "dataPublicacao": "2002-02-04",
+      "dataUltimaLiberacao": "2002-11-19",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "447818",
+        "objeto": "ESTIMULO A PRODUCAO AGROPECUARIA",
+        "numero": "CR.NR.0132478-43"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 130000.0,
+      "valorLiberado": 130000.0,
+      "valorContrapartida": 20000.0,
+      "valorDaUltimaLiberacao": 130000.0,
+      "numeroProcesso": "CR.NR.0132478-43"
+    },
+    {
+      "id": 361743178,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2009-12-31",
+      "dataFinalVigencia": "2012-04-20",
+      "dataPublicacao": "2010-01-20",
+      "dataUltimaLiberacao": "2012-01-18",
+      "dataConclusao": "2012-04-20",
+      "dimConvenio": {
+        "codigo": "717644",
+        "objeto": "PAVIMENTACAO ASFALTICA NAS RUAS, RUA MIRASSOL, RUA PROJETADA 1, RUA PROJETADA 2, RUA PROJETADA 3.",
+        "numero": "33325/2009"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Turismo - Unidades com vínculo direto",
+        "codigoSIAFI": "54000",
+        "cnpj": "05457283000119",
+        "sigla": "MTUR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "540007",
+        "nome": "CAIXA - SNINFRA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "54000",
+          "cnpj": "05457283000119",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 121875.0,
+      "valorLiberado": 121875.0,
+      "valorContrapartida": 12429.57,
+      "valorDaUltimaLiberacao": 121875.0,
+      "numeroProcesso": "033325/2009"
+    },
+    {
+      "id": 362583244,
+      "dataReferencia": "2026-01-16",
+      "dataInicioVigencia": "2000-09-26",
+      "dataFinalVigencia": "2002-01-30",
+      "dataPublicacao": "2000-10-03",
+      "dataUltimaLiberacao": "2000-12-28",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "403327",
+        "objeto": "DESTINADO AO PROGRAMA DE GERACAO DE RENDA, CONFORME PLANO DE TRABALHO E A PORTARIA CONSTANTES DO PROCESSO.",
+        "numero": "PT/SEAS/MPAS/2943/00"
+      },
+      "situacao": "ADIMPLENTE",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Assistência Social",
+        "codigoSIAFI": "55001",
+        "cnpj": "05526783000165",
+        "sigla": "FNAS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "330013",
+        "nome": "FUNDO NACIONAL DE ASSISTENCIA SOCIAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "55001",
+          "cnpj": "05526783000165",
+          "sigla": "FNAS",
+          "nome": "Fundo Nacional de Assistência Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 93465.07,
+      "valorLiberado": 86859.78,
+      "valorContrapartida": 21714.94,
+      "valorDaUltimaLiberacao": 86859.78,
+      "numeroProcesso": "44005.001997/2000-51"
+    },
+    {
+      "id": 362583308,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2006-08-02",
+      "dataFinalVigencia": "2007-12-31",
+      "dataPublicacao": "2006-08-21",
+      "dataUltimaLiberacao": "2007-07-25",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "567232",
+        "objeto": "5 792 00 M2 DE RECAPEAMENTO ASFALTICO",
+        "numero": "CR.NR.0199176-05"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 58500.0,
+      "valorLiberado": 58500.0,
+      "valorContrapartida": 8165.92,
+      "valorDaUltimaLiberacao": 46800.0,
+      "numeroProcesso": "CR.NR.0199176-05"
+    },
+    {
+      "id": 362597637,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2011-12-02",
+      "dataFinalVigencia": "2012-09-25",
+      "dataPublicacao": "2011-12-02",
+      "dataUltimaLiberacao": "2012-06-12",
+      "dataConclusao": "2012-09-25",
+      "dimConvenio": {
+        "codigo": "759463",
+        "objeto": "Festival da Viola e Festa das Nacoes Neves Paulista",
+        "numero": "00361/2011"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS EM ANÁLISE",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Turismo - Unidades com vínculo direto",
+        "codigoSIAFI": "54000",
+        "cnpj": "05457283000119",
+        "sigla": "MTUR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "540012",
+        "nome": "SNPTUR - CONVENIOS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "54000",
+          "cnpj": "05457283000119",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 100000.0,
+      "valorLiberado": 100000.0,
+      "valorContrapartida": 5000.0,
+      "valorDaUltimaLiberacao": 100000.0,
+      "numeroProcesso": "72031.010248/2011-93"
+    },
+    {
+      "id": 362772041,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2009-12-31",
+      "dataFinalVigencia": "2014-05-20",
+      "dataPublicacao": "2010-01-18",
+      "dataUltimaLiberacao": "2012-04-09",
+      "dataConclusao": "2014-05-20",
+      "dimConvenio": {
+        "codigo": "710136",
+        "objeto": "RECAPEAMENTO E PAVIMENTACAO ASFALTICA NAS RUAS, RUA TUPI NAMBA, RUA PROJETADA, RUA DO COMERCIO, RUA GUAIANAZES E RUA  DO PIRAJA.",
+        "numero": "38611/2009"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 127170.0,
+      "valorLiberado": 127170.0,
+      "valorContrapartida": 3000.0,
+      "valorDaUltimaLiberacao": 1398.87,
+      "numeroProcesso": "038611/2009"
+    },
+    {
+      "id": 362984670,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2005-12-13",
+      "dataFinalVigencia": "2007-12-31",
+      "dataPublicacao": "2006-01-06",
+      "dataUltimaLiberacao": "2006-11-30",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "553384",
+        "objeto": "CONSTRUcaO DE PRAcA   AUTORIZADO PELO OFiCIO MTUR N  0552 2005",
+        "numero": "CR.NR.0184259-81"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Turismo - Unidades com vínculo direto",
+        "codigoSIAFI": "54000",
+        "cnpj": "05457283000119",
+        "sigla": "MTUR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "540007",
+        "nome": "CAIXA - SNINFRA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "54000",
+          "cnpj": "05457283000119",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 20000.0,
+      "valorLiberado": 20000.0,
+      "valorContrapartida": 600.0,
+      "valorDaUltimaLiberacao": 20000.0,
+      "numeroProcesso": "CR.NR.0184259-81"
+    },
+    {
+      "id": 362984734,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2000-06-30",
+      "dataFinalVigencia": "2001-03-30",
+      "dataPublicacao": "2000-07-18",
+      "dataUltimaLiberacao": "2000-12-27",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "397224",
+        "objeto": "INFRA-ESTRUTURA E SERVIGOS",
+        "numero": "CR.NR.0108102-09"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 45000.0,
+      "valorLiberado": 45000.0,
+      "valorContrapartida": 2250.0,
+      "valorDaUltimaLiberacao": 45000.0,
+      "numeroProcesso": "CR.NR.0108102-09"
+    },
+    {
+      "id": 363003998,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2005-12-31",
+      "dataFinalVigencia": "2008-08-22",
+      "dataPublicacao": "2006-01-16",
+      "dataUltimaLiberacao": "2007-08-28",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "548516",
+        "objeto": "AQUISICAO DE UNIDADE MOVEL DE SAUDE",
+        "numero": "5216/2005"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 40000.0,
+      "valorLiberado": 40000.0,
+      "valorContrapartida": 1200.0,
+      "valorDaUltimaLiberacao": 40000.0,
+      "numeroProcesso": "00025000205063200502"
+    },
+    {
+      "id": 363009759,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2006-08-02",
+      "dataFinalVigencia": "2008-12-31",
+      "dataPublicacao": "2006-08-21",
+      "dataUltimaLiberacao": "2007-12-24",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "567179",
+        "objeto": "6 107 00 M2 DE RECAPEAMENTO ASFALTICO",
+        "numero": "CR.NR.0194779-86"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 68250.0,
+      "valorLiberado": 68250.0,
+      "valorContrapartida": 20106.95,
+      "valorDaUltimaLiberacao": 68250.0,
+      "numeroProcesso": "CR.NR.0194779-86"
+    },
+    {
+      "id": 363009823,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "1999-12-10",
+      "dataFinalVigencia": "2002-03-01",
+      "dataPublicacao": "1999-12-15",
+      "dataUltimaLiberacao": "2001-11-23",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "380225",
+        "objeto": "AGENTE JOVEM DE DESENVOLVIMENTO SOCIAL E HUMANO                       ASC",
+        "numero": "PT/SEAS/MPAS/1369/99"
+      },
+      "situacao": "INADIMPLÊNCIA SUSPENSA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Assistência Social",
+        "codigoSIAFI": "55001",
+        "cnpj": "05526783000165",
+        "sigla": "FNAS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "330013",
+        "nome": "FUNDO NACIONAL DE ASSISTENCIA SOCIAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "55001",
+          "cnpj": "05526783000165",
+          "sigla": "FNAS",
+          "nome": "Fundo Nacional de Assistência Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "55000",
+          "sigla": "MDS",
+          "nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 79093.88,
+      "valorLiberado": 76775.0,
+      "valorContrapartida": 12500.0,
+      "valorDaUltimaLiberacao": 11125.0,
+      "numeroProcesso": "44005.001575/99-24"
+    },
+    {
+      "id": 363041696,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2001-12-31",
+      "dataFinalVigencia": "2002-12-31",
+      "dataPublicacao": "2002-01-16",
+      "dataUltimaLiberacao": "2002-03-06",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "434253",
+        "objeto": "AQUISICAO DE UNIDADE MOVEL DE SAUDE -  NEVES PAULISTA/SP",
+        "numero": "4228/2001"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 32000.0,
+      "valorLiberado": 32000.0,
+      "valorContrapartida": 8000.0,
+      "valorDaUltimaLiberacao": 32000.0,
+      "numeroProcesso": "00025000073674200143"
+    },
+    {
+      "id": 363085600,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2019-11-08",
+      "dataFinalVigencia": "2022-10-20",
+      "dataPublicacao": "2019-11-11",
+      "dataUltimaLiberacao": "2021-10-27",
+      "dataConclusao": "2022-10-20",
+      "dimConvenio": {
+        "codigo": "885505",
+        "objeto": "Recapeamento Asfaltico em diversas vias nos bairros Sao Jose II, Quinta dos Ipes, Parque das Paineiras e Centro do municipio de Neves Paulista",
+        "numero": "04482/2019"
+      },
+      "situacao": "NORMAL",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "451",
+        "descricaoSubfuncap": "infra-estrutura urbana",
+        "funcao": {
+          "codigoFuncao": "15",
+          "descricaoFuncao": "Urbanismo"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 248300.0,
+      "valorLiberado": 248300.0,
+      "valorContrapartida": 250.0,
+      "valorDaUltimaLiberacao": 248300.0,
+      "numeroProcesso": "44822019"
+    },
+    {
+      "id": 363118300,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2010-12-28",
+      "dataFinalVigencia": "2013-03-20",
+      "dataPublicacao": "2011-01-06",
+      "dataUltimaLiberacao": "2011-09-19",
+      "dataConclusao": "2013-03-20",
+      "dimConvenio": {
+        "codigo": "735982",
+        "objeto": "Aquisicao de um Trator; uma Grade Niveladora e uma Carreta.",
+        "numero": "57618/7618"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 117000.0,
+      "valorLiberado": 117000.0,
+      "valorContrapartida": 3000.0,
+      "valorDaUltimaLiberacao": 117000.0,
+      "numeroProcesso": "057618"
+    },
+    {
+      "id": 364605186,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2006-06-28",
+      "dataFinalVigencia": "2007-06-27",
+      "dataPublicacao": "2006-06-29",
+      "dataUltimaLiberacao": "2006-06-30",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "561694",
+        "objeto": "ESTE CONVENIO TEM POR OBJETO  CONCEDER APOIO FINANCEIRO PARA O DESENVOLVIMENTO DE ACOES QUE PROMOVAM O APERFEICOAMENTO DA QUALIDADE DO ENSINO E MELHOR ATENDIMENTO AOS ALUNOS DO ENSINO FUNDAMENTAL.",
+        "numero": "804365/2006"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 9355.5,
+      "valorLiberado": 9355.5,
+      "valorContrapartida": 94.5,
+      "valorDaUltimaLiberacao": 9355.5,
+      "numeroProcesso": "23400004832200519"
+    },
+    {
+      "id": 364694722,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2000-06-30",
+      "dataFinalVigencia": "2000-12-30",
+      "dataPublicacao": "2000-09-04",
+      "dataUltimaLiberacao": "2000-09-11",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "398684",
+        "objeto": "ACAO DE SANEAMENTO BASICO",
+        "numero": "CR.NR.0107614-79"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 100000.0,
+      "valorLiberado": 100000.0,
+      "valorContrapartida": 5000.0,
+      "valorDaUltimaLiberacao": 100000.0,
+      "numeroProcesso": "CR.NR.0107614-79"
+    },
+    {
+      "id": 364885249,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2011-12-30",
+      "dataFinalVigencia": "2012-12-28",
+      "dataPublicacao": "2012-01-03",
+      "dataUltimaLiberacao": "2012-04-02",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "670166",
+        "objeto": "AQUISIçãO DE VEíCULOS ESCOLARES, NO âMBITO DO PROGRAMA CAMINHO DA ES- COLA",
+        "numero": "701113/2011"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 130680.0,
+      "valorLiberado": 130680.0,
+      "valorContrapartida": 1320.0,
+      "valorDaUltimaLiberacao": 130680.0,
+      "numeroProcesso": "23400003367201139"
+    },
+    {
+      "id": 364885313,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1998-03-20",
+      "dataFinalVigencia": "2000-12-31",
+      "dataPublicacao": "1998-04-15",
+      "dataUltimaLiberacao": "1998-08-07",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "344115",
+        "objeto": "ESTABELECER AS CONDICOES PARA O DESENVOLVIEMNTO DAS ACOES DO PLANO  DEERRADICACAO DO AEDES AEGYPTI NO MUNICIPIO.",
+        "numero": "414/98"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 33956.0,
+      "valorLiberado": 16978.0,
+      "valorContrapartida": 5093.4,
+      "valorDaUltimaLiberacao": 16978.0,
+      "numeroProcesso": "25290.001210/97-51"
+    },
+    {
+      "id": 364964225,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2025-12-30",
+      "dataFinalVigencia": "2029-12-30",
+      "dataPublicacao": "2026-01-08",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": "2029-12-30",
+      "dimConvenio": {
+        "codigo": "990509",
+        "objeto": "PROVISAO DE UNIDADES HABITACIONAIS MCMV, NO MUNICIPIO DE NEVES PAULISTA-SP",
+        "numero": "41390/2025"
+      },
+      "situacao": "EM EXECUÇÃO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Habitação de Interesse Social",
+        "codigoSIAFI": "56902",
+        "cnpj": "05465986000601",
+        "sigla": "FNHIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "560018",
+        "nome": "CAIXA ECONOMICA FEDERAL - FNHIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56902",
+          "cnpj": "05465986000601",
+          "sigla": "FNHIS",
+          "nome": "Fundo Nacional de Habitação de Interesse Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 2800000.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 50000.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "413902025"
+    },
+    {
+      "id": 365143552,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1996-04-10",
+      "dataFinalVigencia": "1997-01-06",
+      "dataPublicacao": "1996-04-11",
+      "dataUltimaLiberacao": "1996-04-16",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "301267",
+        "objeto": "ESTE CONVENIO TEM POR OBJETO, AMPLIACAO DA OFERTA DE VAGAS, NO  AMBITODO ENSINO FUNDAMENTAL GARANTINDO NUMERO DE CRIANCAS NA FAIXA ETARIA DE04 A 06 ANOS, VISANDO ERRADICAR COM ANALFABETISMO E BAIXO NIVEL DE  A-PRENDIZAGEM.                                                          - ESCOLA EQUIPADA.                                                    - CONCLUSAO DE UNIDADE ESCOLAR DE 1 GRAU.",
+        "numero": "0489/96"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 39960.0,
+      "valorLiberado": 39960.0,
+      "valorContrapartida": 7992.0,
+      "valorDaUltimaLiberacao": 4888.0,
+      "numeroProcesso": "230330121879510"
+    },
+    {
+      "id": 366069091,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2001-12-31",
+      "dataFinalVigencia": "2003-04-23",
+      "dataPublicacao": "2002-02-01",
+      "dataUltimaLiberacao": "2002-12-30",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "466283",
+        "objeto": "SISTEMA DE ABASTECIMENTO DE AGUAS.",
+        "numero": "CONV. 2458/2001-MI"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Integração e do Desenvolvimento Regional - Unidades com vínculo direto",
+        "codigoSIAFI": "53000",
+        "cnpj": "03353358000196",
+        "sigla": "MIDR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "53000",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "530001",
+        "nome": "MIDR/ADMINISTRACAO GERAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "53000",
+          "cnpj": "03353358000196",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "53000",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 140000.0,
+      "valorLiberado": 140000.0,
+      "valorContrapartida": 7000.0,
+      "valorDaUltimaLiberacao": 140000.0,
+      "numeroProcesso": "59100.000121/2001-65"
+    },
+    {
+      "id": 366088678,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1999-10-26",
+      "dataFinalVigencia": "2002-12-31",
+      "dataPublicacao": "1999-11-01",
+      "dataUltimaLiberacao": "2000-11-30",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "376030",
+        "objeto": "CONCESSAO DE APOIO FINANCEIRO, PARA IMPLEMENTACAO DO PROGRAMA DE GARANTIA DE RENDA MINIMA-PGRM, VISANDO AO ATENDIMENTO AS FAMILIAS QUE PREENCHERAM OS REQUISITOS ESTABELECIDOS NO ART. 5¬, DA LEI NO. 9.533, DE 10/12/97, SELECIONADAS PELO CONVENENTE, CONFORME PLANO DE TRABALHO APROVADO PELO COMITE ASSESSOR DE GESTAO E DE ACORDO COM O ESTABELECIDO NO ART. 3O. DA RESOLUCAO N¬. 18 DE 21 DE SETEMBRO DE 1998, ALTERADA PELA D",
+        "numero": "60606/99"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 17910.64,
+      "valorLiberado": 17910.64,
+      "valorContrapartida": 22897.4,
+      "valorDaUltimaLiberacao": 3732.31,
+      "numeroProcesso": "231230022949918"
+    },
+    {
+      "id": 366117094,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1999-12-28",
+      "dataFinalVigencia": "2001-01-04",
+      "dataPublicacao": "1999-12-30",
+      "dataUltimaLiberacao": "2000-03-10",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "386828",
+        "objeto": "AQUISICAO DE UNIDADE MOVEL DE SAUDE PARA NEVES PAULISTA",
+        "numero": "1586/1999"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 18000.0,
+      "valorLiberado": 18000.0,
+      "valorContrapartida": 2000.0,
+      "valorDaUltimaLiberacao": 18000.0,
+      "numeroProcesso": "00000250000367439980"
+    },
+    {
+      "id": 366120357,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2005-12-01",
+      "dataFinalVigencia": "2007-12-31",
+      "dataPublicacao": "2006-01-06",
+      "dataUltimaLiberacao": "2007-06-04",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "536451",
+        "objeto": "APOIO A PROJETOS DE INFRA ESTRUTURA E REQUALIFICAcaO DE ESPAcOS DE USOPuBLICO EM AREAS CENTRAIS   REVITALIZAcaO DE AREAS URBANAS CENTRAIS E M MUNICiPIOS   ESTADO DE SaO PAULO   AUTORIZADO PELO OFiCIO MCIDADES N7698 2005",
+        "numero": "CR.NR.0180082-79"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 68250.0,
+      "valorLiberado": 68250.0,
+      "valorContrapartida": 5460.0,
+      "valorDaUltimaLiberacao": 10565.1,
+      "numeroProcesso": "CR.NR.0180082-79"
+    },
+    {
+      "id": 366202405,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2007-11-28",
+      "dataFinalVigencia": "2008-11-26",
+      "dataPublicacao": "2007-11-29",
+      "dataUltimaLiberacao": "2007-12-06",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "596076",
+        "objeto": "ESTE CONVENIO TEM POR OBJETO CONCEDER APOIO FINANCEIRO PARA O DESENVOLVIMENTO DE ACOES QUE PROMOVAM A INCLUSAO DE ALUNOS COM NECESSIDADES  EDUCACIONAIS ESPECIAIS POR MEIO DA ACAO DE FORMACAO DE PROFESSORES PARAATENDIMENTO EDUCACIONAL ESPECIALIZADO, CONFORME PLANO DE TRABALHO APR OVADO.",
+        "numero": "816038/2007"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 13216.5,
+      "valorLiberado": 13216.5,
+      "valorContrapartida": 133.5,
+      "valorDaUltimaLiberacao": 13216.5,
+      "numeroProcesso": "23400002925200762"
+    },
+    {
+      "id": 366202469,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2000-12-21",
+      "dataFinalVigencia": "2003-08-21",
+      "dataPublicacao": "2001-01-05",
+      "dataUltimaLiberacao": "2001-02-14",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "411438",
+        "objeto": "INFRA-ESTRUTURA ESPORTIVA",
+        "numero": "CR.NR.0107816-15"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Esporte - Unidades com vínculo direto",
+        "codigoSIAFI": "51000",
+        "cnpj": "02973091000177",
+        "sigla": "ESPORTE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "51000",
+          "sigla": "ESPORTE",
+          "nome": "Ministério do Esporte"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "180006",
+        "nome": "CEF/MINISTERIO DO ESPORTE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "51000",
+          "cnpj": "02973091000177",
+          "sigla": "ESPORTE",
+          "nome": "Ministério do Esporte - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "51000",
+          "sigla": "ESPORTE",
+          "nome": "Ministério do Esporte"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 300001,
+        "codigo": "2",
+        "descricao": "CONTRATO DE REPASSE"
+      },
+      "valor": 100000.0,
+      "valorLiberado": 100000.0,
+      "valorContrapartida": 17988.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "CR.NR.0107816-15"
+    },
+    {
+      "id": 366235938,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2007-12-19",
+      "dataFinalVigencia": "2013-05-31",
+      "dataPublicacao": "2007-12-20",
+      "dataUltimaLiberacao": "2012-12-05",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "598975",
+        "objeto": "ESTE CONVENIO TEM POR OBJETO  CONCEDER APOIO FINANCEIRO  PARA O DESENVOLVIMENTO DE ACOES QUE VISAM PROPORCIONAR A SOCIEDADE A MELHORIA DA INFRA-ESTRUTURA DA REDE FISICA ESCOLAR, COM A CONSTRUCAO DE ESCOLA(S) CONFORME ESTABELECE O PROGRAMA NACIONAL DE REESTRUTURACAO E APARELHAGEM DA REDE ESCOLAR PUBLICA DE EDUCACAO INFANTIL - PROINF.NCIA.",
+        "numero": "830136/2007"
+      },
+      "situacao": "ARQUIVADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500877,
+        "codigo": "001",
+        "descricao": "CONVENIO"
+      },
+      "valor": 1403122.08,
+      "valorLiberado": 1403122.08,
+      "valorContrapartida": 14172.96,
+      "valorDaUltimaLiberacao": 50189.01,
+      "numeroProcesso": "23400004687200720"
+    },
+    {
+      "id": 366236002,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1999-12-09",
+      "dataFinalVigencia": "2001-03-06",
+      "dataPublicacao": "1999-12-10",
+      "dataUltimaLiberacao": "2000-05-10",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "385948",
+        "objeto": "AMPLIACAO DE POSTO DE SAUDE EM NEVES PAULISTA - SP",
+        "numero": "596/1999"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 80000.0,
+      "valorLiberado": 80000.0,
+      "valorContrapartida": 20000.0,
+      "valorDaUltimaLiberacao": 40000.0,
+      "numeroProcesso": "00000250000367159944"
+    },
+    {
+      "id": 368137086,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2024-12-13",
+      "dataFinalVigencia": "2028-09-13",
+      "dataPublicacao": "2024-12-19",
+      "dataUltimaLiberacao": "2026-07-23",
+      "dataConclusao": "2028-09-13",
+      "dimConvenio": {
+        "codigo": "970941",
+        "objeto": "CONSTRUCAO DE UNIDADES HABITACIONAIS",
+        "numero": "33961/2024"
+      },
+      "situacao": "EM EXECUÇÃO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Habitação de Interesse Social",
+        "codigoSIAFI": "56902",
+        "cnpj": "05465986000601",
+        "sigla": "FNHIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "560018",
+        "nome": "CAIXA ECONOMICA FEDERAL - FNHIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56902",
+          "cnpj": "05465986000601",
+          "sigla": "FNHIS",
+          "nome": "Fundo Nacional de Habitação de Interesse Social"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "482",
+        "descricaoSubfuncap": "Habitação urbana",
+        "funcao": {
+          "codigoFuncao": "16",
+          "descricaoFuncao": "Habitação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 3250000.0,
+      "valorLiberado": 938758.79,
+      "valorContrapartida": 161250.0,
+      "valorDaUltimaLiberacao": 650000.0,
+      "numeroProcesso": "339612024"
+    },
+    {
+      "id": 368139966,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2010-12-28",
+      "dataFinalVigencia": "2013-05-20",
+      "dataPublicacao": "2011-01-06",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": "2013-05-20",
+      "dimConvenio": {
+        "codigo": "743696",
+        "objeto": "Implantacao de infraestrutura urbana no municipio de NEVES PAULISTA.",
+        "numero": "35124/2010"
+      },
+      "situacao": "CONVÊNIO ANULADO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 98200.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 5502.55,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "035124/2010"
+    },
+    {
+      "id": 368647337,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2011-12-29",
+      "dataFinalVigencia": "2014-08-20",
+      "dataPublicacao": "2012-01-05",
+      "dataUltimaLiberacao": "2012-05-03",
+      "dataConclusao": "2014-08-20",
+      "dimConvenio": {
+        "codigo": "763919",
+        "objeto": "Aquisicao de Caminhao Basculante.",
+        "numero": "74557/2011"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+        "codigoSIAFI": "22000",
+        "cnpj": "00396895000125",
+        "sigla": "MAPA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "135098",
+        "nome": "CAIXA ECONOMICA FEDERAL/MA",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "22000",
+          "cnpj": "00396895000125",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "22000",
+          "sigla": "MAPA",
+          "nome": "Ministério da Agricultura e Pecuária"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 146250.0,
+      "valorLiberado": 146250.0,
+      "valorContrapartida": 20550.0,
+      "valorDaUltimaLiberacao": 146250.0,
+      "numeroProcesso": "074557/2011"
+    },
+    {
+      "id": 368746603,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2000-08-21",
+      "dataFinalVigencia": "2001-07-30",
+      "dataPublicacao": "2000-08-23",
+      "dataUltimaLiberacao": "2000-10-07",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "397618",
+        "objeto": "FORMACAO CONTINUADA DE PROFESSORES (PCN)",
+        "numero": "94323/2000"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 8740.0,
+      "valorLiberado": 8740.0,
+      "valorContrapartida": 460.0,
+      "valorDaUltimaLiberacao": 8740.0,
+      "numeroProcesso": "234000111349980"
+    },
+    {
+      "id": 368795242,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2009-12-31",
+      "dataFinalVigencia": "2013-03-20",
+      "dataPublicacao": "2010-01-20",
+      "dataUltimaLiberacao": "2012-09-13",
+      "dataConclusao": "2013-03-20",
+      "dimConvenio": {
+        "codigo": "729425",
+        "objeto": "RECAPEAMENTO ASFALTICO TIPO CBUQ NAS RUAS:INDEPENDENCIA - ENTRE A RUA CAPITAO NEVES E BRASIL,E RUA PELEGRINO BILAC - ENTRE A RUA CAPITAO NEVES E QUINTINO BOCAIUVA,E NA RUA CAPITAO NEVES - ENTRE A RUA ALLIM BASSITT E RUA PROJETADA 1.  E PAVIMENTACAO ASFALTICA TIPO CBUQ E GUIAS E SARJETAS NAS RUAS: 6 - APOS A RUA 1 - ATE SEU FINAL E PROL.DA RUA DAVID MELO - APOS A RUA 5 - ATE 50,00m DA RUA 6.",
+        "numero": "03860/2009"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS APROVADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério das Cidades - Unidades com vínculo direto",
+        "codigoSIAFI": "56000",
+        "cnpj": "05465986000199",
+        "sigla": "MCID",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "175004",
+        "nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "56000",
+          "cnpj": "05465986000199",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "56000",
+          "sigla": "MCID",
+          "nome": "Ministério das Cidades"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 98200.0,
+      "valorLiberado": 98200.0,
+      "valorContrapartida": 9813.8,
+      "valorDaUltimaLiberacao": 98200.0,
+      "numeroProcesso": "038601/2009"
+    },
+    {
+      "id": 370545404,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2001-12-31",
+      "dataFinalVigencia": "2003-04-24",
+      "dataPublicacao": "2002-01-28",
+      "dataUltimaLiberacao": "2002-12-17",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "466350",
+        "objeto": "CONSTRUCAO DE GALERIAS DE AGUAS PLUVIAIS.",
+        "numero": "CONV. 1090/2001-MI"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Integração e do Desenvolvimento Regional - Unidades com vínculo direto",
+        "codigoSIAFI": "53000",
+        "cnpj": "03353358000196",
+        "sigla": "MIDR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "53000",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "530001",
+        "nome": "MIDR/ADMINISTRACAO GERAL",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "53000",
+          "cnpj": "03353358000196",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "53000",
+          "sigla": "MIDR",
+          "nome": "Ministério da Integração e do Desenvolvimento Regional"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 85000.0,
+      "valorLiberado": 85000.0,
+      "valorContrapartida": 4250.0,
+      "valorDaUltimaLiberacao": 85000.0,
+      "numeroProcesso": "59050.000138/2001-55"
+    },
+    {
+      "id": 370545468,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "1998-07-03",
+      "dataFinalVigencia": "1999-02-28",
+      "dataPublicacao": "1998-07-17",
+      "dataUltimaLiberacao": "1998-09-02",
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "357041",
+        "objeto": "ESTE CONVENIO TEM POR OBJETO, A TRANSFERENCIA DE RECURSOS FINANCEIRO  S, PARA AQUISICAO DE VEICULO (S) AUTOMOTOR (ES) DESTINADO (S) AO TRANSPORTE DOS ESTUDANTES, MATRICULADOS NO ENSINO PUBLICO FUNDAMENTAL, DAS REDES MUNICIPAL E/OU ESTADUAL, RESIDENTES PRIORITARIAMENTE NA ZONA RURAL. O PROGRAMA APOIARA A AQUISICAO DE VEICULO(S), ESCOLAR(ES), ZERO KM, QUE PODERA SER: ONIBUS, MICROONIBUS, PERUA OU EMBARCACAO,  CONFORME",
+        "numero": "91209/98"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Fundo Nacional de Desenvolvimento da Educação",
+        "codigoSIAFI": "26298",
+        "cnpj": "00378257000181",
+        "sigla": "FNDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "153173",
+        "nome": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "26298",
+          "cnpj": "00378257000181",
+          "sigla": "FNDE",
+          "nome": "Fundo Nacional de Desenvolvimento da Educação"
+        },
+        "orgaoMaximo": {
+          "codigo": "26000",
+          "sigla": "MEC",
+          "nome": "Ministério da Educação"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 40000.0,
+      "valorLiberado": 40000.0,
+      "valorContrapartida": 0.0,
+      "valorDaUltimaLiberacao": 40000.0,
+      "numeroProcesso": "230330261219741"
+    },
+    {
+      "id": 370555324,
+      "dataReferencia": "1900-01-01",
+      "dataInicioVigencia": "2006-12-31",
+      "dataFinalVigencia": "2008-12-20",
+      "dataPublicacao": "2007-01-12",
+      "dataUltimaLiberacao": null,
+      "dataConclusao": null,
+      "dimConvenio": {
+        "codigo": "582849",
+        "objeto": "REFORMA DE UNIDADE DE SAUDE",
+        "numero": "1892/2006"
+      },
+      "situacao": "CONCLUÍDO",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério da Saúde - Unidades com vínculo direto",
+        "codigoSIAFI": "36000",
+        "cnpj": "00394544000185",
+        "sigla": "SAÚDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "257001",
+        "nome": "DIRETORIA EXECUTIVA DO FUNDO NAC. DE SAUDE",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "36000",
+          "cnpj": "00394544000185",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "36000",
+          "sigla": "SAÚDE",
+          "nome": "Ministério da Saúde"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": 500001,
+        "codigo": "1",
+        "descricao": "CONVENIO"
+      },
+      "valor": 80000.0,
+      "valorLiberado": 0.0,
+      "valorContrapartida": 2400.0,
+      "valorDaUltimaLiberacao": 0.0,
+      "numeroProcesso": "00025000212960200645"
+    },
+    {
+      "id": 372904891,
+      "dataReferencia": "2026-10-16",
+      "dataInicioVigencia": "2010-06-05",
+      "dataFinalVigencia": "2010-10-03",
+      "dataPublicacao": "2010-06-18",
+      "dataUltimaLiberacao": "2010-07-02",
+      "dataConclusao": "2010-10-03",
+      "dimConvenio": {
+        "codigo": "736832",
+        "objeto": "Festival da Viola de Neves Paulista",
+        "numero": "00657/2010"
+      },
+      "situacao": "PRESTAÇÃO DE CONTAS REJEITADA",
+      "convenente": {
+        "id": 719854,
+        "cpfFormatado": "",
+        "cnpjFormatado": "45.145.414/0001-47",
+        "numeroInscricaoSocial": "",
+        "nome": "MUNICIPIO DE NEVES PAULISTA",
+        "razaoSocialReceita": "MUNICIPIO DE NEVES PAULISTA",
+        "nomeFantasiaReceita": "PREFEITURA MUNICIPAL DE NEVES PAULISTA",
+        "tipo": "Administração Pública Municipal"
+      },
+      "localidadePessoa": {
+        "id": 3,
+        "descricao": "Municipal"
+      },
+      "municipioConvenente": {
+        "codigoIBGE": "3532504",
+        "nomeIBGE": "NEVES PAULISTA",
+        "codigoRegiao": "3",
+        "nomeRegiao": "SUDESTE",
+        "pais": "BRASIL",
+        "uf": {
+          "sigla": "SÃO PAULO",
+          "nome": "SP"
+        }
+      },
+      "orgao": {
+        "nome": "Ministério do Turismo - Unidades com vínculo direto",
+        "codigoSIAFI": "54000",
+        "cnpj": "05457283000119",
+        "sigla": "MTUR",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "unidadeGestora": {
+        "codigo": "540012",
+        "nome": "SNPTUR - CONVENIOS",
+        "descricaoPoder": "EXECUTIVO",
+        "orgaoVinculado": {
+          "codigoSIAFI": "54000",
+          "cnpj": "05457283000119",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo - Unidades com vínculo direto"
+        },
+        "orgaoMaximo": {
+          "codigo": "54000",
+          "sigla": "MTUR",
+          "nome": "Ministério do Turismo"
+        }
+      },
+      "subfuncao": {
+        "codigoSubfuncao": "-1",
+        "descricaoSubfuncap": "Sem informação",
+        "funcao": {
+          "codigoFuncao": "-1",
+          "descricaoFuncao": "Sem informação"
+        }
+      },
+      "tipoInstrumento": {
+        "id": -2,
+        "codigo": "-2",
+        "descricao": "Não se aplica"
+      },
+      "valor": 100000.0,
+      "valorLiberado": 100000.0,
+      "valorContrapartida": 5000.0,
+      "valorDaUltimaLiberacao": 100000.0,
+      "numeroProcesso": "72070.000741/2010-58"
+    }
+  ]
+}

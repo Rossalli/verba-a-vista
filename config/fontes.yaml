@@ -23,7 +23,7 @@ fontes:
     auth:
       header: chave-api-dados
       env: PORTAL_TRANSPARENCIA_KEY
-    limite_req_min: 400
+    limite_req_min: 400   # VERIFICADO 2026-10-29 (T1.4): header chave-api-dados; OpenAPI em /v3/api-docs
     ativa: true
 
   cauc:

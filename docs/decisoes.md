@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D11 — Portal da Transparência é fonte de complemento: valores e pagamentos, não status (29/10/2026)
+O status do site continua vindo do Transferegov/Siconv. O Portal atualiza `valor_liberado` (está à frente da carga do Siconv: o convênio 33961/2024 tem R$ 650 mil pagos em 23/07/2026 que a carga de 17/07 não tem), lista pagamentos recebidos pelos CNPJs da prefeitura e dos fundos (incluindo estornos, candidatos a `valor_devolvido`), liga pagamento a emenda pelo código do autor e serve de conferência. A emenda no Portal vem agregada (`MÚLTIPLO`), então não dá o valor que o município recebeu, e `recursos-recebidos` só funciona por CNPJ, não por `codigoIBGE`. Nos 19 instrumentos que casam (dos 28 do Siconv) a situação é consistente entre as fontes. Mesma linha do Obrasgov (D8).
+
 ## D10 — Oportunidades vêm do Siconv: programas elegíveis e dirigidos à prefeitura (29/10/2026)
 Entra como `oportunidade` o programa `DISPONIBILIZADO` do Siconv com janela de propostas aberta, natureza municipal e UF SP (ou sem UF), mais os programas dirigidos à prefeitura com alguma janela aberta; o fim da janela é o prazo `adesao`. Programas só para beneficiário de emenda, `CADASTRADO` e `INATIVO` ficam de fora. Motivo: é a única fonte automática que traz janelas, natureza elegível e UF; `parcerias/programa` não tem janela espontânea aberta e o Obrasgov não lista programas. Ressalva: a carga do Siconv é de 17/07/2026, então "aberto" é um mínimo e a data da carga aparece no site.
 

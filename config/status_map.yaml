@@ -101,7 +101,13 @@ fontes:
     # "Inacabada" não é citada na spec: não é sinal até a autora decidir.
     sinais_risco: ["Paralisada"]
 
+  # T1.4, verificado em 29/10/2026. O Portal é fonte de COMPLEMENTO e NÃO define status_site
+  # (decisão da autora em 29/10/2026, D11; spec §4): o mapa fica vazio de propósito.
+  # Situações observadas em `convenios` (63 convênios): CONCLUÍDO, PRESTAÇÃO DE CONTAS APROVADA,
+  # ARQUIVADO, CONVÊNIO ANULADO, NORMAL, EM EXECUÇÃO, PRESTAÇÃO DE CONTAS EM ANÁLISE, EXCLUÍDO,
+  # ADIMPLENTE, INADIMPLÊNCIA SUSPENSA, PRESTAÇÃO DE CONTAS REJEITADA. Nos 19 instrumentos que casam
+  # com o Siconv, NORMAL equivale a "Prestação de Contas Concluída" (3 de 3).
   portal_transparencia:
-    verificado: null
+    verificado: 2026-10-29
     campo: situacao
     mapa: {}
