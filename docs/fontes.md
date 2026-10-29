@@ -10,13 +10,13 @@ Em 29/10/2026, um teste feito de um servidor fora do Brasil recebeu bloqueio (pr
 
 | Fonte | Local (Brasil) | GitHub Actions |
 | --- | --- | --- |
-| Transferegov API | HTTP 200 nas páginas `/docs` de `especiais`, `fundoafundo` e `parcerias` (29/10/2026) | A VERIFICAR |
-| Obrasgov API | HTTP 200 na URL base (29/10/2026) | A VERIFICAR |
-| Portal da Transparência API | HTTP 401 na URL base sem chave, esperado: o host responde (29/10/2026) | A VERIFICAR |
-| Tesouro (APIs) | HTTP 500 na URL base de transferências constitucionais (29/10/2026): o host responde, mas a URL sem rota não prova o endpoint; confirmar na T1.6 | A VERIFICAR |
-| Tesouro Transparente (CAUC) | Não testado: URL desconhecida (T1.5) | A VERIFICAR |
+| Transferegov API | HTTP 200 nas páginas `/docs` de `especiais`, `fundoafundo` e `parcerias` | HTTP 200 nas mesmas três (130 a 300 ms) |
+| Obrasgov API | HTTP 200 na URL base | HTTP 200 na URL base (1,3 s) |
+| Portal da Transparência API | HTTP 401 na URL base sem chave, esperado: o host responde | HTTP 401 na URL base sem chave, esperado |
+| Tesouro (APIs) | HTTP 500 na URL base de transferências constitucionais: o host responde, mas a URL sem rota não prova o endpoint; confirmar na T1.6 | HTTP 500, igual ao local |
+| Tesouro Transparente (CAUC) | Não testado: URL desconhecida (T1.5) | Não testado |
 
-Teste local feito em 29/10/2026 às 14:57 (America/Sao_Paulo) com `scripts/teste_acesso.py`, a partir do Brasil, sem credenciais. O teste só prova que o host responde; endpoints, filtros e autenticação continuam A VERIFICAR nas POCs. Para a coluna do GitHub Actions: workflow `.github/workflows/teste-acesso.yml` (disparo manual).
+Testes de 29/10/2026 com `scripts/teste_acesso.py`, sem credenciais: local às 14:57 (America/Sao_Paulo, a partir do Brasil) e no GitHub Actions às 18:02 UTC (runner `ubuntu-latest`, workflow `.github/workflows/teste-acesso.yml`, execução 40926913483). Os dois ambientes deram o mesmo resultado: **o Actions não é bloqueado** nos hosts testados. O teste só prova que o host responde; endpoints, filtros e autenticação continuam A VERIFICAR nas POCs, e o acesso do Actions aos endpoints reais deve ser reconferido na T1.1 e na T1.4 (o Portal exige chave).
 
 ## Transferegov — API pública
 

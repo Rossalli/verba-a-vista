@@ -25,6 +25,6 @@ Sem documento: "motivo em apuração".
 
 ## Em aberto
 - Quem revisa os rascunhos da IA (só a autora, voluntários ou parceria). Define se a fila fica em YAML/PR no GitHub ou numa planilha.
-- Onde roda a coleta (GitHub Actions ou servidor no Brasil) — depende da T1.0.
+- Onde roda a coleta (GitHub Actions ou servidor no Brasil). A T1.0 (29/10/2026) não encontrou bloqueio do Actions nos hosts testados, então a tendência é GitHub Actions. Fica em aberto até as POCs confirmarem os endpoints reais a partir do Actions (T1.1 e T1.4).
 - Domínio do site.
 - E-mail de contato do projeto.
