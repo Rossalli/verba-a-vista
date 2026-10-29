@@ -10,11 +10,13 @@ Em 29/10/2026, um teste feito de um servidor fora do Brasil recebeu bloqueio (pr
 
 | Fonte | Local (Brasil) | GitHub Actions |
 | --- | --- | --- |
-| Transferegov API | A VERIFICAR | A VERIFICAR |
-| Obrasgov API | A VERIFICAR | A VERIFICAR |
-| Portal da Transparência API | A VERIFICAR | A VERIFICAR |
-| Tesouro (APIs) | A VERIFICAR | A VERIFICAR |
-| Tesouro Transparente (CAUC) | A VERIFICAR | A VERIFICAR |
+| Transferegov API | HTTP 200 nas páginas `/docs` de `especiais`, `fundoafundo` e `parcerias` (29/10/2026) | A VERIFICAR |
+| Obrasgov API | HTTP 200 na URL base (29/10/2026) | A VERIFICAR |
+| Portal da Transparência API | HTTP 401 na URL base sem chave, esperado: o host responde (29/10/2026) | A VERIFICAR |
+| Tesouro (APIs) | HTTP 500 na URL base de transferências constitucionais (29/10/2026): o host responde, mas a URL sem rota não prova o endpoint; confirmar na T1.6 | A VERIFICAR |
+| Tesouro Transparente (CAUC) | Não testado: URL desconhecida (T1.5) | A VERIFICAR |
+
+Teste local feito em 29/10/2026 às 14:57 (America/Sao_Paulo) com `scripts/teste_acesso.py`, a partir do Brasil, sem credenciais. O teste só prova que o host responde; endpoints, filtros e autenticação continuam A VERIFICAR nas POCs. Para a coluna do GitHub Actions: workflow `.github/workflows/teste-acesso.yml` (disparo manual).
 
 ## Transferegov — API pública
 

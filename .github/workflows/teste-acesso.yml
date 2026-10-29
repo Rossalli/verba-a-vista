@@ -1,0 +1,26 @@
+# T1.0: testa o acesso às fontes a partir dos servidores do GitHub Actions.
+# Disparo manual (Actions > Teste de acesso > Run workflow); a tabela sai no log e no resumo do job.
+# Remover ou manter como diagnóstico depois que a decisão de onde rodar a coleta estiver registrada.
+
+name: Teste de acesso
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acesso:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Teste de acesso
+        run: python scripts/teste_acesso.py --ambiente actions | tee acesso.md
+      - name: Resumo do job
+        if: always()
+        run: cat acesso.md >> "$GITHUB_STEP_SUMMARY"
