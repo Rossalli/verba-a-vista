@@ -1,0 +1,74 @@
+[
+  {
+    "transferencia": "CIDE-Combustíveis",
+    "codigo": 1
+  },
+  {
+    "transferencia": "FEX",
+    "codigo": 2
+  },
+  {
+    "transferencia": "FPM",
+    "codigo": 3
+  },
+  {
+    "transferencia": "ITR",
+    "codigo": 4
+  },
+  {
+    "transferencia": "LC 87/96 (Lei Kandir)",
+    "codigo": 5
+  },
+  {
+    "transferencia": "IOF-Ouro",
+    "codigo": 6
+  },
+  {
+    "transferencia": "FPE",
+    "codigo": 7
+  },
+  {
+    "transferencia": "FUNDEF",
+    "codigo": 8
+  },
+  {
+    "transferencia": "IPI-Exp",
+    "codigo": 9
+  },
+  {
+    "transferencia": "FUNDEB",
+    "codigo": 10
+  },
+  {
+    "transferencia": "AFM/AFE",
+    "codigo": 11
+  },
+  {
+    "transferencia": "Royalties : ANP, FEP, PEA, ITAIPU, CFH e CFEM",
+    "codigo": 12
+  },
+  {
+    "transferencia": "Cessão Onerosa",
+    "codigo": 13
+  },
+  {
+    "transferencia": "AJUSTE FUNDEB",
+    "codigo": 14
+  },
+  {
+    "transferencia": "LC 173/2020 (PFEC)",
+    "codigo": 15
+  },
+  {
+    "transferencia": "LC 176/2020 (ADO25)",
+    "codigo": 16
+  },
+  {
+    "transferencia": "LC 201/2023 – COMPENSAÇÃO ICMS",
+    "codigo": 17
+  },
+  {
+    "transferencia": "FPM 1%",
+    "codigo": 18
+  }
+]

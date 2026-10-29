@@ -169,6 +169,7 @@ class FonteConfig(_Base):
     docs: str | None = None
     tipo: str | None = None
     url: str | None = None
+    url_teste: str | None = None   # endereço que responde 200 sem parâmetros, para scripts/teste_acesso.py
     auth: AuthFonte | None = None
     limite_req_min: int | None = Field(default=None, gt=0)
     ativa: bool

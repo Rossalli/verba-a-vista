@@ -32,6 +32,7 @@ fontes:
     ativa: true
 
   tesouro_constitucionais:
-    base_url: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom
-    auth: null
+    base_url: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom   # a URL base sozinha dá HTTP 500 "Endpoint não encontrado"
+    url_teste: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom/estados
+    auth: null            # VERIFICADO 2026-10-29 (T1.6): sem autenticação
     ativa: true

@@ -56,7 +56,7 @@ def alvos(config: Config) -> list[tuple[str, str | None]]:
             for modulo in fonte.modulos:
                 saida.append((f"{nome}/{modulo}", fonte.docs.format(base_url=fonte.base_url, modulo=modulo)))
         else:
-            saida.append((nome, fonte.base_url or fonte.url))
+            saida.append((nome, fonte.url_teste or fonte.base_url or fonte.url))
     return saida
 
 

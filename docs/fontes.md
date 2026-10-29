@@ -203,8 +203,46 @@ Lacunas:
 ## Tesouro — Transferências Constitucionais e SICONFI
 
 - Transferências constitucionais: `https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom/`
-- SICONFI: `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/`
-- Referência: pacote [tesouror](https://rdrr.io/cran/tesouror/f/README.md).
+- SICONFI: `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/` (**não verificado**: fora do escopo da T1.6).
+- Referência: pacote [tesouror](https://rdrr.io/cran/tesouror/f/README.md) (código em [github.com/StrategicProjects/tesouror](https://github.com/StrategicProjects/tesouror), arquivo `R/transferencias.R`).
+
+### Transferências constitucionais (FPM, ITR e outras)
+
+**VERIFICADO em 29/10/2026** (POC `scripts/poc_tesouro.py`, 8 requisições; amostras em `tests/fixtures/tesouro/`).
+
+Documentação e acesso:
+- **Não achei OpenAPI nem documentação oficial** (testei `/aria/docs`, `/aria/openapi.json`, `/aria/v1/api-docs`, swagger). Os nomes de endpoint e de parâmetro vêm do código do pacote de terceiros `tesouror` e **foram confirmados por chamadas reais**. Sem autenticação; limites não documentados (as 8 chamadas não deram 429); respostas lentas (1 s nos dicionários, 5 a 7 s nos valores): guardar em cache.
+- **A URL base sozinha dá HTTP 500** (`{"status":"erro","errorMessage":"... Endpoint não encontrado"}`), mesmo com a API no ar. Por isso `config/fontes.yaml` tem `url_teste` (`.../custom/estados`) para o teste de acesso.
+- **Os nomes dos parâmetros diferem de caixa entre endpoints** e nome errado é perigoso: segundo o pacote, o servidor ignora o parâmetro, tenta devolver a série inteira e estoura o tempo (HTTP 504). Não reproduzi de propósito. O script só aceita os nomes da lista abaixo.
+
+Endpoints (todos `GET {base}/<endpoint>`; resposta `{"registros": [...], "status": "ok"}`):
+
+| Endpoint | Parâmetros (caixa exata) | Observação |
+| --- | --- | --- |
+| `transferencias` | nenhum | dicionário: 18 tipos (código e nome) |
+| `estados` | nenhum | dicionário: 27 UFs com código do Tesouro |
+| `municipios` | `p_nome`, `p_uf` | `p_nome=Neves Paulista` → `{"codigo": 6751, "codigo_uf": 26, "nome": "Neves Paulista"}` |
+| `por_estado_municipio` | `p_estado`, `p_municipio`, `p_ano`, `p_mes`, `p_transferencia`, `p_sn_detalhar`, `page`, `pageSize` (minúsculas) | **paginado**: 10 linhas por página por padrão, `pageSize=500` funciona; o campo `next` vem **sempre** preenchido (e com `aria//v1`, barra dupla), então parar quando a página vier incompleta |
+| `por_estado_municipio_detalhe` | `P_ESTADO`, `P_MUNICIPIOS` (plural), `P_ANO`, `P_MES`, `P_TRANSFERENCIA` (MAIÚSCULAS) | sem paginação; traz `VA_PRIMEIRO_DEC`, `VA_SEGUNDO_DEC`, `VA_TERCEIRO_DEC` e `TOTAL` |
+| `por_estados`, `por_estados_detalhe` | (por estado) | existem segundo o pacote; não testados |
+
+Códigos (são **do Tesouro, não do IBGE**):
+- **Município: 6751 = o Código SIAFI** que aparece no CAUC (§CAUC). Estado: **26** = São Paulo. As linhas devolvidas trazem também `CO_IBGE` (3532504) e `UF`, o que permite conferir.
+- Tipos: 1 CIDE-Combustíveis, 2 FEX, **3 FPM**, **4 ITR**, 5 LC 87/96 (Lei Kandir), 6 IOF-Ouro, 7 FPE, 8 FUNDEF, 9 IPI-Exp, 10 FUNDEB, 11 AFM/AFE, 12 Royalties, 13 Cessão Onerosa, 14 Ajuste FUNDEB, 15 LC 173/2020 (PFEC), 16 LC 176/2020 (ADO25), 17 LC 201/2023 (compensação ICMS), 18 **FPM 1%**.
+- **O nome do tipo nas linhas nem sempre é o do dicionário**: o dicionário diz `Royalties : ANP, FEP, PEA, ITAIPU, CFH e CFEM` e as linhas dizem `Royalties`. As linhas só trazem o nome, não o código.
+
+Linhas de `por_estado_municipio`: `UF`, `ANO` (texto), `MES` (texto, `"09"`), `TRANSFERENCIA`, `codigo_siafi`, `CO_IBGE`, `MUNICIPIO`, `VALOR` (decimal em **reais**; converter para centavos com `round(valor * 100)`, nunca `int(valor * 100)`: `int(0.29 * 100)` dá 28).
+
+Resultado para Neves Paulista (consulta de 29/10/2026):
+- Linhas: 64 em 2024, 68 em 2025, 56 em 2026. Tipos presentes: CIDE-Combustíveis, FPM, FPM 1%, FUNDEB, Ajuste FUNDEB, ITR, LC 176/2020 (ADO25), Royalties. FPM e ITR não têm mês repetido (os outros tipos não foram conferidos).
+- **FPM:** 2024 R$ 14.317.574,69; 2025 R$ 13.846.100,14; 2026 (jan a out) R$ 11.768.583,74. **ITR:** 2024 R$ 375.046,43; 2025 R$ 440.420,42; 2026 (jan a out) R$ 349.119,83. FPM e ITR têm os 12 meses de 2024 e 2025. FPM 1% aparece em poucos meses (5 linhas no período).
+- **O mês corrente está incompleto.** Em outubro/2026 o FPM veio com R$ 621.852,86 (3º decêndio **zerado**; setembro foi R$ 1.000.410,68) e o ITR com R$ 208.700,34. `VALOR` é a soma dos três decêndios (conferido: 438.787,51 + 183.065,35 + 0 = 621.852,86), e a consulta foi feita no dia 29, antes do fim do mês: pelo que se vê, o mês fecha quando o 3º decêndio entra (inferência, não confirmada pela documentação). O site deve rotular o mês em andamento ou usar só meses fechados.
+- Não existe endpoint de "data da última atualização" nesta API.
+
+Lacunas:
+- **A VERIFICAR:** se `VALOR` é bruto ou líquido (por exemplo, antes ou depois do desconto do FUNDEB, que aparece como linha própria). O endpoint de detalhe só devolve `SG_DETALHE = FPM`/`ITR`, sem decompor. A spec (§2) usa FPM e ITR só como número de referência, mas o texto do site precisa dizer "bruto" ou "líquido" só depois dessa confirmação.
+- Não há data de pagamento por decêndio, só os valores.
+- `LC 201/2023 (compensação ICMS)` e outros tipos do dicionário não apareceram para o município em 2024 a 2026.
 
 ## Fontes sem API (fase 1.5 / fase 2)
 

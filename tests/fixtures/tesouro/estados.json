@@ -1,0 +1,110 @@
+[
+  {
+    "codigo": 1,
+    "nome": "Acre"
+  },
+  {
+    "codigo": 2,
+    "nome": "Alagoas"
+  },
+  {
+    "codigo": 4,
+    "nome": "Amapá"
+  },
+  {
+    "codigo": 3,
+    "nome": "Amazonas"
+  },
+  {
+    "codigo": 5,
+    "nome": "Bahia"
+  },
+  {
+    "codigo": 6,
+    "nome": "Ceará"
+  },
+  {
+    "codigo": 7,
+    "nome": "Distrito Federal"
+  },
+  {
+    "codigo": 8,
+    "nome": "Espírito Santo"
+  },
+  {
+    "codigo": 9,
+    "nome": "Goiás"
+  },
+  {
+    "codigo": 10,
+    "nome": "Maranhão"
+  },
+  {
+    "codigo": 13,
+    "nome": "Mato Grosso"
+  },
+  {
+    "codigo": 12,
+    "nome": "Mato Grosso do Sul"
+  },
+  {
+    "codigo": 11,
+    "nome": "Minas Gerais"
+  },
+  {
+    "codigo": 14,
+    "nome": "Pará"
+  },
+  {
+    "codigo": 15,
+    "nome": "Paraíba"
+  },
+  {
+    "codigo": 18,
+    "nome": "Paraná"
+  },
+  {
+    "codigo": 16,
+    "nome": "Pernambuco"
+  },
+  {
+    "codigo": 17,
+    "nome": "Piauí"
+  },
+  {
+    "codigo": 19,
+    "nome": "Rio de Janeiro"
+  },
+  {
+    "codigo": 20,
+    "nome": "Rio Grande do Norte"
+  },
+  {
+    "codigo": 23,
+    "nome": "Rio Grande do Sul"
+  },
+  {
+    "codigo": 21,
+    "nome": "Rondônia"
+  },
+  {
+    "codigo": 22,
+    "nome": "Roraima"
+  },
+  {
+    "codigo": 24,
+    "nome": "Santa Catarina"
+  },
+  {
+    "codigo": 26,
+    "nome": "São Paulo"
+  },
+  {
+    "codigo": 25,
+    "nome": "Sergipe"
+  },
+  {
+    "codigo": 27,
+    "nome": "Tocantins"
+  }
+]
