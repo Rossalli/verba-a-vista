@@ -48,7 +48,7 @@ class Municipio(_Base):
 
 class TextosRisco(_Base):
     prazo_proximo: str
-    cauc_irregular: str
+    cauc_sem_comprovacao: str
     obra_parada: str
     impedimento_emenda: str
 

@@ -15,7 +15,7 @@ risco:
   prazos_monitorados: [clausula_suspensiva, fim_vigencia, prestacao_contas, adesao]
   textos:
     prazo_proximo: "Prazo em {dias} dias"
-    cauc_irregular: "Pendência no CAUC"
+    cauc_sem_comprovacao: "CAUC: item {item} sem comprovação ({exigencia})"
     obra_parada: "Obra parada há {dias} dias"
     impedimento_emenda: "Impedimento técnico"
 
@@ -32,7 +32,7 @@ curadoria:
   selo_ia: "Explicação gerada com IA a partir dos documentos citados"
 
 coleta:
-  horario: "06:00"
+  horario: "09:00"   # depois da publicação do CAUC (~08:11 BRT em dias úteis); D9
   fuso: America/Sao_Paulo
   portal_transparencia_req_por_min: 300   # abaixo do limite de 400 por segurança
   tentativas: 4

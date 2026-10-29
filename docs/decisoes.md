@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D9 — Coleta diária às 09:00 (Brasília) e alerta de CAUC sem a palavra "irregular" (29/10/2026)
+O CAUC é publicado em dias úteis por volta das 08:11 (Brasília), então a coleta passou de 06:00 para 09:00 (cron `0 12 * * *`). O `!` do CAUC significa "o Tesouro não conseguiu obter a comprovação do requisito", e 307 dos 645 municípios de SP têm algum; por isso o alerta se chama `cauc_sem_comprovacao`, vale para qualquer item `!` e diz o item (ex.: "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"). Não afirma irregularidade que o arquivo não declara.
+
 ## D8 — Obrasgov é fonte auxiliar e não define o status do site (29/10/2026)
 O status vem do Transferegov/Siconv. O Obrasgov só entra quando a prefeitura é executora e o projeto se liga a um instrumento (ponte `siconv_dados_obrasgov_geral`); alimenta o alerta `obra_parada`, o percentual físico e o dossiê da curadoria. Sem registro de execução física, não há alerta. Motivo: na POC da T1.3 as 3 obras da prefeitura estavam "Cadastrada" e sem medição enquanto os convênios estavam "Em execução" no Siconv (um com R$ 288 mil desembolsados); o cadastro dos gestores fica desatualizado.
 

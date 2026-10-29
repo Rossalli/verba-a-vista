@@ -23,7 +23,7 @@ Tipo = Literal[
     "constitucional",
 ]
 StatusSite = Literal["oportunidade", "proposta", "aprovada", "execucao", "prestacao", "concluida", "perdida"]
-CodigoRisco = Literal["prazo_proximo", "cauc_irregular", "obra_parada", "impedimento_emenda"]
+CodigoRisco = Literal["prazo_proximo", "cauc_sem_comprovacao", "obra_parada", "impedimento_emenda"]
 Categoria = Literal[
     "prazo_proposta",
     "reprovacao_tecnica",

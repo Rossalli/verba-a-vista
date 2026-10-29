@@ -58,7 +58,7 @@
         "required": ["codigo", "texto"],
         "additionalProperties": false,
         "properties": {
-          "codigo": { "enum": ["prazo_proximo", "cauc_irregular", "obra_parada", "impedimento_emenda"] },
+          "codigo": { "enum": ["prazo_proximo", "cauc_sem_comprovacao", "obra_parada", "impedimento_emenda"] },
           "texto": { "type": "string" },
           "data_limite": { "$ref": "#/$defs/data" }
         }

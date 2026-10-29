@@ -49,7 +49,7 @@ COMPLETO = {
     "em_risco": True,
     "motivos_risco": [
         {"codigo": "prazo_proximo", "texto": "Prazo em 38 dias", "data_limite": "2026-12-06"},
-        {"codigo": "cauc_irregular", "texto": "Pendência no CAUC"},
+        {"codigo": "cauc_sem_comprovacao", "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"},
     ],
     "prazos": {"proposta": "2024-03-01", "fim_vigencia": "2027-01-31"},
     "execucao_fisica_pct": 12.5,

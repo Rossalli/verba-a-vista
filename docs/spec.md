@@ -66,7 +66,7 @@ Regras em `config/regras.yaml` (valores ajustáveis). Uma verba fica `em_risco: 
 | Código | Regra |
 | --- | --- |
 | `prazo_proximo` | Algum prazo do instrumento (cláusula suspensiva, vigência, prestação de contas, adesão) vence em até `dias_alerta_prazo` dias (padrão 60) |
-| `cauc_irregular` | O município tem item irregular no CAUC na data da coleta e a verba é do `tipo` `voluntaria` ou `emenda_finalidade` com `status_site` `proposta` ou `aprovada` (antes da liberação). Os tipos e etapas ficam em `config/regras.yaml` e podem ser ajustados após a T1.5 |
+| `cauc_sem_comprovacao` | O CAUC não conseguiu comprovar algum item (`!` no relatório do Tesouro) para o município na data do arquivo, qualquer item, e a verba é do `tipo` `voluntaria` ou `emenda_finalidade` com `status_site` `proposta` ou `aprovada` (antes da liberação). Os tipos e etapas ficam em `config/regras.yaml`. O texto cita o item e a exigência da legenda do próprio arquivo, sem a palavra "irregular" (ex.: "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"); a data do arquivo é a data do dado. Itens `Desabilitado` não contam |
 | `obra_parada` | Obra no Obrasgov sem nova atualização de execução física (`dt_atualizacao_execucao`) há mais de `dias_obra_parada` dias (padrão 90), ou situação `Paralisada`. Sem nenhum registro de execução física a regra **não dispara** (ausência de dado não é obra parada). A situação "Suspensa" não existe na API |
 | `impedimento_emenda` | Emenda com impedimento técnico registrado e ainda não superado |
 
@@ -165,7 +165,7 @@ publica  ──►  dados/publicados/verbas.json + verbas.csv  ──►  site (
 
 O histórico é calculado comparando o resultado normalizado do dia com o publicado anterior (`dados/publicados/verbas.json` no Git).
 
-Execução diária às 06:00 (horário de Brasília). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".
+Execução diária às 09:00 (horário de Brasília), depois da publicação diária do CAUC (~08:11 em dias úteis). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".
 
 ## 10. Site
 

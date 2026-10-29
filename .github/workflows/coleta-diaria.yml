@@ -6,7 +6,7 @@ name: Coleta diária
 
 on:
   schedule:
-    - cron: "0 9 * * *"   # 06:00 em Brasília (UTC-3)
+    - cron: "0 12 * * *"   # 09:00 em Brasília (UTC-3), depois da publicação do CAUC (D9)
   workflow_dispatch:
 
 permissions:

@@ -20,7 +20,7 @@ def test_alvos_expande_modulos_e_marca_fontes_sem_url():
     assert alvos["transferegov_api/parcerias"].endswith("/parcerias/docs")
     assert alvos["obrasgov"] == "https://api-publica.obrasgov.gestao.gov.br/obras"
     assert alvos["transferegov_discricionarias"] == "https://repositorio.dados.gov.br/seges/detru"
-    assert alvos["cauc"] is None
+    assert alvos["cauc"] == "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc"
 
 
 @respx.mock

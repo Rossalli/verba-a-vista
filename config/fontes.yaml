@@ -27,8 +27,8 @@ fontes:
     ativa: true
 
   cauc:
-    tipo: a_definir       # dataset Tesouro Transparente ou consulta pública — T1.5
-    url: null
+    tipo: ckan_csv        # VERIFICADO 2026-10-29 (T1.5): CSV do dataset `cauc` no CKAN do Tesouro Transparente
+    url: https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc   # achar o recurso pelo nome (docs/fontes.md)
     ativa: true
 
   tesouro_constitucionais:

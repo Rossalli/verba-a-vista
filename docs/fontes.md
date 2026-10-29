@@ -174,10 +174,31 @@ Lacunas:
 
 ## CAUC (Tesouro Nacional)
 
-- Regularidade do município para transferências voluntárias; atualização diária.
-- Consulta pública: `cauc.tesouro.gov.br`. Dataset no Tesouro Transparente (há documento de metadados "TT CAUC – Municípios").
-- Forma de coleta automática: **A VERIFICAR**.
-- [Página do CAUC](https://www.gov.br/tesouronacional/pt-br/estados-e-municipios/cauc).
+- Regularidade do município para transferências voluntárias.
+- [Página do CAUC](https://www.gov.br/tesouronacional/pt-br/estados-e-municipios/cauc). Consulta pública: `cauc.tesouro.gov.br/ng/` (app Angular, sem API documentada; **não usada**, o CSV abaixo basta).
+
+**VERIFICADO em 29/10/2026** (POC `scripts/poc_cauc.py`; amostras em `tests/fixtures/cauc/`).
+
+Como coletar:
+- **API CKAN do Tesouro Transparente**: `GET https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc` (sem autenticação). Dentro de `resources`, o recurso de nome **"Relatório da situação dos municípios no CAUC"**, formato CSV, traz a `url` do arquivo. **Achar o recurso pelo nome a cada coleta**, sem fixar o endereço (é um upload que o Tesouro pode substituir). Há também o recurso dos estados e do DF e dois PDFs de metadados.
+- **O CSV traz todos os municípios do país** (5.569 entes, 1,9 MB), não há filtro no servidor: baixar e filtrar por `Código IBGE` (`3532504`). Codificação **cp1252** (sem BOM), separador `;`, campos entre aspas, 3 linhas de metadados antes do cabeçalho (`Data da Pesquisa: dd/mm/aaaa`, tipo de ente, abrangência) e **uma legenda de 39 linhas no fim** (código do item e exigência, com os cinco grupos I a V). Linhas curtas fora da legenda devem ser tratadas como erro.
+- **O arquivo é um retrato do dia, sem histórico**: o recurso é sobrescrito no mesmo endereço. A "data da pesquisa" está dentro do arquivo. **Qualquer série histórica só existirá a partir das nossas próprias coletas** (o Git guarda os retratos). A spec §7.2 ("extrato do CAUC mais próximo da data da perda") só vale daqui para a frente.
+- **Frequência:** o texto do dataset diz "semanalmente", os metadados e o campo `Frequência de atualização` dizem diário, e o histórico de atividade do CKAN (60 eventos, 06/08 a 29/10/2026) mostra **atualização em dias úteis, por volta das 11:11 UTC (08:11 em Brasília)**, com algumas falhas isoladas (ex.: 22 e 23/09, 05 a 08/10). Uma coleta às 06:00 em Brasília pegaria o arquivo do dia útil anterior, por isso a coleta diária passou para as 09:00 (D9). Usar sempre a "data da pesquisa" do arquivo como data do dado: em fins de semana e feriados ela continuará sendo a do último dia útil.
+
+Semântica (dicionário oficial, PDF "Metadados CAUC – Municípios", e legenda do arquivo):
+- Colunas `1.1` a `5.7` (28 itens). A legenda tem ainda `4.3` e `5.8`, que **não têm coluna** no arquivo, além dos itens-pai `2.1`, `3.1`, `3.2`, `3.4`.
+- **Célula = data de validade da comprovação do requisito** (`dd/mm/aa`). **`!` = o CAUC não conseguiu obter a comprovação do requisito.** **`Desabilitado` = informação do item indisponível na data da consulta, vale para todos os entes.** Informações referem-se ao CNPJ principal do município (a prefeitura).
+- Observado em todo o arquivo (5.569 entes × 28 itens): 134.959 datas, 9.835 `!`, 11.138 `Desabilitado`, nenhuma célula vazia e **nenhuma data anterior à data da pesquisa**. Valor novo no arquivo deve gerar erro, nunca ser interpretado ao acaso.
+- O dicionário não diz o que acontece com uma data que vence: ela some ou vira `!`. **A VERIFICAR** acompanhando coletas diárias.
+
+Resultado para Neves Paulista (Código IBGE 3532504, SIAFI 6751, população 8.777; data da pesquisa 29/10/2026):
+- 25 itens com data de validade, 2 `Desabilitado` (`1.3` FGTS, `3.2.4` Siops) e **1 item sem comprovação: `4.2` Regularidade Previdenciária**.
+- Validades mais próximas: 29/10/2026 (itens `1.2`, `1.4`, `1.5`, `2.1.1`, `2.1.2`, `3.5`, `3.6`, `3.7`, `5.2`) e 31/10/2026 (`3.4.1`); a mais distante é 30/04/2027. Muitos itens são reconfirmados todo dia.
+- **Contexto:** 307 dos 645 municípios de SP e 3.247 dos 5.569 do país têm ao menos um item sem comprovação. Ter um `!` é comum, o que pesa no tom do alerta (spec §1: "nunca acusatório").
+
+Lacunas:
+- O arquivo não diz **quais itens bloqueiam qual tipo de transferência**: o CAUC exige itens diferentes por instrumento e há dispensas legais (por exemplo, transferências fundo a fundo na saúde, educação e assistência social). A regra `cauc_sem_comprovacao` (antes `cauc_irregular`) vale só para `voluntaria` e `emenda_finalidade` em `proposta` e `aprovada` e alerta para **qualquer** item `!` (decisão da autora em 29/10/2026); o texto diz o item, sem a palavra "irregular".
+- O CAUC mede a regularidade do **município**, não de um instrumento: o mesmo alerta aparece em todas as verbas elegíveis.
 
 ## Tesouro — Transferências Constitucionais e SICONFI
 
