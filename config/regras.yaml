@@ -5,6 +5,9 @@ municipio:
   uf: SP
   codigo_ibge: "3532504"
   cnpj_prefeitura: "45145414000147"   # VERIFICADO 2026-10-29 (Transferegov, MUNICIPIO DE NEVES PAULISTA)
+  cnpjs_fundos:                       # VERIFICADO 2026-10-29 (Transferegov parcerias, recebedores das propostas)
+    - "13921776000196"                # Fundo Municipal de Saúde de Neves Paulista
+    - "14513724000143"                # Fundo Municipal de Assistência Social de Neves Paulista
   inicio_recorte: "2024-01-01"
 
 risco:

@@ -32,6 +32,13 @@ def test_config_real_do_repositorio_e_valida():
     assert config.fontes.fontes["portal_transparencia"].auth.env == "PORTAL_TRANSPARENCIA_KEY"
 
 
+def test_cnpjs_do_municipio_precisam_ter_14_digitos(copia):
+    assert carregar_config(copia).regras.municipio.cnpjs_fundos == ["13921776000196", "14513724000143"]
+    editar(copia, "regras.yaml", lambda d: d["municipio"].update(cnpjs_fundos=["13.921.776/0001-96"]))
+    with pytest.raises(ConfigErro, match=r"municipio\.cnpjs_fundos"):
+        carregar_config(copia)
+
+
 def test_config_valida_em_copia(copia):
     assert carregar_config(copia).regras.municipio.nome == "Neves Paulista"
 

@@ -26,7 +26,7 @@ Leia antes de qualquer tarefa:
 ## Estrutura
 
 ```
-coleta/        um módulo por fonte (transferegov, obrasgov, portal_transparencia, cauc, tesouro)
+coleta/        um módulo por fonte (transferegov_api, transferegov_discricionarias, obrasgov, portal_transparencia, cauc, tesouro) + base.py (HTTP, gravação, execução) e siconv.py
 nucleo/        modelo Verba (pydantic), normalização, regras de risco e perda, histórico
 curadoria/     cliente da IA, validação de citações, fila de revisão
 config/        status_map.yaml, regras.yaml, taxonomia.yaml, fontes.yaml

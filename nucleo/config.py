@@ -43,7 +43,23 @@ class Municipio(_Base):
     uf: str = Field(pattern=r"^[A-Z]{2}$")
     codigo_ibge: str = Field(pattern=r"^\d{7}$")
     cnpj_prefeitura: str | None
+    cnpjs_fundos: list[str] = Field(default_factory=list, description="Fundos municipais que recebem em nome do município")
     inicio_recorte: date
+
+    @field_validator("cnpj_prefeitura")
+    @classmethod
+    def _cnpj_prefeitura_14_digitos(cls, v: str | None) -> str | None:
+        if v is not None and not re.fullmatch(r"\d{14}", v):
+            raise ValueError("CNPJ deve ter 14 dígitos, sem pontuação")
+        return v
+
+    @field_validator("cnpjs_fundos")
+    @classmethod
+    def _cnpjs_fundos_14_digitos(cls, v: list[str]) -> list[str]:
+        ruins = [c for c in v if not re.fullmatch(r"\d{14}", c)]
+        if ruins:
+            raise ValueError(f"CNPJ deve ter 14 dígitos, sem pontuação: {ruins}")
+        return v
 
 
 class TextosRisco(_Base):

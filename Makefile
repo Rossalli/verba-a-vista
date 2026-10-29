@@ -4,8 +4,8 @@ PYTHON ?= python
 
 # Stubs: cada alvo ganha implementação na tarefa indicada em docs/plano.md.
 
-coleta:  # T2.1
-	@echo "coleta: ainda não implementado (T2.1)"
+coleta:  # T2.1; ex.: make coleta ARGS="--fonte cauc --data 2026-10-29"
+	$(PYTHON) -m coleta $(ARGS)
 
 normaliza:  # T2.2 a T2.5
 	@echo "normaliza: ainda não implementado (T2.2)"
