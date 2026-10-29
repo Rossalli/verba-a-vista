@@ -10,8 +10,9 @@ Uma tarefa por vez, em ordem. Marque `[x]` ao concluir e escreva uma linha do qu
 - [x] **T0.2 Modelo Verba.** `nucleo/modelo.py` com pydantic v2 espelhando `schemas/verba.schema.json`. Teste que valida um exemplo mínimo e rejeita `status_site` inválido.
   *Aceite:* o modelo exporta JSON que valida no schema.
   *Feito:* `nucleo/modelo.py` (`Verba` e submodelos, `extra="forbid"`, centavos como int estrito, `para_dict()`/`para_json()` com `exclude_unset`) e `tests/test_modelo.py` (31 testes: mínimo e completo validam no schema, `status_site` inválido rejeitado, ida e volta, e os Literals conferidos contra os enums do schema). 32 testes passam.
-- [ ] **T0.3 Leitura de configuração.** Carregar `config/*.yaml` com validação (pydantic). Erro claro se faltar chave.
+- [x] **T0.3 Leitura de configuração.** Carregar `config/*.yaml` com validação (pydantic). Erro claro se faltar chave.
   *Aceite:* teste com config válida e inválida.
+  *Feito:* `nucleo/config.py` (`carregar_config()` valida os 4 arquivos; `ConfigErro` cita arquivo e caminho da chave; chaves desconhecidas são erro; checagens cruzadas no status_map, na taxonomia e no limite do Portal) e `tests/test_config.py` (18 testes, config real e inválidas). 50 testes passam.
 
 ## Marco 1 — Provas de conceito das fontes (use `/poc-fonte`)
 
