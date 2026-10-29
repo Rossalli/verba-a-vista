@@ -32,12 +32,14 @@ Postura: iniciativa cidadã **independente**. Tom informativo, nunca acusatório
 
 | `tipo` | Nome no site | Fonte principal |
 | --- | --- | --- |
-| `voluntaria` | Convênio ou contrato de repasse | Transferegov (Discricionárias e Legais, CSV) |
+| `voluntaria` | Convênio, contrato de repasse ou termo de compromisso | Transferegov (Discricionárias e Legais, CSV) |
 | `emenda_finalidade` | Emenda com finalidade definida | Transferegov (emenda indicada ao município, `nr_emenda`) + Portal da Transparência (pagamentos ligados pelo código do autor; a emenda no Portal vem agregada, sem o valor do município) |
 | `emenda_pix` | Emenda Pix (transferência especial) | Transferegov API, módulo `especiais` |
 | `fundo_a_fundo` | Repasse fundo a fundo | Transferegov API, módulo `fundoafundo` (FNS só na fase 1.5; repasses de saúde podem estar incompletos na fase 1 e o site avisa em "Como funciona") |
 | `programa_adesao` | Programa por adesão ou seleção | Transferegov `parcerias`, FNDE, Obrasgov |
 | `constitucional` | Transferência constitucional | Tesouro (Transferências Constitucionais) |
+
+**Regra do `tipo` nas verbas do Siconv:** `voluntaria` para convênio, contrato de repasse, termo de compromisso e termo de fomento; `emenda_finalidade` quando há linha em `siconv_emenda` para a proposta. A modalidade original (`MODALIDADE`) fica visível no site. Nas propostas de `parcerias`, `emenda_finalidade` quando o programa só aceita "Beneficiário de Emenda Parlamentar" (todos os programas das 12 propostas do município), senão `fundo_a_fundo`. Planos do módulo `fundoafundo`: `fundo_a_fundo`. Programas abertos: `programa_adesao` com status `oportunidade`.
 
 ## 4. Status do site
 
@@ -149,8 +151,8 @@ Todo motivo publicado mostra: "Explicação gerada com IA a partir dos documento
 JSON Schema em `schemas/verba.schema.json`. Campos principais:
 
 - `id` (estável: `<fonte>-<id_na_fonte>`), `fonte`, `id_fonte`, `numero_instrumento`. Quando a mesma verba aparece em várias fontes (junção pelo número do instrumento), `id`, `fonte` e `id_fonte` vêm da fonte de maior precedência (ordem definida em `config/fontes.yaml`, a criar na T2.2; Transferegov antes do Portal da Transparência) e as demais entram em `fontes[]`. O `id` não muda se uma fonte deixar de listar a verba.
-- `nome`, `objeto`, `tipo`, `area`, `orgao_concedente`, `parlamentar` (se emenda; nome público do autor, permitido)
-- `valor_total`, `valor_contrapartida`, `valor_liberado`, `valor_executado`, `valor_devolvido` (centavos; `valor_devolvido` é opcional, só preenchido se uma fonte confirmada o trouxer; sem ele, `valor_perdido` considera só o não liberado e o site avisa "valor devolvido não informado")
+- `nome`, `objeto`, `tipo`, `area`, `instrumento` (modalidade como a fonte a chama, ex.: `TERMO DE COMPROMISSO`), `orgao_concedente`, `parlamentar` (se emenda; nome público do autor, permitido)
+- `valor_total` (obrigatório, mas **nulo** quando a fonte não informa, como nas oportunidades; o site mostra "valor não informado" e as deixa fora das somas), `valor_contrapartida`, `valor_liberado`, `valor_executado`, `valor_devolvido` (centavos; `valor_devolvido` é opcional, só preenchido se uma fonte confirmada o trouxer; sem ele, `valor_perdido` considera só o não liberado e o site avisa "valor devolvido não informado")
 - `status_site`, `status_fonte`, `em_risco`, `motivos_risco[]`
 - `prazos`: `proposta`, `assinatura`, `clausula_suspensiva`, `fim_vigencia`, `prestacao_contas`, `adesao`
 - `execucao_fisica_pct` (obras)

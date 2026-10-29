@@ -82,7 +82,7 @@ fontes:
     campo: situacao_plano_acao   # fundoafundo/planos-acao; termos-adesao usa situacao_termo_adesao
     mapa:
       aprovada:
-        - "AUTORIZADO"   # observado em 2 planos de ação (vigência até 2024-12-31, saldo 0)
+        - "AUTORIZADO"   # observado em 2 planos de ação (um com vigência até 2024-12-31, outro até 2029-12-31; saldo 0 nos dois)
         - "ASSINADO"     # situacao_termo_adesao, observado em 2 termos
     # Documentados, não observados: termo de adesão: EM_ELABORACAO, ENVIADO;
     # relatorios-gestao: EM_ELABORACAO, ENVIADO_ANALISE, ENVIADO_ANALISE_CONSELHO, EM_COMPLEMENTACAO,

@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D12 — Normalização: tipo das verbas do Siconv, valor nulo e Novo PAC adiado (29/10/2026)
+(1) Convênio, contrato de repasse, termo de compromisso e termo de fomento viram `voluntaria`; `emenda_finalidade` só quando há emenda registrada; a modalidade original fica visível. Motivo: 9 das 22 verbas do recorte são termo de compromisso, a spec não os cobria e não há prova de que sejam outro tipo. (2) `valor_total` pode ser nulo (oportunidades não têm valor), para não publicar R$ 0. (3) As propostas do Novo PAC Seleções ficam só no bruto, sem virar verbas, até haver a chave que as liga ao Siconv: elas parecem repetir verbas já formalizadas (mesmo repasse de R$ 2,8 mi e R$ 3,25 mi), e a tabela de ligação (`proposta_formalizacao_pac`) estava no servidor que saiu do ar. (4) Junção Siconv-Portal por `NR_PROPOSTA`↔`numero` **ou** `NR_PROCESSO`↔`numeroProcesso`, ignorando zeros à esquerda: casa 26 dos 28 convênios do Siconv (os 2 restantes não têm convênio assinado).
+
 ## D11 — Portal da Transparência é fonte de complemento: valores e pagamentos, não status (29/10/2026)
 O status do site continua vindo do Transferegov/Siconv. O Portal atualiza `valor_liberado` (está à frente da carga do Siconv: o convênio 33961/2024 tem R$ 650 mil pagos em 23/07/2026 que a carga de 17/07 não tem), lista pagamentos recebidos pelos CNPJs da prefeitura e dos fundos (incluindo estornos, candidatos a `valor_devolvido`), liga pagamento a emenda pelo código do autor e serve de conferência. A emenda no Portal vem agregada (`MÚLTIPLO`), então não dá o valor que o município recebeu, e `recursos-recebidos` só funciona por CNPJ, não por `codigoIBGE`. Nos 19 instrumentos que casam (dos 28 do Siconv) a situação é consistente entre as fontes. Mesma linha do Obrasgov (D8).
 

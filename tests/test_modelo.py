@@ -39,6 +39,7 @@ COMPLETO = {
     "numero_instrumento": "123456/2024",
     "objeto": "Pavimentação de vias urbanas",
     "area": "infraestrutura",
+    "instrumento": "TERMO DE COMPROMISSO",
     "orgao_concedente": "Ministério das Cidades",
     "parlamentar": None,
     "valor_contrapartida": 5000000,
@@ -113,6 +114,17 @@ def test_ida_e_volta_preserva_os_dados():
 def test_rejeita_status_site_invalido():
     with pytest.raises(ValidationError):
         Verba.model_validate(com(MINIMO, status_site="em_risco"))
+
+
+def test_valor_total_nulo_e_aceito_para_oportunidade_mas_continua_obrigatorio():
+    oportunidade = com(MINIMO, valor_total=None, status_site="oportunidade", tipo="programa_adesao")
+    saida = Verba.model_validate(oportunidade).para_dict()
+    assert saida["valor_total"] is None  # sai como null, não some: o campo é obrigatório
+    validar_no_schema(saida)
+    sem = deepcopy(MINIMO)
+    del sem["valor_total"]
+    with pytest.raises(ValidationError):
+        Verba.model_validate(sem)
 
 
 def test_status_site_nulo_e_aceito_e_exportado_como_null():

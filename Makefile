@@ -7,8 +7,8 @@ PYTHON ?= python
 coleta:  # T2.1; ex.: make coleta ARGS="--fonte cauc --data 2026-10-29"
 	$(PYTHON) -m coleta $(ARGS)
 
-normaliza:  # T2.2 a T2.5
-	@echo "normaliza: ainda não implementado (T2.2)"
+normaliza:  # T2.2: resumo e relatório de situações não mapeadas; T2.3 a T2.5 completam
+	$(PYTHON) -m nucleo.normaliza $(ARGS)
 
 curadoria:  # T3.2
 	@echo "curadoria: ainda não implementado (T3.2)"

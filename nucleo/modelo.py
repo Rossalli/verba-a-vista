@@ -101,9 +101,10 @@ class Verba(_Base):
     objeto: str | None = None
     tipo: Tipo
     area: str | None = None
+    instrumento: str | None = None  # modalidade como a fonte a chama (D12: o site mostra a original)
     orgao_concedente: str | None = None
     parlamentar: str | None = None
-    valor_total: Centavos
+    valor_total: Centavos | None  # nulo quando a fonte não informa (ex.: oportunidade)
     valor_contrapartida: Centavos = Field(default=None)
     valor_liberado: Centavos = Field(default=None)
     valor_executado: Centavos = Field(default=None)
