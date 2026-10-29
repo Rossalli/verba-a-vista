@@ -244,6 +244,39 @@ Lacunas:
 - Não há data de pagamento por decêndio, só os valores.
 - `LC 201/2023 (compensação ICMS)` e outros tipos do dicionário não apareceram para o município em 2024 a 2026.
 
+## Oportunidades (programas e editais que o município pode pleitear)
+
+**VERIFICADO em 29/10/2026** (T1.7, POC `scripts/poc_oportunidades.py`; amostras em `tests/fixtures/oportunidades/`). Há fonte automática, com ressalvas.
+
+**Fonte principal: Siconv em lote** (mesmo servidor das Discricionárias, §Transferegov — Discricionárias e Legais), 4 arquivos além dos já usados: `siconv_programa` (11 MB zipado, 353 MB descompactado), `siconv_programa_proponentes` (2 MB), `siconv_proposta_selecao_pac` (38 MB, 125 MB descompactado) e `siconv_proponentes` (6 MB; contém e-mail e telefone: usar só `ID_PROPONENTE` e `IDENTIF_PROPONENTE`).
+- `siconv_programa`: `ID_PROGRAMA`, `COD_PROGRAMA`, `NOME_PROGRAMA`, `SIT_PROGRAMA` (`DISPONIBILIZADO` 1.004.603 linhas, `CADASTRADO` 128.234, `INATIVO` 122.377), `DESC_ORGAO_SUP_PROGRAMA`, `MODALIDADE_PROGRAMA`, `NATUREZA_JURIDICA_PROGRAMA` (quem pode propor), `UF_PROGRAMA`, `NOME_SUBTIPO_PROGRAMA` (`NOVO PAC`, `NOVO PAC - FORMALIZAÇÃO`, `MCMV FNHIS`, `ECTI`, `FIIS`, `TEC`, `TCC`) e três janelas `dd/mm/aaaa`: **`DT_PROG_INI/FIM_RECEB_PROP`** (propostas voluntárias), `DT_PROG_INI/FIM_EMENDA_PAR` (emendas) e `DT_PROG_INI/FIM_BENEF_ESP` (beneficiários específicos).
+- **A tabela repete o programa por UF e natureza jurídica**: 1.255.214 linhas para 52.935 programas. Contar e filtrar sempre por `ID_PROGRAMA` distinto.
+- Sem filtro por município: o recorte é por **natureza jurídica** (contém "Municipal") e **UF** (`SP` ou vazio). `siconv_programa_proponentes` (`ID_PROGRAMA`, `ID_PROPONENTE`) lista os programas dirigidos a proponentes específicos. A prefeitura é o proponente `ID_PROPONENTE = 15310` (achado por `IDENTIF_PROPONENTE = 45145414000147` em `siconv_proponentes`).
+- **Atenção à defasagem:** é a carga de 17/07/2026. Programas criados depois não aparecem e "aberto hoje" é um **mínimo**.
+
+Resultado (janelas avaliadas em 29/10/2026 sobre a carga de 17/07/2026; programas distintos):
+
+| Medida | Resultado |
+| --- | --- |
+| Janela de propostas voluntárias aberta (todo o país) | 46 programas (1.148 linhas) |
+| Janela de emendas aberta / de beneficiários específicos aberta | 97 / 34 programas |
+| **Abertos e elegíveis** (natureza municipal, UF SP ou sem UF) | **9 programas: 7 `DISPONIBILIZADO`, 1 `CADASTRADO`, 1 `INATIVO`**, todos até 31/12/2026: Educação (DIEA/Capes, 2; SIMEC/PAR, 2), Agricultura (Fomento ao Setor Agropecuário, PRONER, PROMAQ), INCRA (infraestrutura básica) |
+| **Programas dirigidos à prefeitura** (`siconv_programa_proponentes`) | 68 programas; **3 com alguma janela aberta** |
+| Novo PAC Seleções da prefeitura (`siconv_proposta_selecao_pac`) | **10 propostas em 9 programas** (todos `NOVO PAC`, `DISPONIBILIZADO`): 5 `SELECIONADA`, 2 `HABILITADA`, 2 `ENVIADA`, 1 `NAO_HABILITADA`. Ex.: renovação de frota do SAMU (selecionada), unidade básica de saúde (não habilitada), produção de unidades habitacionais (selecionada, R$ 2,8 mi) |
+
+Fontes complementares, Transferegov API (`parcerias`):
+- `parcerias/programa` (92 programas `Disponibilizado` no país; sem filtro por município; `uf_habilitada_sg_uf=SP` devolve 3 de 182): campos `situacao_programa`, `qualificacao_beneficiario` (68 "Beneficiário de Emenda Parlamentar", 23 "Beneficiário Espontâneo", 1 "Específico"), janelas `dt_inicio/fim_beneficiario_espontaneo|especifico|emenda`, `expiracao_prog_*` e `programa_atende_a`. **Nenhuma janela espontânea aberta hoje** (as 23 estão `prog_expirado`); as únicas abertas são 5 programas de emenda do SUAS (até 31/12/2026), que só valem para quem tem emenda indicada. Logo, aqui não há oportunidade aberta para o município.
+- `parcerias/beneficiario_emenda_parlamentar` (filtros `nm_municipio_beneficiario_emenda` e `sg_uf_beneficiario_emenda`): **14 emendas indicadas** ao município (12 ao Fundo Municipal de Saúde, 2 ao de Assistência Social; 2025: 5, 2026: 9; total R$ 2,1 milhões), com `nr_emenda`, `nm_parlamentar` (nome público do autor, permitido pela spec §8), `in_tipo_emenda_parlamentar` e `vl_total_emenda`. São a origem das 12 propostas do §T1.1, mas **não dá para casar emenda com proposta 1 para 1** (uma proposta pode juntar emendas; por exemplo, o programa 14 tem 4 emendas e 5 propostas): o cruzamento por (programa, CNPJ) sugere emendas de 2026 ainda sem proposta, **sem confirmação**.
+- `fundoafundo/programas-beneficiarios` (§T1.1): os 6 programas ligados ao município (Aldir Blanc 2020, 2021 e 2025, Gratuidade EC 123/22, Lei Paulo Gustavo, PNAB) têm **todas as janelas de recebimento já encerradas** (2020 a 2025), embora a situação seja `DISPONIBILIZADO`. A situação do programa não indica se há prazo aberto: usar as datas.
+- `especiais/programas-especiais` tem janela de ciência por programa, mas o município não consta como beneficiário do módulo (§T1.1): sem oportunidade ali.
+
+Novo PAC Seleções: não achei API própria; os dados chegam por `siconv_programa` (subtipo `NOVO PAC`) e `siconv_proposta_selecao_pac`. A página do programa no gov.br não foi explorada.
+
+Lacunas:
+- A carga de 17/07/2026 não mostra programas criados desde então; se o Siconv publicar cargas mais frequentes, o número de oportunidades abertas muda.
+- O Novo PAC Seleções das propostas do município tem situações próprias (`SELECIONADA`, `HABILITADA`, `ENVIADA`, `NAO_HABILITADA`) que **ainda não foram mapeadas** para `status_site` (decisão pendente; `NAO_HABILITADA` é candidata a `perdida`, com motivo só por documento).
+- `siconv_programa` não traz o valor do programa nem o texto de elegibilidade além da natureza jurídica e da UF.
+
 ## Fontes sem API (fase 1.5 / fase 2)
 
 | Fonte | O que traz | Plano |

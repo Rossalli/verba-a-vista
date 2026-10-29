@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D10 — Oportunidades vêm do Siconv: programas elegíveis e dirigidos à prefeitura (29/10/2026)
+Entra como `oportunidade` o programa `DISPONIBILIZADO` do Siconv com janela de propostas aberta, natureza municipal e UF SP (ou sem UF), mais os programas dirigidos à prefeitura com alguma janela aberta; o fim da janela é o prazo `adesao`. Programas só para beneficiário de emenda, `CADASTRADO` e `INATIVO` ficam de fora. Motivo: é a única fonte automática que traz janelas, natureza elegível e UF; `parcerias/programa` não tem janela espontânea aberta e o Obrasgov não lista programas. Ressalva: a carga do Siconv é de 17/07/2026, então "aberto" é um mínimo e a data da carga aparece no site.
+
 ## D9 — Coleta diária às 09:00 (Brasília) e alerta de CAUC sem a palavra "irregular" (29/10/2026)
 O CAUC é publicado em dias úteis por volta das 08:11 (Brasília), então a coleta passou de 06:00 para 09:00 (cron `0 12 * * *`). O `!` do CAUC significa "o Tesouro não conseguiu obter a comprovação do requisito", e 307 dos 645 municípios de SP têm algum; por isso o alerta se chama `cauc_sem_comprovacao`, vale para qualquer item `!` e diz o item (ex.: "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"). Não afirma irregularidade que o arquivo não declara.
 

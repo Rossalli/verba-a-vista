@@ -1,0 +1,47 @@
+[
+  {
+    "tipo_janela": "emenda",
+    "id_programa": 170,
+    "cd_programa": "2026 - 00065",
+    "nm_programa": "ESTRUTURAÇÃO DA REDE DE SERVIÇOS DO SUAS - EMENDAS DE COMISSÃO - CUSTEI - GND3",
+    "tp_instrumento": "Transferências Fundo a Fundo",
+    "qualificacao_beneficiario": "Beneficiário de Emenda Parlamentar",
+    "dt_fim": "2026-12-31"
+  },
+  {
+    "tipo_janela": "emenda",
+    "id_programa": 111,
+    "cd_programa": "2026 - 00006",
+    "nm_programa": "ESTRUTURAÇÃO DA REDE DE SERVIÇOS DO SUAS - EMENDAS INDIVIDUAIS - INVESTIMENTO - GND4",
+    "tp_instrumento": "Transferências Fundo a Fundo",
+    "qualificacao_beneficiario": "Beneficiário de Emenda Parlamentar",
+    "dt_fim": "2026-12-31"
+  },
+  {
+    "tipo_janela": "emenda",
+    "id_programa": 110,
+    "cd_programa": "2026 - 00005",
+    "nm_programa": "ESTRUTURAÇÃO DA REDE DE SERVIÇOS DO SUAS - EMENDAS INDIVIDUAIS - CUSTEIO - GND3",
+    "tp_instrumento": "Transferências Fundo a Fundo",
+    "qualificacao_beneficiario": "Beneficiário de Emenda Parlamentar",
+    "dt_fim": "2026-12-31"
+  },
+  {
+    "tipo_janela": "emenda",
+    "id_programa": 171,
+    "cd_programa": "2026 - 00066",
+    "nm_programa": "ESTRUTURAÇÃO DA REDE DE SERVIÇOS DO SUAS - EMENDAS DE COMISSÃO - INVESTIMENTO - GND4",
+    "tp_instrumento": "Transferências Fundo a Fundo",
+    "qualificacao_beneficiario": "Beneficiário de Emenda Parlamentar",
+    "dt_fim": "2026-12-31"
+  },
+  {
+    "tipo_janela": "emenda",
+    "id_programa": 169,
+    "cd_programa": "2026 - 00064",
+    "nm_programa": "ESTRUTURAÇÃO DA REDE DE SERVIÇOS DO SUAS - EMENDAS DE BANCADA - INVESTIMENTO - GND4",
+    "tp_instrumento": "Transferências Fundo a Fundo",
+    "qualificacao_beneficiario": "Beneficiário de Emenda Parlamentar",
+    "dt_fim": "2026-12-31"
+  }
+]
