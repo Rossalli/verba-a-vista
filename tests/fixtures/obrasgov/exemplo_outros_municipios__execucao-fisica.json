@@ -1,0 +1,34 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/execucao-fisica",
+  "params": {
+    "pagina": 1
+  },
+  "coletado_em": "2026-10-29T15:49:16-03:00",
+  "total_items": 74331,
+  "amostra": [
+    {
+      "id_projeto_investimento": "87098.21-46",
+      "id_execucao_fisica": 165830,
+      "percentual_execucao_fisica": 85.44,
+      "dt_inicial_execucao": "2020-11-11T00:00:00",
+      "dt_final_execucao": "2025-11-11T00:00:00",
+      "tipo_instrumento": null,
+      "tipo_forma_execucao": null,
+      "dt_criacao_instrumento": null,
+      "dt_cadastro_execucao": "2026-01-18T20:58:29.661999",
+      "dt_atualizacao_execucao": "2026-05-27",
+      "indicativos": [
+        {
+          "descricao_indicativo": "Declaração da Empresa Executora",
+          "id_indicativo": 78098
+        }
+      ],
+      "motivos": [
+        {
+          "descricao_motivo": "Revisão de projeto básico",
+          "id_motivo": 78152
+        }
+      ]
+    }
+  ]
+}

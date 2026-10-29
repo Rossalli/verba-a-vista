@@ -131,12 +131,38 @@ Pendências desta fonte:
 
 ## Obrasgov.br — API
 
-- Host: `https://api-publica.obrasgov.gestao.gov.br`
-- Autenticação: não exige (segundo a documentação do pacote [obrasgovr](https://ftp.fau.de/cran/web/packages/obrasgovr/refman/obrasgovr.html)).
-- Recursos: projetos de investimento, execução física, contratos, empenhos, geometrias, estudos de viabilidade, histórico de situação, data da última atualização.
-- **Histórico de situação traz projetos cancelados ou suspensos com motivos e providências.** Principal fonte automática de "porquê".
-- Filtro por município: **A VERIFICAR** (exemplos usam `uf_principal`).
-- [Página oficial da API](https://www.gov.br/obrasgov/pt-br/ferramentas-de-gestao-e-transparencia/api-de-dados-abertos-obrasgov-br_novo).
+- Host: `https://api-publica.obrasgov.gestao.gov.br`; **a API fica sob `/obras`** (a raiz é só uma página de apresentação).
+- [Página oficial da API](https://www.gov.br/obrasgov/pt-br/ferramentas-de-gestao-e-transparencia/api-de-dados-abertos-obrasgov-br_novo). Referência de terceiros (versão antiga da API): [obrasgovr](https://ftp.fau.de/cran/web/packages/obrasgovr/refman/obrasgovr.html); os nomes de endpoint e de campo abaixo são os da **nova versão**, lidos do OpenAPI.
+
+**VERIFICADO em 29/10/2026** (POC `scripts/poc_obrasgov.py`, 36 requisições; amostras em `tests/fixtures/obrasgov/`).
+
+Geral:
+- **Documentação:** `{host}/obras/docs` (Swagger) e `{host}/obras/openapi.json` (FastAPI, v1.0, "nova versão do serviço"). Dicionário de dados: `modelo_dados_api_obrasgov.zip` no gov.br (não baixado nesta POC).
+- **Autenticação:** nenhuma. **Limites:** não documentados; 36 requisições com pausa de 0,3 s não deram 429.
+- **Paginação:** `pagina` e `tamanho_da_pagina` (máx. 200); envelope `{data, total_pages, total_items, page_number, page_size}`. `GET /data-atualizacao` → `{"data_ultima_atualizacao": "2026-10-29T00:00:00"}`.
+- **Parâmetro desconhecido é ignorado** e devolve tudo (provado: `cod_ibgex` devolveu os 240.956 registros). O script valida contra o OpenAPI antes de chamar.
+- Endpoints: `projeto-investimento`, `execucao-fisica`, `historico-situacao-cancelada-paralisada`, `geometria`, `contrato`, `empenho`, `estudo-viabilidade`, `data-atualizacao`. Valores monetários em reais (decimal); datas ISO, às vezes com hora.
+
+Como achar as obras do município:
+- **`geometria` tem `cod_ibge`** (inteiro) e funciona: 4 geometrias, 4 projetos. É a única rota por município.
+- `projeto-investimento` não tem filtro por município (só `uf_principal`, `cnpj_organizacao_resp` etc.). **Filtrar pelo CNPJ da prefeitura devolveu 0**, porque a "organização responsável" é o Ministério da Economia (ou o DNIT). A prefeitura aparece em **`executores[].cnpj_executor`** (campo aninhado, não filtrável): 3 dos 4 projetos têm `45145414000147` como executor.
+- **Ponte com o Siconv:** `https://repositorio.dados.gov.br/seges/detru/siconv_dados_obrasgov_geral.zip` (600 KB, CSV `;`) liga `id_projeto_investimento` a `nr_instrumento` (= `NR_CONVENIO`). As 3 obras da prefeitura casam 1 para 1: `106169.35-86` → convênio 990509; `31694.35-09` → 925702; `47960.35-00` → 970941. Valores e vigências também batem. A coluna `link_transparencia` desse arquivo traz usuário e senha `guest` na URL: **não copiar nem publicar** esses links.
+
+Resultado para Neves Paulista (29/10/2026):
+- **4 projetos, todos com `situacao = Cadastrada`**: 3 obras da prefeitura (habitação MCMV R$ 2,85 mi e R$ 3,41 mi; recapeamento R$ 486 mil; sistema `Transferegov.br`) e **1 projeto do DNIT** (manutenção rodoviária em todo o estado de SP, sistema `CIPI`, sem executor), que só tem uma geometria no município e **não é verba da prefeitura**.
+- **Execução física: 0 registros. Histórico de cancelada/paralisada: 0 registros.** Contratos: 7 (todos do projeto do DNIT). Empenhos: 46 (43 do DNIT, 2 de `47960.35-00`, 1 de `106169.35-86`).
+- **A `situacao` do Obrasgov não reflete a realidade nestes casos**: os três convênios correspondentes estão "Em execução" no Siconv (um com R$ 288.758,79 desembolsados), mas as obras seguem "Cadastrada" e sem nenhuma medição lançada. O cadastro é feito pelos gestores e fica desatualizado.
+
+Estrutura dos endpoints sem dados no município (conferida em outros municípios, amostras em `tests/fixtures/obrasgov/exemplo_outros_municipios__*.json`):
+- `execucao-fisica` (74.331 registros no país): `id_execucao_fisica`, `percentual_execucao_fisica`, `dt_inicial_execucao`, `dt_final_execucao`, `dt_cadastro_execucao`, **`dt_atualizacao_execucao`** (data da última atualização, base da regra `obra_parada`), `tipo_instrumento`, `tipo_forma_execucao`, e listas `indicativos` (`descricao_indicativo`) e `motivos` (`descricao_motivo`, ex.: "Revisão de projeto básico").
+- `historico-situacao-cancelada-paralisada` (8.368 registros no país): `descricao_historico_situacao_investimento` (`Paralisada` ou `Cancelada`), `data_historico_situacao_investimento`, **`justificativa_cancelada_paralisada`** (texto livre, ex.: "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município."), `possui_tratativas_situacao_investimento`, `fase_tratativas_situacao_investimento`. É a fonte do "porquê" nas obras, **mas é texto livre digitado pelo gestor**: só pode ser citado como documento, nunca reescrito como fato (spec §7). Na 1ª página, `fase_tratativas_...` veio sempre vazio.
+
+Valores de `situacao` (OpenAPI, enum de `projeto-investimento`): `Cadastrada`, `Cancelada`, `Concluída`, `Em execução`, `Inacabada`, `Paralisada`. **Não existe "Suspensa"** (estava como exemplo no `status_map.yaml`). Contagem em SP (total_items): Cadastrada 15.170; Em execução 1.727; Concluída 3.587; Cancelada 239; Inacabada 75; Paralisada 19. No município, só `Cadastrada` foi observada.
+
+Lacunas:
+- A regra `obra_parada` (spec §5) precisa de `execucao-fisica`, que **não tem nenhum registro** do município: "sem dado de execução" não pode ser lido como "obra parada".
+- O `cod_ibge` da geometria diz onde a obra está, não quem recebe o recurso (o projeto do DNIT mostra a diferença).
+- `SIT_CONVENIO` do Siconv e `situacao` do Obrasgov podem discordar; falta decidir qual vale (ver `docs/decisoes.md`).
 
 ## Portal da Transparência (CGU) — API
 

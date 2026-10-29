@@ -1,0 +1,55 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/historico-situacao-cancelada-paralisada",
+  "params": {
+    "pagina": 1
+  },
+  "coletado_em": "2026-10-29T15:49:17-03:00",
+  "total_items": 8368,
+  "amostra": [
+    {
+      "id_historico_situacao_investimento": 2628606,
+      "descricao_historico_situacao_investimento": "Paralisada",
+      "data_historico_situacao_investimento": "2024-11-21",
+      "justificativa_cancelada_paralisada": "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município.",
+      "possui_tratativas_situacao_investimento": "Não",
+      "fase_tratativas_situacao_investimento": null,
+      "id_projeto_investimento": "10387.11-98"
+    },
+    {
+      "id_historico_situacao_investimento": 1732759,
+      "descricao_historico_situacao_investimento": "Paralisada",
+      "data_historico_situacao_investimento": "2024-11-21",
+      "justificativa_cancelada_paralisada": "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município.",
+      "possui_tratativas_situacao_investimento": "Não",
+      "fase_tratativas_situacao_investimento": null,
+      "id_projeto_investimento": "10387.11-98"
+    },
+    {
+      "id_historico_situacao_investimento": 2675079,
+      "descricao_historico_situacao_investimento": "Paralisada",
+      "data_historico_situacao_investimento": "2024-11-21",
+      "justificativa_cancelada_paralisada": "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município.",
+      "possui_tratativas_situacao_investimento": "Não",
+      "fase_tratativas_situacao_investimento": null,
+      "id_projeto_investimento": "10387.11-98"
+    },
+    {
+      "id_historico_situacao_investimento": 2605455,
+      "descricao_historico_situacao_investimento": "Paralisada",
+      "data_historico_situacao_investimento": "2024-11-21",
+      "justificativa_cancelada_paralisada": "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município.",
+      "possui_tratativas_situacao_investimento": "Não",
+      "fase_tratativas_situacao_investimento": null,
+      "id_projeto_investimento": "10387.11-98"
+    },
+    {
+      "id_historico_situacao_investimento": 2698372,
+      "descricao_historico_situacao_investimento": "Paralisada",
+      "data_historico_situacao_investimento": "2024-11-21",
+      "justificativa_cancelada_paralisada": "Solicitado pela empresa e autorizado pela Secretaria de Obras do Município.",
+      "possui_tratativas_situacao_investimento": "Não",
+      "fase_tratativas_situacao_investimento": null,
+      "id_projeto_investimento": "10387.11-98"
+    }
+  ]
+}

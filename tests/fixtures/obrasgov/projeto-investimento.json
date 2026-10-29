@@ -1,0 +1,286 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento",
+  "params": {
+    "id_projeto_investimento": "<ids>"
+  },
+  "coletado_em": "2026-10-29T15:49:06-03:00",
+  "total_items": 4,
+  "amostra": [
+    {
+      "id_projeto_investimento": "106169.35-86",
+      "projeto_estruturante": null,
+      "desc_nome": "CONSTRUÇAO UNIDADES HABITACIONAIS MCMV",
+      "nr_cep": null,
+      "desc_endereco": null,
+      "desc_projeto": "PROVISÃO DE UNIDADES HABITACIONAIS MCMV, NO MUNICIPIO DE NEVES PAULISTA-SP",
+      "desc_funcao_social": "Atendendo famílias de baixa renda. O município enfrenta um déficit habitacional significativo, especialmente entre as famílias de baixa renda. Afalta de moradias adequadas contribui para uma série de problemas sociais, como insegurança habitacional, aumento dosíndices de pobreza e desigualdade social. Muitos moradores têm dificuldade em pagar aluguel devido aos altos valores domercado imobiliário, o que agrava ainda mais a situação. A construção das unidades é essencial para oferecer condições de vidadigna.. Construção de 20 unidades habitacionais para atender famílias de baixa renda, reduzindo significativamente o número depessoas sem acesso a moradias adequadas. Proporcionar habitação digna para famílias vulneráveis, promovendo a inclusãosocial e melhorando as condições de vida dos beneficiários. Geração de empregos diretos e indiretos durante a construção dasmoradias, contribuindo para o fortalecimento da economia local",
+      "desc_meta_global": "PROVISÃO DE UNIDADES HABITACIONAIS MCMV, NO MUNICIPIO DE NEVES PAULISTA-SP",
+      "dt_inicial_prevista": "2025-12-30",
+      "dt_final_prevista": "2029-12-30",
+      "dt_cadastro": "2025-12-17",
+      "ano_cadastro": 2025,
+      "natureza_intervencao": "Obra",
+      "id_natureza_intervencao": 2,
+      "especie_intervencao": "Construção",
+      "id_especie_intervencao": 1,
+      "situacao": "Cadastrada",
+      "uf_principal": "SP",
+      "organizacao_resp": "MINISTERIO DA ECONOMIA",
+      "cnpj_organizacao_resp": null,
+      "populacao_beneficiada": 20,
+      "desc_populacao_beneficiada": "FAMILIAS DE BAIXA RENDA",
+      "qtd_empregos_gerados": 200,
+      "ind_bim": 0,
+      "dt_inicial_efetiva": null,
+      "dt_final_efetiva": null,
+      "obs_pertinentes_intervencao": null,
+      "sistema_resp": "Transferegov.br",
+      "possui_estudo_viabilidade": "NÃO",
+      "repassadores": [
+        {
+          "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+          "cnpj_repassador": "05465986000199"
+        }
+      ],
+      "tomadores": [],
+      "executores": [
+        {
+          "organizacao_executor": "MUNICIPIO DE NEVES PAULISTA",
+          "cnpj_executor": "45145414000147"
+        }
+      ],
+      "investimentos_previstos": [
+        {
+          "vl_investimento_previsto": 2850000.0,
+          "desc_nome_fonte_recurso": "Federal"
+        }
+      ],
+      "ppas": [],
+      "eixos_tipos": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Desenvolvimento",
+          "id_tipo": 45,
+          "subtipo": "Habitação de Interesse Social",
+          "id_subtipo": 53
+        }
+      ],
+      "fotos": [],
+      "pins": [
+        {
+          "pin": "POINT (-49.63626 -20.83586)",
+          "latitude": "-20.83586",
+          "longitude": "-49.63626"
+        }
+      ],
+      "areas_restricao": []
+    },
+    {
+      "id_projeto_investimento": "31694.35-09",
+      "projeto_estruturante": null,
+      "desc_nome": "RECAPEAMENTO ASFALTICO EM VIAS DO MUNICIPIO",
+      "nr_cep": null,
+      "desc_endereco": null,
+      "desc_projeto": "Recapeamento Asfáltico em diversas vias no municipio de Neves Paulista",
+      "desc_funcao_social": "Todos os moradores do municipio de Neves Paulista e visitantes.. Deficiências no asfalto existente, buracos e desgaste natural.. Melhorar as condições de tráfego tanto para os moradores quanto para os veículos de grande e pequeno porte, reforçando assim, a segurança para todos aqueles que por lá transitam.",
+      "desc_meta_global": "Recapeamento Asfáltico em diversas vias no municipio de Neves Paulista",
+      "dt_inicial_prevista": "2023-12-28",
+      "dt_final_prevista": "2026-12-20",
+      "dt_cadastro": "2023-12-27",
+      "ano_cadastro": 2023,
+      "natureza_intervencao": "Obra",
+      "id_natureza_intervencao": 2,
+      "especie_intervencao": "Recuperação",
+      "id_especie_intervencao": 4,
+      "situacao": "Cadastrada",
+      "uf_principal": "SP",
+      "organizacao_resp": "MINISTERIO DA ECONOMIA",
+      "cnpj_organizacao_resp": null,
+      "populacao_beneficiada": null,
+      "desc_populacao_beneficiada": null,
+      "qtd_empregos_gerados": null,
+      "ind_bim": 0,
+      "dt_inicial_efetiva": null,
+      "dt_final_efetiva": null,
+      "obs_pertinentes_intervencao": null,
+      "sistema_resp": "Transferegov.br",
+      "possui_estudo_viabilidade": "NÃO",
+      "repassadores": [
+        {
+          "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+          "cnpj_repassador": "05465986000199"
+        }
+      ],
+      "tomadores": [],
+      "executores": [
+        {
+          "organizacao_executor": "MUNICIPIO DE NEVES PAULISTA",
+          "cnpj_executor": "45145414000147"
+        }
+      ],
+      "investimentos_previstos": [
+        {
+          "vl_investimento_previsto": 486124.06,
+          "desc_nome_fonte_recurso": "Federal"
+        }
+      ],
+      "ppas": [],
+      "eixos_tipos": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Infraestrutura Urbana e Mobilidade",
+          "id_tipo": 37,
+          "subtipo": "Urbanização",
+          "id_subtipo": 75
+        }
+      ],
+      "fotos": [],
+      "pins": [
+        {
+          "pin": "POINT (-49.62821 -20.83957)",
+          "latitude": "-20.83957",
+          "longitude": "-49.62821"
+        }
+      ],
+      "areas_restricao": []
+    },
+    {
+      "id_projeto_investimento": "328.35-98",
+      "projeto_estruturante": null,
+      "desc_nome": "Manutenção rodoviária na malha federal sob administração do DNIT no estado de SP.",
+      "nr_cep": "1",
+      "desc_endereco": "",
+      "desc_projeto": "Manutenção rodoviária na malha federal sob administração do DNIT no estado do SP.",
+      "desc_funcao_social": "Preservar vidas e promover o desenvolvimento sustentável do país priorizando a segurança, as boas condições de trafegabilidade e a otimização da logística dos transportes, elevando assim o nível de serviço das vias.",
+      "desc_meta_global": "Manutenção rodoviária na malha federal sob administração do DNIT no estado de SP com cobertura de no mínimo 90% da malha com contratos de conservação e recuperação.",
+      "dt_inicial_prevista": "2021-01-01",
+      "dt_final_prevista": "2021-12-31",
+      "dt_cadastro": "2021-03-08",
+      "ano_cadastro": 2021,
+      "natureza_intervencao": "Projeto de Investimento em Infraestrutura",
+      "id_natureza_intervencao": 1,
+      "especie_intervencao": null,
+      "id_especie_intervencao": null,
+      "situacao": "Cadastrada",
+      "uf_principal": "SP",
+      "organizacao_resp": "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES",
+      "cnpj_organizacao_resp": "04892707000100",
+      "populacao_beneficiada": null,
+      "desc_populacao_beneficiada": null,
+      "qtd_empregos_gerados": null,
+      "ind_bim": null,
+      "dt_inicial_efetiva": null,
+      "dt_final_efetiva": null,
+      "obs_pertinentes_intervencao": null,
+      "sistema_resp": "CIPI",
+      "possui_estudo_viabilidade": "NÃO",
+      "repassadores": [],
+      "tomadores": [],
+      "executores": [],
+      "investimentos_previstos": [
+        {
+          "vl_investimento_previsto": 8230000.0,
+          "desc_nome_fonte_recurso": "Federal"
+        }
+      ],
+      "ppas": [
+        {
+          "tipo_ppa": "Federal",
+          "desc_ppa": "PROGRAMA 3006"
+        }
+      ],
+      "eixos_tipos": [],
+      "fotos": [],
+      "pins": [
+        {
+          "pin": "POINT(-49.3007301956578 -22.5093226197243)",
+          "latitude": "-22.5093226197243",
+          "longitude": "22.5093226197243)"
+        }
+      ],
+      "areas_restricao": [
+        {
+          "area_restricao": "Território Quilombola Federal"
+        },
+        {
+          "area_restricao": "Terra Indígena"
+        },
+        {
+          "area_restricao": "Unidade de Conservação"
+        }
+      ]
+    },
+    {
+      "id_projeto_investimento": "47960.35-00",
+      "projeto_estruturante": null,
+      "desc_nome": "PRODUÇÃO DE UNIDADES HABITACIONAIS",
+      "nr_cep": null,
+      "desc_endereco": null,
+      "desc_projeto": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+      "desc_funcao_social": "População de baixa renda do município de Neves Paulista.. O município enfrenta desafios significativos relacionados à habitação, especialmente para as populações de baixa renda. O déficit habitacional é um problema persistente que impacta diretamente a qualidade de vida dos cidadãos, a coesão social e o desenvolvimento econômico do município.. Promover mais qualidade de vida a população com a produção de mais 25 unidades habitacionais no município.",
+      "desc_meta_global": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+      "dt_inicial_prevista": "2024-12-13",
+      "dt_final_prevista": "2028-09-13",
+      "dt_cadastro": "2024-12-12",
+      "ano_cadastro": 2024,
+      "natureza_intervencao": "Obra",
+      "id_natureza_intervencao": 2,
+      "especie_intervencao": "Construção",
+      "id_especie_intervencao": 1,
+      "situacao": "Cadastrada",
+      "uf_principal": "SP",
+      "organizacao_resp": "MINISTERIO DA ECONOMIA",
+      "cnpj_organizacao_resp": null,
+      "populacao_beneficiada": null,
+      "desc_populacao_beneficiada": null,
+      "qtd_empregos_gerados": null,
+      "ind_bim": 0,
+      "dt_inicial_efetiva": null,
+      "dt_final_efetiva": null,
+      "obs_pertinentes_intervencao": null,
+      "sistema_resp": "Transferegov.br",
+      "possui_estudo_viabilidade": "SIM",
+      "repassadores": [
+        {
+          "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+          "cnpj_repassador": "05465986000199"
+        }
+      ],
+      "tomadores": [],
+      "executores": [
+        {
+          "organizacao_executor": "MUNICIPIO DE NEVES PAULISTA",
+          "cnpj_executor": "45145414000147"
+        }
+      ],
+      "investimentos_previstos": [
+        {
+          "vl_investimento_previsto": 3411250.0,
+          "desc_nome_fonte_recurso": "Federal"
+        }
+      ],
+      "ppas": [],
+      "eixos_tipos": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Assistência Social",
+          "id_tipo": 41,
+          "subtipo": "Habitação de Interesse Social",
+          "id_subtipo": 53
+        }
+      ],
+      "fotos": [],
+      "pins": [
+        {
+          "pin": "POINT (-49.63305 -20.8462)",
+          "latitude": "-20.8462",
+          "longitude": "-49.63305"
+        }
+      ],
+      "areas_restricao": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/geometria",
+  "params": {
+    "cod_ibge": 3532504
+  },
+  "coletado_em": "2026-10-29T15:49:04-03:00",
+  "total_items": 4,
+  "amostra": [
+    {
+      "id_projeto_investimento": "31694.35-09",
+      "id_geometria": 832547,
+      "sg_uf": "SP",
+      "no_municipio": "Neves Paulista",
+      "cod_ibge": 3532504,
+      "origem_geometria": "Par de Lat/Long"
+    },
+    {
+      "id_projeto_investimento": "328.35-98",
+      "id_geometria": 1144,
+      "sg_uf": "SP",
+      "no_municipio": "Neves Paulista",
+      "cod_ibge": 3532504,
+      "origem_geometria": "Par de Lat/Long"
+    },
+    {
+      "id_projeto_investimento": "47960.35-00",
+      "id_geometria": 1557356,
+      "sg_uf": "SP",
+      "no_municipio": "Neves Paulista",
+      "cod_ibge": 3532504,
+      "origem_geometria": "Par de Lat/Long"
+    },
+    {
+      "id_projeto_investimento": "106169.35-86",
+      "id_geometria": 1348564,
+      "sg_uf": "SP",
+      "no_municipio": "Neves Paulista",
+      "cod_ibge": 3532504,
+      "origem_geometria": "Par de Lat/Long"
+    }
+  ]
+}

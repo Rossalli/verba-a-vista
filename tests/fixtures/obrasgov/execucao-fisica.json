@@ -1,0 +1,9 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/execucao-fisica",
+  "params": {
+    "id_projeto_investimento": "<ids>"
+  },
+  "coletado_em": "2026-10-29T15:49:08-03:00",
+  "total_items": 0,
+  "amostra": []
+}

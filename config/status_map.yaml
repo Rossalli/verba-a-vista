@@ -88,15 +88,18 @@ fontes:
     # relatorios-gestao: EM_ELABORACAO, ENVIADO_ANALISE, ENVIADO_ANALISE_CONSELHO, EM_COMPLEMENTACAO,
     # ANALISE_CONCLUIDA, ANALISE_CONCLUIDA_CONSELHO, REJEITADO. Valores de situacao_plano_acao: o OpenAPI não lista.
 
+  # T1.3, verificado em 29/10/2026. O Obrasgov é fonte AUXILIAR e NÃO define status_site
+  # (decisão da autora em 29/10/2026, D8; spec §4): o mapa fica vazio de propósito.
+  # No município só foi observada "Cadastrada" (4 projetos). Valores do OpenAPI: Cadastrada,
+  # Cancelada, Concluída, Em execução, Inacabada, Paralisada ("Suspensa" não existe).
   obrasgov:
-    verificado: null
+    verificado: 2026-10-29
     campo: situacao
-    mapa:
-      execucao: ["Em execução"]
-      concluida: ["Concluída"]
-      perdida: ["Cancelada"]
-    # "Paralisada" / "Suspensa" NÃO mudam o status: geram em_risco (regra obra_parada).
-    sinais_risco: ["Paralisada", "Suspensa"]
+    mapa: {}
+    # "Paralisada" não muda o status: gera em_risco (regra obra_parada), junto com a falta de
+    # atualização de execução física. "Cancelada" vira sinal e documento para a curadoria.
+    # "Inacabada" não é citada na spec: não é sinal até a autora decidir.
+    sinais_risco: ["Paralisada"]
 
   portal_transparencia:
     verificado: null

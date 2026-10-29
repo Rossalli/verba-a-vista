@@ -1,0 +1,9 @@
+{
+  "url": "https://api-publica.obrasgov.gestao.gov.br/obras/historico-situacao-cancelada-paralisada",
+  "params": {
+    "id_projeto_investimento": "<ids>"
+  },
+  "coletado_em": "2026-10-29T15:49:09-03:00",
+  "total_items": 0,
+  "amostra": []
+}

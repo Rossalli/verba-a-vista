@@ -55,7 +55,9 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 
 `em_risco` **não é status**. É um alerta (booleano + lista de motivos) que pode existir em `proposta`, `aprovada`, `execucao` e `prestacao`.
 
-O mapeamento de cada situação de cada fonte para `status_site` vive em `config/status_map.yaml`. Situação desconhecida → `status_site: null`, a verba vai para um relatório de "situações não mapeadas" e **não** recebe status inventado. Ela é publicada mesmo assim, com o `status_fonte` e o selo neutro "situação em análise", fora dos totais por etapa, até a situação ser mapeada.
+O mapeamento de cada situação de cada fonte para `status_site` vive em `config/status_map.yaml`. **Papel do Obrasgov:** é fonte auxiliar e **não define `status_site`** (o cadastro dos gestores fica desatualizado: obras "Cadastrada" sem medição, com convênio "Em execução" no Siconv). Um projeto do Obrasgov só entra quando a prefeitura (CNPJ em `executores`) é a executora e ele se liga a um instrumento do Transferegov/Siconv (ponte `siconv_dados_obrasgov_geral`); ele alimenta o alerta `obra_parada`, `execucao_fisica_pct` e o dossiê da curadoria. Projetos de outros executores (ex.: manutenção rodoviária do DNIT) ficam de fora.
+
+Situação desconhecida → `status_site: null`, a verba vai para um relatório de "situações não mapeadas" e **não** recebe status inventado. Ela é publicada mesmo assim, com o `status_fonte` e o selo neutro "situação em análise", fora dos totais por etapa, até a situação ser mapeada.
 
 ## 5. Em risco
 
@@ -65,7 +67,7 @@ Regras em `config/regras.yaml` (valores ajustáveis). Uma verba fica `em_risco: 
 | --- | --- |
 | `prazo_proximo` | Algum prazo do instrumento (cláusula suspensiva, vigência, prestação de contas, adesão) vence em até `dias_alerta_prazo` dias (padrão 60) |
 | `cauc_irregular` | O município tem item irregular no CAUC na data da coleta e a verba é do `tipo` `voluntaria` ou `emenda_finalidade` com `status_site` `proposta` ou `aprovada` (antes da liberação). Os tipos e etapas ficam em `config/regras.yaml` e podem ser ajustados após a T1.5 |
-| `obra_parada` | Obra no Obrasgov sem nova medição ou mudança de execução física há mais de `dias_obra_parada` dias (padrão 90), ou situação "suspensa"/"paralisada" |
+| `obra_parada` | Obra no Obrasgov sem nova atualização de execução física (`dt_atualizacao_execucao`) há mais de `dias_obra_parada` dias (padrão 90), ou situação `Paralisada`. Sem nenhum registro de execução física a regra **não dispara** (ausência de dado não é obra parada). A situação "Suspensa" não existe na API |
 | `impedimento_emenda` | Emenda com impedimento técnico registrado e ainda não superado |
 
 Dependem de campo ainda não verificado: `impedimento_emenda` (e a perda por "impedimento não superado no exercício", §6.1) e o prazo de `adesao`. Só são implementados na T2.3 se a POC correspondente (T1.1, T1.4, T1.7) confirmar o campo na fonte; caso contrário a regra fica desligada e o fato é registrado em `docs/decisoes.md`. Os testes usam fixtures de exemplo.
@@ -76,7 +78,7 @@ Cada motivo de risco gera um texto curto para o site (ex.: "Prazo em 38 dias").
 
 ### 6.1 Detecção automática
 
-Uma verba vira `perdida` quando a fonte indica, por exemplo: cancelada, extinta, rescindida, anulada, recurso devolvido integralmente, proposta rejeitada/indeferida, impedimento não superado no exercício, ou obra cancelada no Obrasgov. A lista exata de situações fica em `config/status_map.yaml` (destino `perdida`).
+Uma verba vira `perdida` quando a fonte indica, por exemplo: cancelada, extinta, rescindida, anulada, recurso devolvido integralmente, proposta rejeitada/indeferida, ou impedimento não superado no exercício. Obra `Cancelada` no Obrasgov não é gatilho: vira sinal e documento para a curadoria (ver §4, papel do Obrasgov). A lista exata de situações fica em `config/status_map.yaml` (destino `perdida`).
 
 Ao detectar uma perda nova, o pipeline:
 1. registra a mudança no histórico;

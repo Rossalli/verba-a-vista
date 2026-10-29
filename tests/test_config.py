@@ -26,7 +26,8 @@ def test_config_real_do_repositorio_e_valida():
     assert config.regras.municipio.codigo_ibge == "3532504"
     assert config.regras.risco.dias_alerta_prazo == 60
     assert config.regras.curadoria.auto_publicar is False
-    assert "perdida" in config.status_map.fontes["obrasgov"].mapa
+    assert "perdida" in config.status_map.fontes["transferegov_discricionarias_convenio"].mapa
+    assert config.status_map.fontes["obrasgov"].mapa == {}  # fonte auxiliar, não define status (D8)
     assert len(config.taxonomia.categorias) == 10
     assert config.fontes.fontes["portal_transparencia"].auth.env == "PORTAL_TRANSPARENCIA_KEY"
 

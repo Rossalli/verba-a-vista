@@ -1,0 +1,24 @@
+{
+  "url": "https://repositorio.dados.gov.br/seges/detru/siconv_dados_obrasgov_geral.zip",
+  "params": {},
+  "coletado_em": "2026-10-29T15:49:13-03:00",
+  "total_items": 4,
+  "amostra": [
+    {
+      "id_projeto_investimento": "106169.35-86",
+      "nr_instrumento": "990509"
+    },
+    {
+      "id_projeto_investimento": "31694.35-09",
+      "nr_instrumento": "925702"
+    },
+    {
+      "id_projeto_investimento": "328.35-98",
+      "nr_instrumento": null
+    },
+    {
+      "id_projeto_investimento": "47960.35-00",
+      "nr_instrumento": "970941"
+    }
+  ]
+}

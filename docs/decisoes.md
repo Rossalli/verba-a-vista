@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D8 — Obrasgov é fonte auxiliar e não define o status do site (29/10/2026)
+O status vem do Transferegov/Siconv. O Obrasgov só entra quando a prefeitura é executora e o projeto se liga a um instrumento (ponte `siconv_dados_obrasgov_geral`); alimenta o alerta `obra_parada`, o percentual físico e o dossiê da curadoria. Sem registro de execução física, não há alerta. Motivo: na POC da T1.3 as 3 obras da prefeitura estavam "Cadastrada" e sem medição enquanto os convênios estavam "Em execução" no Siconv (um com R$ 288 mil desembolsados); o cadastro dos gestores fica desatualizado.
+
 ## D7 — Curadoria assistida por IA, com revisão humana obrigatória na fase 1 (29/10/2026)
 A IA lê os documentos oficiais e redige motivo, categoria e citações. Uma pessoa aprova antes de publicar. Publicação automática só depois, e só para casos em que o documento declara o motivo (spec §7.5). Motivo: velocidade sem risco de publicar causa inventada sobre gestão pública.
 

@@ -18,7 +18,7 @@ def test_alvos_expande_modulos_e_marca_fontes_sem_url():
     alvos = dict(teste_acesso.alvos(carregar_config()))
     assert alvos["transferegov_api/especiais"] == "https://api-publica.transferegov.gestao.gov.br/especiais/docs"
     assert alvos["transferegov_api/parcerias"].endswith("/parcerias/docs")
-    assert alvos["obrasgov"] == "https://api-publica.obrasgov.gestao.gov.br"
+    assert alvos["obrasgov"] == "https://api-publica.obrasgov.gestao.gov.br/obras"
     assert alvos["transferegov_discricionarias"] == "https://repositorio.dados.gov.br/seges/detru"
     assert alvos["cauc"] is None
 

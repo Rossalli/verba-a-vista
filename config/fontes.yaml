@@ -14,8 +14,8 @@ fontes:
     ativa: true
 
   obrasgov:
-    base_url: https://api-publica.obrasgov.gestao.gov.br
-    auth: null
+    base_url: https://api-publica.obrasgov.gestao.gov.br/obras   # VERIFICADO 2026-10-29 (T1.3): a API fica sob /obras
+    auth: null            # VERIFICADO 2026-10-29: sem autenticação
     ativa: true
 
   portal_transparencia:
