@@ -1,0 +1,100 @@
+{
+  "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/programas-beneficiarios",
+  "params": {
+    "codigo_ibge_municipio_ente_beneficiario_programa": 3532504
+  },
+  "coletado_em": "2026-10-29T15:17:45-03:00",
+  "total_items": 6,
+  "amostra": [
+    {
+      "id_beneficiario_programa": 4070,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "NEVES PAULISTA",
+      "valor_beneficiario_programa": 75444.23,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 8
+    },
+    {
+      "id_beneficiario_programa": 7143,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "NEVES PAULISTA",
+      "valor_beneficiario_programa": 75444.23,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 15
+    },
+    {
+      "id_beneficiario_programa": 12825,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "valor_beneficiario_programa": 1.0,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 38
+    },
+    {
+      "id_beneficiario_programa": 28123,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "valor_beneficiario_programa": 91673.94,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 47
+    },
+    {
+      "id_beneficiario_programa": 34028,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "valor_beneficiario_programa": 81366.72,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 62
+    },
+    {
+      "id_beneficiario_programa": 40641,
+      "cnpj_beneficiario_programa": "45145414000147",
+      "nome_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "valor_beneficiario_programa": 320840.28,
+      "numero_emenda_beneficiario_programa": null,
+      "nome_parlamentar_beneficiario_programa": null,
+      "tipo_beneficiario_programa": "ESPECIFICO",
+      "nome_ente_beneficiario_programa": "MUNICIPIO DE NEVES PAULISTA",
+      "uf_ente_beneficiario_programa": "SP",
+      "nome_municipio_ente_beneficiario_programa": "NEVES PAULISTA",
+      "codigo_ibge_municipio_ente_beneficiario_programa": 3532504,
+      "id_ente_beneficiario_programa": 3044,
+      "id_programa": 112
+    }
+  ]
+}

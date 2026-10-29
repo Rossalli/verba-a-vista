@@ -1,0 +1,9 @@
+{
+  "url": "https://api-publica.transferegov.gestao.gov.br/especiais/planos-acao-especiais",
+  "params": {
+    "id_beneficiario": "<ids>"
+  },
+  "coletado_em": "2026-10-29T15:17:48-03:00",
+  "total_items": 0,
+  "amostra": []
+}

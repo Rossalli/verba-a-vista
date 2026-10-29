@@ -2,7 +2,7 @@
 
 Estado em 29/10/2026. Tudo marcado **A VERIFICAR** precisa ser confirmado numa prova de conceito (plano, Marco 1) antes de virar código de produção. Ao confirmar, troque a marca por **VERIFICADO em <data>** e registre o que achou.
 
-Identificadores do município: código IBGE **3532504**; UF SP; CNPJ da prefeitura **A VERIFICAR**.
+Identificadores do município: código IBGE **3532504**; UF SP; CNPJ da prefeitura **45145414000147** (VERIFICADO em 29/10/2026 nos dados do Transferegov, ver §Transferegov API).
 
 ## Acesso
 
@@ -23,12 +23,61 @@ Testes de 29/10/2026 com `scripts/teste_acesso.py`, sem credenciais: local às 1
 - Host: `https://api-publica.transferegov.gestao.gov.br`
 - Módulos: `especiais` (emendas Pix), `fundoafundo`, `parcerias` (programas, propostas, parcerias, execução financeira), `ted`.
 - Documentação: `/especiais/docs`, `/fundoafundo/docs`, `/parcerias/docs`, `/ted/docs`.
-- Autenticação: nenhuma documentada. **A VERIFICAR.**
-- Cuidado: a API ignora parâmetros desconhecidos e devolve a tabela inteira com HTTP 200. Valide os nomes de parâmetros contra a documentação antes de chamar.
-- Exemplo de parâmetro visto: `situacao_proposta` (módulo `parcerias`), `sg_uf_recebedor`.
-- Filtro por município: **A VERIFICAR.**
-- Valores de situação: **A VERIFICAR.**
 - Referência: pacote Python [transferegovpy](https://pypi.org/project/transferegovpy/).
+
+**VERIFICADO em 29/10/2026** (POC `scripts/poc_transferegov_api.py`, 37 requisições; amostras em `tests/fixtures/transferegov_api/`).
+
+Geral:
+- **Autenticação:** nenhuma. **Limites:** não documentados; 37 requisições com pausa de 0,3 s não deram 429. Backoff mesmo assim.
+- **OpenAPI oficial** de cada módulo: `{host}/{modulo}/openapi.json` (a página `/docs` aponta para ele). Todos os nomes de parâmetro abaixo vêm dele.
+- **Paginação:** `pagina` (≥1) e `tamanho_da_pagina` (máx. 200, padrão 50). Resposta: `{data, total_pages, total_items, page_number, page_size}`.
+- **Data de atualização:** `GET /{modulo}/data-atualizacao` → `{"data_ultima_atualizacao": ...}` (29/10/2026: as três bases atualizadas no próprio dia).
+- **Parâmetro desconhecido é ignorado** e devolve a tabela inteira com HTTP 200. Provado: `cd_ibge_recebedorx=3532504` devolveu os 90.460 registros. O script valida cada parâmetro contra o OpenAPI antes de chamar.
+- Valores monetários vêm em **reais, como número decimal** (ex.: `91673.94`): converter para centavos com arredondamento, nunca com `int(x*100)` direto. Datas em ISO (`2025-12-30`; alguns campos com hora).
+- Os filtros de texto são de igualdade exata. Em `fundoafundo/planos-acao`, `Neves Paulista` e `NEVES PAULISTA` deram o mesmo resultado (ignora caixa); em `especiais/beneficiarios-especiais` só o nome exato em maiúsculas foi testado (`MUNICIPIO DE BAURU` achou, `NEVES PAULISTA` sem prefixo não).
+
+Identificação do município (confirmada nos dados):
+- **Código IBGE 3532504**.
+- **Prefeitura:** `MUNICIPIO DE NEVES PAULISTA`, CNPJ **45145414000147** (`fundoafundo/planos-acao` e `programas-beneficiarios`).
+- **Fundos municipais** (recebedores em `parcerias`): Fundo Municipal de Saúde, CNPJ 13921776000196; Fundo Municipal de Assistência Social, CNPJ 14513724000143.
+
+Por módulo:
+
+| Módulo / endpoint | Filtro por município | Resultado para Neves Paulista |
+| --- | --- | --- |
+| `parcerias/proposta` | `cd_ibge_recebedor` (inteiro). Funciona. | 12 propostas (6 de 2025, 6 de 2026): 10 do Fundo Municipal de Saúde, 2 do Fundo Municipal de Assistência Social |
+| `parcerias/parceria` | Não tem; filtrar por `id_proposta` | 12 parcerias, uma por proposta |
+| `fundoafundo/planos-acao` | **`codigo_ibge_*` dá HTTP 500** ("Erro Interno Inesperado"), testado com 7 dígitos (recebedor e repassador) e com 6 dígitos (recebedor). Funcionam: `nome_municipio_ente_recebedor_plano_acao` (ignora caixa) e `cnpj_ente_recebedor_plano_acao`. | 2 planos de ação (Ministério da Cultura, vigência até 31/12/2024), ambos `AUTORIZADO` |
+| `fundoafundo/termos-adesao` | Não tem; filtrar por `id_plano_acao` | 2 termos, ambos `ASSINADO` |
+| `fundoafundo/programas-beneficiarios` | `codigo_ibge_municipio_ente_beneficiario_programa`. Funciona. | 6 registros, todos `ESPECIFICO` |
+| `especiais/beneficiarios-especiais` | Só `uf_beneficiario`, `cnpj_beneficiario`, `nome_beneficiario` (igualdade exata); sem IBGE | **0 registros**: a prefeitura não aparece entre os 628 beneficiários de SP do módulo (conferido por CNPJ, por nome e varrendo SP inteiro). Logo não há planos de ação nem de trabalho de emenda Pix para o município neste módulo em 29/10/2026 |
+| `especiais/planos-acao-especiais`, `planos-trabalho-especiais` | Ligação por `id_beneficiario` e `id_plano_acao` | Sem dados do município |
+
+Campos úteis (nomes exatos do OpenAPI):
+- `parcerias/proposta`: `id_proposta`, `ds_objeto`, `situacao_proposta`, `in_situacao_analise`, `dt_proposta`, `ano_proposta`, `vl_total_planejamento_gastos` (preenchido) e `nr_vlr_total` (veio `null`), `dt_limite_captacao`, `cnpj_ente_recebedor`, `nm_ente_recebedor`, `id_programa`.
+- `parcerias/parceria`: `id_parceria`, `cd_parceria`, `id_proposta`, `in_situacao_parceria`, `in_situacao_autorizacao_execucao`, `dh_assinatura`, `prazo_limite_captacao_recursos`, `publicacoes_parceria`.
+- `fundoafundo/planos-acao`: `id_plano_acao`, `codigo_plano_acao`, `situacao_plano_acao`, `data_inicio_vigencia_plano_acao`, `data_fim_vigencia_plano_acao`, `valor_total_plano_acao`, `valor_total_repasse_plano_acao`, `valor_repasse_emenda_plano_acao`, `valor_saldo_disponivel_plano_acao`, `sigla_orgao_repassador_plano_acao`, `objetivos_plano_acao`.
+- `fundoafundo/termos-adesao`: `situacao_termo_adesao`, `data_assinatura_termo_adesao`, `data_publicacao_dou_termo_adesao`.
+- `especiais/planos-acao-especiais` (sem dados do município, nomes do OpenAPI): `situacao_plano_acao`, **`motivo_impedimento_plano_acao`**, `nome_parlamentar_emenda_plano_acao`, `numero_emenda_parlamentar_plano_acao`, `valor_custeio_plano_acao`, `valor_investimento_plano_acao`; `planos-trabalho-especiais`: `situacao_plano_trabalho`, `data_fim_execucao_plano_trabalho`. Existem também `planos-trabalho-historico` e `planos-acao-historico-especiais`.
+- As amostras gravadas **não** têm dados bancários nem e-mail (o script remove `numero_conta*`, `numero_agencia*`, `dv_*`, `email*`).
+
+Valores de situação **observados** para o município (29/10/2026):
+
+| Campo | Observado | Documentado no OpenAPI (ainda não visto no município) |
+| --- | --- | --- |
+| `parcerias/proposta.situacao_proposta` | `Aprovada` (12) | Em Elaboração, Em Análise, Aprovada, Rejeitada, Inativada |
+| `parcerias/proposta.in_situacao_analise` | `null` (12) | Proposta e Plano de Trabalho Em Complementação, em Análise, Enviados para Análise, Enviado para Complementação |
+| `parcerias/parceria.in_situacao_parceria` | `Aprovada` (12) | Em Elaboração, Em Análise, Em Captação, Aprovada, Rejeitada, Inativa |
+| `fundoafundo/planos-acao.situacao_plano_acao` | `AUTORIZADO` (2) | OpenAPI não lista valores |
+| `fundoafundo/termos-adesao.situacao_termo_adesao` | `ASSINADO` (2) | EM_ELABORACAO, ENVIADO, ASSINADO |
+| `especiais/planos-acao-especiais.situacao_plano_acao` | sem dados | CIENTE, IMPEDIDO (histórico: AGUARDANDO_CIENCIA, AGUARDANDO_CONCLUSAO_PLANO_TRABALHO, CIENTE, IMPEDIDO, IMPEDIDO_REJEICAO_PLANO_TRABALHO) |
+| `especiais/planos-trabalho-especiais.situacao_plano_trabalho` | sem dados | (planos-trabalho-historico) Aguardando envio para Análise, Aprovado, Em Ajuste do Plano de Trabalho, Em Complementação, Em Elaboração, Enviado para Análise, Legado ADPF 854 STF / NT - TCU, Reprovado |
+
+Lacunas que esta POC mostrou:
+- **O módulo `parcerias` não cobre os convênios e contratos de repasse antigos** (Discricionárias e Legais, T1.2): as 12 propostas são todas de 2025 e 2026. Os instrumentos de 2024 em diante podem estar no CSV.
+- Nenhum registro do município tem `nr_vlr_total`, datas de assinatura ou de captação: no módulo `parcerias` não dá para saber, só por estes campos, se o recurso foi liberado. Para `execucao` faltam pagamentos (`parcerias/ordem-pagamento`, `empenho-parceria`), ainda não consultados.
+- Os 2 planos de ação do `fundoafundo` (Cultura) tinham vigência até 31/12/2024: provável convênio encerrado ou em prestação, sem campo de situação que diga isso.
+- Para a regra `impedimento_emenda` (spec §5): o campo `motivo_impedimento_plano_acao` existe em `especiais`, mas **não pôde ser confirmado em dados reais** porque o município não tem registros ali.
 
 ## Transferegov — Discricionárias e Legais (antigo Siconv)
 

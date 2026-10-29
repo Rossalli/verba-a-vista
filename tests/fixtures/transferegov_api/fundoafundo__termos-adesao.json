@@ -1,0 +1,34 @@
+{
+  "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/termos-adesao",
+  "params": {
+    "id_plano_acao": "<ids>"
+  },
+  "coletado_em": "2026-10-29T15:17:45-03:00",
+  "total_items": 2,
+  "amostra": [
+    {
+      "id_termo_adesao": 11228,
+      "numero_processo_termo_adesao": "01400.005980/2023-91",
+      "situacao_termo_adesao": "ASSINADO",
+      "objeto_termo_adesao": "\"Por meio deste Termo de Adesão, o ente federativo se compromete a:1. Executar os recursos decorrentes da Lei Complementar nº 195/2022, seguindo as normas estabelecidas na referida Lei Complementar, no Decreto nº 11.525/2023, no Decreto 11.453/2023 e legislações correlatas.2. Integrar o Sistema Nacional de Cultura (SNC), fortalecendo o seu respectivo sistema de cultura local (estadual, distrital ou municipal) existente ou, se inexistente, implantá-lo, com a instituição do conselho, do plano e do fundo estaduais, distrital ou municipais de cultura, nos termos do art. 216-A da Constituição Federal e em observância às diretrizes estabelecidas pelo Ministério da Cultura, declarando neste ato ciência e concordância em cumprir o referido compromisso até a data de 11 de julho de 2024.   a. A integração do município, estado ou Distrito Federal ao SNC compõe-se das fases de adesão, de institucionalização e de implementação do sistema de cultura local e será operacionalizada por meio da plataforma disponível no endereço eletrônico http://snc.cultura.gov.br/.   b. A adesão se dá mediante assinatura de Acordo de Cooperação Federativa, que tem como objetivo a pactuação de compromissos para a formulação e a implantação de políticas públicas conjuntas para a área da cultura, com vistas ao desenvolvimento e ao pleno funcionamento do SNC.   c. A institucionalização é o processo de regulamentação do sistema de cultura local, mediante a execução do Plano de Trabalho pactuado no Acordo de Cooperação Federativa e consiste na publicação dos seguintes componentes do Sistema Nacional de Cultura: normativo que compõe a estrutura do órgão gestor de cultura; lei do sistema de cultura; lei do plano de cultura; lei do conselho de política cultural; e lei do fundo de cultura.   d. A implementação é a fase na qual há o efetivo funcionamento dos componentes do sistema de cultura local, composta por: inclusão na plataforma do SNC do órgão gestor de cultura e do fundo de cultura; monitoramento das metas do plano de cultura; e inclusão da ata da última reunião do conselho de política cultural.\"\t\t",
+      "data_assinatura_termo_adesao": "2023-05-11",
+      "ano_termo_adesao": 2023,
+      "secao_publicacao_dou_termo_adesao": 1,
+      "pagina_publicacao_dou_termo_adesao": 2,
+      "data_publicacao_dou_termo_adesao": "2023-05-12",
+      "id_plano_acao": 13785
+    },
+    {
+      "id_termo_adesao": 23590,
+      "numero_processo_termo_adesao": "01400.022831/2024-78",
+      "situacao_termo_adesao": "ASSINADO",
+      "objeto_termo_adesao": "No ato da assinatura deste Termo de Adesão, o ente federativo se compromete a executar os recursos decorrentes da Política Nacional Aldir Blanc de Fomento à Cultura, seguindo as normas estabelecidas na Lei nº 14.399 de 08 de julho de 2022; no Decreto 11.740, de 18 de outubro de 2023, e em atos normativos do Ministério da Cultura, especialmente, os dispositivos que estabelecem: a) a garantia de destinar anualmente recursos orçamentários próprios para a cultura, eximindo de forma a impedir o desinvestimento de recursos locais do ente federativo na área da cultura; b) a realização de consulta pública para elaboração do Plano de Aplicação dos Recursos, preferencialmente com a participação do conselho de cultura, ou, na ausência deste, em assembleias gerais com agentes e fazedores de cultura do território, na forma e no prazo estabelecidos pelo Ministério da Cultura; c) o limite de 5% do recurso recebido pelo ente para utilização em recursos de operacionalização da implementação da Política Nacional Aldir Blanc de Fomento à Cultura; d) os percentuais vinculantes para a execução da Política Nacional de Cultura Viva, quais sejam, no mínimo 10% para Estados e Distrito Federal e 25% para os municípios que recebem a partir de R$360.000,00; e) o envio dos documentos e informações relativos à execução e monitoramento dos recursos da Política Nacional Aldir Blanc de Fomento à Cultura; f) o cumprimento do manual de aplicação de marcas divulgado pelo Ministério da Cultura, observada a inserção das marcas do Governo federal e da Política Nacional Aldir Blanc de Fomento à Cultura em todos os materiais de comunicação. Por fim, declaro estar ciente de que o valor total do Plano de Ação será recebido em parcelas referentes a cada um dos quatro ciclos da Política Nacional Aldir Blanc de Fomento à Cultura, mediante o cumprimento dos requisitos estabelecidos em legislação a cada ciclo.",
+      "data_assinatura_termo_adesao": "2025-05-29",
+      "ano_termo_adesao": 2025,
+      "secao_publicacao_dou_termo_adesao": 1,
+      "pagina_publicacao_dou_termo_adesao": 5,
+      "data_publicacao_dou_termo_adesao": "2023-10-19",
+      "id_plano_acao": 27864
+    }
+  ]
+}

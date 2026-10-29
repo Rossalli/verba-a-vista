@@ -1,8 +1,8 @@
 # Mapeamento: situação na fonte -> status_site (spec §4)
 #
-# ATENÇÃO: os valores abaixo são EXEMPLOS para guiar as provas de conceito (plano, Marco 1).
-# Nenhum foi verificado contra os dados reais. Substitua pelos valores exatos que a POC encontrar
-# e mude `verificado` para a data da verificação.
+# ATENÇÃO: as fontes com `verificado: null` ainda têm valores de EXEMPLO, não verificados contra
+# os dados reais. Substitua pelos valores exatos que a POC encontrar e mude `verificado` para a
+# data da verificação. As fontes com data foram verificadas (ver docs/fontes.md).
 #
 # Comparação: sem diferenciar maiúsculas/minúsculas e acentos, após remover espaços extras.
 # Situação que não casar com nada -> status_site: null + relatório de não mapeadas (nunca chutar).
@@ -43,20 +43,39 @@ fontes:
         - "Prestação de Contas Rejeitada"
         - "Inadimplente"
 
+  # T1.1, verificado em 29/10/2026 nos dados de Neves Paulista. Só estão mapeados os valores
+  # OBSERVADOS; os documentados no OpenAPI e ainda não vistos ficam em comentário e caem no
+  # relatório de situações não mapeadas se aparecerem (decisão da autora em 29/10/2026).
   transferegov_parcerias:
-    verificado: null
-    campo: situacao_proposta
-    mapa: {}   # preencher na T1.1
+    verificado: 2026-10-29
+    campo: situacao_proposta   # parcerias/proposta; parcerias/parceria usa in_situacao_parceria com o mesmo valor
+    mapa:
+      aprovada:
+        - "Aprovada"   # observado em 12 propostas e 12 parcerias; sem assinatura nem pagamento nos dados
+    # Documentados, não observados: proposta: Em Elaboração, Em Análise, Rejeitada, Inativada;
+    # parceria: Em Elaboração, Em Análise, Em Captação, Rejeitada, Inativa;
+    # in_situacao_analise: Proposta e Plano de Trabalho Em Complementação / em Análise /
+    # Enviados para Análise / Enviado para Complementação.
 
   transferegov_especiais:
-    verificado: null
-    campo: null   # A VERIFICAR: emendas Pix podem não ter ciclo de proposta; ver plano de ação/relatório de gestão
+    verificado: null   # sem registros do município em 29/10/2026 (T1.1): nada observado
+    campo: situacao_plano_acao   # especiais/planos-acao-especiais; plano de trabalho: situacao_plano_trabalho
     mapa: {}
+    # Documentados, não observados: plano de ação: CIENTE, IMPEDIDO (histórico: AGUARDANDO_CIENCIA,
+    # AGUARDANDO_CONCLUSAO_PLANO_TRABALHO, IMPEDIDO_REJEICAO_PLANO_TRABALHO); plano de trabalho
+    # (histórico): Aguardando envio para Análise, Aprovado, Em Ajuste do Plano de Trabalho,
+    # Em Complementação, Em Elaboração, Enviado para Análise, Legado ADPF 854 STF / NT - TCU, Reprovado.
 
   transferegov_fundoafundo:
-    verificado: null
-    campo: null
-    mapa: {}
+    verificado: 2026-10-29
+    campo: situacao_plano_acao   # fundoafundo/planos-acao; termos-adesao usa situacao_termo_adesao
+    mapa:
+      aprovada:
+        - "AUTORIZADO"   # observado em 2 planos de ação (vigência até 2024-12-31, saldo 0)
+        - "ASSINADO"     # situacao_termo_adesao, observado em 2 termos
+    # Documentados, não observados: termo de adesão: EM_ELABORACAO, ENVIADO;
+    # relatorios-gestao: EM_ELABORACAO, ENVIADO_ANALISE, ENVIADO_ANALISE_CONSELHO, EM_COMPLEMENTACAO,
+    # ANALISE_CONCLUIDA, ANALISE_CONCLUIDA_CONSELHO, REJEITADO. Valores de situacao_plano_acao: o OpenAPI não lista.
 
   obrasgov:
     verificado: null

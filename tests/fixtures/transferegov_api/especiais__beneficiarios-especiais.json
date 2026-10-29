@@ -1,0 +1,9 @@
+{
+  "url": "https://api-publica.transferegov.gestao.gov.br/especiais/beneficiarios-especiais",
+  "params": {
+    "cnpj_beneficiario": "<cnpj da prefeitura>"
+  },
+  "coletado_em": "2026-10-29T15:17:48-03:00",
+  "total_items": 0,
+  "amostra": []
+}

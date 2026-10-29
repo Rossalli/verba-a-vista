@@ -4,7 +4,7 @@ municipio:
   nome: Neves Paulista
   uf: SP
   codigo_ibge: "3532504"
-  cnpj_prefeitura: null   # A VERIFICAR
+  cnpj_prefeitura: "45145414000147"   # VERIFICADO 2026-10-29 (Transferegov, MUNICIPIO DE NEVES PAULISTA)
   inicio_recorte: "2024-01-01"
 
 risco:

@@ -5,7 +5,7 @@ fontes:
     base_url: https://api-publica.transferegov.gestao.gov.br
     modulos: [especiais, fundoafundo, parcerias]
     docs: "{base_url}/{modulo}/docs"
-    auth: null            # A VERIFICAR
+    auth: null            # VERIFICADO 2026-10-29: sem autenticação
     ativa: true
 
   transferegov_discricionarias:
