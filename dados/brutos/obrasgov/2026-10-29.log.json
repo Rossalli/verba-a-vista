@@ -1,0 +1,44 @@
+{
+ "fonte": "obrasgov",
+ "data": "2026-10-29",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-10-29T18:16:44-03:00",
+   "terminado_em": "2026-10-29T18:16:51-03:00",
+   "duracao_s": 6.88,
+   "status": "erro",
+   "erro": "ColetaErro: https://repositorio.dados.gov.br/seges/detru/siconv_dados_obrasgov_geral.zip: HTTP 404 ('<html>\\r\\n<head><title>404 Not Found</title></head>\\r\\n<body>\\r\\n<center><h1>404 Not Found</h1></center>\\r\\n<hr><center>nginx/1.16.1</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+   "requisicoes": 23,
+   "registros": {},
+   "metadados": {}
+  },
+  {
+   "iniciado_em": "2026-10-29T18:19:35-03:00",
+   "terminado_em": "2026-10-29T18:19:41-03:00",
+   "duracao_s": 6.8,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 23,
+   "registros": {
+    "geometria": 4,
+    "projeto_investimento": 4,
+    "execucao_fisica": 0,
+    "historico_situacao": 0,
+    "contrato": 7,
+    "empenho": 46,
+    "ponte_siconv": 3
+   },
+   "metadados": {
+    "data_ultima_atualizacao": "2026-10-29T00:00:00",
+    "projetos": [
+     "106169.35-86",
+     "31694.35-09",
+     "328.35-98",
+     "47960.35-00"
+    ],
+    "ponte": "http://127.0.0.1:61442/siconv_dados_obrasgov_geral.zip"
+   },
+   "origem": "Retrato gerado de um espelho local dos arquivos baixados do servidor oficial (repositorio.dados.gov.br/seges/detru) na manhã de 29/10/2026, porque o diretório passou a responder HTTP 404 antes desta execução (ver docs/fontes.md, alerta do Siconv). O conteúdo é o do servidor (carga de 17/07/2026); só a coleta não foi ao vivo. Na obrasgov, a API foi consultada ao vivo e só a ponte veio do espelho."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "fonte": "transferegov_discricionarias",
+ "data": "2026-10-29",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-10-29T18:16:43-03:00",
+   "terminado_em": "2026-10-29T18:16:44-03:00",
+   "duracao_s": 1.04,
+   "status": "erro",
+   "erro": "ColetaErro: https://repositorio.dados.gov.br/seges/detru/data_carga_siconv.txt: HTTP 404 ('<html>\\r\\n<head><title>404 Not Found</title></head>\\r\\n<body>\\r\\n<center><h1>404 Not Found</h1></center>\\r\\n<hr><center>nginx/1.16.1</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+   "requisicoes": 1,
+   "registros": {},
+   "metadados": {}
+  },
+  {
+   "iniciado_em": "2026-10-29T18:18:58-03:00",
+   "terminado_em": "2026-10-29T18:19:35-03:00",
+   "duracao_s": 36.77,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 23,
+   "registros": {
+    "proposta": 256,
+    "proposta_cancelada": 7,
+    "convenio": 28,
+    "emenda": 12,
+    "historico_situacao": 1240,
+    "desembolso": 30,
+    "prorroga_oficio": 22,
+    "proponente": 1,
+    "programa_proponentes": 68,
+    "programa": 113,
+    "proposta_selecao_pac": 10
+   },
+   "metadados": {
+    "data_carga": "17/07/2026 06:30:47",
+    "arquivos": {
+     "proposta": 199551960,
+     "proposta_cancelada": 10215281,
+     "convenio": 16517558,
+     "emenda": 7701444,
+     "historico_situacao": 94155732,
+     "desembolso": 15247401,
+     "prorroga_oficio": 1764141,
+     "programa": 11286628,
+     "programa_proponentes": 2225567,
+     "proposta_selecao_pac": 37953697,
+     "proponentes": 6075107
+    },
+    "colunas_ignoradas": {
+     "proposta_selecao_pac": [
+      "JUSTIFICATIVA_PROPOSTA_SELECAO_PAC"
+     ]
+    },
+    "filtro_programa": "natureza jurídica municipal, UF SP ou sem UF, e (dirigido à prefeitura ou DISPONIBILIZADO com janela não encerrada em 2026-10-29)",
+    "id_proponente_prefeitura": [
+     "15310"
+    ]
+   },
+   "origem": "Retrato gerado de um espelho local dos arquivos baixados do servidor oficial (repositorio.dados.gov.br/seges/detru) na manhã de 29/10/2026, porque o diretório passou a responder HTTP 404 antes desta execução (ver docs/fontes.md, alerta do Siconv). O conteúdo é o do servidor (carga de 17/07/2026); só a coleta não foi ao vivo. Na obrasgov, a API foi consultada ao vivo e só a ponte veio do espelho."
+  }
+ ]
+}
