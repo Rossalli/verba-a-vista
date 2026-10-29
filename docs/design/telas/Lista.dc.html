@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Verba à Vista — Lista de verbas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F5F7FA}
+a{color:#1E4FBF}a:hover{color:#163C91}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #1E4FBF;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F5F7FA; color: #111C27; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 16px; line-height: 1.55">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #D9E0E7">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #111C27">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="#1E4FBF" stroke-width="3"></circle><circle cx="18" cy="18" r="6" fill="#1E4FBF"></circle><path d="M2 18h6M28 18h6" stroke="#1E4FBF" stroke-width="3"></path></svg>
+        <span style="display: flex; flex-direction: column; line-height: 1.05">
+          <span style="font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: 26px; letter-spacing: -0.01em">Verba à Vista</span>
+          <span style="font-size: 13px; color: #4A5A6A">Neves Paulista · SP</span>
+        </span>
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <a href="Lista.dc.html" aria-current="page" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; background: #E8EEFB">Verbas</a>
+        <a href="Lista.dc.html" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700">Em risco</a>
+        <a href="Lista.dc.html" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700">Perdas</a>
+        <a href="Main.dc.html#como-funciona" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700">Como funciona</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="max-width: 1160px; margin: 0 auto; padding: 36px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 80%; font-weight: 800; font-size: 44px; line-height: 1.05">Todas as verbas federais</h1>
+      <p style="margin: 0; color: #4A5A6A; max-width: 70ch">Convênios, contratos de repasse, emendas e programas federais destinados ao município desde 2024. Clique numa verba para ver o histórico e as fontes.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #D9E0E7; border-radius: 12px; padding: 18px">
+      <div role="group" aria-label="Filtrar por situação" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{chips}}" as="chip" hint-placeholder-count="8">
+          <button type="button" onClick="{{chip.pick}}" aria-pressed="{{chip.pressed}}" style="{{chip.style}}">{{chip.label}} <span style="opacity: 0.7; font-family: 'IBM Plex Mono', monospace; font-size: 13px">{{chip.count}}</span></button>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end">
+        <label style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px; font-size: 13px; font-weight: 700; color: #4A5A6A">Buscar
+          <input type="search" placeholder="Nome da verba, órgão ou número do instrumento" style="font: 400 16px 'Atkinson Hyperlegible', sans-serif; padding: 10px 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; background: #FFFFFF">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 4px; flex: 0 1 200px; font-size: 13px; font-weight: 700; color: #4A5A6A">Tipo
+          <select style="font: 400 16px 'Atkinson Hyperlegible', sans-serif; padding: 10px 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; background: #FFFFFF"><option>Todos os tipos</option><option>Convênio ou contrato de repasse</option><option>Emenda com finalidade</option><option>Emenda Pix</option><option>Fundo a fundo</option><option>Programa por adesão</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 4px; flex: 0 1 160px; font-size: 13px; font-weight: 700; color: #4A5A6A">Área
+          <select style="font: 400 16px 'Atkinson Hyperlegible', sans-serif; padding: 10px 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; background: #FFFFFF"><option>Todas</option><option>Saúde</option><option>Educação</option><option>Obras</option><option>Saneamento</option></select>
+        </label>
+        <button type="button" onClick="{{toggleRisk}}" aria-pressed="{{riskOnly}}" style="{{riskStyle}}">Só em risco</button>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px; color: #4A5A6A">
+      <span>{{resultLabel}}</span>
+      <a href="#" style="font-weight: 700">Baixar em CSV</a>
+    </div>
+
+    <div style="overflow-x: auto; background: #FFFFFF; border: 1px solid #D9E0E7; border-radius: 12px">
+      <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px">
+        <thead>
+          <tr style="text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #4A5A6A; background: #F0F3F7">
+            <th style="padding: 12px 16px; font-weight: 700">Verba</th>
+            <th style="padding: 12px 16px; font-weight: 700">Tipo e órgão</th>
+            <th style="padding: 12px 16px; font-weight: 700; text-align: right">Valor</th>
+            <th style="padding: 12px 16px; font-weight: 700">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="row" hint-placeholder-count="8">
+            <tr style="border-top: 1px solid #E6EBF0">
+              <td style="padding: 14px 16px"><a href="Verba.dc.html" style="font-weight: 700; color: #111C27">{{row.nome}}</a><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #4A5A6A">{{row.codigo}}</span></td>
+              <td style="padding: 14px 16px; color: #2B3A48">{{row.tipo}}<span style="display: block; font-size: 13px; color: #4A5A6A">{{row.orgao}}</span></td>
+              <td style="padding: 14px 16px; text-align: right; font-family: 'IBM Plex Mono', monospace; white-space: nowrap">{{row.valor}}</td>
+              <td style="padding: 14px 16px">
+                <span style="display: flex; flex-wrap: wrap; gap: 6px">
+                  <span style="{{row.pill}}">{{row.status}}</span>
+                  <sc-if value="{{row.risco}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #FEF0E3; color: #B54708">Em risco</span></sc-if>
+                </span>
+              </td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <span style="font-size: 13px; color: #4A5A6A">Dados ilustrativos neste layout. Na versão real, cada linha mostra também o status original da fonte.</span>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1360}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { status: 'todas', riskOnly: false };
+  }
+  renderVals() {
+    var PILL = {
+      oportunidade: ['#EEF1F4', '#3E4C5A'], proposta: ['#EFEAFB', '#5B3FB0'], aprovada: ['#E2F3F3', '#0B5F63'],
+      execucao: ['#E8EEFB', '#1E4FBF'], prestacao: ['#F6EFDF', '#6B4E16'], concluida: ['#E3F4EA', '#067647'], perdida: ['#FDECEA', '#B42318']
+    };
+    var LABEL = { oportunidade: 'Oportunidade', proposta: 'Proposta enviada', aprovada: 'Aprovada', execucao: 'Em execução', prestacao: 'Prestação de contas', concluida: 'Concluída', perdida: 'Perdida' };
+    var DATA = [
+      { nome: 'Quadra poliesportiva coberta', codigo: 'Contrato de repasse nº [000000]', tipo: 'Contrato de repasse', orgao: 'Ministério do Esporte', v: 950000, s: 'aprovada', risco: true },
+      { nome: 'Aquisição de ambulância', codigo: 'Emenda nº [00000000]', tipo: 'Emenda com finalidade', orgao: 'Ministério da Saúde', v: 380000, s: 'proposta', risco: true },
+      { nome: 'Reforma da UBS central', codigo: 'Proposta FNS nº [00000]', tipo: 'Fundo a fundo', orgao: 'Fundo Nacional de Saúde', v: 850000, s: 'execucao', risco: true },
+      { nome: 'Pavimentação de vias urbanas', codigo: 'Plano de ação nº [00000]', tipo: 'Emenda Pix', orgao: 'Transferência especial', v: 600000, s: 'execucao', risco: false },
+      { nome: 'Veículo para transporte escolar', codigo: 'Termo FNDE nº [00000]', tipo: 'Programa por adesão', orgao: 'FNDE', v: 410000, s: 'prestacao', risco: false },
+      { nome: 'Equipamentos para escola municipal', codigo: 'Programa nº [00000]', tipo: 'Programa por adesão', orgao: 'FNDE', v: 320000, s: 'oportunidade', risco: false },
+      { nome: 'Iluminação em LED da praça central', codigo: 'Contrato de repasse nº [000000]', tipo: 'Emenda de bancada', orgao: 'Ministério das Cidades', v: 280000, s: 'concluida', risco: false },
+      { nome: 'Construção de creche', codigo: 'Termo de compromisso nº [00000]', tipo: 'Programa por adesão', orgao: 'FNDE', v: 2100000, s: 'perdida', risco: false },
+      { nome: 'Rede de esgoto no bairro Jardim', codigo: 'Contrato de repasse nº [000000]', tipo: 'Contrato de repasse', orgao: 'Ministério das Cidades', v: 1480000, s: 'perdida', risco: false },
+      { nome: 'Centro de convivência do idoso', codigo: 'Convênio nº [000000]', tipo: 'Convênio', orgao: 'Ministério do Desenvolvimento Social', v: 520000, s: 'perdida', risco: false },
+      { nome: 'Aquisição de maquinário agrícola', codigo: 'Convênio nº [000000]', tipo: 'Convênio', orgao: 'Ministério da Agricultura', v: 300000, s: 'perdida', risco: false }
+    ];
+    var self = this;
+    var fmt = function (n) { return 'R$ ' + n.toLocaleString('pt-BR'); };
+    var pillStyle = function (s) { return 'display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: ' + PILL[s][0] + '; color: ' + PILL[s][1]; };
+    var keys = ['todas', 'oportunidade', 'proposta', 'aprovada', 'execucao', 'prestacao', 'concluida', 'perdida'];
+    var chips = keys.map(function (k) {
+      var on = self.state.status === k;
+      var n = k === 'todas' ? DATA.length : DATA.filter(function (d) { return d.s === k; }).length;
+      return {
+        label: k === 'todas' ? 'Todas' : LABEL[k], count: n, pressed: on ? 'true' : 'false',
+        pick: function () { self.setState({ status: k }); },
+        style: 'font: 700 14px \'Atkinson Hyperlegible\', sans-serif; min-height: 40px; padding: 8px 14px; border-radius: 999px; cursor: pointer; border: 1px solid ' + (on ? '#111C27' : '#C5CFD9') + '; background: ' + (on ? '#111C27' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#111C27')
+      };
+    });
+    var rows = DATA.filter(function (d) {
+      if (self.state.status !== 'todas' && d.s !== self.state.status) return false;
+      if (self.state.riskOnly && !d.risco) return false;
+      return true;
+    }).map(function (d) {
+      return { nome: d.nome, codigo: d.codigo, tipo: d.tipo, orgao: d.orgao, valor: fmt(d.v), status: LABEL[d.s], pill: pillStyle(d.s), risco: d.risco };
+    });
+    var total = rows.reduce(function (a, r, i) { return a; }, 0);
+    var on = this.state.riskOnly;
+    return {
+      chips: chips,
+      rows: rows,
+      riskOnly: on ? 'true' : 'false',
+      toggleRisk: function () { self.setState({ riskOnly: !self.state.riskOnly }); },
+      riskStyle: 'font: 700 14px \'Atkinson Hyperlegible\', sans-serif; min-height: 44px; padding: 10px 16px; border-radius: 8px; cursor: pointer; border: 1px solid #B54708; background: ' + (on ? '#B54708' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#B54708'),
+      resultLabel: rows.length + (rows.length === 1 ? ' verba encontrada' : ' verbas encontradas')
+    };
+  }
+}
+</script>
+</body>
+</html>

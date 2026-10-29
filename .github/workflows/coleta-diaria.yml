@@ -1,0 +1,57 @@
+# Esqueleto do workflow diário (plano T5.1). Ajuste depois das POCs.
+# Se as APIs bloquearem servidores do GitHub (T1.0), mova a coleta para um servidor no Brasil
+# e deixe aqui só build + deploy disparados por push em dados/publicados/.
+
+name: Coleta diária
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # 06:00 em Brasília (UTC-3)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+jobs:
+  coleta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - name: Coleta
+        env:
+          PORTAL_TRANSPARENCIA_KEY: ${{ secrets.PORTAL_TRANSPARENCIA_KEY }}
+        run: make coleta
+      - name: Normaliza e publica dados
+        run: make normaliza
+      - name: Rascunhos de curadoria
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: make curadoria
+      - name: Commit dos dados
+        run: |
+          git config user.name "verba-a-vista-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add dados/
+          git diff --cached --quiet || git commit -m "dados: coleta de $(date -u +%F)"
+          git push
+      # TODO T5.1: abrir issue quando houver arquivos novos em dados/fila/ ou situações não mapeadas
+
+  site:
+    needs: coleta
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: cd site && npm ci && npm run build
+      # TODO T5.1: deploy (GitHub Pages ou Cloudflare Pages)

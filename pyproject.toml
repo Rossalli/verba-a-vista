@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verba-a-vista"
+version = "0.1.0"
+description = "Monitor cívico das verbas federais de Neves Paulista (SP)"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "pydantic>=2",
+    "pandas",
+    "pyyaml",
+    "anthropic",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "respx",
+    "jsonschema",  # valida a saída do modelo Verba contra schemas/ (T0.2)
+]
+
+[tool.setuptools]
+# layout plano com várias pastas na raiz: lista explícita evita a descoberta automática
+packages = ["coleta", "nucleo", "curadoria"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

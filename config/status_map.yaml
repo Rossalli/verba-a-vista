@@ -1,0 +1,74 @@
+# Mapeamento: situação na fonte -> status_site (spec §4)
+#
+# ATENÇÃO: os valores abaixo são EXEMPLOS para guiar as provas de conceito (plano, Marco 1).
+# Nenhum foi verificado contra os dados reais. Substitua pelos valores exatos que a POC encontrar
+# e mude `verificado` para a data da verificação.
+#
+# Comparação: sem diferenciar maiúsculas/minúsculas e acentos, após remover espaços extras.
+# Situação que não casar com nada -> status_site: null + relatório de não mapeadas (nunca chutar).
+
+status_validos: [oportunidade, proposta, aprovada, execucao, prestacao, concluida, perdida]
+
+fontes:
+  transferegov_discricionarias:
+    verificado: null
+    campo: situacao   # A VERIFICAR: nome real da coluna no CSV
+    mapa:
+      proposta:
+        - "Proposta/Plano de Trabalho Cadastrados"
+        - "Proposta/Plano de Trabalho Enviado para Análise"
+        - "Proposta/Plano de Trabalho em Análise"
+        - "Proposta/Plano de Trabalho Complementação Enviada para Análise"
+      aprovada:
+        - "Proposta/Plano de Trabalho Aprovado"
+        - "Assinado"
+        - "Assinado Pendente Registro TV Siafi"
+      execucao:
+        - "Em execução"
+      prestacao:
+        - "Aguardando Prestação de Contas"
+        - "Prestação de Contas enviada para Análise"
+        - "Prestação de Contas em Análise"
+        - "Prestação de Contas em Complementação"
+      concluida:
+        - "Prestação de Contas Aprovada"
+        - "Prestação de Contas Aprovada com Ressalvas"
+      perdida:
+        - "Proposta/Plano de Trabalho Rejeitados"
+        - "Proposta/Plano de Trabalho Rejeitado por Impedimento técnico"
+        - "Proposta/Plano de Trabalho Cancelados"
+        - "Convênio Anulado"
+        - "Convênio Rescindido"
+        - "Convênio Extinto"
+        - "Prestação de Contas Rejeitada"
+        - "Inadimplente"
+
+  transferegov_parcerias:
+    verificado: null
+    campo: situacao_proposta
+    mapa: {}   # preencher na T1.1
+
+  transferegov_especiais:
+    verificado: null
+    campo: null   # A VERIFICAR: emendas Pix podem não ter ciclo de proposta; ver plano de ação/relatório de gestão
+    mapa: {}
+
+  transferegov_fundoafundo:
+    verificado: null
+    campo: null
+    mapa: {}
+
+  obrasgov:
+    verificado: null
+    campo: situacao
+    mapa:
+      execucao: ["Em execução"]
+      concluida: ["Concluída"]
+      perdida: ["Cancelada"]
+    # "Paralisada" / "Suspensa" NÃO mudam o status: geram em_risco (regra obra_parada).
+    sinais_risco: ["Paralisada", "Suspensa"]
+
+  portal_transparencia:
+    verificado: null
+    campo: situacao
+    mapa: {}

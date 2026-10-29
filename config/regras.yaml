@@ -1,0 +1,39 @@
+# Regras de risco, perda e curadoria (spec §5, §6, §7)
+
+municipio:
+  nome: Neves Paulista
+  uf: SP
+  codigo_ibge: "3532504"
+  cnpj_prefeitura: null   # A VERIFICAR
+  inicio_recorte: "2024-01-01"
+
+risco:
+  dias_alerta_prazo: 60
+  dias_obra_parada: 90
+  cauc_tipos: [voluntaria, emenda_finalidade]   # spec §5; ajustar após a T1.5
+  cauc_status: [proposta, aprovada]
+  prazos_monitorados: [clausula_suspensiva, fim_vigencia, prestacao_contas, adesao]
+  textos:
+    prazo_proximo: "Prazo em {dias} dias"
+    cauc_irregular: "Pendência no CAUC"
+    obra_parada: "Obra parada há {dias} dias"
+    impedimento_emenda: "Impedimento técnico"
+
+perda:
+  valor_perdido: nao_liberado_mais_devolvido
+
+curadoria:
+  modelo: claude-sonnet-5-5
+  max_tokens: 2000
+  temperatura: 0
+  auto_publicar: false            # spec §7.5 — manter false na fase 1
+  auto_publicar_categorias: [cauc, execucao_nao_iniciada]
+  texto_em_apuracao: "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda."
+  selo_ia: "Explicação gerada com IA a partir dos documentos citados"
+
+coleta:
+  horario: "06:00"
+  fuso: America/Sao_Paulo
+  portal_transparencia_req_por_min: 300   # abaixo do limite de 400 por segurança
+  tentativas: 4
+  backoff_inicial_s: 2

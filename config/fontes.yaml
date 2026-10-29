@@ -1,0 +1,37 @@
+# Fontes de dados (detalhes e pendências em docs/fontes.md)
+
+fontes:
+  transferegov_api:
+    base_url: https://api-publica.transferegov.gestao.gov.br
+    modulos: [especiais, fundoafundo, parcerias]
+    docs: "{base_url}/{modulo}/docs"
+    auth: null            # A VERIFICAR
+    ativa: true
+
+  transferegov_discricionarias:
+    tipo: csv_lote
+    url: null             # A VERIFICAR na T1.2
+    ativa: true
+
+  obrasgov:
+    base_url: https://api-publica.obrasgov.gestao.gov.br
+    auth: null
+    ativa: true
+
+  portal_transparencia:
+    base_url: https://api.portaldatransparencia.gov.br/api-de-dados
+    auth:
+      header: chave-api-dados
+      env: PORTAL_TRANSPARENCIA_KEY
+    limite_req_min: 400
+    ativa: true
+
+  cauc:
+    tipo: a_definir       # dataset Tesouro Transparente ou consulta pública — T1.5
+    url: null
+    ativa: true
+
+  tesouro_constitucionais:
+    base_url: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom
+    auth: null
+    ativa: true

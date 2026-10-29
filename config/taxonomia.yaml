@@ -1,0 +1,43 @@
+# Categorias de motivo de perda (spec §6.2). Usadas no prompt da curadoria e no site.
+
+categorias:
+  prazo_proposta:
+    rotulo: Prazo de proposta ou adesão perdido
+    descricao: O município não enviou a proposta ou não aderiu ao programa dentro do prazo.
+    evitavel_tipico: sim
+  reprovacao_tecnica:
+    rotulo: Reprovação técnica
+    descricao: Projeto, plano de trabalho ou orçamento reprovado na análise do órgão, ou diligência não respondida no prazo.
+    evitavel_tipico: sim
+  impedimento_emenda:
+    rotulo: Impedimento técnico de emenda
+    descricao: Emenda parlamentar com impedimento técnico (objeto incompatível, documentação, beneficiário) não superado.
+    evitavel_tipico: em_parte
+  cauc:
+    rotulo: Irregularidade no CAUC
+    descricao: O município tinha pendência no CAUC na data exigida para assinar ou receber.
+    evitavel_tipico: sim
+  clausula_suspensiva:
+    rotulo: Cláusula suspensiva vencida
+    descricao: Condição exigida no instrumento (projeto, licença, terreno) não cumprida no prazo, e o instrumento foi extinto.
+    evitavel_tipico: sim
+  execucao_nao_iniciada:
+    rotulo: Execução não iniciada ou paralisada
+    descricao: "A obra ou compra não começou no prazo, ou foi paralisada e cancelada (por exemplo, licitação deserta ou abandono da empresa)."
+    evitavel_tipico: em_parte
+  contrapartida:
+    rotulo: Contrapartida não garantida
+    descricao: O município não tinha dotação orçamentária para a contrapartida exigida.
+    evitavel_tipico: sim
+  glosa_devolucao:
+    rotulo: Devolução ou glosa na prestação de contas
+    descricao: Despesas não aceitas ou saldo não usado tiveram de ser devolvidos.
+    evitavel_tipico: em_parte
+  decisao_externa:
+    rotulo: Decisão externa
+    descricao: Corte orçamentário, extinção de programa ou decisão judicial, sem ação possível da prefeitura.
+    evitavel_tipico: nao
+  em_apuracao:
+    rotulo: Motivo em apuração
+    descricao: Os documentos disponíveis não permitem explicar a perda.
+    evitavel_tipico: indeterminado

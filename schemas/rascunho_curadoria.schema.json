@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verba-a-vista/schemas/rascunho_curadoria.schema.json",
+  "title": "RascunhoCuradoria",
+  "description": "Saída do modelo na curadoria de uma perda (spec §7). O texto usa marcadores [n] que apontam para citacoes[].n.",
+  "type": "object",
+  "required": ["verba_id", "categoria", "texto", "evitavel", "confianca", "citacoes", "observacoes_para_revisor"],
+  "additionalProperties": false,
+  "properties": {
+    "verba_id": { "type": "string" },
+    "categoria": { "enum": ["prazo_proposta", "reprovacao_tecnica", "impedimento_emenda", "cauc", "clausula_suspensiva", "execucao_nao_iniciada", "contrapartida", "glosa_devolucao", "decisao_externa", "em_apuracao"] },
+    "texto": { "type": "string", "maxLength": 700, "description": "2 a 4 frases, cada uma com pelo menos um marcador [n]." },
+    "evitavel": { "enum": ["sim", "em_parte", "nao", "indeterminado"] },
+    "confianca": { "enum": ["alta", "media", "baixa"] },
+    "citacoes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["n", "documento_id", "trecho"],
+        "additionalProperties": false,
+        "properties": {
+          "n": { "type": "integer", "minimum": 1 },
+          "documento_id": { "type": "string" },
+          "trecho": { "type": "string", "minLength": 3, "maxLength": 400, "description": "Cópia literal de um trecho do documento." }
+        }
+      }
+    },
+    "observacoes_para_revisor": { "type": "string", "description": "Dúvidas, lacunas ou documentos que fariam falta. Não é publicado." }
+  }
+}

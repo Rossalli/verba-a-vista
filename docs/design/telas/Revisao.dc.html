@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Verba à Vista — Fila de revisão</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#EEF1F4}
+a{color:#1E4FBF}a:hover{color:#163C91}
+a:focus-visible,button:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1E4FBF;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #EEF1F4; color: #111C27; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+  <header style="background: #111C27; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <span style="display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: 22px">Verba à Vista</span><span style="font-size: 14px; color: #B8C4D0">Área de revisão · uso interno</span></span>
+      <span style="font-size: 14px; color: #B8C4D0">3 rascunhos aguardando revisão</span>
+    </div>
+  </header>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+    <nav aria-label="Rascunhos" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #4A5A6A">Fila</span>
+      <a href="#" aria-current="true" style="display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 10px; background: #FFFFFF; border: 2px solid #1E4FBF; text-decoration: none; color: #111C27">
+        <span style="font-weight: 700">Construção de creche</span>
+        <span style="font-size: 13px; color: #4A5A6A">Motivo de perda · confiança alta</span>
+      </a>
+      <a href="#" style="display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #D9E0E7; text-decoration: none; color: #111C27">
+        <span style="font-weight: 700">Rede de esgoto no bairro Jardim</span>
+        <span style="font-size: 13px; color: #B54708">Motivo de perda · confiança média</span>
+      </a>
+      <a href="#" style="display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #D9E0E7; text-decoration: none; color: #111C27">
+        <span style="font-weight: 700">Centro de convivência do idoso</span>
+        <span style="font-size: 13px; color: #B42318">1 citação não encontrada</span>
+      </a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+      <section style="background: #FFFFFF; border: 1px solid #D9E0E7; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4A5A6A">Rascunho gerado em 01/07/2026 às 06:12 · 3 documentos lidos</span>
+            <h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: 30px">Construção de creche</h1>
+          </div>
+          <span style="display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: #E3F4EA; color: #067647">Confiança alta</span>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 16px">
+          <label style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 240px; font-size: 13px; font-weight: 700; color: #4A5A6A">Categoria
+            <select style="font: 400 16px 'Atkinson Hyperlegible', sans-serif; padding: 10px 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; background: #FFFFFF"><option>Execução não iniciada ou paralisada</option><option>Prazo de proposta ou adesão perdido</option><option>Reprovação técnica</option><option>Impedimento técnico de emenda</option><option>Irregularidade no CAUC</option><option>Cláusula suspensiva vencida</option><option>Contrapartida não garantida</option><option>Devolução ou glosa</option><option>Decisão externa</option></select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 4px; flex: 0 1 180px; font-size: 13px; font-weight: 700; color: #4A5A6A">Poderia ter sido evitada?
+            <select style="font: 400 16px 'Atkinson Hyperlegible', sans-serif; padding: 10px 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; background: #FFFFFF"><option>Em parte</option><option>Sim</option><option>Não</option></select>
+          </label>
+        </div>
+
+        <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: #4A5A6A">Texto do motivo (rascunho da IA)
+          <textarea rows="4" style="font: 400 17px/1.5 'Atkinson Hyperlegible', sans-serif; padding: 12px; border: 1px solid #C5CFD9; border-radius: 8px; color: #111C27; resize: vertical">A obra não começou dentro do prazo do termo de compromisso. A licitação para contratar a construtora ficou deserta duas vezes [2], e o prazo de início venceu antes de uma nova tentativa. O FNDE cancelou a obra e o recurso não foi liberado [1].</textarea>
+        </label>
+
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 13px; font-weight: 700; color: #4A5A6A">Checagem das citações</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #F2FAF5; border: 1px solid #B7E1C6">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#067647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 15px"><strong>[1] Obrasgov:</strong> trecho encontrado no histórico de situação do projeto.</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #F2FAF5; border: 1px solid #B7E1C6">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#067647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 15px"><strong>[2] Diário Oficial:</strong> trecho encontrado nas edições de 12/11/2025 e 05/03/2026.</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #F2FAF5; border: 1px solid #B7E1C6">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#067647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 15px"><strong>Regras:</strong> nenhum nome de pessoa citado, toda frase tem fonte.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; border-top: 1px solid #E6EBF0; padding-top: 18px">
+          <button type="button" style="font: 700 16px 'Atkinson Hyperlegible', sans-serif; min-height: 48px; padding: 12px 20px; border-radius: 8px; border: 0; background: #1E4FBF; color: #FFFFFF; cursor: pointer">Aprovar e publicar</button>
+          <button type="button" style="font: 700 16px 'Atkinson Hyperlegible', sans-serif; min-height: 48px; padding: 12px 20px; border-radius: 8px; border: 1px solid #C5CFD9; background: #FFFFFF; color: #111C27; cursor: pointer">Salvar correção</button>
+          <button type="button" style="font: 700 16px 'Atkinson Hyperlegible', sans-serif; min-height: 48px; padding: 12px 20px; border-radius: 8px; border: 1px solid #C5CFD9; background: #FFFFFF; color: #111C27; cursor: pointer">Publicar como "motivo em apuração"</button>
+        </div>
+      </section>
+
+      <section style="background: #FFFFFF; border: 1px solid #D9E0E7; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 90%; font-weight: 700; font-size: 19px">Documentos que a IA leu</h2>
+        <a href="#">[1] Obrasgov.br — histórico de situação do projeto [id]</a>
+        <a href="#">[2] Diário Oficial do Município — edições de 12/11/2025 e 05/03/2026</a>
+        <a href="#">[3] Termo de compromisso nº [00000] — FNDE</a>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verba-a-vista/schemas/verba.schema.json",
+  "title": "Verba",
+  "description": "Uma verba federal destinada ao município (spec §8). Valores em centavos.",
+  "type": "object",
+  "required": ["id", "fonte", "id_fonte", "nome", "tipo", "valor_total", "status_site", "status_fonte", "em_risco", "historico", "fontes"],
+  "additionalProperties": false,
+  "$defs": {
+    "data": { "type": "string", "format": "date" },
+    "centavos": { "type": "integer", "minimum": 0 },
+    "fonteRef": {
+      "type": "object",
+      "required": ["nome", "url", "data_coleta"],
+      "additionalProperties": false,
+      "properties": {
+        "nome": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "data_coleta": { "type": "string", "format": "date-time" }
+      }
+    },
+    "citacao": {
+      "type": "object",
+      "required": ["n", "documento_id", "titulo", "url", "trecho"],
+      "additionalProperties": false,
+      "properties": {
+        "n": { "type": "integer", "minimum": 1 },
+        "documento_id": { "type": "string" },
+        "titulo": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "trecho": { "type": "string", "minLength": 3 }
+      }
+    }
+  },
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z_]+-[A-Za-z0-9._-]+$" },
+    "fonte": { "type": "string" },
+    "id_fonte": { "type": "string" },
+    "numero_instrumento": { "type": ["string", "null"] },
+    "nome": { "type": "string" },
+    "objeto": { "type": ["string", "null"] },
+    "tipo": { "enum": ["voluntaria", "emenda_finalidade", "emenda_pix", "fundo_a_fundo", "programa_adesao", "constitucional"] },
+    "area": { "type": ["string", "null"] },
+    "orgao_concedente": { "type": ["string", "null"] },
+    "parlamentar": { "type": ["string", "null"], "description": "Autor da emenda, quando houver (dado público)." },
+    "valor_total": { "$ref": "#/$defs/centavos" },
+    "valor_contrapartida": { "$ref": "#/$defs/centavos" },
+    "valor_liberado": { "$ref": "#/$defs/centavos" },
+    "valor_executado": { "$ref": "#/$defs/centavos" },
+    "valor_devolvido": { "$ref": "#/$defs/centavos" },
+    "status_site": { "enum": ["oportunidade", "proposta", "aprovada", "execucao", "prestacao", "concluida", "perdida", null] },
+    "status_fonte": { "type": "string" },
+    "em_risco": { "type": "boolean" },
+    "motivos_risco": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["codigo", "texto"],
+        "additionalProperties": false,
+        "properties": {
+          "codigo": { "enum": ["prazo_proximo", "cauc_irregular", "obra_parada", "impedimento_emenda"] },
+          "texto": { "type": "string" },
+          "data_limite": { "$ref": "#/$defs/data" }
+        }
+      }
+    },
+    "prazos": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposta": { "$ref": "#/$defs/data" },
+        "assinatura": { "$ref": "#/$defs/data" },
+        "clausula_suspensiva": { "$ref": "#/$defs/data" },
+        "fim_vigencia": { "$ref": "#/$defs/data" },
+        "prestacao_contas": { "$ref": "#/$defs/data" },
+        "adesao": { "$ref": "#/$defs/data" }
+      }
+    },
+    "execucao_fisica_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "perda": {
+      "type": ["object", "null"],
+      "required": ["categoria", "texto", "citacoes", "evitavel", "data", "valor_perdido", "gerado_por_ia"],
+      "additionalProperties": false,
+      "properties": {
+        "categoria": { "enum": ["prazo_proposta", "reprovacao_tecnica", "impedimento_emenda", "cauc", "clausula_suspensiva", "execucao_nao_iniciada", "contrapartida", "glosa_devolucao", "decisao_externa", "em_apuracao"] },
+        "texto": { "type": "string" },
+        "citacoes": { "type": "array", "items": { "$ref": "#/$defs/citacao" } },
+        "evitavel": { "enum": ["sim", "em_parte", "nao", "indeterminado"] },
+        "data": { "$ref": "#/$defs/data" },
+        "valor_perdido": { "$ref": "#/$defs/centavos" },
+        "gerado_por_ia": { "type": "boolean" },
+        "revisado_por": { "type": ["string", "null"] },
+        "revisado_em": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "historico": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["data", "para", "fonte"],
+        "additionalProperties": false,
+        "properties": {
+          "data": { "$ref": "#/$defs/data" },
+          "de": { "type": ["string", "null"] },
+          "para": { "type": "string" },
+          "fonte": { "type": "string" },
+          "nota": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "fontes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/fonteRef" } }
+  }
+}
