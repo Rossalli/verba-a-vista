@@ -7,8 +7,9 @@ Uma tarefa por vez, em ordem. Marque `[x]` ao concluir e escreva uma linha do qu
 - [x] **T0.1 Esqueleto do repositório.** `pyproject.toml` (Python 3.12, deps do CLAUDE.md), `Makefile` com os alvos do CLAUDE.md (podem ser stubs), `pytest` configurado, `.gitignore`, pastas de `dados/` com `.gitkeep`.
   *Aceite:* `make test` roda e passa com um teste trivial.
   *Feito:* pyproject (extra `dev` com pytest, respx, jsonschema), Makefile com stubs, pacotes vazios `coleta/ nucleo/ curadoria/`, `tests/test_esqueleto.py`, venv 3.12 via uv. Teste passa com `.venv/Scripts/python -m pytest`; `make` não está instalado nesta máquina Windows, então o alvo `make test` em si não foi executado.
-- [ ] **T0.2 Modelo Verba.** `nucleo/modelo.py` com pydantic v2 espelhando `schemas/verba.schema.json`. Teste que valida um exemplo mínimo e rejeita `status_site` inválido.
+- [x] **T0.2 Modelo Verba.** `nucleo/modelo.py` com pydantic v2 espelhando `schemas/verba.schema.json`. Teste que valida um exemplo mínimo e rejeita `status_site` inválido.
   *Aceite:* o modelo exporta JSON que valida no schema.
+  *Feito:* `nucleo/modelo.py` (`Verba` e submodelos, `extra="forbid"`, centavos como int estrito, `para_dict()`/`para_json()` com `exclude_unset`) e `tests/test_modelo.py` (31 testes: mínimo e completo validam no schema, `status_site` inválido rejeitado, ida e volta, e os Literals conferidos contra os enums do schema). 32 testes passam.
 - [ ] **T0.3 Leitura de configuração.** Carregar `config/*.yaml` com validação (pydantic). Erro claro se faltar chave.
   *Aceite:* teste com config válida e inválida.
 
