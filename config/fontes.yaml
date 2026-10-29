@@ -10,7 +10,7 @@ fontes:
 
   transferegov_discricionarias:
     tipo: csv_lote
-    url: null             # A VERIFICAR na T1.2
+    url: https://repositorio.dados.gov.br/seges/detru   # VERIFICADO 2026-10-29 (T1.2); um zip por tabela: siconv_<tabela>.csv.zip
     ativa: true
 
   obrasgov:

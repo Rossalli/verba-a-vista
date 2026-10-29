@@ -82,8 +82,52 @@ Lacunas que esta POC mostrou:
 ## Transferegov — Discricionárias e Legais (antigo Siconv)
 
 - Convênios e contratos de repasse. Publicado **apenas como arquivos CSV em lote**, sem API.
-- URL do download em lote: **A VERIFICAR** (historicamente no repositório de dados abertos da SEGES/DETRU).
 - Uso: baixar, filtrar pelo município, extrair proposta, situação, cláusula suspensiva, pagamentos.
+
+**VERIFICADO em 29/10/2026** (POC `scripts/poc_transferegov_discricionarias.py`; amostras em `tests/fixtures/transferegov_discricionarias/`).
+
+Acesso:
+- **URL:** `https://repositorio.dados.gov.br/seges/detru/` (listagem de diretório). Um zip por tabela: `siconv_<tabela>.csv.zip`. Sem autenticação; o servidor aceita `Range` e informa `Content-Length` e `Last-Modified` (dá para checar mudança com HEAD).
+- **Defasagem:** `data_carga_siconv.txt` dizia `17/07/2026 06:30:47` e todos os zips têm `Last-Modified` de 17/07/2026, **104 dias antes da POC**. A frequência de atualização é **A VERIFICAR** (reconferir os HEAD nas próximas semanas). O site tem de mostrar "dados de <fonte> de <data>" (spec §9) com essa data.
+- **Formato:** ZIP com um CSV; separador `;`; UTF-8 **com BOM**; campo vazio é texto vazio (não `null`); datas `dd/mm/aaaa` (a de publicação do contrato é `aaaa-mm-dd`; `DIA_HISTORICO_SIT` tem hora); valores com **vírgula decimal e sem milhar** (`1134,75`, mas também inteiros como `490038`); `SIM`/`NÃO`. Ler tudo como texto e converter na normalização.
+- **Tamanho:** `proposta` 190 MB zipado (751 MB descompactado), `historico_situacao` 94 MB (579 MB), `convenio` 16 MB, `desembolso` 15 MB, `emenda` 7,7 MB, `proposta_cancelada` 10 MB, `prorroga_oficio` 1,7 MB (~340 MB no total). Ler em blocos (pandas `chunksize`) e guardar o zip em cache fora do Git. Não commitar os zips nem os CSV completos.
+- **Dicionário de dados oficial:** `modelo_dados_siconv.zip` (HTML do SchemaSpy, com a descrição de cada coluna). As descrições citadas abaixo vêm dele.
+
+Como filtrar pelo município:
+- `siconv_proposta` e `siconv_proposta_cancelada`: coluna `COD_MUNIC_IBGE` (7 dígitos, `3532504`). As canceladas ficam **em arquivo à parte** (ids disjuntos de `siconv_proposta`).
+- `siconv_convenio`: **não tem município**; liga por `ID_PROPOSTA`. `siconv_emenda` e `siconv_historico_situacao`: `ID_PROPOSTA`. `siconv_desembolso` e `siconv_prorroga_oficio`: `NR_CONVENIO`.
+- `siconv_proponentes` (contém e-mail e telefone) e `siconv_contrato` (contratos de licitação dos convenentes, sem chave do município) não foram usados.
+
+Resultado para Neves Paulista (carga de 17/07/2026):
+- **256 propostas** (+ **7 canceladas**): 253 da prefeitura (CNPJ 45145414000147), 2 da Irmandade Santa Casa de Misericórdia e 1 do Lar São Vicente de Paulo (organizações da sociedade civil, mesmo código IBGE). Modalidades: contrato de repasse 142, convênio 89, "convênio ou contrato de repasse" 15, termo de compromisso 9, termo de fomento 1.
+- **28 convênios/contratos de repasse** (8 com `INSTRUMENTO_ATIVO=SIM`), 12 emendas, 1.240 linhas de histórico de situação, 30 desembolsos, 22 prorrogações de ofício.
+- **Só 16 das 263 propostas são de 2024 em diante** (`DIA_PROPOSTA`); 2 convênios foram assinados desde 2024; 1 foi assinado em 28/12/2023 e segue em execução até 20/12/2026. O recorte "desde 01/01/2024" da spec precisa de uma regra (ver pendências).
+- As 16 propostas recentes: 5 "Rejeitados por Impedimento técnico" (2025), 3 "Rejeitados", 2 "Aprovados" (viraram os 2 convênios assinados em 2024 e 2025, ambos "Em execução"), 3 "Enviado para Análise", 1 "Cadastrados", 1 "Proposta Aprovada e Plano de Trabalho em Análise", 1 "Complementado em Análise" (com emenda).
+
+Colunas úteis (nomes exatos):
+- `siconv_proposta`: `ID_PROPOSTA`, `NR_PROPOSTA`, `DIA_PROPOSTA`, `ANO_PROP`, `MODALIDADE`, `DESC_ORGAO_SUP`, `DESC_ORGAO`, `IDENTIF_PROPONENTE`, `NM_PROPONENTE`, `NATUREZA_JURIDICA`, `SIT_PROPOSTA`, `SITUACAO_PROJETO_BASICO`, `SITUACAO_CONTA`, `OBJETO_PROPOSTA`, `DIA_INIC_VIGENCIA_PROPOSTA`, `DIA_FIM_VIGENCIA_PROPOSTA`, `VL_GLOBAL_PROP`, `VL_REPASSE_PROP`, `VL_CONTRAPARTIDA_PROP`.
+- `siconv_convenio`: `NR_CONVENIO`, `ID_PROPOSTA`, `SIT_CONVENIO`, `INSTRUMENTO_ATIVO`, `IND_ASSINADO`, `DIA_ASSIN_CONV`, `DIA_INIC_VIGENC_CONV`, `DIA_FIM_VIGENC_CONV` ("data de fim de vigência"; a `_ORIGINAL_` é sem aditivos e prorrogações), `DIAS_PREST_CONTAS`, `DIA_LIMITE_PREST_CONTAS` ("data limite para prestação de contas"), `SITUACAO_CONTRATACAO` (Cláusula Suspensiva, Liminar Judicial, Normal, Sob Liminar Judicial e Cláusula Suspensiva), `DATA_SUSPENSIVA` ("data prevista para resolução da cláusula suspensiva"), `DATA_RETIRADA_SUSPENSIVA`, `MOTIVO_SUSPENSAO`, `QTD_PRORROGA`, `VL_GLOBAL_CONV`, `VL_REPASSE_CONV`, `VL_CONTRAPARTIDA_CONV`, `VL_EMPENHADO_CONV`, `VL_DESEMBOLSADO_CONV`, **`VL_SALDO_REMAN_TESOURO`** ("valores devolvidos ao Tesouro ao término do instrumento") e `VL_SALDO_REMAN_CONVENENTE` ("devolvidos ao Convenente"). A primeira é candidata a `valor_devolvido` (spec §8).
+- `siconv_emenda`: `ID_PROPOSTA`, `NR_EMENDA`, `NOME_PARLAMENTAR`, `TIPO_PARLAMENTAR`, `IND_IMPOSITIVO`, `VALOR_REPASSE_EMENDA`.
+- `siconv_historico_situacao`: `ID_PROPOSTA`, `NR_CONVENIO`, `DIA_HISTORICO_SIT`, `HISTORICO_SIT`, `DIAS_HISTORICO_SIT`. É a trilha de datas de cada mudança, mas **não traz o motivo**.
+- `siconv_desembolso`: `NR_CONVENIO`, `DATA_DESEMBOLSO`, `VL_DESEMBOLSADO`. `siconv_prorroga_oficio`: `NR_CONVENIO`, `DT_FIM_PRORROGA`, `SIT_PRORROGA`.
+
+Valores de situação **observados** para o município:
+
+| Campo | Valores (contagem) |
+| --- | --- |
+| `siconv_proposta.SIT_PROPOSTA` | Proposta/Plano de Trabalho Enviado para Análise (122); Rejeitados (49); em Análise (33); Aprovados (27); Cadastrados (12); Proposta Aprovada e Plano de Trabalho em Análise (5); Rejeitados por Impedimento técnico (5); Proposta Aprovada e Plano de Trabalho Complementado em Análise (1); Proposta Eliminada em Chamamento Público (1); Proposta/Plano de Trabalho Complementado em Análise (1) |
+| `siconv_proposta_cancelada.SIT_PROPOSTA` | Proposta/Plano de Trabalho Cancelados (7) |
+| `siconv_convenio.SIT_CONVENIO` | Prestação de Contas Aprovada (11); Convênio Anulado (5); Prestação de Contas Concluída (3); Em execução (3); Prestação de Contas em Análise (3); Proposta/Plano de Trabalho Aprovado (1); Prestação de Contas Rejeitada (1); Proposta/Plano de Trabalho Complementado em Análise (1) |
+| `siconv_convenio.INSTRUMENTO_ATIVO` | NÃO (20); SIM (8). Os 3 "Prestação de Contas em Análise", os 3 "Em execução" e os 2 "Proposta/Plano de Trabalho ..." são os ativos |
+| `siconv_convenio.SITUACAO_CONTRATACAO` | Normal (19); vazio (5); Cláusula Suspensiva (4, com `MOTIVO_SUSPENSAO` "Titularidade de Área, Projeto de Engenharia e Licenciamento Ambiental Prévio") |
+| `siconv_historico_situacao.HISTORICO_SIT` | 28 códigos, entre eles PROPOSTA_CADASTRADA, PROPOSTA_ENVIADA_ANALISE, PROPOSTA_EM_ANALISE, PROPOSTA_REPROVADA, PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO, PLANO_TRABALHO_APROVADO, ASSINADA, EM_EXECUCAO, AGUARDANDO_PRESTACAO_CONTAS, PRESTACAO_CONTAS_APROVADA, PRESTACAO_CONTAS_CONCLUIDA, PRESTACAO_CONTAS_REJEITADA, CONVENIO_ANULADO, PROPOSTA_ELIMINADA_EM_CHAMAMENTO_PUBLICO, RASCUNHO (lista completa na saída da POC) |
+| `siconv_convenio.SUBSITUACAO_CONV` | sempre vazio |
+
+Pendências desta fonte:
+- O dicionário cita ainda em `SIT_CONVENIO` os valores "Prestação de Contas enviada para Análise", "Prestação de Contas em Complementação" e "Inadimplente", **não observados** no município.
+- Os convênios antigos "Prestação de Contas em Análise" (3, ativos) têm vigência já encerrada; não foi verificado há quanto tempo estão nesse estado.
+- `SITUACAO_CONTRATACAO = Cláusula Suspensiva` aparece em 4 convênios, mas `DATA_RETIRADA_SUSPENSIVA` está preenchida em 14: a regra `prazo_proximo` precisa checar se a suspensão ainda vale (T2.3).
+- Nenhuma tabela traz o **motivo** da rejeição ou da anulação: só a situação e a data (`siconv_historico_situacao`). O motivo continua dependendo de documento (curadoria, spec §7).
 
 ## Obrasgov.br — API
 

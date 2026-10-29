@@ -16,7 +16,7 @@ Postura: iniciativa cidadã **independente**. Tom informativo, nunca acusatório
 
 ## 2. Escopo
 
-**Fase 1 (esta spec):** verbas federais desde 01/01/2024.
+**Fase 1 (esta spec):** verbas federais desde 01/01/2024. Nas fontes em lote do Siconv (Transferegov Discricionárias e Legais), entra a proposta com data de proposta a partir de 01/01/2024 **ou** o instrumento ainda ativo (`INSTRUMENTO_ATIVO = SIM`), mesmo que mais antigo, para não esconder o que segue em execução ou com prestação de contas pendente.
 - Transferências voluntárias (convênios, contratos de repasse)
 - Emendas parlamentares federais com finalidade definida (individuais, bancada, comissão)
 - Transferências especiais ("emendas Pix")
@@ -47,7 +47,7 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 | --- | --- | --- |
 | `oportunidade` | Oportunidade | Programa, edital ou emenda que o município pode pleitear |
 | `proposta` | Proposta enviada | Pedido cadastrado, aguardando análise |
-| `aprovada` | Aprovada | Instrumento assinado, recurso ainda não liberado (pode ter cláusula suspensiva) |
+| `aprovada` | Aprovada | Proposta e plano de trabalho aprovados ou instrumento assinado, recurso ainda não liberado (a assinatura pode estar pendente; pode haver cláusula suspensiva) |
 | `execucao` | Em execução | Recurso liberado, obra ou compra em andamento |
 | `prestacao` | Prestação de contas | Execução encerrada, contas em análise |
 | `concluida` | Concluída | Contas aprovadas |
