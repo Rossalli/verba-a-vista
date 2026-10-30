@@ -44,12 +44,32 @@ class SituacaoNaoMapeada:
 
 
 @dataclass
+class ObraLigada:
+    """Obra do Obrasgov ligada a uma verba do Siconv (D8): o que a regra `obra_parada` precisa saber."""
+
+    id_projeto: str
+    situacao: str | None  # `situacao` do projeto: Cadastrada, Em execução, Paralisada...
+    ultima_atualizacao: date | None  # maior `dt_atualizacao_execucao` (ou, sem ela, `dt_cadastro_execucao`); None: sem execução física
+    paralisada_desde: date | None  # data do último registro de paralisação no histórico, se houver
+
+
+@dataclass
+class ImpedimentoEmenda:
+    """Situação de impedimento técnico de uma emenda (módulo `especiais`). Ainda sem fonte real: ver D13."""
+
+    situacao: str  # situação atual do plano de ação (`IMPEDIDO` = impedimento não superado)
+    motivo: str | None = None
+
+
+@dataclass
 class Normalizacao:
     data: date
     verbas: list[Verba]
     nao_mapeadas: list[SituacaoNaoMapeada]
     avisos: list[str]
     retratos: dict[str, date | None]  # fonte -> data do retrato usado (None: sem retrato)
+    obras: dict[str, ObraLigada] = field(default_factory=dict)  # id da verba -> obra ligada
+    impedimentos: dict[str, ImpedimentoEmenda] = field(default_factory=dict)  # id da verba -> impedimento (vazio até haver emendas Pix)
 
 
 # --- utilidades --------------------------------------------------------------------------------
@@ -289,16 +309,21 @@ def _fonte_modelo(nome: str, url: str, retrato: dict) -> FonteRef:
 # --- junção com o Obrasgov (D8) ----------------------------------------------------------------
 
 
-def _juntar_obrasgov(verbas_siconv: list[tuple[Verba, dict | None, dict]], obras: dict | None, ctx: _Contexto) -> None:
-    """Percentual físico das obras em que a prefeitura é executora e que a ponte liga ao convênio."""
+def _juntar_obrasgov(verbas_siconv: list[tuple[Verba, dict | None, dict]], obras: dict | None, ctx: _Contexto) -> dict[str, ObraLigada]:
+    """Percentual físico das obras em que a prefeitura é executora e que a ponte liga ao convênio.
+
+    Devolve, por verba, os dados da obra ligada (insumo da regra `obra_parada`, T2.3).
+    """
+    ligadas: dict[str, ObraLigada] = {}
     if obras is None:
         ctx.avisos.append("Obrasgov sem retrato: execucao_fisica_pct fica vazio")
-        return
+        return ligadas
     d = obras["dados"]
     url = ctx.config.fontes.fontes["obrasgov"].base_url
     ponte = {r["nr_instrumento"]: r["id_projeto_investimento"] for r in d["ponte_siconv"]}
     projetos = {p["id_projeto_investimento"]: p for p in d["projeto_investimento"]}
     execucoes = _por_chave(d["execucao_fisica"], "id_projeto_investimento")
+    historicos = _por_chave(d["historico_situacao"], "id_projeto_investimento")
     for verba, convenio, _ in verbas_siconv:
         id_projeto = ponte.get(convenio["NR_CONVENIO"]) if convenio else None
         projeto = projetos.get(id_projeto) if id_projeto else None
@@ -309,11 +334,16 @@ def _juntar_obrasgov(verbas_siconv: list[tuple[Verba, dict | None, dict]], obras
             ctx.avisos.append(f"Obrasgov: projeto {id_projeto} ligado a {verba.id} não tem a prefeitura como executora; ignorado")
             continue
         registros = execucoes.get(id_projeto, [])
+        atualizacao = None
         if registros:
             ultimo = max(registros, key=lambda r: (r.get("dt_atualizacao_execucao") or "", r.get("dt_cadastro_execucao") or ""))
             if ultimo.get("percentual_execucao_fisica") is not None:
                 verba.execucao_fisica_pct = float(ultimo["percentual_execucao_fisica"])
+            atualizacao = data_br(ultimo.get("dt_atualizacao_execucao") or ultimo.get("dt_cadastro_execucao"))
+        paralisacoes = [data_br(h["data_historico_situacao_investimento"]) for h in historicos.get(id_projeto, []) if h.get("descricao_historico_situacao_investimento") == "Paralisada"]
+        ligadas[verba.id] = ObraLigada(id_projeto, projeto.get("situacao"), atualizacao, max((x for x in paralisacoes if x), default=None))
         verba.fontes.append(_fonte_modelo("Obrasgov", url, obras))
+    return ligadas
 
 
 # --- Transferegov API: parcerias e fundo a fundo -----------------------------------------------
@@ -461,6 +491,20 @@ def _verbas_oportunidades(retrato: dict, ctx: _Contexto) -> list[Verba]:
 # --- linha de comando --------------------------------------------------------------------------
 
 
+def resumo_normalizacao(resultado: Normalizacao) -> str:
+    """Texto do resumo da normalização: contagens, retratos usados, situações não mapeadas e avisos."""
+    linhas = [
+        f"Normalização de {resultado.data.isoformat()}: {len(resultado.verbas)} verbas",
+        "Retratos usados: " + ", ".join(f"{f}={d.isoformat() if d else 'SEM RETRATO'}" for f, d in resultado.retratos.items()),
+    ]
+    for rotulo, valores in (("fonte", [v.fonte for v in resultado.verbas]), ("tipo", [v.tipo for v in resultado.verbas]), ("status", [str(v.status_site) for v in resultado.verbas])):
+        contagem = sorted(((valores.count(x), x) for x in set(valores)), reverse=True)
+        linhas.append(f"  por {rotulo}: " + ", ".join(f"{x}={c}" for c, x in contagem))
+    linhas.append(relatorio_nao_mapeadas(resultado.nao_mapeadas))
+    linhas += [f"AVISO: {aviso}" for aviso in resultado.avisos]
+    return "\n".join(linhas)
+
+
 def main(argv: list[str] | None = None) -> int:
     """`python -m nucleo.normaliza`: normaliza os retratos mais recentes e imprime o resumo e o relatório.
 
@@ -477,15 +521,7 @@ def main(argv: list[str] | None = None) -> int:
 
     data = args.data or date.today()
     retratos = carregar_retratos(args.raiz, data)
-    resultado = normalizar(retratos, data=data)
-    print(f"Normalização de {data.isoformat()}: {len(resultado.verbas)} verbas")
-    print("Retratos usados:", ", ".join(f"{f}={d.isoformat() if d else 'SEM RETRATO'}" for f, d in resultado.retratos.items()))
-    for rotulo, valores in (("fonte", [v.fonte for v in resultado.verbas]), ("tipo", [v.tipo for v in resultado.verbas]), ("status", [str(v.status_site) for v in resultado.verbas])):
-        contagem = sorted(((valores.count(x), x) for x in set(valores)), reverse=True)
-        print(f"  por {rotulo}: " + ", ".join(f"{x}={c}" for c, x in contagem))
-    print(relatorio_nao_mapeadas(resultado.nao_mapeadas))
-    for aviso in resultado.avisos:
-        print(f"AVISO: {aviso}")
+    print(resumo_normalizacao(normalizar(retratos, data=data)))
     return 0
 
 
@@ -497,6 +533,7 @@ def normalizar(retratos: dict[str, dict | None], config: Config | None = None, d
     data = data or date.today()
     ctx = _Contexto(config, data, MapaStatus(config))
     verbas: list[Verba] = []
+    obras: dict[str, ObraLigada] = {}
 
     siconv = retratos.get("transferegov_discricionarias")
     if siconv is None:
@@ -504,7 +541,7 @@ def normalizar(retratos: dict[str, dict | None], config: Config | None = None, d
     else:
         do_siconv = _verbas_siconv(siconv, ctx)
         _juntar_portal(do_siconv, retratos.get("portal_transparencia"), ctx)
-        _juntar_obrasgov(do_siconv, retratos.get("obrasgov"), ctx)
+        obras = _juntar_obrasgov(do_siconv, retratos.get("obrasgov"), ctx)
         verbas += [v for v, _, _ in do_siconv]
         verbas += _verbas_oportunidades(siconv, ctx)
 
@@ -528,6 +565,7 @@ def normalizar(retratos: dict[str, dict | None], config: Config | None = None, d
         nao_mapeadas=ctx.mapa.nao_mapeadas(),
         avisos=ctx.avisos,
         retratos={f: (date.fromisoformat(r["data"]) if r else None) for f, r in retratos.items()},
+        obras=obras,
     )
 
 

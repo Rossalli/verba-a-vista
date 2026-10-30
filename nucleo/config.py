@@ -63,18 +63,24 @@ class Municipio(_Base):
 
 
 class TextosRisco(_Base):
+    """Modelos dos textos do site. Marcadores: {dias} e {dias_unidade} ("dia"/"dias"); {item} e {exigencia}."""
+
     prazo_proximo: str
     cauc_sem_comprovacao: str
     obra_parada: str
+    obra_paralisada: str  # sem data para contar os dias
     impedimento_emenda: str
 
 
 class Risco(_Base):
     dias_alerta_prazo: int = Field(gt=0)
     dias_obra_parada: int = Field(gt=0)
+    status: list[StatusSite]  # etapas em que `em_risco` pode existir (spec §5)
+    cauc_fontes: list[str]  # só verbas vindas dessas fontes (transferências voluntárias) recebem o alerta de CAUC
     cauc_tipos: list[Tipo]
     cauc_status: list[StatusSite]
     prazos_monitorados: list[NomePrazo]
+    desligadas: list[CodigoRisco] = Field(default_factory=list)  # regras cujo campo de origem ainda não foi confirmado
     textos: TextosRisco
 
 

@@ -13,13 +13,17 @@ municipio:
 risco:
   dias_alerta_prazo: 60
   dias_obra_parada: 90
-  cauc_tipos: [voluntaria, emenda_finalidade]   # spec §5; ajustar após a T1.5
+  status: [proposta, aprovada, execucao, prestacao]   # spec §5: `oportunidade`, concluída e perdida não têm em_risco (D13)
+  cauc_fontes: [transferegov_discricionarias]   # D13: só transferências voluntárias; fundo a fundo fica sem alerta de CAUC
+  cauc_tipos: [voluntaria, emenda_finalidade]   # spec §5
   cauc_status: [proposta, aprovada]
   prazos_monitorados: [clausula_suspensiva, fim_vigencia, prestacao_contas, adesao]
+  desligadas: [impedimento_emenda]   # o campo `motivo_impedimento_plano_acao` existe no OpenAPI mas não foi visto em dado real (T1.1); ligar quando houver
   textos:
-    prazo_proximo: "Prazo em {dias} dias"
+    prazo_proximo: "Prazo em {dias} {dias_unidade}"
     cauc_sem_comprovacao: "CAUC: item {item} sem comprovação ({exigencia})"
-    obra_parada: "Obra parada há {dias} dias"
+    obra_parada: "Obra parada há {dias} {dias_unidade}"
+    obra_paralisada: "Obra paralisada no Obrasgov"
     impedimento_emenda: "Impedimento técnico"
 
 perda:
