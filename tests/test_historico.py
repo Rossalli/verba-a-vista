@@ -289,14 +289,14 @@ def test_dados_reais_segunda_execucao_a_partir_do_publicado_nao_muda_nada(reais,
 # --- pipeline ----------------------------------------------------------------------------------
 
 
-def test_pipeline_aplica_o_historico_e_imprime_as_perdas(capsys):
-    assert pipeline.main(["--data", "2026-10-30"]) == 0
+def test_pipeline_aplica_o_historico_e_imprime_as_perdas(capsys, raiz_sem_publicado):
+    assert pipeline.main(["--data", "2026-10-30", "--raiz", str(raiz_sem_publicado), "--sem-publicar"]) == 0
     saida = capsys.readouterr().out
     assert "Histórico: primeira execução (sem publicado anterior); novas=46, com mudança=0, desaparecidas=0" in saida
     assert "Perdas novas: 8, valor perdido R$ 4,660,928.60; pedidos de curadoria: 8" in saida
     assert "transferegov_discricionarias-2113259 em 2026-03-05: R$ 549,500.00" in saida
 
 
-def test_pipeline_processar_devolve_o_historico(config):
-    p = pipeline.processar(RAIZ, DATA, config)
+def test_pipeline_processar_devolve_o_historico(config, raiz_sem_publicado):
+    p = pipeline.processar(raiz_sem_publicado, DATA, config)
     assert p.historico.primeira_execucao and len(p.historico.perdas_novas) == 8

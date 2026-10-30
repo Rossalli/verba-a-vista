@@ -173,6 +173,8 @@ curadoria  ──►  dados/fila/ (rascunhos)  ──►  revisão humana  ─�
 publica  ──►  dados/publicados/verbas.json + verbas.csv  ──►  site (Astro build)
 ```
 
+A publicação grava `dados/publicados/verbas.json` (objeto com `versao`, `data`, `atualizado_em`, `fontes`, `referencias` e a lista em `verbas`) e `verbas.csv` (UTF-8 com BOM, separador `;`, valores em reais com vírgula decimal, rótulos do site, texto protegido contra fórmulas do Excel). Os dois são validados contra `schemas/` antes de gravar; se algo falhar, nada é gravado e o publicado anterior fica. O formato completo está em `docs/dados-publicados.md`.
+
 O histórico é calculado comparando o resultado normalizado do dia com o publicado anterior (`dados/publicados/verbas.json` no Git, um objeto com a lista em `verbas`). Cada mudança na situação do site **ou** na situação da fonte vira uma entrada (`de` e `para` são os status do site; a `nota` diz a mudança na fonte). Sem publicado anterior (primeira execução), cada verba nasce com uma entrada de `de` nulo e a nota "Primeira coleta", que cita desde quando a fonte registra a situação, se informar; uma verba nova depois disso diz "Verba apareceu nas fontes". Uma verba publicada que some das fontes de um dia para o outro **não é publicada** e vai para os avisos, para revisão. Se o publicado anterior existir e não puder ser lido, o pipeline para: o histórico nunca é recomeçado em silêncio.
 
 Execução diária às 09:00 (horário de Brasília), depois da publicação diária do CAUC (~08:11 em dias úteis). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".

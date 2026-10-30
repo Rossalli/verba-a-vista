@@ -167,13 +167,21 @@ class CategoriaPerda(_Base):
 
 
 class Taxonomia(_Base):
+    """Vocabulário do site: categorias de perda (§6.2), rótulos de status (§4) e nomes de tipo (§3)."""
+
     categorias: dict[Categoria, CategoriaPerda]
+    status: dict[StatusSite, str]
+    sem_status: str  # rótulo da verba sem status mapeado (spec §4)
+    tipos: dict[Tipo, str]
 
     @model_validator(mode="after")
     def _todas_as_categorias(self):
         faltam = set(get_args(Categoria)) - set(self.categorias)
         if faltam:
             raise ValueError(f"categorias ausentes na taxonomia: {', '.join(sorted(faltam))}")
+        for nome, esperado, atual in (("status", set(get_args(StatusSite)), set(self.status)), ("tipos", set(get_args(Tipo)), set(self.tipos))):
+            if esperado - atual:
+                raise ValueError(f"{nome} ausentes na taxonomia: {', '.join(sorted(esperado - atual))}")
         return self
 
 

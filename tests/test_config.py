@@ -104,6 +104,24 @@ def test_taxonomia_sem_categoria(copia):
         carregar_config(copia)
 
 
+def test_taxonomia_traz_os_rotulos_do_site_para_status_e_tipos():
+    tax = carregar_config().taxonomia
+    assert tax.status["execucao"] == "Em execução" and tax.sem_status == "Situação em análise"
+    assert tax.tipos["voluntaria"] == "Convênio, contrato de repasse ou termo de compromisso" and len(tax.status) == 7 and len(tax.tipos) == 6
+
+
+def test_taxonomia_sem_status_ou_sem_tipo_e_erro(copia):
+    editar(copia, "taxonomia.yaml", lambda d: d["status"].pop("perdida"))
+    with pytest.raises(ConfigErro, match="status ausentes na taxonomia: perdida"):
+        carregar_config(copia)
+
+
+def test_taxonomia_sem_tipo_e_erro(copia):
+    editar(copia, "taxonomia.yaml", lambda d: d["tipos"].pop("emenda_pix"))
+    with pytest.raises(ConfigErro, match="tipos ausentes na taxonomia: emenda_pix"):
+        carregar_config(copia)
+
+
 def test_limite_do_portal_acima_do_permitido_pela_fonte(copia):
     editar(copia, "regras.yaml", lambda d: d["coleta"].update(portal_transparencia_req_por_min=500))
     with pytest.raises(ConfigErro, match="maior que"):

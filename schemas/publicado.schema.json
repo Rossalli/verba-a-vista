@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verba-a-vista/schemas/publicado.schema.json",
+  "title": "Publicado",
+  "description": "dados/publicados/verbas.json: o que o site lê (spec §9 e §10). Cada item de `verbas` segue schemas/verba.schema.json.",
+  "type": "object",
+  "required": ["versao", "data", "atualizado_em", "fontes", "referencias", "verbas"],
+  "additionalProperties": false,
+  "$defs": {
+    "data": { "type": "string", "format": "date" },
+    "dataOuNulo": { "type": ["string", "null"], "format": "date" },
+    "fonte": {
+      "type": "object",
+      "required": ["nome", "url", "retrato", "coletado_em", "data_do_dado", "situacao"],
+      "additionalProperties": false,
+      "properties": {
+        "nome": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "retrato": { "$ref": "#/$defs/dataOuNulo", "description": "Data do retrato bruto usado (o último válido)." },
+        "coletado_em": { "type": ["string", "null"], "format": "date-time" },
+        "data_do_dado": { "$ref": "#/$defs/dataOuNulo", "description": "Data a que o dado se refere, quando a fonte a informa (ex.: carga do Siconv)." },
+        "situacao": { "enum": ["ok", "defasada", "sem_retrato"], "description": "ok: retrato da data de referência; defasada: último retrato válido, mais antigo; sem_retrato: fonte nunca coletada." }
+      }
+    },
+    "valorAno": {
+      "type": "object",
+      "required": ["ano", "transferencia", "valor", "meses"],
+      "additionalProperties": false,
+      "properties": {
+        "ano": { "type": "integer" },
+        "transferencia": { "enum": ["FPM", "ITR"] },
+        "valor": { "type": "integer", "minimum": 0, "description": "Centavos." },
+        "meses": { "type": "integer", "minimum": 1, "maximum": 12 }
+      }
+    }
+  },
+  "properties": {
+    "versao": { "const": 1 },
+    "data": { "$ref": "#/$defs/data" },
+    "atualizado_em": { "type": ["string", "null"], "format": "date-time", "description": "Maior `coletado_em` entre os retratos usados." },
+    "fontes": { "type": "object", "additionalProperties": { "$ref": "#/$defs/fonte" } },
+    "referencias": {
+      "type": "object",
+      "required": ["transferencias_constitucionais"],
+      "additionalProperties": false,
+      "properties": {
+        "transferencias_constitucionais": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["por_ano", "ultimo_mes"],
+              "additionalProperties": false,
+              "properties": {
+                "por_ano": { "type": "array", "items": { "$ref": "#/$defs/valorAno" } },
+                "ultimo_mes": {
+                  "type": "object",
+                  "required": ["mes", "terceiro_decendio_zerado"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "mes": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
+                    "terceiro_decendio_zerado": { "type": ["boolean", "null"], "description": "FPM do último mês com o 3º decêndio ainda zerado: o mês pode estar incompleto." }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "verbas": { "type": "array", "items": { "$ref": "https://verba-a-vista/schemas/verba.schema.json" } }
+  }
+}

@@ -1,0 +1,4 @@
+# Dados publicados e brutos: bytes estáveis entre Windows e Linux (o diff do Git mostra só o que mudou na fonte).
+dados/publicados/verbas.json text eol=lf
+dados/publicados/verbas.csv -text
+dados/brutos/**/*.json text eol=lf

@@ -1,4 +1,24 @@
-# Categorias de motivo de perda (spec §6.2). Usadas no prompt da curadoria e no site.
+# Vocabulário do site: categorias de motivo de perda (spec §6.2, usadas também no prompt da curadoria),
+# rótulos de status (spec §4) e nomes de tipo (spec §3). O CSV publicado e o site usam estes textos.
+
+status:
+  oportunidade: Oportunidade
+  proposta: Proposta enviada
+  aprovada: Aprovada
+  execucao: Em execução
+  prestacao: Prestação de contas
+  concluida: Concluída
+  perdida: Perdida
+
+sem_status: Situação em análise   # verba cuja situação na fonte ainda não está no status_map (spec §4)
+
+tipos:
+  voluntaria: Convênio, contrato de repasse ou termo de compromisso
+  emenda_finalidade: Emenda com finalidade definida
+  emenda_pix: Emenda Pix (transferência especial)
+  fundo_a_fundo: Repasse fundo a fundo
+  programa_adesao: Programa por adesão ou seleção
+  constitucional: Transferência constitucional
 
 categorias:
   prazo_proposta:

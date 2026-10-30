@@ -12,6 +12,7 @@ from pathlib import Path
 from nucleo.config import Config, carregar_config
 from nucleo.historico import ResultadoHistorico, aplicar_historico, carregar_anterior
 from nucleo.normaliza import RAIZ, Normalizacao, carregar_retratos, normalizar, resumo_normalizacao
+from nucleo.publica import publicar
 from nucleo.risco import ORDEM, ResultadoRisco, aplicar_risco
 
 
@@ -20,6 +21,9 @@ class Processamento:
     normalizacao: Normalizacao
     risco: ResultadoRisco
     historico: ResultadoHistorico
+    retratos: dict[str, dict | None]
+    data: date
+    config: Config
 
 
 def processar(raiz: Path = RAIZ, data: date | None = None, config: Config | None = None) -> Processamento:
@@ -29,7 +33,7 @@ def processar(raiz: Path = RAIZ, data: date | None = None, config: Config | None
     normalizacao = normalizar(retratos, config, data)
     risco = aplicar_risco(normalizacao, retratos, config, data)
     historico = aplicar_historico(normalizacao, carregar_anterior(raiz), data, config, raiz, retratos)
-    return Processamento(normalizacao, risco, historico)
+    return Processamento(normalizacao, risco, historico, retratos, data, config)
 
 
 def resumo_risco(processamento: Processamento) -> str:
@@ -61,13 +65,19 @@ def main(argv: list[str] | None = None) -> int:
 
     parser = argparse.ArgumentParser(prog="python -m nucleo.pipeline", description="Normaliza os retratos mais recentes e aplica as regras de risco.")
     parser.add_argument("--data", type=date.fromisoformat, default=None, help="data de referência, AAAA-MM-DD (padrão: hoje)")
-    parser.add_argument("--raiz", type=Path, default=RAIZ, help="raiz com dados/brutos (padrão: o repositório)")
+    parser.add_argument("--raiz", type=Path, default=RAIZ, help="raiz com dados/brutos e dados/publicados (padrão: o repositório)")
+    parser.add_argument("--sem-publicar", action="store_true", help="só mostra o resumo, sem gravar dados/publicados")
     args = parser.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
     processamento = processar(args.raiz, args.data)
     print(resumo_normalizacao(processamento.normalizacao))
     print(resumo_risco(processamento))
     print(resumo_historico(processamento))
+    if args.sem_publicar:
+        print("Publicação: pulada (--sem-publicar)")
+        return 0
+    publicado = publicar(processamento.normalizacao.verbas, processamento.retratos, processamento.config, processamento.data, args.raiz)
+    print(f"Publicado: {publicado.verbas} verbas em {publicado.json} e {publicado.csv}")
     return 0
 
 

@@ -315,13 +315,13 @@ def test_dados_reais_em_01_de_novembro_nao_entram_as_oportunidades(reais, config
 # --- pipeline ----------------------------------------------------------------------------------
 
 
-def test_pipeline_encadeia_normalizacao_e_risco(config):
-    p = pipeline.processar(RAIZ, DATA, config)
+def test_pipeline_encadeia_normalizacao_e_risco(config, raiz_sem_publicado):
+    p = pipeline.processar(raiz_sem_publicado, DATA, config)
     assert len(p.normalizacao.verbas) == 46 and p.risco.verbas_em_risco == 9
 
 
-def test_pipeline_imprime_resumo_do_risco(capsys):
-    assert pipeline.main(["--data", "2026-10-30"]) == 0
+def test_pipeline_imprime_resumo_do_risco(capsys, raiz_sem_publicado):
+    assert pipeline.main(["--data", "2026-10-30", "--raiz", str(raiz_sem_publicado), "--sem-publicar"]) == 0
     saida = capsys.readouterr().out
     assert "Normalização de 2026-10-30: 46 verbas" in saida
     assert "Em risco: 9 verba(s); motivos: prazo_proximo=1, cauc_sem_comprovacao=8" in saida

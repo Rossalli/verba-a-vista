@@ -1,0 +1,1917 @@
+{
+ "versao": 1,
+ "data": "2026-10-30",
+ "atualizado_em": "2026-10-29T18:19:41-03:00",
+ "fontes": {
+  "transferegov_discricionarias": {
+   "nome": "Transferegov — Discricionárias e Legais (Siconv)",
+   "url": "https://repositorio.dados.gov.br/seges/detru",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:19:35-03:00",
+   "data_do_dado": "2026-07-17",
+   "situacao": "defasada"
+  },
+  "transferegov_api": {
+   "nome": "Transferegov — API pública",
+   "url": "https://api-publica.transferegov.gestao.gov.br",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:16:43-03:00",
+   "data_do_dado": "2026-10-29",
+   "situacao": "defasada"
+  },
+  "portal_transparencia": {
+   "nome": "Portal da Transparência",
+   "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:16:59-03:00",
+   "data_do_dado": null,
+   "situacao": "defasada"
+  },
+  "obrasgov": {
+   "nome": "Obrasgov",
+   "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:19:41-03:00",
+   "data_do_dado": "2026-10-29",
+   "situacao": "defasada"
+  },
+  "cauc": {
+   "nome": "CAUC (Tesouro Nacional)",
+   "url": "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:17:04-03:00",
+   "data_do_dado": "2026-10-29",
+   "situacao": "defasada"
+  },
+  "tesouro_constitucionais": {
+   "nome": "Tesouro — Transferências Constitucionais",
+   "url": "https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom",
+   "retrato": "2026-10-29",
+   "coletado_em": "2026-10-29T18:17:31-03:00",
+   "data_do_dado": null,
+   "situacao": "defasada"
+  }
+ },
+ "referencias": {
+  "transferencias_constitucionais": {
+   "por_ano": [
+    {
+     "ano": 2024,
+     "transferencia": "FPM",
+     "valor": 1431757469,
+     "meses": 12
+    },
+    {
+     "ano": 2024,
+     "transferencia": "ITR",
+     "valor": 37504643,
+     "meses": 12
+    },
+    {
+     "ano": 2025,
+     "transferencia": "FPM",
+     "valor": 1384610014,
+     "meses": 12
+    },
+    {
+     "ano": 2025,
+     "transferencia": "ITR",
+     "valor": 44042042,
+     "meses": 12
+    },
+    {
+     "ano": 2026,
+     "transferencia": "FPM",
+     "valor": 1176858374,
+     "meses": 10
+    },
+    {
+     "ano": 2026,
+     "transferencia": "ITR",
+     "valor": 34911983,
+     "meses": 10
+    }
+   ],
+   "ultimo_mes": {
+    "mes": "2026-10",
+    "terceiro_decendio_zerado": true
+   }
+  }
+ },
+ "verbas": [
+  {
+   "id": "siconv_programa-55956",
+   "fonte": "siconv_programa",
+   "id_fonte": "55956",
+   "numero_instrumento": "5600020260007",
+   "nome": "Novo PAC - Abastecimento de Água - FIN",
+   "objeto": "Novo PAC - Abastecimento de Água - FIN",
+   "tipo": "programa_adesao",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-55957",
+   "fonte": "siconv_programa",
+   "id_fonte": "55957",
+   "numero_instrumento": "5600020260008",
+   "nome": "Novo PAC - Esgotamento Sanitário - FIN",
+   "objeto": "Novo PAC - Esgotamento Sanitário - FIN",
+   "tipo": "programa_adesao",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56045",
+   "fonte": "siconv_programa",
+   "id_fonte": "56045",
+   "numero_instrumento": "2200020260004",
+   "nome": "Fomento ao Setor Agropecuário - Propostas Voluntárias",
+   "objeto": "Fomento ao Setor Agropecuário - Propostas Voluntárias",
+   "tipo": "programa_adesao",
+   "instrumento": "CONTRATO DE REPASSE",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56079",
+   "fonte": "siconv_programa",
+   "id_fonte": "56079",
+   "numero_instrumento": "2200020260006",
+   "nome": "Programa Nacional de Estradas Rurais - PRONER",
+   "objeto": "Programa Nacional de Estradas Rurais - PRONER",
+   "tipo": "programa_adesao",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56107",
+   "fonte": "siconv_programa",
+   "id_fonte": "56107",
+   "numero_instrumento": "2200020260018",
+   "nome": "Fomento ao Setor Agropecuário - Proposta Voluntária - Obras de Fomento",
+   "objeto": "Fomento ao Setor Agropecuário - Proposta Voluntária - Obras de Fomento",
+   "tipo": "programa_adesao",
+   "instrumento": "CONTRATO DE REPASSE",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56156",
+   "fonte": "siconv_programa",
+   "id_fonte": "56156",
+   "numero_instrumento": "2200020260022",
+   "nome": "Programa Nacional de Modernização e Apoio à Produção Agrícola - PROMAQ",
+   "objeto": "Programa Nacional de Modernização e Apoio à Produção Agrícola - PROMAQ",
+   "tipo": "programa_adesao",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56317",
+   "fonte": "siconv_programa",
+   "id_fonte": "56317",
+   "numero_instrumento": "5600020260026",
+   "nome": "Novo PAC - Periferia Viva Urbanização de Favelas",
+   "objeto": "Novo PAC - Periferia Viva Urbanização de Favelas",
+   "tipo": "programa_adesao",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56385",
+   "fonte": "siconv_programa",
+   "id_fonte": "56385",
+   "numero_instrumento": "2629120260003",
+   "nome": "Ações da Diretoria de Articulação e Inovação em Educação Aberta (DIEA) da Capes - PROEB e Inovação Tecnológica",
+   "objeto": "Ações da Diretoria de Articulação e Inovação em Educação Aberta (DIEA) da Capes - PROEB e Inovação Tecnológica",
+   "tipo": "programa_adesao",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DA EDUCACAO",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56386",
+   "fonte": "siconv_programa",
+   "id_fonte": "56386",
+   "numero_instrumento": "2629120260004",
+   "nome": "Ações da Diretoria de Articulação e Inovação em Educação Aberta (DIEA) da Capes - Sistema UAB",
+   "objeto": "Ações da Diretoria de Articulação e Inovação em Educação Aberta (DIEA) da Capes - Sistema UAB",
+   "tipo": "programa_adesao",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DA EDUCACAO",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "siconv_programa-56401",
+   "fonte": "siconv_programa",
+   "id_fonte": "56401",
+   "numero_instrumento": "2220120260013",
+   "nome": "INFRA-ESTRUTURA BÁSICA – SR(SP) Superintendência Regional do INCRA de SÃO PAULO– CONVÊNIO",
+   "objeto": "INFRA-ESTRUTURA BÁSICA – SR(SP) Superintendência Regional do INCRA de SÃO PAULO– CONVÊNIO",
+   "tipo": "programa_adesao",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DO DESENVOLVIMENTO AGRÁRIO E AGRICULTURA FAMILIAR",
+   "valor_total": null,
+   "status_site": "oportunidade",
+   "status_fonte": "DISPONIBILIZADO",
+   "em_risco": false,
+   "prazos": {
+    "adesao": "2026-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "oportunidade",
+     "fonte": "siconv_programa",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-1692090",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "1692090",
+   "numero_instrumento": "922621",
+   "nome": "AQUISIÇÃO DE EQUIPAMENTO PARA APOIO À PRODUÇÃO E AOS SERVIÇOS MUNICIPAIS",
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTO PARA APOIO À PRODUÇÃO E AOS SERVIÇOS MUNICIPAIS",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL",
+   "parlamentar": null,
+   "valor_total": 38440000,
+   "valor_contrapartida": 40000,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Complementado em Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2021-08-26",
+    "fim_vigencia": "2021-12-26",
+    "prestacao_contas": "2021-12-26"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 05/05/2025"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-1733967",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "1733967",
+   "numero_instrumento": "925702",
+   "nome": "Recapeamento Asfáltico em diversas vias no municipio de Neves Paulista",
+   "objeto": "Recapeamento Asfáltico em diversas vias no municipio de Neves Paulista",
+   "tipo": "voluntaria",
+   "instrumento": "CONTRATO DE REPASSE",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "parlamentar": null,
+   "valor_total": 48612406,
+   "valor_contrapartida": 502006,
+   "valor_liberado": 0,
+   "status_site": "execucao",
+   "status_fonte": "Em execução",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "prazo_proximo",
+     "texto": "Prazo em 51 dias",
+     "data_limite": "2026-12-20"
+    }
+   ],
+   "prazos": {
+    "proposta": "2021-12-28",
+    "assinatura": "2023-12-28",
+    "fim_vigencia": "2026-12-20",
+    "prestacao_contas": "2027-02-18"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "execucao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 12/06/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    },
+    {
+     "nome": "Obrasgov",
+     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "data_coleta": "2026-10-29T18:19:41-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-1981768",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "1981768",
+   "numero_instrumento": "12684/2024",
+   "nome": "AQUISIÇÃO DE PATRULHA AGRICOLA",
+   "objeto": "AQUISIÇÃO DE PATRULHA AGRICOLA",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 70075000,
+   "valor_contrapartida": 75000,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2024-05-13"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2025-01-21",
+    "valor_perdido": 70000000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 21/01/2025"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-199153",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "199153",
+   "numero_instrumento": "733022",
+   "nome": "Festa do Peão de Neves Paulista",
+   "objeto": "Festa do Peão de Neves Paulista",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DO TURISMO",
+   "parlamentar": null,
+   "valor_total": 11000000,
+   "valor_contrapartida": 1000000,
+   "valor_liberado": 10000000,
+   "valor_devolvido": 125,
+   "status_site": "prestacao",
+   "status_fonte": "Prestação de Contas em Análise",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2010-03-02",
+    "assinatura": "2010-05-04",
+    "fim_vigencia": "2010-09-27",
+    "prestacao_contas": "2010-09-27"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "prestacao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 02/07/2013"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2031354",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2031354",
+   "numero_instrumento": "970941",
+   "nome": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+   "objeto": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "parlamentar": null,
+   "valor_total": 341125000,
+   "valor_contrapartida": 16125000,
+   "valor_liberado": 93875879,
+   "status_site": "execucao",
+   "status_fonte": "Em execução",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2024-11-26",
+    "assinatura": "2024-12-13",
+    "fim_vigencia": "2028-09-13",
+    "prestacao_contas": "2028-11-12"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "execucao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 23/06/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    },
+    {
+     "nome": "Obrasgov",
+     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "data_coleta": "2026-10-29T18:19:41-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2065616",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2065616",
+   "numero_instrumento": "8933/2025",
+   "nome": "AQUISIÇÃO DE PATRULHA AGRICOLA",
+   "objeto": "AQUISIÇÃO DE PATRULHA AGRICOLA",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 70075000,
+   "valor_contrapartida": 75000,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-05-13"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-01-14",
+    "valor_perdido": 70000000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 14/01/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2076013",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2076013",
+   "numero_instrumento": "17544/2025",
+   "nome": "Revitalização de Espaço Público, no município de Neves Paulista - SP",
+   "objeto": "Revitalização de Espaço Público, no município de Neves Paulista - SP",
+   "tipo": "voluntaria",
+   "instrumento": "CONTRATO DE REPASSE",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "parlamentar": null,
+   "valor_total": 38920500,
+   "valor_contrapartida": 500000,
+   "status_site": "proposta",
+   "status_fonte": "Proposta Aprovada e Plano de Trabalho em Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2025-05-22"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 29/12/2025"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2079956",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2079956",
+   "numero_instrumento": "20378/2025",
+   "nome": "AQUISIÇÃO DE PÁ CARREGADEIRA",
+   "objeto": "AQUISIÇÃO DE PÁ CARREGADEIRA",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 85090000,
+   "valor_contrapartida": 90000,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-05-28"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-01-14",
+    "valor_perdido": 85000000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 14/01/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2084546",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2084546",
+   "numero_instrumento": "24031/2025",
+   "nome": "Obras de pavimentação de estradas vicinais destinadas à integração com rodovias estaduais e municipais; obras de pavimentação de rodovias…",
+   "objeto": "Obras de pavimentação de estradas vicinais destinadas à integração com rodovias estaduais e municipais; obras de pavimentação de rodovias estaduais e municipais destinadas ao escoamento produtivo; implantação de infraestrutura produtiva e obras complementares; desenvolvimento e implantação de tecnologias sustentáveis e inovadoras de apoio à produção.",
+   "tipo": "voluntaria",
+   "instrumento": "CONTRATO DE REPASSE",
+   "orgao_concedente": "MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL",
+   "parlamentar": null,
+   "valor_total": 300000000,
+   "valor_contrapartida": 300000,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2025-06-02"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 03/06/2025"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2113195",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2113195",
+   "numero_instrumento": "42023/2025",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 37342860,
+   "valor_contrapartida": 0,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-08-19"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-03-05",
+    "valor_perdido": 37342860,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 05/03/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2113259",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2113259",
+   "numero_instrumento": "42055/2025",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 54950000,
+   "valor_contrapartida": 0,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-08-19"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-03-05",
+    "valor_perdido": 54950000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 05/03/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2113295",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2113295",
+   "numero_instrumento": "42072/2025",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 34800000,
+   "valor_contrapartida": 0,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-08-19"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-03-05",
+    "valor_perdido": 34800000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 05/03/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2113518",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2113518",
+   "numero_instrumento": "990509",
+   "nome": "PROVISÃO DE UNIDADES HABITACIONAIS MCMV, NO MUNICIPIO DE NEVES PAULISTA-SP",
+   "objeto": "PROVISÃO DE UNIDADES HABITACIONAIS MCMV, NO MUNICIPIO DE NEVES PAULISTA-SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTERIO DAS CIDADES",
+   "parlamentar": null,
+   "valor_total": 285000000,
+   "valor_contrapartida": 5000000,
+   "valor_liberado": 0,
+   "status_site": "execucao",
+   "status_fonte": "Em execução",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-08-19",
+    "assinatura": "2025-12-30",
+    "fim_vigencia": "2029-12-30",
+    "prestacao_contas": "2030-02-28"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "execucao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 23/01/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    },
+    {
+     "nome": "Obrasgov",
+     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "data_coleta": "2026-10-29T18:19:41-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2122457",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2122457",
+   "numero_instrumento": "47217/2025",
+   "nome": "Adequação e Recuperação de Estradas Vicinais no Municipio de Neves Paulista-SP",
+   "objeto": "Adequação e Recuperação de Estradas Vicinais no Municipio de Neves Paulista-SP",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL",
+   "parlamentar": null,
+   "valor_total": 2138000000,
+   "valor_contrapartida": 2200000,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Cadastrados",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2025-09-03"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 03/09/2025"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2152076",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2152076",
+   "numero_instrumento": "64411/2025",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 58000000,
+   "valor_contrapartida": 0,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-11-25"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-03-24",
+    "valor_perdido": 58000000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 24/03/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2152082",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2152082",
+   "numero_instrumento": "64413/2025",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 56000000,
+   "valor_contrapartida": 0,
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-11-25"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-03-24",
+    "valor_perdido": 56000000,
+    "gerado_por_ia": false
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 24/03/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2175551",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2175551",
+   "numero_instrumento": "2456/2026",
+   "nome": "MODERNIZAÇAO DO SISTEMA DE VIDEOMONITORAMENTO DO MUNICIPIO DE NEVES PAULISTA-SP",
+   "objeto": "MODERNIZAÇAO DO SISTEMA DE VIDEOMONITORAMENTO DO MUNICIPIO DE NEVES PAULISTA-SP",
+   "tipo": "emenda_finalidade",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "parlamentar": "ALEXANDRE LEITE",
+   "valor_total": 20275308,
+   "valor_contrapartida": 275308,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Complementado em Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2026-02-23"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 08/07/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2227146",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2227146",
+   "numero_instrumento": "30102/2026",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 34800000,
+   "valor_contrapartida": 0,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2026-07-02"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 02/07/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-2227151",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "2227151",
+   "numero_instrumento": "30106/2026",
+   "nome": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "objeto": "EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP",
+   "tipo": "voluntaria",
+   "instrumento": "TERMO DE COMPROMISSO",
+   "orgao_concedente": "MINISTÉRIO DA AGRICULTURA E PECUÁRIA",
+   "parlamentar": null,
+   "valor_total": 54950000,
+   "valor_contrapartida": 0,
+   "status_site": "proposta",
+   "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2026-07-02"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "proposta",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 02/07/2026"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-478813",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "478813",
+   "numero_instrumento": "758028",
+   "nome": "Manutenção de Unidade de Atenção Especializada em Saúde.",
+   "objeto": "Manutenção de Unidade de Atenção Especializada em Saúde.",
+   "tipo": "emenda_finalidade",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DA SAUDE",
+   "parlamentar": "SILVIO TORRES",
+   "valor_total": 15000000,
+   "valor_contrapartida": 0,
+   "status_site": "aprovada",
+   "status_fonte": "Proposta/Plano de Trabalho Aprovado",
+   "em_risco": true,
+   "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
+    }
+   ],
+   "prazos": {
+    "proposta": "2011-08-19",
+    "fim_vigencia": "2013-09-20",
+    "prestacao_contas": "2013-09-20"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 31/12/2011"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-496746",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "496746",
+   "numero_instrumento": "759463",
+   "nome": "Festival da Viola e Festa das Nações Neves Paulista",
+   "objeto": "Festival da Viola e Festa das Nações Neves Paulista",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DO TURISMO",
+   "parlamentar": null,
+   "valor_total": 10500000,
+   "valor_contrapartida": 500000,
+   "valor_liberado": 10000000,
+   "valor_devolvido": 21562,
+   "status_site": "prestacao",
+   "status_fonte": "Prestação de Contas em Análise",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2011-10-07",
+    "assinatura": "2011-11-18",
+    "fim_vigencia": "2012-09-25",
+    "prestacao_contas": "2012-10-25"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "prestacao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 01/08/2017"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_discricionarias-88432",
+   "fonte": "transferegov_discricionarias",
+   "id_fonte": "88432",
+   "numero_instrumento": "704774",
+   "nome": "Festa do Peão de Neves Paulista.",
+   "objeto": "Festa do Peão de Neves Paulista.",
+   "tipo": "voluntaria",
+   "instrumento": "CONVENIO",
+   "orgao_concedente": "MINISTERIO DO TURISMO",
+   "parlamentar": null,
+   "valor_total": 11000000,
+   "valor_contrapartida": 1000000,
+   "valor_liberado": 10000000,
+   "status_site": "prestacao",
+   "status_fonte": "Prestação de Contas em Análise",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2009-07-17",
+    "assinatura": "2009-09-03",
+    "fim_vigencia": "2009-11-30",
+    "prestacao_contas": "2009-11-30"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "prestacao",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Primeira coleta; situação registrada na fonte desde 14/01/2015"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
+     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Portal da Transparência",
+     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "data_coleta": "2026-10-29T18:16:59-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_fundoafundo-13785",
+   "fonte": "transferegov_fundoafundo",
+   "id_fonte": "13785",
+   "numero_instrumento": "30882120230006-013785",
+   "nome": "MINC - LEI PAULO GUSTAVO - MUNICIPIOS",
+   "objeto": "Executar os artigos 6º (audiovisual) e 8º (demais áreas da cultura) de lei complementar nº195/2022.",
+   "tipo": "fundo_a_fundo",
+   "instrumento": "FUNDO_A_FUNDO",
+   "orgao_concedente": "Ministério da Cultura",
+   "valor_total": 9167394,
+   "valor_contrapartida": 0,
+   "status_site": "aprovada",
+   "status_fonte": "AUTORIZADO",
+   "em_risco": false,
+   "prazos": {
+    "assinatura": "2023-05-11",
+    "fim_vigencia": "2024-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_fundoafundo",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Fundo a Fundo (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_fundoafundo-27864",
+   "fonte": "transferegov_fundoafundo",
+   "id_fonte": "27864",
+   "numero_instrumento": "30882120250004-027864",
+   "nome": "MINC - POLÍTICA NACIONAL ALDIR BLANC 2025 - MUNICÍPIOS",
+   "objeto": "Executar os recursos oriundos da Lei 14.399, de 8 de julho de 2022, que tem como objetivos:I - estimular ações, iniciativas, atividades e projetos culturais;II - garantir o financiamento e a manutenção de ações, de espaços, de ambientes e de iniciativas artístico-culturais que contribuam para o pleno exercício dos direitos culturais pelos cidadãos brasileiros, dispondo-lhes os meios e os insumos necessários para a produção, o registro, a gestão e a difusão cultural de suas práticas e seus saberes, fazeres, modos de vida, bens, produtos e serviços culturais;III - democratizar o acesso à fruição e à produção artística e cultural, inclusive em áreas periféricas, urbanas e rurais;IV - garantir o financiamento para as ações, os projetos, as políticas e os programas públicos de cultura previstos no plano de cultura local.",
+   "tipo": "fundo_a_fundo",
+   "instrumento": "FUNDO_A_FUNDO",
+   "orgao_concedente": "Ministério da Cultura",
+   "valor_total": 32084028,
+   "valor_contrapartida": 0,
+   "status_site": "aprovada",
+   "status_fonte": "AUTORIZADO",
+   "em_risco": false,
+   "prazos": {
+    "assinatura": "2025-05-29",
+    "fim_vigencia": "2029-12-31"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_fundoafundo",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Fundo a Fundo (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-17901",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "17901",
+   "numero_instrumento": "202500017102",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 5000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-07-28"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-17902",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "17902",
+   "numero_instrumento": "202500017103",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 5000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-07-28"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-17903",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "17903",
+   "numero_instrumento": "202500017104",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-07-28"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-20720",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "20720",
+   "numero_instrumento": "202500019919",
+   "nome": "O objetivo é repassar recursos federais do Fundo Nacional de Assistência Social (FNAS) ao Fundo de Assistência Social do ente federado…",
+   "objeto": "O objetivo é repassar recursos federais do Fundo Nacional de Assistência Social (FNAS) ao Fundo de Assistência Social do ente federado vinculado a esta programação, com o intuito de fortalecer e ampliar a oferta de serviços socioassistenciais de caráter continuado do Sistema Único de Assistência Social (SUAS).",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo",
+   "orgao_concedente": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome",
+   "valor_total": 5000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-08-06"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-40597",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "40597",
+   "numero_instrumento": "202500039739",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-12-02"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-44865",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "44865",
+   "numero_instrumento": "202500043960",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2025-12-30"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-46931",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "46931",
+   "numero_instrumento": "202600001737",
+   "nome": "O objetivo é repassar recursos federais do Fundo Nacional de Assistência Social (FNAS) ao Fundo de Assistência Social do ente federado…",
+   "objeto": "O objetivo é repassar recursos federais do Fundo Nacional de Assistência Social (FNAS) ao Fundo de Assistência Social do ente federado vinculado a esta programação, com o intuito de fortalecer e ampliar a oferta de serviços socioassistenciais de caráter continuado do Sistema Único de Assistência Social (SUAS).",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo",
+   "orgao_concedente": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome",
+   "valor_total": 5000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-03-24"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-56517",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "56517",
+   "numero_instrumento": "202600011320",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-04-08"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-66514",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "66514",
+   "numero_instrumento": "202600021309",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 20000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-04-16"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-68674",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "68674",
+   "numero_instrumento": "202600023464",
+   "nome": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "objeto": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-04-27"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-74742",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "74742",
+   "numero_instrumento": "202600029525",
+   "nome": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "objeto": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 20000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-05-12"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-85586",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "85586",
+   "numero_instrumento": "202600040343",
+   "nome": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "objeto": "INCREMENTO AO PISO DA ATENÇÃO PRIMÁRIA",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 20000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-06-19"
+   },
+   "historico": [
+    {
+     "data": "2026-10-30",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Primeira coleta"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias (API)",
+     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "data_coleta": "2026-10-29T18:16:43-03:00"
+    }
+   ]
+  }
+ ]
+}

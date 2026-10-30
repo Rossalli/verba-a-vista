@@ -7,7 +7,7 @@ PYTHON ?= python
 coleta:  # T2.1; ex.: make coleta ARGS="--fonte cauc --data 2026-10-29"
 	$(PYTHON) -m coleta $(ARGS)
 
-normaliza:  # T2.2 e T2.3: normaliza, aplica o risco e imprime o resumo; T2.4 e T2.5 completam
+normaliza:  # T2.2 a T2.5: normaliza, aplica risco, perda e histórico e grava dados/publicados; ARGS="--sem-publicar" só mostra o resumo
 	$(PYTHON) -m nucleo.pipeline $(ARGS)
 
 curadoria:  # T3.2

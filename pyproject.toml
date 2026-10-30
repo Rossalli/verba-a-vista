@@ -13,13 +13,13 @@ dependencies = [
     "pandas",
     "pyyaml",
     "anthropic",
+    "jsonschema",  # valida cada verba e o publicado contra schemas/ antes de gravar (T2.5)
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
     "respx",
-    "jsonschema",  # valida a saída do modelo Verba contra schemas/ (T0.2)
 ]
 
 [tool.setuptools]

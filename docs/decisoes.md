@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D15 — Formato do publicado: JSON com situação das fontes, CSV para o Excel brasileiro (30/10/2026)
+`verbas.json` é um objeto (e não só a lista) porque o site precisa da data e hora de cada coleta e da data do dado de cada fonte (spec §9 e §10: "dados de <fonte> de <data>"; o Siconv em lote tem 105 dias de defasagem). Não leva hora de geração, para reexecutar sem mudança não gerar diff. O `verbas.csv` usa UTF-8 com BOM, `;` e vírgula decimal porque o público-alvo abre no Excel em português; quem usa ponto decimal precisa converter (documentado em `docs/dados-publicados.md`). Texto da fonte que começa com `=`, `+`, `-` ou `@` recebe apóstrofo, contra injeção de fórmula. `jsonschema` virou dependência de execução (valida antes de gravar), e `.gitattributes` fixa os bytes dos arquivos publicados entre Windows e Linux.
+
 ## D14 — Histórico começa na primeira coleta; perda sobre o repasse da União e datada pela fonte (30/10/2026)
 (1) O `historico[]` segue a spec §9 (diferença entre publicações) e começa em 30/10/2026; o histórico real do Siconv (4 a 6 eventos por proposta, com data) **não** foi usado para semeá-lo, porque isso exigiria uma tabela nova traduzindo os 28 códigos de `HISTORICO_SIT` e mudaria o §9; fica como melhoria. (2) O `valor_perdido` é o repasse da União não liberado mais o valor devolvido, onde repasse = valor total menos a contrapartida (conferido: R$ 700.750,00 de valor global menos R$ 750,00 de contrapartida dá R$ 700.000,00, redondo). (3) `perda.data` é a data do último evento da fonte (a rejeição de 05/03/2026, por exemplo) e não a da primeira coleta, para não parecer que 8 propostas rejeitadas desde janeiro de 2025 foram perdidas hoje. (4) Com os dados de hoje: 8 perdas, R$ 4.660.928,60 de repasse não recebido, todas "em apuração" e com pedido de curadoria.
 
