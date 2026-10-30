@@ -90,8 +90,10 @@ Uma verba vira `perdida` quando a fonte indica, por exemplo: cancelada, extinta,
 
 Ao detectar uma perda nova, o pipeline:
 1. registra a mudança no histórico;
-2. calcula `valor_perdido` (valor não liberado + valor devolvido);
-3. cria um pedido de curadoria (§7).
+2. calcula `valor_perdido` (valor não liberado + valor devolvido), sobre o **repasse da União**: o valor total menos a contrapartida do município (o valor global do Siconv inclui a parte do município); nunca negativo;
+3. cria um pedido de curadoria (§7): toda perda sem arquivo em `dados/curadoria/`.
+
+A `perda.data` é a data do último evento da situação na fonte quando ela a informa (Siconv: `siconv_historico_situacao`); sem isso, a data da detecção. Enquanto não houver curadoria revisada, a perda sai com `categoria: em_apuracao`, o texto padrão de `config/regras.yaml` e `evitavel: indeterminado` (§7). Uma perda já publicada é preservada nas execuções seguintes (com a curadoria que ela tenha); se a verba deixar de estar perdida, a perda some e o histórico registra a volta.
 
 ### 6.2 Taxonomia de motivos
 
@@ -171,7 +173,7 @@ curadoria  ──►  dados/fila/ (rascunhos)  ──►  revisão humana  ─�
 publica  ──►  dados/publicados/verbas.json + verbas.csv  ──►  site (Astro build)
 ```
 
-O histórico é calculado comparando o resultado normalizado do dia com o publicado anterior (`dados/publicados/verbas.json` no Git).
+O histórico é calculado comparando o resultado normalizado do dia com o publicado anterior (`dados/publicados/verbas.json` no Git, um objeto com a lista em `verbas`). Cada mudança na situação do site **ou** na situação da fonte vira uma entrada (`de` e `para` são os status do site; a `nota` diz a mudança na fonte). Sem publicado anterior (primeira execução), cada verba nasce com uma entrada de `de` nulo e a nota "Primeira coleta", que cita desde quando a fonte registra a situação, se informar; uma verba nova depois disso diz "Verba apareceu nas fontes". Uma verba publicada que some das fontes de um dia para o outro **não é publicada** e vai para os avisos, para revisão. Se o publicado anterior existir e não puder ser lido, o pipeline para: o histórico nunca é recomeçado em silêncio.
 
 Execução diária às 09:00 (horário de Brasília), depois da publicação diária do CAUC (~08:11 em dias úteis). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".
 

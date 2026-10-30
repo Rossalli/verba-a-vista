@@ -10,6 +10,7 @@ from datetime import date
 from pathlib import Path
 
 from nucleo.config import Config, carregar_config
+from nucleo.historico import ResultadoHistorico, aplicar_historico, carregar_anterior
 from nucleo.normaliza import RAIZ, Normalizacao, carregar_retratos, normalizar, resumo_normalizacao
 from nucleo.risco import ORDEM, ResultadoRisco, aplicar_risco
 
@@ -18,6 +19,7 @@ from nucleo.risco import ORDEM, ResultadoRisco, aplicar_risco
 class Processamento:
     normalizacao: Normalizacao
     risco: ResultadoRisco
+    historico: ResultadoHistorico
 
 
 def processar(raiz: Path = RAIZ, data: date | None = None, config: Config | None = None) -> Processamento:
@@ -26,7 +28,8 @@ def processar(raiz: Path = RAIZ, data: date | None = None, config: Config | None
     retratos = carregar_retratos(raiz, data)
     normalizacao = normalizar(retratos, config, data)
     risco = aplicar_risco(normalizacao, retratos, config, data)
-    return Processamento(normalizacao, risco)
+    historico = aplicar_historico(normalizacao, carregar_anterior(raiz), data, config, raiz, retratos)
+    return Processamento(normalizacao, risco, historico)
 
 
 def resumo_risco(processamento: Processamento) -> str:
@@ -36,6 +39,20 @@ def resumo_risco(processamento: Processamento) -> str:
         if verba.em_risco:
             linhas.append(f"  - {verba.id} ({verba.status_site}): " + "; ".join(m.texto for m in verba.motivos_risco))
     linhas += [f"AVISO: {aviso}" for aviso in risco.avisos]
+    return "\n".join(linhas)
+
+
+def resumo_historico(processamento: Processamento) -> str:
+    h = processamento.historico
+    verbas = {v.id: v for v in processamento.normalizacao.verbas}
+    origem = "primeira execução (sem publicado anterior)" if h.primeira_execucao else "comparado com o publicado anterior"
+    linhas = [f"Histórico: {origem}; novas={len(h.novas)}, com mudança={len(h.mudancas)}, desaparecidas={len(h.desaparecidas)}"]
+    perdidas = [verbas[i] for i in h.perdas_novas]
+    total = sum(v.perda.valor_perdido for v in perdidas)
+    linhas.append(f"Perdas novas: {len(perdidas)}, valor perdido R$ {total / 100:,.2f}; pedidos de curadoria: {len(h.precisam_curadoria)}")
+    for v in perdidas:
+        linhas.append(f"  - {v.id} em {v.perda.data.isoformat()}: R$ {v.perda.valor_perdido / 100:,.2f} ({v.status_fonte})")
+    linhas += [f"AVISO: {aviso}" for aviso in h.avisos]
     return "\n".join(linhas)
 
 
@@ -50,6 +67,7 @@ def main(argv: list[str] | None = None) -> int:
     processamento = processar(args.raiz, args.data)
     print(resumo_normalizacao(processamento.normalizacao))
     print(resumo_risco(processamento))
+    print(resumo_historico(processamento))
     return 0
 
 
