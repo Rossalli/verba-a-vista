@@ -91,7 +91,6 @@ class RegraPerda(_Base):
 class RegraCuradoria(_Base):
     modelo: str
     max_tokens: int = Field(gt=0)
-    temperatura: float = Field(ge=0)
     auto_publicar: bool
     auto_publicar_categorias: list[Categoria]
     texto_em_apuracao: str

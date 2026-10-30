@@ -31,8 +31,8 @@ perda:
 
 curadoria:
   modelo: claude-sonnet-5-5
-  max_tokens: 2000
-  temperatura: 0
+  max_tokens: 4000
+  # Sem `temperatura`: o claude-sonnet-5-5 rejeita (400) qualquer valor fora do padrão. Quem garante o resultado é a validação de citações (T3.3) e a revisão humana.
   auto_publicar: false            # spec §7.5 — manter false na fase 1
   auto_publicar_categorias: [cauc, execucao_nao_iniciada]
   texto_em_apuracao: "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda."
