@@ -196,12 +196,50 @@ def test_valor_perdido_sem_valor_total_so_conta_o_devolvido_e_avisa(config, tmp_
 # --- pedidos de curadoria ----------------------------------------------------------------------
 
 
+CITACAO_YAML = """  - n: 1
+    documento_id: cauc-2026-10-29
+    titulo: "CAUC: situação do município em 29/10/2026"
+    url: https://exemplo.gov.br/cauc.csv
+    trecho: "4.2 Regularidade"
+"""
+CURADORIA = (
+    "verba_id: {id}\ncategoria: cauc\ntexto: A prefeitura não comprovou a regularidade exigida [1].\nevitavel: sim\n"
+    "citacoes:\n" + CITACAO_YAML + "gerado_por_ia: true\nrevisado_por: Revisora\nrevisado_em: 2026-10-30\n"
+)
+
+
+def grava_curadoria(raiz: Path, verba_id: str, conteudo: str) -> None:
+    (raiz / "dados" / "curadoria").mkdir(parents=True, exist_ok=True)
+    (raiz / "dados" / "curadoria" / f"{verba_id}.yaml").write_text(conteudo, encoding="utf-8")
+
+
 def test_so_perdas_sem_arquivo_de_curadoria_pedem_curadoria(config, tmp_path):
     a, b = verba("transferegov_discricionarias-1", status="perdida"), verba("transferegov_discricionarias-2", status="perdida")
-    (tmp_path / "dados" / "curadoria").mkdir(parents=True)
-    (tmp_path / "dados" / "curadoria" / f"{a.id}.yaml").write_text("categoria: cauc\n", encoding="utf-8")
+    grava_curadoria(tmp_path, a.id, CURADORIA.format(id=a.id))
     _, res = rodar([a, b, verba("transferegov_discricionarias-3")], None, config, tmp_path)
     assert res.perdas_novas == [a.id, b.id] and res.precisam_curadoria == [b.id]  # a perda de `a` já foi curada
+    assert (a.perda.categoria, a.perda.revisado_por, a.perda.gerado_por_ia) == ("cauc", "Revisora", True)
+    assert a.perda.citacoes[0].documento_id == "cauc-2026-10-29"
+    assert a.perda.data and a.perda.valor_perdido is not None  # data e valor continuam do pipeline
+    assert b.perda.categoria == "em_apuracao" and b.perda.revisado_por is None
+
+
+def test_curadoria_invalida_para_o_pipeline(config, tmp_path):
+    from nucleo.curadoria_revisada import CuradoriaErro
+
+    a = verba("transferegov_discricionarias-1", status="perdida")
+    grava_curadoria(tmp_path, a.id, "categoria: cauc\n")
+    with pytest.raises(CuradoriaErro):
+        rodar([a], None, config, tmp_path)
+
+
+def test_motivo_de_perda_sem_citacao_so_vale_como_em_apuracao(config, tmp_path):
+    from nucleo.curadoria_revisada import CuradoriaErro
+
+    a = verba("transferegov_discricionarias-1", status="perdida")
+    grava_curadoria(tmp_path, a.id, CURADORIA.format(id=a.id).replace(CITACAO_YAML, "").replace("citacoes:\n", "citacoes: []\n"))
+    with pytest.raises(CuradoriaErro, match="sem citação"):
+        rodar([a], None, config, tmp_path)
 
 
 # --- leitura do publicado anterior -------------------------------------------------------------

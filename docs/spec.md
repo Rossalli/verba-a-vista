@@ -115,6 +115,13 @@ Definida em `config/taxonomia.yaml`. Cada perda publicada tem exatamente uma `ca
 6. Uma pessoa revisa (fase 1: arquivo YAML editado à mão ou via PR; a tela de revisão do layout é fase 1.5). Ao aprovar, o arquivo vai para `dados/curadoria/<id>.yaml` com `revisado_por` e `revisado_em`.
 7. Só `dados/curadoria/` é publicado.
 
+Detalhes da fase 1 (T3.4):
+- `python -m curadoria` só mostra o plano; a chamada à IA (cobrada) exige `--executar`. Perda que já tem rascunho ou erro em `dados/fila/` não é enviada de novo sem `--refazer`.
+- `dados/fila/<id>.yaml` traz o `rascunho` (a pessoa edita aqui) e os `documentos` citáveis; a revisão é `python -m curadoria.aprovar <id> --por "<nome>"`, que confere o rascunho de novo antes de aprovar e apaga o arquivo da fila (o histórico é o Git).
+- Rascunho `em_apuracao` não se aprova: a perda já aparece como "motivo em apuração".
+- `dados/curadoria/<id>.yaml` (modelo `CuradoriaRevisada`) vira a `perda` publicada; `data` e `valor_perdido` continuam os do pipeline. Arquivo inválido, ou motivo diferente de `em_apuracao` sem citação, para o pipeline.
+- `gerado_por_ia` é sempre `true` na curadoria aprovada (o texto parte do rascunho da IA, mesmo editado).
+
 ### 7.2 Documentos de entrada
 
 Na fase 1, só documentos obtidos automaticamente:

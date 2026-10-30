@@ -5,3 +5,5 @@ dados/brutos/**/*.json text eol=lf
 
 # Makefile precisa de LF: com CRLF o make trata o retorno de carro como parte do comando e a receita quebra.
 Makefile text eol=lf
+dados/fila/*.yaml text eol=lf
+dados/curadoria/*.yaml text eol=lf

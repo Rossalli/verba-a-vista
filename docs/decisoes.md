@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D16 — Quem revisa os rascunhos da IA: a autora, por arquivo YAML (30/10/2026)
+A fase 1 usa `dados/fila/<id>.yaml` editado à mão e `python -m curadoria.aprovar`; sem planilha nem PR obrigatório. Se entrarem outras pessoas, o `--por` já registra quem aprovou.
+
 ## D15 — Formato do publicado: JSON com situação das fontes, CSV para o Excel brasileiro (30/10/2026)
 `verbas.json` é um objeto (e não só a lista) porque o site precisa da data e hora de cada coleta e da data do dado de cada fonte (spec §9 e §10: "dados de <fonte> de <data>"; o Siconv em lote tem 105 dias de defasagem). Não leva hora de geração, para reexecutar sem mudança não gerar diff. O `verbas.csv` usa UTF-8 com BOM, `;` e vírgula decimal porque o público-alvo abre no Excel em português; quem usa ponto decimal precisa converter (documentado em `docs/dados-publicados.md`). Texto da fonte que começa com `=`, `+`, `-` ou `@` recebe apóstrofo, contra injeção de fórmula. `jsonschema` virou dependência de execução (valida antes de gravar), e `.gitattributes` fixa os bytes dos arquivos publicados entre Windows e Linux.
 
@@ -49,7 +52,6 @@ Sem documento: "motivo em apuração".
 
 ## Em aberto
 - **Fonte do Siconv em lote fora do ar (29/10/2026).** O diretório `repositorio.dados.gov.br/seges/detru/` passou a dar 404 (docs/fontes.md §Discricionárias, alerta). Dele dependem os convênios com o detalhe das regras de risco (cláusula suspensiva, prazos de prestação de contas, histórico), as oportunidades (D10) e a ponte Obrasgov-Siconv. Caminhos possíveis: esperar e monitorar o retorno; achar o novo endereço; ou usar o Portal da Transparência como fonte de convênios (63 registros, mais atual, mas sem o detalhe do Siconv). Decidir antes da T2.2.
-- Quem revisa os rascunhos da IA (só a autora, voluntários ou parceria). Define se a fila fica em YAML/PR no GitHub ou numa planilha.
 - Onde roda a coleta (GitHub Actions ou servidor no Brasil). A T1.0 (29/10/2026) não encontrou bloqueio do Actions nos hosts testados, então a tendência é GitHub Actions. Fica em aberto até as POCs confirmarem os endpoints reais a partir do Actions (T1.1 e T1.4).
 - Domínio do site.
 - E-mail de contato do projeto.

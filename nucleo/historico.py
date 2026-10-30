@@ -3,7 +3,7 @@
 Compara as verbas normalizadas de hoje com o publicado anterior (`dados/publicados/verbas.json`):
 - cada mudança de situação vira uma entrada em `historico[]`;
 - uma perda nova ganha `perda` (motivo "em apuração" até haver curadoria, spec §7) e `valor_perdido`;
-- as perdas sem arquivo em `dados/curadoria/` entram em `precisam_curadoria` (o pedido de curadoria).
+- as perdas sem arquivo em `dados/curadoria/` entram em `precisam_curadoria` (o pedido de curadoria); as que têm arquivo recebem o motivo revisado (T3.4).
 
 O publicado anterior é fonte de verdade do passado: se ele existe mas não pode ser lido, o pipeline PARA em vez
 de recomeçar o histórico do zero.
@@ -15,6 +15,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from nucleo.config import Config
+from nucleo.curadoria_revisada import aplicar_curadoria, carregar_curadoria
 from nucleo.modelo import Historico, Perda, Verba
 from nucleo.normaliza import Normalizacao
 
@@ -141,8 +142,11 @@ def aplicar_historico(
             else:
                 verba.perda = _perda_nova(verba, desde or data, config, resultado.avisos)
                 resultado.perdas_novas.append(verba.id)
-            if not (raiz / "dados" / "curadoria" / f"{verba.id}.yaml").exists():
+            curadoria = carregar_curadoria(raiz, verba.id)
+            if curadoria is None:
                 resultado.precisam_curadoria.append(verba.id)
+            else:
+                verba.perda = aplicar_curadoria(verba.perda, curadoria)  # só a curadoria revisada muda o motivo publicado
 
     atuais = {v.id for v in normalizacao.verbas}
     resultado.desaparecidas = sorted(set(anteriores) - atuais)

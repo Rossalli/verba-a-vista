@@ -71,8 +71,9 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
 - [x] **T3.3 Validação de citações.** Regras da spec §7.4.
   *Aceite:* testes com rascunho bom, trecho inexistente, frase sem citação, nome de pessoa.
   *Feito:* `curadoria/validacao.py` (`validar_rascunho` → `Validacao(erros, avisos)`): schema, trecho literal no documento citado (espaços e caixa normalizados), toda frase com `[n]` (marcador antes ou depois do ponto) e `[n]` existente, nome de pessoa (cargo + nome, ou 2+ palavras capitalizadas fora dos nomes do município, órgão, objeto e de um léxico de órgãos/instrumentos); `em_apuracao` só com texto padrão e sem citações. Citação não usada só avisa. Conservadora de propósito ("Dra." parte a frase e reprova). 20 testes; 478 no total.
-- [ ] **T3.4 Fila e aprovação.** `dados/fila/<id>.yaml` → revisão → `dados/curadoria/<id>.yaml`. Comando `python -m curadoria.aprovar <id> --por "<nome>"`.
+- [x] **T3.4 Fila e aprovação.** `dados/fila/<id>.yaml` → revisão → `dados/curadoria/<id>.yaml`. Comando `python -m curadoria.aprovar <id> --por "<nome>"`.
   *Aceite:* fluxo completo com uma perda de fixture; só `dados/curadoria/` chega ao publicado.
+  *Feito:* `curadoria/fila.py`, `executar.py` (`python -m curadoria`, plano por padrão e `--executar` para cobrar), `aprovar.py` e `nucleo/curadoria_revisada.py`; `aplicar_historico` aplica o motivo revisado à `perda` e para o pipeline se o arquivo for inválido. Fluxo completo testado com perdas reais e IA falsa (gera, reprova, edita, aprova, publica no schema); só `dados/curadoria/` muda o publicado. Decisão D16: a autora revisa. 489 testes.
 
 ## Marco 4 — Site
 
