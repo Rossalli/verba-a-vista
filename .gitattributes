@@ -3,5 +3,5 @@ dados/publicados/verbas.json text eol=lf
 dados/publicados/verbas.csv -text
 dados/brutos/**/*.json text eol=lf
 
-# Makefile precisa de LF: com CRLF o make no Windows ou no Linux tenta executar "" como parte do comando.
+# Makefile precisa de LF: com CRLF o make trata o retorno de carro como parte do comando e a receita quebra.
 Makefile text eol=lf
