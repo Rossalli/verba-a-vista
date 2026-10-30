@@ -1,0 +1,35 @@
+---
+import { carregarTaxonomia } from "../lib/taxonomia.js";
+import { formatarData, formatarReais, url } from "../lib/dados.js";
+import { formatarTitulo, rotuloInstrumento, rotuloRisco } from "../lib/resumo.js";
+
+const { verba } = Astro.props;
+const taxonomia = carregarTaxonomia();
+const motivo = verba.motivos_risco[0];
+const frase = motivo.codigo === "prazo_proximo" && motivo.data_limite ? `O prazo final é ${formatarData(`${motivo.data_limite}T12:00:00-03:00`)}.` : motivo.texto;
+const mais = verba.motivos_risco.length - 1;
+---
+
+<a class="cartao" href={url(`/verbas/${verba.id}/`)}>
+  <span class="alerta">{rotuloRisco(motivo)}{mais > 0 && ` (+${mais})`}</span>
+  <span class="h3">{formatarTitulo(verba.nome)}</span>
+  <span class="frase">{frase}</span>
+  <span class="rodape-cartao">
+    <span>{rotuloInstrumento(verba)} · {taxonomia.status[verba.status_site]}</span>
+    <span class="mono valor">{verba.valor_total != null ? formatarReais(verba.valor_total) : "valor não informado"}</span>
+  </span>
+</a>
+
+<style>
+  .cartao { background: var(--superficie); border: 1px solid var(--risco-borda); border-radius: var(--raio); padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--tinta); min-width: 0; }
+  .cartao:hover { border-color: var(--risco); }
+  .alerta { align-self: flex-start; padding: 3px 10px; border-radius: var(--raio-pilula); background: var(--risco-fundo); color: var(--risco); font-size: 13px; font-weight: 700; }
+  .frase { color: var(--tinta-2); }
+  .rodape-cartao { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--tinta-suave); border-top: 1px solid var(--linha-suave); padding-top: 10px; margin-top: auto; }
+  .valor { color: var(--tinta); white-space: nowrap; }
+  @media (max-width: 600px) {
+    .cartao { padding: 16px; gap: 8px; }
+    .frase { display: none; }
+    .rodape-cartao { border-top: 0; padding-top: 0; }
+  }
+</style>

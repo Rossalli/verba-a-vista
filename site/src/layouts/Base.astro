@@ -40,6 +40,7 @@ const menu = [
     <meta property="og:url" content={canonica} />
     <meta name="theme-color" content="#111c27" />
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <noscript><style is:global>.menu { display: flex !important; } .botao-menu { display: none !important; }</style></noscript>
   </head>
   <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -64,7 +65,10 @@ const menu = [
             <span class="marca-lugar">Neves Paulista · SP</span>
           </span>
         </a>
-        <nav aria-label="Principal" class="menu">
+        <button type="button" class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="#111C27" stroke-width="2" stroke-linecap="round"></path></svg>
+        </button>
+        <nav aria-label="Principal" class="menu" id="menu">
           {menu.map((item) => (
             <a href={item.href} aria-current={item.rota && rota === item.rota ? "page" : undefined}>{item.rotulo}</a>
           ))}
@@ -85,6 +89,17 @@ const menu = [
         <span class="mono">Código IBGE 3532504</span>
       </div>
     </footer>
+
+    <script>
+      // Menu do celular: abre e fecha; sem JavaScript o menu fica sempre aberto (ver <noscript> no <head>).
+      const botao = document.querySelector(".botao-menu");
+      const menu = document.getElementById("menu");
+      botao?.addEventListener("click", () => {
+        const aberto = menu.toggleAttribute("data-aberto");
+        botao.setAttribute("aria-expanded", String(aberto));
+        botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+      });
+    </script>
   </body>
 </html>
 
@@ -100,15 +115,24 @@ const menu = [
   .marca-nome { font-family: var(--fonte-titulo); font-stretch: 85%; font-weight: 800; font-size: 26px; letter-spacing: -0.01em; }
   .marca-lugar { font-size: 13px; color: var(--tinta-suave); }
 
+  .botao-menu { display: none; width: 44px; height: 44px; border: 1px solid var(--campo-borda); border-radius: 8px; background: var(--superficie); align-items: center; justify-content: center; cursor: pointer; }
   .menu { display: flex; flex-wrap: wrap; gap: 4px; }
   .menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 8px; text-decoration: none; font-weight: 700; color: var(--tinta); }
   .menu a:hover { background: var(--acento-fundo); color: var(--acento-hover); }
   .menu a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--acento); }
 
+  @media (max-width: 600px) {
+    .cabecalho-interno { padding-top: 12px; padding-bottom: 12px; }
+    .botao-menu { display: flex; }
+    .menu { display: none; width: 100%; flex-direction: column; }
+    .menu[data-aberto] { display: flex; }
+    .marca-nome { font-size: 22px; }
+  }
+
   .principal { flex: 1; padding-top: 40px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 48px; }
   @media (max-width: 600px) { .principal { padding-top: 24px; padding-bottom: 40px; gap: 32px; } }
 
   .rodape { background: var(--tinta); color: #b8c4d0; font-size: 14px; }
-  .rodape a { color: #e6ecf2; }
+  .rodape a { color: #e6ecf2; display: inline-flex; align-items: center; min-height: 44px; }
   .rodape-interno { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-top: 24px; padding-bottom: 24px; }
 </style>

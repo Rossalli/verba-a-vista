@@ -1,0 +1,48 @@
+---
+import { formatarCompacto } from "../lib/resumo.js";
+
+const { resumo } = Astro.props;
+const { andamento, risco, perdidas, concluidas } = resumo;
+const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
+const celulas = [
+  { tom: "neutro", rotulo: "Em andamento", ...andamento, longo: `${plural(andamento.n, "verba aprovada", "verbas aprovadas")}, em execução ou em prestação de contas` },
+  { tom: "risco", rotulo: "Em risco", ...risco, longo: `${plural(risco.n, "verba", "verbas")} com prazo perto de vencer ou pendência` },
+  {
+    tom: "perda",
+    rotulo: "Perdidas desde 2024",
+    ...perdidas,
+    longo: perdidas.documentadas === perdidas.n ? `${plural(perdidas.n, "verba", "verbas")}, cada uma com o motivo documentado` : `${plural(perdidas.n, "verba", "verbas")}; motivo documentado em ${perdidas.documentadas}, o resto em apuração`,
+  },
+  { tom: "ok", rotulo: "Concluídas", ...concluidas, longo: concluidas.n === 0 ? "nenhuma verba com contas aprovadas no período acompanhado (desde 2024)" : `${plural(concluidas.n, "verba", "verbas")} com contas aprovadas` },
+];
+---
+
+<section aria-label="Resumo" class="resumo">
+  {celulas.map((c) => (
+    <div class="celula" data-tom={c.tom}>
+      <span class="rotulo cor">{c.rotulo}</span>
+      <span class="numero">{formatarCompacto(c.valor)}</span>
+      <span class="sub"><span class="longo">{c.longo}</span><span class="curto">{plural(c.n, "verba", "verbas")}</span></span>
+    </div>
+  ))}
+</section>
+
+<style>
+  .resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; }
+  .celula { background: var(--superficie); padding: 20px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .celula[data-tom="risco"] { box-shadow: inset 0 -4px 0 var(--risco); }
+  .celula[data-tom="perda"] { box-shadow: inset 0 -4px 0 var(--perda); }
+  .celula[data-tom="risco"] .cor { color: var(--risco); }
+  .celula[data-tom="perda"] .cor { color: var(--perda); }
+  .celula[data-tom="ok"] .cor { color: var(--ok); }
+  .sub { font-size: 14px; color: var(--tinta-suave); }
+  .curto { display: none; }
+  @media (max-width: 600px) {
+    .resumo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .celula { padding: 14px; gap: 2px; }
+    .rotulo { font-size: 11px; }
+    .sub { font-size: 13px; }
+    .longo { display: none; }
+    .curto { display: inline; }
+  }
+</style>

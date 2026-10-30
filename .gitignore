@@ -12,3 +12,4 @@ site/.astro/
 .DS_Store
 .cache/
 site/public/dados/
+.claude/worktrees/

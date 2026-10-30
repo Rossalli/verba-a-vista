@@ -1,0 +1,34 @@
+---
+import { formatarCompacto } from "../lib/resumo.js";
+import { formatarReais, url } from "../lib/dados.js";
+
+const { grupos } = Astro.props;
+---
+
+<div class="barras">
+  {grupos.map((g) => (
+    <a class="barra" href={url(`/perdas/#${g.categoria}`)}>
+      <span class="linha-barra">
+        <span>{g.rotulo} <span class="n">({g.n})</span></span>
+        <span class="mono"><span class="longo">{formatarReais(g.valor)}</span><span class="curto">{formatarCompacto(g.valor)}</span></span>
+      </span>
+      <span class="trilho" aria-hidden="true"><span class="preenchido" style={`width: ${g.largura}%`}></span></span>
+    </a>
+  ))}
+</div>
+
+<style>
+  .barras { display: flex; flex-direction: column; gap: 18px; }
+  .barra { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--tinta); min-height: 44px; justify-content: center; }
+  .linha-barra { display: flex; justify-content: space-between; gap: 12px; }
+  .n { color: var(--tinta-suave); font-size: 14px; }
+  .trilho { height: 12px; background: #eef1f4; border-radius: 6px; display: block; }
+  .preenchido { display: block; height: 12px; background: var(--perda); border-radius: 6px; }
+  .curto { display: none; }
+  @media (max-width: 600px) {
+    .barras { gap: 14px; font-size: 15px; }
+    .trilho, .preenchido { height: 10px; border-radius: 5px; }
+    .longo { display: none; }
+    .curto { display: inline; }
+  }
+</style>
