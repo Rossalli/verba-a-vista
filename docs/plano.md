@@ -77,7 +77,8 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
 
 ## Marco 4 — Site
 
-- [ ] **T4.1 Projeto Astro + tokens.** Tokens e tipografia de `docs/design.md`, layout base com faixa de independência, cabeçalho e rodapé.
+- [x] **T4.1 Projeto Astro + tokens.** Tokens e tipografia de `docs/design.md`, layout base com faixa de independência, cabeçalho e rodapé.
+  *Feito:* `site/` (Astro 7, estático, sem framework de UI): tokens e escala de `docs/design.md` em `src/styles/global.css`, fontes locais via `@fontsource` (sem Google), `layouts/Base.astro` com faixa de independência, última coleta, cabeçalho, menu, rodapé e meta tags (descrição, canônica, Open Graph), `lib/dados.js` (leitura do publicado, datas em America/Sao_Paulo, reais), CSV copiado para `/dados/verbas.csv` no build, página inicial provisória. Verificado no navegador: sem rolagem horizontal em 360 px, alvos do menu de 44 px, fontes carregadas. O Astro 7 exige Node ≥ 22.23: workflow atualizado de 20 para 22. 3 testes (`npm test` em `site/`).
 - [ ] **T4.2 Início.** Conforme `docs/design/telas/Main.dc.html` e `Celular.dc.html`.
 - [ ] **T4.3 Lista.** Conforme `Lista.dc.html`; filtros com estado na URL.
 - [ ] **T4.4 Página da verba.** Conforme `Verba.dc.html`; bloco de perda com selo e citações; meta tags para preview.

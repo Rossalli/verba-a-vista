@@ -1,0 +1,234 @@
+/* Tokens e tipografia de docs/design.md. Fontes hospedadas localmente (pacotes @fontsource), sem Google. */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource/atkinson-hyperlegible/400.css";
+@import "@fontsource/atkinson-hyperlegible/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+:root {
+  /* superfícies */
+  --fundo: #f5f7fa;
+  --superficie: #ffffff;
+  --linha: #d9e0e7;
+  --linha-suave: #e6ebf0;
+  --campo-borda: #c5cfd9;
+
+  /* texto */
+  --tinta: #111c27;
+  --tinta-2: #2b3a48;
+  --tinta-suave: #4a5a6a;
+
+  /* destaque */
+  --acento: #1e4fbf;
+  --acento-hover: #163c91;
+  --acento-fundo: #e8eefb;
+
+  /* semântica (texto / fundo) */
+  --risco: #b54708;
+  --risco-fundo: #fef0e3;
+  --risco-borda: #f1c9a5;
+  --perda: #b42318;
+  --perda-fundo: #fdecea;
+  --perda-borda: #e8b4ae;
+  --ok: #067647;
+  --ok-fundo: #e3f4ea;
+
+  /* pílulas de status */
+  --st-oportunidade: #3e4c5a;
+  --st-oportunidade-fundo: #eef1f4;
+  --st-proposta: #5b3fb0;
+  --st-proposta-fundo: #efeafb;
+  --st-aprovada: #0b5f63;
+  --st-aprovada-fundo: #e2f3f3;
+  --st-execucao: #1e4fbf;
+  --st-execucao-fundo: #e8eefb;
+  --st-prestacao: #6b4e16;
+  --st-prestacao-fundo: #f6efdf;
+  --st-concluida: #067647;
+  --st-concluida-fundo: #e3f4ea;
+  --st-perdida: #b42318;
+  --st-perdida-fundo: #fdecea;
+
+  /* tipografia */
+  --fonte-titulo: "Archivo Variable", "Archivo", system-ui, sans-serif; /* 800, font-stretch 80–90% */
+  --fonte-texto: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --fonte-dados: "IBM Plex Mono", ui-monospace, monospace; /* valores, datas, códigos */
+
+  --raio: 12px;
+  --raio-pilula: 999px;
+  --largura-max: 1160px;
+  --gutter: 24px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--acento);
+}
+a:hover {
+  color: var(--acento-hover);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* escala tipográfica */
+.h1,
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-stretch: 80%;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.h2,
+h2 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-stretch: 85%;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.1;
+}
+.h3,
+h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-stretch: 90%;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}
+@media (max-width: 600px) {
+  .h1,
+  h1 {
+    font-size: 34px;
+  }
+  .h2,
+  h2 {
+    font-size: 24px;
+  }
+  .h3,
+  h3 {
+    font-size: 19px;
+  }
+}
+
+.rotulo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.mono {
+  font-family: var(--fonte-dados);
+}
+.numero {
+  font-family: var(--fonte-titulo);
+  font-stretch: 85%;
+  font-weight: 800;
+  font-size: 34px;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 600px) {
+  .numero {
+    font-size: 24px;
+  }
+}
+
+/* contêiner central das páginas */
+.contentor {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.so-leitor-de-tela {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.pular {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--superficie);
+  padding: 12px 16px;
+  z-index: 10;
+}
+.pular:focus {
+  left: 8px;
+  top: 8px;
+}
+
+/* pílula de status (tokens --st-*) */
+.pilula {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--raio-pilula);
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--st-oportunidade-fundo);
+  color: var(--st-oportunidade);
+}
+.pilula[data-status="proposta"] { background: var(--st-proposta-fundo); color: var(--st-proposta); }
+.pilula[data-status="aprovada"] { background: var(--st-aprovada-fundo); color: var(--st-aprovada); }
+.pilula[data-status="execucao"] { background: var(--st-execucao-fundo); color: var(--st-execucao); }
+.pilula[data-status="prestacao"] { background: var(--st-prestacao-fundo); color: var(--st-prestacao); }
+.pilula[data-status="concluida"] { background: var(--st-concluida-fundo); color: var(--st-concluida); }
+.pilula[data-status="perdida"] { background: var(--st-perdida-fundo); color: var(--st-perdida); }
+.pilula.risco { background: var(--risco-fundo); color: var(--risco); }
+
+/* tabelas rolam dentro da própria caixa, nunca a página */
+.tabela-rolavel {
+  overflow-x: auto;
+  max-width: 100%;
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+}

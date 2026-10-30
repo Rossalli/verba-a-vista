@@ -11,3 +11,4 @@ site/dist/
 site/.astro/
 .DS_Store
 .cache/
+site/public/dados/

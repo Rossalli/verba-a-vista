@@ -1,0 +1,114 @@
+---
+import "../styles/global.css";
+import { carregarPublicado, formatarDataHora, url } from "../lib/dados.js";
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  /** Rota atual (ex.: "/verbas/"), para marcar o item do menu e montar a URL canônica. */
+  rota?: string;
+}
+
+const NOME = "Verba à Vista — Neves Paulista";
+const { titulo, descricao = "Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido, com o documento oficial citado.", rota = "/" } = Astro.props;
+const tituloCompleto = titulo ? `${titulo} · ${NOME}` : NOME;
+const canonica = new URL(url(rota), Astro.site).href;
+const publicado = carregarPublicado();
+const atualizadoEm = formatarDataHora(publicado.atualizado_em);
+
+const menu = [
+  { rotulo: "Verbas", href: url("/verbas/"), rota: "/verbas/" },
+  { rotulo: "Em risco", href: url("/verbas/?risco=1"), rota: null },
+  { rotulo: "Perdas", href: url("/perdas/"), rota: "/perdas/" },
+  { rotulo: "Como funciona", href: url("/como-funciona/"), rota: "/como-funciona/" },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={NOME} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={canonica} />
+    <meta name="theme-color" content="#111c27" />
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <div class="faixa">
+      <div class="contentor faixa-interna">
+        <span>Iniciativa cidadã independente. Não é o site oficial da Prefeitura de Neves Paulista.</span>
+        <span class="mono faixa-data">Última coleta: {atualizadoEm}</span>
+      </div>
+    </div>
+
+    <header class="cabecalho">
+      <div class="contentor cabecalho-interno">
+        <a class="marca" href={url("/")}>
+          <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="18" r="16" fill="none" stroke="#1E4FBF" stroke-width="3"></circle>
+            <circle cx="18" cy="18" r="6" fill="#1E4FBF"></circle>
+            <path d="M2 18h6M28 18h6" stroke="#1E4FBF" stroke-width="3"></path>
+          </svg>
+          <span class="marca-texto">
+            <span class="marca-nome">Verba à Vista</span>
+            <span class="marca-lugar">Neves Paulista · SP</span>
+          </span>
+        </a>
+        <nav aria-label="Principal" class="menu">
+          {menu.map((item) => (
+            <a href={item.href} aria-current={item.rota && rota === item.rota ? "page" : undefined}>{item.rotulo}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="contentor principal">
+      <slot />
+    </main>
+
+    <footer class="rodape">
+      <div class="contentor rodape-interno">
+        <span>
+          Verba à Vista · iniciativa cidadã independente ·
+          <a href={url("/dados/verbas.csv")}>dados abertos em CSV</a>
+        </span>
+        <span class="mono">Código IBGE 3532504</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .faixa { background: var(--tinta); color: #e6ecf2; font-size: 13px; }
+  .faixa-interna { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; padding-top: 8px; padding-bottom: 8px; }
+  .faixa-data { color: #b8c4d0; }
+
+  .cabecalho { background: var(--superficie); border-bottom: 1px solid var(--linha); }
+  .cabecalho-interno { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--tinta); min-height: 44px; }
+  .marca-texto { display: flex; flex-direction: column; line-height: 1.05; }
+  .marca-nome { font-family: var(--fonte-titulo); font-stretch: 85%; font-weight: 800; font-size: 26px; letter-spacing: -0.01em; }
+  .marca-lugar { font-size: 13px; color: var(--tinta-suave); }
+
+  .menu { display: flex; flex-wrap: wrap; gap: 4px; }
+  .menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 8px; text-decoration: none; font-weight: 700; color: var(--tinta); }
+  .menu a:hover { background: var(--acento-fundo); color: var(--acento-hover); }
+  .menu a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--acento); }
+
+  .principal { flex: 1; padding-top: 40px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 48px; }
+  @media (max-width: 600px) { .principal { padding-top: 24px; padding-bottom: 40px; gap: 32px; } }
+
+  .rodape { background: var(--tinta); color: #b8c4d0; font-size: 14px; }
+  .rodape a { color: #e6ecf2; }
+  .rodape-interno { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-top: 24px; padding-bottom: 24px; }
+</style>

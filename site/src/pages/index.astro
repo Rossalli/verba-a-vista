@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { carregarPublicado, formatarDataHora } from "../lib/dados.js";
+
+// Provisória (T4.1): a página inicial de verdade vem na T4.2.
+const publicado = carregarPublicado();
+---
+
+<Base rota="/">
+  <section style="display: flex; flex-direction: column; gap: 14px; max-width: 820px">
+    <span class="mono" style="font-size: 13px; color: var(--tinta-suave)">Atualizado em {formatarDataHora(publicado.atualizado_em)} · verbas federais</span>
+    <h1>Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido.</h1>
+    <p style="margin: 0; font-size: 18px; color: var(--tinta-2); max-width: 64ch">
+      Acompanhamos convênios, emendas parlamentares e repasses do Governo Federal para o município, desde a oportunidade até a prestação de contas. Quando uma verba é perdida, explicamos o motivo com o documento oficial.
+    </p>
+  </section>
+</Base>

@@ -13,8 +13,8 @@ normaliza:  # T2.2 a T2.5: normaliza, aplica risco, perda e histórico e grava d
 curadoria:  # T3.4; sem ARGS só mostra o plano. make curadoria ARGS="--executar" chama a IA (cobrado)
 	$(PYTHON) -m curadoria $(ARGS)
 
-site:  # T4.1
-	@echo "site: ainda não implementado (T4.1)"
+site:  # T4.1: build do Astro em site/dist (lê dados/publicados/)
+	cd site && npm ci && npm run build
 
 test:
 	$(PYTHON) -m pytest
