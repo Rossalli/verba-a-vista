@@ -64,7 +64,8 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
 
 ## Marco 3 — Curadoria com IA
 
-- [ ] **T3.1 Montagem do dossiê.** Para uma verba perdida, reunir documentos (spec §7.2) com `id`, `titulo`, `url`, `data_coleta`, `texto`.
+- [x] **T3.1 Montagem do dossiê.** Para uma verba perdida, reunir documentos (spec §7.2) com `id`, `titulo`, `url`, `data_coleta`, `texto`.
+  *Feito:* `curadoria/dossie.py` (`montar_dossie`): instrumento (proposta, convênio, emendas), histórico de situação, CAUC do retrato mais próximo da perda e Obrasgov (quando houver histórico); campos escolhidos a dedo, sem nome de parlamentar, endereço ou conta. As 8 perdas reais têm 3 documentos cada (o Obrasgov não tem obra ligada a proposta rejeitada); 8 testes em `tests/test_curadoria_dossie.py`, 445 no total.
 - [ ] **T3.2 Cliente da IA.** `curadoria/ia.py` usando `anthropic`, prompt de `prompts/curadoria.md`, saída validada em `schemas/rascunho_curadoria.schema.json`. Modelo e parâmetros em `config/regras.yaml`.
 - [ ] **T3.3 Validação de citações.** Regras da spec §7.4.
   *Aceite:* testes com rascunho bom, trecho inexistente, frase sem citação, nome de pessoa.
