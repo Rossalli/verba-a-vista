@@ -1,0 +1,201 @@
+---
+import Base from "../../layouts/Base.astro";
+import { CONTATO_EMAIL } from "../../config.js";
+import { carregarPublicado, formatarData, formatarDataHora, formatarReais, url } from "../../lib/dados.js";
+import { carregarRegras, carregarTaxonomia } from "../../lib/taxonomia.js";
+import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
+import { ROTULO_EVITAVEL, descricaoMeta, historicoOrdenado, partesComCitacoes, rotuloSituacao, seloDaPerda, valoresDaVerba } from "../../lib/verba.js";
+
+export function getStaticPaths() {
+  return carregarPublicado().verbas.map((verba) => ({ params: { id: verba.id }, props: { verba } }));
+}
+
+const { verba } = Astro.props;
+const publicado = carregarPublicado();
+const taxonomia = carregarTaxonomia();
+const regras = carregarRegras();
+
+const nome = formatarTitulo(verba.nome);
+const rotuloStatus = verba.status_site ? taxonomia.status[verba.status_site] : taxonomia.sem_status;
+const perda = verba.perda;
+const categoria = perda ? taxonomia.categorias[perda.categoria] : null;
+const rotuloCategoria = perda?.categoria === "em_apuracao" ? "Em apuração" : (categoria?.rotulo ?? perda?.categoria);
+const fontePrimaria = verba.fontes[0];
+const ultimaColeta = verba.fontes.map((f) => f.data_coleta).sort().at(-1);
+const nomeFonte = (chave) => publicado.fontes[chave]?.nome ?? chave;
+const selo = perda ? seloDaPerda(perda, regras.curadoria.selo_ia) : null;
+const dia = (iso) => formatarData(`${iso}T12:00:00-03:00`);
+const linhaTopo = [rotuloInstrumento(verba), verba.orgao_concedente && formatarNomeProprio(verba.orgao_concedente), verba.numero_instrumento && `nº ${verba.numero_instrumento}`].filter(Boolean).join(" · ");
+---
+
+<Base titulo={nome} descricao={descricaoMeta(verba, rotuloStatus, rotuloCategoria)} rota={`/verbas/${verba.id}/`} espaco="28px">
+  <a class="voltar" href={url("/verbas/")}>← Todas as verbas</a>
+
+  <section class="topo">
+    <span class="mono linha-topo">{linhaTopo}</span>
+    <h1 class="titulo">{nome}</h1>
+    {verba.objeto && verba.objeto !== verba.nome && <p class="objeto"><strong>Objeto:</strong> {formatarTitulo(verba.objeto)}</p>}
+    <div class="situacao">
+      <span class="pilula grande" data-status={verba.status_site}>{rotuloStatus}</span>
+      {verba.em_risco && <span class="pilula risco grande">Em risco</span>}
+      <span class="na-fonte">
+        Status na fonte: <span class="mono">“{verba.status_fonte}”</span> ({nomeFonte(verba.fonte)}, consultado em {formatarData(fontePrimaria.data_coleta)})
+      </span>
+    </div>
+  </section>
+
+  <dl class="quadro">
+    {valoresDaVerba(verba).map((item) => (
+      <div><dt>{item.rotulo}</dt><dd class:list={{ mono: item.mono }}>{item.valor}</dd></div>
+    ))}
+  </dl>
+
+  {verba.em_risco && (
+    <section class="alertas" aria-labelledby="alertas-titulo">
+      <h2 id="alertas-titulo" class="h3">Alertas desta verba</h2>
+      <ul>
+        {verba.motivos_risco.map((m) => <li>{m.texto}{m.data_limite && <> (até {dia(m.data_limite)})</>}</li>)}
+      </ul>
+    </section>
+  )}
+
+  {perda && (
+    <section class="perda" aria-labelledby="porque">
+      <div class="perda-topo">
+        <h2 id="porque">Por que esta verba foi perdida</h2>
+        {selo && (
+          <span class="selo">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.6 3.6 3.9.4-2.9 2.6.8 3.9L8 10l-3.4 2 .8-3.9-2.9-2.6 3.9-.4z" fill="none" stroke="#2B3A48" stroke-width="1.3" stroke-linejoin="round"></path></svg>
+            {selo}
+          </span>
+        )}
+      </div>
+
+      <p class="texto-perda">
+        {partesComCitacoes(perda.texto).map((p) => (p.cita ? <sup><a href={`#c${p.cita}`}>{p.cita}</a></sup> : p.texto))}
+      </p>
+      {perda.categoria === "em_apuracao" && (
+        <p class="apoio">Quando encontrarmos um documento oficial que explique a perda, a explicação aparece aqui, sempre com o trecho citado e o link para o documento.</p>
+      )}
+
+      <dl class="dados-perda">
+        <div><dt>Motivo</dt><dd class="forte">{rotuloCategoria}</dd></div>
+        <div><dt>Poderia ter sido evitada?</dt><dd>{ROTULO_EVITAVEL[perda.evitavel]}</dd></div>
+        <div><dt>Valor perdido</dt><dd class="mono">{formatarReais(perda.valor_perdido)}</dd></div>
+      </dl>
+      <p class="apoio">Valor perdido: parte do repasse que não foi liberada, mais o que foi devolvido.</p>
+
+      {perda.citacoes.length > 0 && (
+        <div class="documentos">
+          <h3 class="h3-pequeno">Documentos citados</h3>
+          <ol>
+            {perda.citacoes.map((c) => (
+              <li id={`c${c.n}`}>
+                <span class="mono num">{c.n}</span>
+                <span class="doc">
+                  <span class="mono trecho">“{c.trecho}”</span>
+                  <a href={c.url}>{c.titulo}</a>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </section>
+  )}
+
+  <div class="duas-colunas">
+    <section class="historico">
+      <h2 class="h2-menor">Histórico</h2>
+      <ol>
+        {historicoOrdenado(verba).map((h) => (
+          <li>
+            <span class="mono data">{dia(h.data)}</span>
+            <span>
+              <strong class:list={{ perdida: h.para === "perdida" }}>{rotuloSituacao(h.para, taxonomia)}.</strong>
+              {h.de && <> Antes: {rotuloSituacao(h.de, taxonomia)}.</>}
+              {h.nota && <> {h.nota}.</>}
+              <span class="fonte"> Fonte: {nomeFonte(h.fonte)}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <aside class="lateral">
+      <div class="caixa">
+        <h2 class="h3">Registros originais</h2>
+        {verba.fontes.map((f) => <a href={f.url}>{f.nome}</a>)}
+        <span class="fonte">Última coleta: {formatarDataHora(ultimaColeta)}</span>
+      </div>
+      <div class="caixa">
+        <h2 class="h3">Encontrou um erro?</h2>
+        <p>
+          {CONTATO_EMAIL
+            ? <>Escreva para <a class="mono" href={`mailto:${CONTATO_EMAIL}`}>{CONTATO_EMAIL}</a> com o link desta página. Toda correção fica registrada no histórico.</>
+            : <>O canal de contato será divulgado em breve. Toda correção ficará registrada no histórico desta página.</>}
+        </p>
+      </div>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .voltar { align-self: flex-start; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+  .topo { display: flex; flex-direction: column; gap: 12px; }
+  .linha-topo { font-size: 13px; color: var(--tinta-suave); }
+  .titulo { font-size: 48px; line-height: 1.02; }
+  .objeto { margin: 0; color: var(--tinta-2); max-width: 70ch; }
+  .situacao { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .grande { padding: 4px 12px; font-size: 14px; }
+  .na-fonte { font-size: 14px; color: var(--tinta-suave); }
+  .na-fonte .mono { color: var(--tinta); }
+
+  .quadro { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; }
+  .quadro div { background: var(--superficie); padding: 16px 18px; min-width: 0; }
+  dt { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); }
+  dd { margin: 2px 0 0; font-size: 18px; }
+  dd.mono { font-size: 18px; }
+
+  .alertas { background: var(--risco-fundo); border: 1px solid var(--risco-borda); border-radius: var(--raio); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .alertas h2 { color: var(--risco); }
+  .alertas ul { margin: 0; padding-left: 20px; color: var(--tinta); }
+
+  .perda { background: var(--superficie); border: 1px solid var(--perda-borda); border-top: 6px solid var(--perda); border-radius: var(--raio); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+  .perda-topo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .perda h2 { color: var(--perda); }
+  .selo { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--campo-borda); border-radius: 8px; font-size: 13px; color: var(--tinta-2); background: var(--fundo); max-width: 100%; }
+  .texto-perda { margin: 0; font-size: 20px; line-height: 1.5; max-width: 62ch; }
+  .texto-perda sup a { padding: 0 2px; }
+  .apoio { margin: 0; font-size: 14px; color: var(--tinta-suave); max-width: 70ch; }
+  .dados-perda { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 24px; }
+  .forte { font-weight: 700; }
+  .documentos { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--linha-suave); padding-top: 18px; }
+  .h3-pequeno { font-family: var(--fonte-texto); font-stretch: 100%; font-size: 15px; font-weight: 700; }
+  .documentos ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .documentos li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; }
+  .num { color: var(--tinta-suave); }
+  .doc { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .trecho { font-size: 14px; background: var(--fundo); border-left: 3px solid var(--campo-borda); padding: 6px 10px; white-space: pre-wrap; }
+  .doc a { font-size: 14px; }
+
+  .duas-colunas { display: flex; flex-wrap: wrap; gap: 28px; }
+  .historico { flex: 3 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .h2-menor { font-size: 26px; }
+  .historico ol { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--linha); }
+  .historico li { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--linha); }
+  .data { font-size: 13px; color: var(--tinta-suave); padding-top: 2px; }
+  .perdida { color: var(--perda); }
+  .fonte { color: var(--tinta-suave); font-size: 14px; }
+  .lateral { flex: 2 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  .caixa { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .caixa a { display: inline-flex; align-items: center; min-height: 44px; }
+  .caixa p { margin: 0; font-size: 15px; color: var(--tinta-2); }
+
+  @media (max-width: 600px) {
+    .titulo { font-size: 34px; }
+    .perda { padding: 20px; }
+    .texto-perda { font-size: 18px; }
+    .historico li { grid-template-columns: 88px minmax(0, 1fr); }
+  }
+</style>

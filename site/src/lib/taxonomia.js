@@ -8,3 +8,10 @@ const CAMINHO = process.env.TAXONOMIA || resolve(process.cwd(), "../config/taxon
 export function carregarTaxonomia(caminho = CAMINHO) {
   return parse(readFileSync(caminho, "utf-8"));
 }
+
+const CAMINHO_REGRAS = process.env.REGRAS || resolve(process.cwd(), "../config/regras.yaml");
+
+/** Regras do pipeline (config/regras.yaml); o site só precisa de textos como o selo de IA. */
+export function carregarRegras(caminho = CAMINHO_REGRAS) {
+  return parse(readFileSync(caminho, "utf-8"));
+}

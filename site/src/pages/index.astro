@@ -6,6 +6,7 @@ import BarrasPerdas from "../components/BarrasPerdas.astro";
 import { CONTATO_EMAIL } from "../config.js";
 import { carregarPublicado, formatarData, formatarDataHora, url } from "../lib/dados.js";
 import { carregarTaxonomia } from "../lib/taxonomia.js";
+import { rotuloSituacao } from "../lib/verba.js";
 import { emRiscoAgora, evitaveis, formatarTitulo, perdasPorMotivo, resumir, ultimasMudancas } from "../lib/resumo.js";
 
 const publicado = carregarPublicado();
@@ -72,7 +73,7 @@ const dia = (iso) => dataCompleta(iso).slice(0, 5);
           {mudancas.map((m) => (
             <li>
               <span class="mono dia">{dia(m.data)}</span>
-              <span><a href={url(`/verbas/${m.verba.id}/`)}><strong>{formatarTitulo(m.verba.nome)}</strong></a>: {m.de} → {m.para}.</span>
+              <span><a href={url(`/verbas/${m.verba.id}/`)}><strong>{formatarTitulo(m.verba.nome)}</strong></a>: {rotuloSituacao(m.de, taxonomia)} → {rotuloSituacao(m.para, taxonomia)}.</span>
             </li>
           ))}
         </ol>
