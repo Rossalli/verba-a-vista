@@ -99,6 +99,7 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
 ## Marco 5 — Automação e lançamento
 
 - [ ] **T5.1 Workflow diário** (`.github/workflows/coleta-diaria.yml`): coleta → normaliza → curadoria (gera fila) → commit dos dados → build → deploy. Abre issue automática quando há rascunhos novos na fila ou situações não mapeadas.
+  *Feito no código (falta a 1ª execução real no GitHub, que depende de você configurar o repositório: `docs/operacao.md`):* `.github/workflows/coleta-diaria.yml` com três jobs (`dados`, `site`, `deploy` no GitHub Pages) e disparos por agenda, manual e `push` em `dados/curadoria/`, `config/` ou `site/`; a coleta que falha não derruba o dia; a IA só roda com a variável `CURADORIA_IA=true`; `nucleo/avisos.py` abre issues (rascunhos novos, situações sem mapeamento, fonte sem retrato do dia) sem duplicar; `.github/workflows/ci.yml` roda os testes de Python e do site em todo push e pull request. Lógica de avisos e de issues testada com `gh` de mentira (11 testes); YAML e shell dos workflows conferidos localmente. 526 testes Python.
 - [ ] **T5.2 Carga histórica desde 2024** e revisão de todas as perdas encontradas.
 - [ ] **T5.3 Revisão de credibilidade** (spec §12) e lançamento.
 

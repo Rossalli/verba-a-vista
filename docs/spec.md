@@ -188,6 +188,13 @@ O histórico é calculado comparando o resultado normalizado do dia com o public
 
 Execução diária às 09:00 (horário de Brasília), depois da publicação diária do CAUC (~08:11 em dias úteis). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".
 
+Detalhes do workflow (`.github/workflows/coleta-diaria.yml`, T5.1):
+- **Disparos:** agenda diária, execução manual e `push` em `dados/curadoria/`, `config/` ou `site/` (quando uma pessoa aprova uma curadoria ou muda uma regra, o site é republicado sem nova coleta). O commit do robô, feito com o token do próprio Actions, não dispara o workflow de novo.
+- **Coleta que falha não derruba o dia:** a falha de fontes não impede normalizar e publicar com o último retrato válido; ela aparece em `fontes[].situacao` e vira aviso. Erro no pipeline (por exemplo, curadoria inválida) para tudo, e nada é publicado nem implantado.
+- **IA só com chave de ativação:** `make curadoria ARGS="--executar"` (chamada cobrada) só roda com a variável do repositório `CURADORIA_IA=true`. Sem ela, o dia mostra só o plano.
+- **Avisos por issue** (`python -m nucleo.avisos`): rascunhos novos na fila, situações sem mapeamento e fonte sem retrato do dia. Cada aviso tem título fixo; com issue já aberta não se abre outra (rascunhos novos entram como comentário), então a fila pendente não gera uma issue por dia.
+- **Implantação no GitHub Pages**, com o `base` do site tirado da própria configuração do Pages (vale também para domínio próprio, quando houver).
+
 ## 10. Site
 
 Layout de referência em `docs/design.md` e `docs/design/telas/`.
