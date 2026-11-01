@@ -31,15 +31,17 @@ export function motivoDocumentado(verba) {
   return Boolean(verba.perda && verba.perda.categoria !== "em_apuracao" && verba.perda.citacoes?.length);
 }
 
-/** Valor perdido por categoria, do maior para o menor; `largura` é % do maior (barra proporcional). */
+/** Valor perdido por categoria, do maior para o menor; `largura` é % do maior (barra proporcional); `verbas` do maior valor perdido para o menor. */
 export function perdasPorMotivo(verbas, taxonomia) {
   const grupos = new Map();
   for (const v of verbas.filter((x) => x.status_site === "perdida" && x.perda)) {
-    const g = grupos.get(v.perda.categoria) ?? { categoria: v.perda.categoria, n: 0, valor: 0 };
+    const g = grupos.get(v.perda.categoria) ?? { categoria: v.perda.categoria, n: 0, valor: 0, verbas: [] };
     g.n += 1;
     g.valor += v.perda.valor_perdido ?? 0;
+    g.verbas.push(v);
     grupos.set(v.perda.categoria, g);
   }
+  for (const g of grupos.values()) g.verbas.sort((a, b) => (b.perda.valor_perdido ?? 0) - (a.perda.valor_perdido ?? 0));
   const lista = [...grupos.values()].sort((a, b) => b.valor - a.valor);
   const maior = lista[0]?.valor || 1;
   return lista.map((g) => ({

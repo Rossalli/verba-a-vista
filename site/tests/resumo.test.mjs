@@ -38,6 +38,7 @@ test("perdas por motivo: maior primeiro, barra proporcional, rótulo da taxonomi
     ["cauc", 2, 100_000_00, 25],
   ]);
   assert.equal(lista[0].rotulo, "Motivo em apuração");
+  assert.deepEqual(lista[1].verbas.map((v) => v.id), ["i", "j"]); // do maior valor perdido para o menor
   assert.equal(lista[1].rotulo, taxonomia.categorias.cauc.rotulo);
 });
 

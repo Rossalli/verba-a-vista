@@ -1,0 +1,109 @@
+---
+import Base from "../../layouts/Base.astro";
+import BarrasPerdas from "../../components/BarrasPerdas.astro";
+import { carregarPublicado, formatarData, formatarReais, url } from "../../lib/dados.js";
+import { carregarTaxonomia } from "../../lib/taxonomia.js";
+import { evitaveis, formatarTitulo, perdasPorMotivo, resumir } from "../../lib/resumo.js";
+import { ROTULO_EVITAVEL } from "../../lib/verba.js";
+
+const publicado = carregarPublicado();
+const taxonomia = carregarTaxonomia();
+const verbas = publicado.verbas;
+const resumo = resumir(verbas);
+const grupos = perdasPorMotivo(verbas, taxonomia);
+const evitavel = evitaveis(verbas);
+const dia = (iso) => formatarData(`${iso}T12:00:00-03:00`);
+const descricao = (categoria) =>
+  categoria === "em_apuracao"
+    ? "Ainda não encontramos um documento oficial que explique estas perdas. Quando encontrarmos, cada uma passa para o grupo do seu motivo, com o trecho citado."
+    : taxonomia.categorias[categoria]?.descricao;
+---
+
+<Base
+  titulo="Perdas"
+  descricao="Verbas federais que Neves Paulista perdeu desde 2024, agrupadas pelo motivo, com o valor perdido e o documento oficial de cada uma."
+  rota="/perdas/"
+  espaco="32px"
+>
+  <div class="cabeca">
+    <h1 class="titulo">Verbas perdidas</h1>
+    <p>
+      {resumo.perdidas.n === 0
+        ? "Nenhuma verba federal foi perdida no período acompanhado (desde 2024)."
+        : <>Desde 2024, <strong>{resumo.perdidas.n} {resumo.perdidas.n === 1 ? "verba" : "verbas"}</strong> deixaram de chegar ao município, num total de <strong class="mono">{formatarReais(resumo.perdidas.valor)}</strong>. Aqui elas estão agrupadas pelo motivo.</>}
+    </p>
+    <p class="apoio">Valor perdido: parte do repasse da União que não foi liberada, mais o que foi devolvido. O motivo só é publicado com o documento oficial citado; sem ele, a perda fica “em apuração”. <a href={url("/como-funciona/#perdas")}>Como explicamos as perdas</a>.</p>
+  </div>
+
+  {grupos.length > 0 && (
+    <section class="painel" aria-label="Valor perdido por motivo">
+      <BarrasPerdas grupos={grupos} />
+      <span class="apoio">
+        {evitavel.total > 0
+          ? `${evitavel.evitaveis} das ${evitavel.total} perdas com motivo documentado tinham uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.`
+          : "Nenhuma perda tem ainda o motivo documentado e revisado."}
+      </span>
+    </section>
+  )}
+
+  {grupos.map((g) => (
+    <section class="grupo" id={g.categoria} aria-labelledby={`t-${g.categoria}`}>
+      <div class="titulo-grupo">
+        <h2 id={`t-${g.categoria}`}>{g.rotulo}</h2>
+        <span class="mono total">{formatarReais(g.valor)} · {g.n} {g.n === 1 ? "verba" : "verbas"}</span>
+      </div>
+      <p class="apoio">{descricao(g.categoria)}</p>
+      <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas: ${g.rotulo}`}>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Verba</th>
+              <th scope="col">Perdida em</th>
+              <th scope="col">Evitável?</th>
+              <th scope="col" class="direita">Valor perdido</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.verbas.map((v) => (
+              <tr>
+                <td>
+                  <a class="nome" href={url(`/verbas/${v.id}/`)}>{formatarTitulo(v.nome)}</a>
+                  <span class="fonte">Na fonte: {v.status_fonte}</span>
+                </td>
+                <td class="mono">{dia(v.perda.data)}</td>
+                <td>{v.perda.categoria === "em_apuracao" ? "—" : ROTULO_EVITAVEL[v.perda.evitavel]}</td>
+                <td class="direita mono">{formatarReais(v.perda.valor_perdido)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .cabeca { display: flex; flex-direction: column; gap: 10px; max-width: 70ch; }
+  .cabeca p { margin: 0; }
+  .titulo { font-size: 44px; line-height: 1.05; }
+  .apoio { margin: 0; font-size: 14px; color: var(--tinta-suave); max-width: 70ch; }
+  .painel { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+
+  .grupo { display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 16px; }
+  .titulo-grupo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+  .total { color: var(--perda); font-size: 16px; }
+
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; }
+  thead tr { text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); background: #f0f3f7; }
+  th, td { padding: 14px 16px; text-align: left; vertical-align: top; }
+  .direita { text-align: right; }
+  tbody tr { border-top: 1px solid var(--linha-suave); }
+  .nome { font-weight: 700; color: var(--tinta); display: inline-block; min-height: 24px; }
+  .nome:hover { color: var(--acento-hover); }
+  .fonte { display: block; font-size: 13px; color: var(--tinta-suave); }
+
+  @media (max-width: 600px) {
+    .titulo { font-size: 34px; }
+    .painel { padding: 18px; }
+  }
+</style>

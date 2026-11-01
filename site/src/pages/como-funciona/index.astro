@@ -1,0 +1,138 @@
+---
+import Base from "../../layouts/Base.astro";
+import { CONTATO_EMAIL } from "../../config.js";
+import { carregarPublicado, formatarData, formatarDataHora, url } from "../../lib/dados.js";
+import { carregarRegras, carregarTaxonomia } from "../../lib/taxonomia.js";
+
+const publicado = carregarPublicado();
+const taxonomia = carregarTaxonomia();
+const regras = carregarRegras();
+const dia = (iso) => formatarData(`${iso}T12:00:00-03:00`);
+
+const SOBRE_FONTE = {
+  transferegov_discricionarias: "Convênios, contratos de repasse e termos de compromisso (Siconv): propostas, instrumentos, emendas e a trilha de datas de cada situação. Publicado em lote pelo Governo Federal.",
+  transferegov_api: "Parcerias, fundo a fundo e programas por adesão, pela API pública do Transferegov.",
+  obrasgov: "Execução física das obras: percentual executado e paralisações.",
+  portal_transparencia: "Valores liberados e pagos ao município.",
+  cauc: "Situação de regularidade do município junto ao Governo Federal (CAUC), do Tesouro Nacional.",
+  tesouro_constitucionais: "FPM e ITR repassados ao município, só como número de referência.",
+};
+const situacaoFonte = (f) => (f.situacao === "ok" ? "atualizada" : f.situacao === "defasada" ? `último retrato válido, de ${dia(f.retrato)}` : "sem dados");
+const siconv = publicado.fontes.transferegov_discricionarias;
+const etapas = Object.entries(taxonomia.status);
+---
+
+<Base
+  titulo="Como funciona"
+  descricao="De onde vêm os dados, com que frequência são atualizados, como a IA ajuda a explicar as perdas e quais são as limitações do Verba à Vista."
+  rota="/como-funciona/"
+  espaco="36px"
+>
+  <div class="cabeca">
+    <h1 class="titulo">Como funciona</h1>
+    <p>O Verba à Vista é uma iniciativa cidadã independente. Não é o site oficial da Prefeitura de Neves Paulista e não tem ligação com ela. Reunimos, em um só lugar, dados públicos sobre as verbas <strong>federais</strong> do município e mostramos de onde cada informação veio.</p>
+  </div>
+
+  <section class="bloco" id="o-que">
+    <h2>O que acompanhamos</h2>
+    <p>Verbas federais destinadas ao município a partir de 01/01/2024: convênios e contratos de repasse, emendas parlamentares, repasses fundo a fundo e programas por adesão ou seleção. Também mostramos instrumentos mais antigos que ainda estão ativos, para não esconder o que continua valendo. As transferências constitucionais (FPM e ITR) entram só como número de referência.</p>
+    <p>Ficam de fora, por enquanto, as verbas estaduais e municipais. Não fazemos ranking nem opinião sobre pessoas.</p>
+  </section>
+
+  <section class="bloco" id="fontes">
+    <h2>De onde vêm os dados</h2>
+    <p>Todas as fontes são oficiais e abertas. Cada verba traz, na sua página, os links para os registros originais e a data da coleta.</p>
+    <div class="tabela-rolavel" tabindex="0" role="region" aria-label="Fontes de dados">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Fonte</th>
+            <th scope="col">O que traz</th>
+            <th scope="col">Última coleta</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(publicado.fontes).map(([chave, f]) => (
+            <tr>
+              <td><a href={f.url}>{f.nome}</a></td>
+              <td>{SOBRE_FONTE[chave]}</td>
+              <td class="mono">{formatarDataHora(f.coletado_em)}{f.data_do_dado && <span class="fonte">dado de {dia(f.data_do_dado)}</span>}</td>
+              <td>{situacaoFonte(f)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bloco" id="frequencia">
+    <h2>Com que frequência atualizamos</h2>
+    <p>As fontes são consultadas uma vez por dia. A data e a hora da última coleta aparecem no topo de toda página (hoje: <span class="mono">{formatarDataHora(publicado.atualizado_em)}</span>). Quando uma fonte não responde, mantemos o último retrato válido dela e avisamos a data a que ele se refere.</p>
+  </section>
+
+  <section class="bloco" id="situacoes">
+    <h2>Situação do site e situação na fonte</h2>
+    <p>Cada fonte usa palavras diferentes. Para comparar, traduzimos a situação de cada verba para uma das etapas abaixo, e <strong>sempre mostramos também a situação original da fonte</strong>, ao lado.</p>
+    <ol class="etapas">
+      {etapas.map(([chave, rotulo]) => <li><span class="pilula" data-status={chave}>{rotulo}</span></li>)}
+    </ol>
+    <p><strong>Em risco</strong> não é uma etapa, é um alerta. Aparece quando um prazo vence em menos de {regras.risco.dias_alerta_prazo} dias, quando o município tem pendência no CAUC (em convênios e emendas com proposta ou aprovação) ou quando uma obra está parada há mais de {regras.risco.dias_obra_parada} dias.</p>
+  </section>
+
+  <section class="bloco" id="perdas">
+    <h2>Como explicamos as perdas</h2>
+    <p>Uma verba é considerada perdida quando a própria fonte registra, por exemplo, que a proposta foi rejeitada ou indeferida, ou que o instrumento foi cancelado, anulado ou rescindido, ou que o recurso foi devolvido. O valor perdido é a parte do repasse da União que não foi liberada, mais o que foi devolvido; a contrapartida do município não entra na conta.</p>
+    <p><strong>O motivo só é publicado com documento oficial citado.</strong> Sem documento, escrevemos “motivo em apuração” e não tentamos adivinhar.</p>
+    <p>Quando há documentos, uma inteligência artificial lê os documentos e escreve um rascunho curto, com citações. Um sistema confere se cada trecho citado existe, palavra por palavra, no documento. Depois, uma pessoa revisa o texto antes da publicação. Textos assim levam o selo “{regras.curadoria.selo_ia}” e o nome de quem revisou. A IA não publica nada sozinha, e os textos não citam nomes de pessoas.</p>
+  </section>
+
+  <section class="bloco" id="limitacoes">
+    <h2>Limitações</h2>
+    <ul>
+      <li>Os dados de convênios e contratos de repasse (Siconv) são publicados em lote pelo Governo Federal e podem ter atraso. A carga mais recente que usamos é de <span class="mono">{dia(siconv.data_do_dado)}</span>; mudanças posteriores só aparecem quando o Governo publicar uma nova carga.</li>
+      <li>Nem toda perda tem o motivo documentado. As fontes automáticas dizem <em>que</em> a verba foi perdida e <em>quando</em>, mas raramente dizem <em>por quê</em>.</li>
+      <li>A tradução da situação da fonte para as etapas do site é nossa e pode estar errada em casos raros. Por isso a situação original está sempre visível.</li>
+      <li>Nomes de verbas vêm das fontes, que às vezes escrevem sem acento ou em caixa alta; ajustamos só a apresentação.</li>
+      <li>Não verificamos a execução no local nem substituímos a análise de órgãos de controle.</li>
+    </ul>
+  </section>
+
+  <section class="bloco" id="dados-abertos">
+    <h2>Dados abertos</h2>
+    <p>A lista completa das verbas está disponível em <a href={url("/dados/verbas.csv")} download>CSV</a> (compatível com o Excel), com a situação do site, a situação original, os valores e as fontes de cada linha.</p>
+  </section>
+
+  <section class="bloco" id="contato">
+    <h2>Encontrou um erro?</h2>
+    <p>
+      {CONTATO_EMAIL
+        ? <>Escreva para <a href={`mailto:${CONTATO_EMAIL}`}>{CONTATO_EMAIL}</a> com o link da verba. Corrigimos e registramos a correção na página.</>
+        : <>O canal de contato será divulgado em breve. Quando houver, corrigimos o erro e registramos a correção na página da verba.</>}
+    </p>
+  </section>
+</Base>
+
+<style>
+  .cabeca { display: flex; flex-direction: column; gap: 10px; max-width: 70ch; }
+  .cabeca p { margin: 0; font-size: 18px; color: var(--tinta-2); }
+  .titulo { font-size: 44px; line-height: 1.05; }
+  .bloco { display: flex; flex-direction: column; gap: 12px; max-width: 78ch; }
+  .bloco:has(.tabela-rolavel) { max-width: none; }
+  .bloco p, .bloco li { margin: 0; color: var(--tinta-2); }
+  .bloco ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .etapas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .bloco h2 { scroll-margin-top: 16px; }
+
+  table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px; }
+  thead tr { text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); background: #f0f3f7; }
+  th, td { padding: 14px 16px; text-align: left; vertical-align: top; }
+  tbody tr { border-top: 1px solid var(--linha-suave); }
+  td a { display: inline-block; min-height: 24px; }
+  .fonte { display: block; font-size: 13px; color: var(--tinta-suave); font-family: var(--fonte-texto); }
+
+  @media (max-width: 600px) {
+    .titulo { font-size: 34px; }
+    .cabeca p { font-size: 16px; }
+  }
+</style>
