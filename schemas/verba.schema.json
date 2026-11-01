@@ -92,6 +92,16 @@
         "gerado_por_ia": { "type": "boolean" },
         "revisado_por": { "type": ["string", "null"] },
         "revisado_em": { "type": ["string", "null"], "format": "date" }
+      },
+      "if": { "required": ["categoria"], "properties": { "categoria": { "const": "em_apuracao" } } },
+      "else": {
+        "description": "Motivo de perda só com citação de documento e revisão humana; sem isso, só em_apuracao.",
+        "required": ["revisado_por", "revisado_em"],
+        "properties": {
+          "citacoes": { "minItems": 1 },
+          "revisado_por": { "type": "string", "minLength": 1 },
+          "revisado_em": { "type": "string" }
+        }
       }
     },
     "historico": {

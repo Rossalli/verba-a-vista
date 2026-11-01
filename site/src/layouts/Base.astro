@@ -9,10 +9,12 @@ interface Props {
   rota?: string;
   /** Espaço entre os blocos da página (padrão 48px; 32px no celular). */
   espaco?: string;
+  /** Páginas que não devem aparecer em buscadores (ex.: a 404). */
+  semIndexar?: boolean;
 }
 
 const NOME = "Verba à Vista — Neves Paulista";
-const { titulo, descricao = "Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido, com o documento oficial citado.", rota = "/", espaco } = Astro.props;
+const { titulo, descricao = "Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido, com o documento oficial citado.", rota = "/", espaco, semIndexar = false } = Astro.props;
 const tituloCompleto = titulo ? `${titulo} · ${NOME}` : NOME;
 const canonica = new URL(url(rota), Astro.site).href;
 const publicado = carregarPublicado();
@@ -34,6 +36,7 @@ const menu = [
     <title>{tituloCompleto}</title>
     <meta name="description" content={descricao} />
     <link rel="canonical" href={canonica} />
+    {semIndexar && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={NOME} />

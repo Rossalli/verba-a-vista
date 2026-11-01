@@ -15,7 +15,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from nucleo.config import Config
-from nucleo.curadoria_revisada import aplicar_curadoria, carregar_curadoria
+from nucleo.curadoria_revisada import aplicar_curadoria, carregar_curadoria, perda_sem_motivo
 from nucleo.modelo import Historico, Perda, Verba
 from nucleo.normaliza import Normalizacao
 
@@ -138,11 +138,12 @@ def aplicar_historico(
 
         if verba.status_site == "perdida":
             if antes is not None and antes.status_site == "perdida" and antes.perda is not None:
-                verba.perda = antes.perda.model_copy(deep=True)  # preserva a perda (e a curadoria que ela já tenha)
+                # Data e valor ficam como na detecção; o motivo NÃO é copiado do publicado anterior: só `dados/curadoria/` o define.
+                verba.perda = perda_sem_motivo(antes.perda, config.regras.curadoria.texto_em_apuracao)
             else:
                 verba.perda = _perda_nova(verba, desde or data, config, resultado.avisos)
                 resultado.perdas_novas.append(verba.id)
-            curadoria = carregar_curadoria(raiz, verba.id)
+            curadoria = carregar_curadoria(raiz, verba.id, config.regras.curadoria.texto_em_apuracao)
             if curadoria is None:
                 resultado.precisam_curadoria.append(verba.id)
             else:

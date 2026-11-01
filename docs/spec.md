@@ -93,7 +93,9 @@ Ao detectar uma perda nova, o pipeline:
 2. calcula `valor_perdido` (valor não liberado + valor devolvido), sobre o **repasse da União**: o valor total menos a contrapartida do município (o valor global do Siconv inclui a parte do município); nunca negativo;
 3. cria um pedido de curadoria (§7): toda perda sem arquivo em `dados/curadoria/`.
 
-A `perda.data` é a data do último evento da situação na fonte quando ela a informa (Siconv: `siconv_historico_situacao`); sem isso, a data da detecção. Enquanto não houver curadoria revisada, a perda sai com `categoria: em_apuracao`, o texto padrão de `config/regras.yaml` e `evitavel: indeterminado` (§7). Uma perda já publicada é preservada nas execuções seguintes (com a curadoria que ela tenha); se a verba deixar de estar perdida, a perda some e o histórico registra a volta.
+A `perda.data` é a data do último evento da situação na fonte quando ela a informa (Siconv: `siconv_historico_situacao`); sem isso, a data da detecção. Enquanto não houver curadoria revisada, a perda sai com `categoria: em_apuracao`, o texto padrão de `config/regras.yaml` e `evitavel: indeterminado` (§7). Uma perda já publicada mantém, nas execuções seguintes, a `data` e o `valor_perdido` da detecção; o **motivo nunca é copiado do publicado anterior**: ele vem só de `dados/curadoria/` (sem arquivo, volta a `em_apuracao`). Se a verba deixar de estar perdida, a perda some e o histórico registra a volta.
+
+Invariantes, impostas no modelo, no JSON Schema e no carregamento da curadoria: motivo de perda diferente de `em_apuracao` só existe com pelo menos uma citação, `revisado_por` e `revisado_em`; e `em_apuracao` só pode ter o texto padrão, `evitavel: indeterminado` e nenhuma citação (nada de texto livre sem documento).
 
 ### 6.2 Taxonomia de motivos
 

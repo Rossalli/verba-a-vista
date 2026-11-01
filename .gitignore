@@ -13,3 +13,4 @@ site/.astro/
 .cache/
 site/public/dados/
 .claude/worktrees/
+*.report.html

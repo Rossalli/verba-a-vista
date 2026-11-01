@@ -131,14 +131,42 @@ def test_mapeamento_atualizado_sem_mudar_a_situacao_da_fonte_tem_nota_propria(co
     assert (e.de, e.para, e.nota) == ("situacao_em_analise", "perdida", "Mapeamento da situação atualizado")
 
 
-def test_perda_ja_existente_e_preservada_com_a_curadoria_que_ela_tenha(config, tmp_path):
-    curada = Perda(categoria="cauc", texto="Texto revisado [1].", citacoes=[], evitavel="sim", data=ONTEM, valor_perdido=1, gerado_por_ia=True, revisado_por="Revisora", revisado_em=ONTEM)
-    antes = verba(status="perdida", fonte_status="Convênio Anulado", perda=curada.model_dump(mode="json"))  # já publicada, com curadoria
+def perda_curada_publicada(verba_id: str) -> Perda:
+    citacao = {"n": 1, "documento_id": "d", "titulo": "Documento", "url": "https://exemplo.gov.br/d", "trecho": "Convênio Anulado"}
+    return Perda(categoria="cauc", texto="Texto revisado [1].", citacoes=[citacao], evitavel="sim", data=ONTEM, valor_perdido=1, gerado_por_ia=True, revisado_por="Revisora", revisado_em=ONTEM)
+
+
+def test_perda_ja_existente_mantem_data_e_valor_mas_o_motivo_so_vem_de_dados_curadoria(config, tmp_path):
+    antes = verba(status="perdida", fonte_status="Convênio Anulado", perda=perda_curada_publicada("x").model_dump(mode="json"))  # publicada com motivo
     agora = verba(status="perdida", fonte_status="Convênio Anulado", valor_devolvido=99)
-    _, res = rodar([agora], publicar(antes), config, tmp_path)
-    assert res.perdas_novas == [] and res.mudancas == []
-    assert agora.perda.categoria == "cauc" and agora.perda.revisado_por == "Revisora" and agora.perda.valor_perdido == 1  # não recalculada
+    _, res = rodar([agora], publicar(antes), config, tmp_path)  # sem arquivo em dados/curadoria/
+    assert res.perdas_novas == [] and res.mudancas == [] and res.precisam_curadoria == [agora.id]
+    assert (agora.perda.data, agora.perda.valor_perdido) == (ONTEM, 1)  # da detecção, não recalculados
+    assert agora.perda.categoria == "em_apuracao" and agora.perda.citacoes == [] and agora.perda.revisado_por is None  # o motivo do JSON anterior não vale
+    assert agora.perda.texto == config.regras.curadoria.texto_em_apuracao
     assert antes.perda is not None and agora.perda is not antes.perda  # cópia, não o mesmo objeto
+
+    segunda = verba(status="perdida", fonte_status="Convênio Anulado")
+    grava_curadoria(tmp_path, segunda.id, CURADORIA.format(id=segunda.id))
+    _, res = rodar([segunda], publicar(antes), config, tmp_path)  # agora com o arquivo de curadoria
+    assert res.precisam_curadoria == [] and segunda.perda.categoria == "cauc" and segunda.perda.revisado_por == "Revisora"
+    assert (segunda.perda.data, segunda.perda.valor_perdido) == (ONTEM, 1)
+
+
+def test_publicado_anterior_editado_a_mao_com_motivo_sem_citacao_para_o_pipeline(tmp_path):
+    adulterada = verba(status="perdida", fonte_status="Convênio Anulado", perda=perda_curada_publicada("x").model_dump(mode="json")).para_dict()
+    adulterada["perda"]["citacoes"] = []  # alguém apagou as citações do verbas.json versionado
+    grava_publicado(tmp_path, json.dumps({"versao": 1, "verbas": [adulterada]}))
+    with pytest.raises(ValueError, match="(?s)inválida no publicado anterior.*citação"):
+        h.carregar_anterior(tmp_path)
+
+
+def test_publicado_anterior_com_motivo_sem_revisao_tambem_para_o_pipeline(tmp_path):
+    adulterada = verba(status="perdida", fonte_status="Convênio Anulado", perda=perda_curada_publicada("x").model_dump(mode="json")).para_dict()
+    adulterada["perda"].update(revisado_por=None, revisado_em=None)  # "gerado por IA" sem revisão humana
+    grava_publicado(tmp_path, json.dumps({"versao": 1, "verbas": [adulterada]}))
+    with pytest.raises(ValueError, match="revisado_por"):
+        h.carregar_anterior(tmp_path)
 
 
 def test_perda_revertida_some_e_o_historico_registra_a_volta(config, tmp_path):
@@ -240,6 +268,35 @@ def test_motivo_de_perda_sem_citacao_so_vale_como_em_apuracao(config, tmp_path):
     grava_curadoria(tmp_path, a.id, CURADORIA.format(id=a.id).replace(CITACAO_YAML, "").replace("citacoes:\n", "citacoes: []\n"))
     with pytest.raises(CuradoriaErro, match="sem citação"):
         rodar([a], None, config, tmp_path)
+
+
+def curadoria_em_apuracao(verba_id: str, texto: str, evitavel: str = "indeterminado", citacoes: str = "citacoes: []\n") -> str:
+    return f"verba_id: {verba_id}\ncategoria: em_apuracao\ntexto: {texto}\nevitavel: {evitavel}\n{citacoes}gerado_por_ia: false\nrevisado_por: Revisora\nrevisado_em: 2026-10-30\n"
+
+
+@pytest.mark.parametrize(
+    "texto, evitavel, citacoes",
+    [
+        ("A prefeitura foi omissa e deixou o prazo vencer.", "indeterminado", "citacoes: []\n"),  # texto livre sem documento
+        ("Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.", "sim", "citacoes: []\n"),  # acusa sem documento
+        ("Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.", "indeterminado", "citacoes:\n" + CITACAO_YAML),  # texto padrão com citação solta
+    ],
+)
+def test_em_apuracao_so_publica_o_texto_padrao_sem_citacao_e_indeterminado(config, tmp_path, texto, evitavel, citacoes):
+    from nucleo.curadoria_revisada import CuradoriaErro
+
+    a = verba("transferegov_discricionarias-1", status="perdida")
+    grava_curadoria(tmp_path, a.id, curadoria_em_apuracao(a.id, texto, evitavel, citacoes))
+    with pytest.raises(CuradoriaErro, match="em_apuracao"):
+        rodar([a], None, config, tmp_path)
+
+
+def test_em_apuracao_com_o_texto_padrao_e_aceita_e_continua_em_apuracao(config, tmp_path):
+    a = verba("transferegov_discricionarias-1", status="perdida")
+    padrao = config.regras.curadoria.texto_em_apuracao
+    grava_curadoria(tmp_path, a.id, curadoria_em_apuracao(a.id, f'"{padrao}"'))
+    _, res = rodar([a], None, config, tmp_path)
+    assert res.precisam_curadoria == [] and a.perda.categoria == "em_apuracao" and a.perda.texto == padrao and a.perda.citacoes == []
 
 
 # --- leitura do publicado anterior -------------------------------------------------------------

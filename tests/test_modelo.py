@@ -70,8 +70,8 @@ COMPLETO = {
         "data": "2026-10-01",
         "valor_perdido": 150000000,
         "gerado_por_ia": True,
-        "revisado_por": None,
-        "revisado_em": None,
+        "revisado_por": "Revisora",
+        "revisado_em": "2026-10-02",
     },
     "historico": [
         {"data": "2026-10-01", "de": "aprovada", "para": "perdida", "fonte": "transferegov", "nota": None}
@@ -210,3 +210,46 @@ def test_valores_literais_batem_com_os_enums_do_schema():
     }
     for literal, enum in esperado.items():
         assert list(typing.get_args(literal)) == enum
+
+
+# --- invariantes da perda (regras inegociáveis): motivo só com citação e revisão ------------------------------
+
+
+def perda_de(**mudancas) -> dict:
+    return {**deepcopy(COMPLETO["perda"]), **mudancas}
+
+
+EM_APURACAO = {"categoria": "em_apuracao", "citacoes": [], "evitavel": "indeterminado", "gerado_por_ia": False, "revisado_por": None, "revisado_em": None}
+
+
+def erros_do_schema(perda: dict) -> list[str]:
+    verba = deepcopy(COMPLETO)
+    verba["perda"] = perda
+    return [e.message for e in Draft202012Validator(SCHEMA, format_checker=FormatChecker()).iter_errors(verba)]
+
+
+def test_motivo_sem_citacao_e_recusado_no_modelo_e_no_schema():
+    sem_citacao = perda_de(citacoes=[])
+    with pytest.raises(ValidationError, match="sem citação"):
+        Verba.model_validate(com(COMPLETO, perda=sem_citacao))
+    assert erros_do_schema(sem_citacao)
+
+
+@pytest.mark.parametrize("revisao", [{"revisado_por": None, "revisado_em": None}, {"revisado_por": "  ", "revisado_em": "2026-10-02"}, {"revisado_por": "Revisora", "revisado_em": None}])
+def test_motivo_sem_revisao_humana_e_recusado_no_modelo_e_no_schema(revisao):
+    sem_revisao = perda_de(**revisao)
+    with pytest.raises(ValidationError, match="revisado_por"):
+        Verba.model_validate(com(COMPLETO, perda=sem_revisao))
+    if revisao["revisado_por"] != "  ":  # o schema não distingue só-espaços; o modelo sim
+        assert erros_do_schema(sem_revisao)
+
+
+def test_em_apuracao_dispensa_citacao_e_revisao_no_modelo_e_no_schema():
+    em_apuracao = perda_de(**EM_APURACAO, texto="Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.")
+    Verba.model_validate(com(COMPLETO, perda=em_apuracao))
+    assert erros_do_schema(em_apuracao) == []
+
+
+def test_motivo_revisado_e_com_citacao_passa():
+    Verba.model_validate(com(COMPLETO, perda=perda_de()))
+    assert erros_do_schema(perda_de()) == []

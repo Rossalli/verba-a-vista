@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/dados.js";
+---
+
+<Base titulo="Página não encontrada" descricao="Esta página não existe ou mudou de endereço." rota="/404/" semIndexar>
+  <section class="aviso">
+    <span class="rotulo">Erro 404</span>
+    <h1>Página não encontrada</h1>
+    <p>O endereço pode ter mudado ou ter sido digitado errado. Você pode voltar ao início ou procurar a verba na lista.</p>
+    <p class="acoes">
+      <a class="botao" href={url("/")}>Ir para o início</a>
+      <a href={url("/verbas/")}>Ver todas as verbas</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .aviso { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+  .aviso p { margin: 0; color: var(--tinta-2); }
+  .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+  .acoes a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+  .botao { padding: 0 20px; border-radius: 10px; background: var(--acento); color: #fff; text-decoration: none; }
+  .botao:hover { background: var(--acento-hover); color: #fff; }
+</style>

@@ -10,7 +10,7 @@ Convenções:
 from datetime import date
 from typing import Annotated, Literal
 
-from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
+from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, model_validator
 
 Centavos = Annotated[int, Field(ge=0, strict=True)]
 
@@ -82,6 +82,19 @@ class Perda(_Base):
     gerado_por_ia: bool
     revisado_por: str | None = None
     revisado_em: date | None = None
+
+    @model_validator(mode="after")
+    def _motivo_so_com_documento_e_revisao(self):
+        """Regras inegociáveis: motivo de perda só com citação de documento, e a IA nunca publica sozinha.
+
+        Sem isso, só `em_apuracao` (o texto padrão) pode sair sem citação e sem revisão.
+        """
+        if self.categoria != "em_apuracao":
+            if not self.citacoes:
+                raise ValueError("motivo de perda sem citação de documento só pode ser `em_apuracao`")
+            if not (self.revisado_por and self.revisado_por.strip()) or self.revisado_em is None:
+                raise ValueError("motivo de perda publicado precisa de `revisado_por` e `revisado_em`")
+        return self
 
 
 class Historico(_Base):
