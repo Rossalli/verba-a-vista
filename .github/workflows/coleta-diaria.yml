@@ -30,9 +30,23 @@ jobs:
         run: make coleta
       - name: Normaliza e publica dados
         run: make normaliza
+      - name: Token OIDC do GitHub para a Anthropic
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const token = await core.getIDToken('https://api.anthropic.com');
+            core.setSecret(token);
+            const arquivo = `${process.env.RUNNER_TEMP}/anthropic-identity-token`;
+            fs.writeFileSync(arquivo, token, { mode: 0o600 });
+            core.exportVariable('ANTHROPIC_IDENTITY_TOKEN_FILE', arquivo);
       - name: Rascunhos de curadoria
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Federação de identidade: sem ANTHROPIC_API_KEY. O SDK troca o token OIDC por um token de curta duração.
+          ANTHROPIC_FEDERATION_RULE_ID: fdrl_012YwuGskMBQGLPGZD4wK8sZ
+          ANTHROPIC_ORGANIZATION_ID: 1bbd2397-64b2-43cd-9612-5565d69d4d3c
+          ANTHROPIC_SERVICE_ACCOUNT_ID: svac_01379u8Gk8RwKmtAySsdjuEE
+          ANTHROPIC_WORKSPACE_ID: wrkspc_01PZW1aPwuMTpgKeQMtcdc3C
         run: make curadoria
       - name: Commit dos dados
         run: |

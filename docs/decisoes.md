@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D17 — Curadoria no Actions autentica por federação de identidade (31/10/2026)
+O workflow diário não usa `ANTHROPIC_API_KEY`: troca o token OIDC do GitHub por um token de curta duração da Anthropic (SDK `anthropic` ≥ 2.3, variáveis `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_IDENTITY_TOKEN_FILE`). Uso local continua com a chave no `.env`, que tem precedência quando definida. Os IDs da regra, organização, conta de serviço e workspace não são segredos. Validar com `anthropic-wif-test.yml` antes de contar com isso.
+
 ## D16 — Quem revisa os rascunhos da IA: a autora, por arquivo YAML (30/10/2026)
 A fase 1 usa `dados/fila/<id>.yaml` editado à mão e `python -m curadoria.aprovar`; sem planilha nem PR obrigatório. Se entrarem outras pessoas, o `--por` já registra quem aprovou.
 

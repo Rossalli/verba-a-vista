@@ -3,7 +3,9 @@
 Monta o prompt de `prompts/curadoria.md`, envia o dossiê e devolve o rascunho já validado no JSON Schema.
 A validação de citações (§7.4) é da T3.3; aqui só se garante que a resposta é um JSON no formato do schema.
 
-A chave vem de `ANTHROPIC_API_KEY` (ambiente ou `.env`); nunca é impressa nem gravada.
+A autenticação vem de `ANTHROPIC_API_KEY` (ambiente ou `.env`) ou, sem chave, da federação de identidade
+(`ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID` e `ANTHROPIC_IDENTITY_TOKEN_FILE`, usada no GitHub Actions).
+Nada disso é impresso nem gravado.
 """
 
 import json
@@ -89,8 +91,21 @@ def interpretar_resposta(texto: str, verba_id: str, raiz: Path = RAIZ) -> dict:
     return dados
 
 
+def _tem_federacao() -> bool:
+    import os
+
+    return bool(
+        os.environ.get("ANTHROPIC_FEDERATION_RULE_ID")
+        and os.environ.get("ANTHROPIC_ORGANIZATION_ID")
+        and (os.environ.get("ANTHROPIC_IDENTITY_TOKEN_FILE") or os.environ.get("ANTHROPIC_IDENTITY_TOKEN"))
+    )
+
+
 def criar_cliente():
-    """Cliente da Anthropic com a chave do ambiente (lê o `.env` se ela ainda não estiver lá)."""
+    """Cliente da Anthropic: chave do ambiente (lê o `.env` se ela ainda não estiver lá) ou federação de identidade.
+
+    Sem argumentos, o SDK descobre sozinho as credenciais pelas variáveis de ambiente; a chave, se existir, tem precedência.
+    """
     import os
 
     import anthropic
@@ -98,8 +113,8 @@ def criar_cliente():
     from coleta.base import carregar_dotenv
 
     carregar_dotenv(RAIZ)
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        raise IAErro("ANTHROPIC_API_KEY não definida (ambiente ou .env)")
+    if not os.environ.get("ANTHROPIC_API_KEY") and not _tem_federacao():
+        raise IAErro("sem credencial da Anthropic: defina ANTHROPIC_API_KEY (ambiente ou .env) ou as variáveis da federação")
     return anthropic.Anthropic()
 
 

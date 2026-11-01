@@ -122,7 +122,19 @@ def test_erro_da_api_vira_iaerro_sem_vazar_a_chave():
 def test_sem_chave_o_cliente_real_nao_e_criado(monkeypatch, tmp_path):
     from curadoria import ia
 
-    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    for nome in ("ANTHROPIC_API_KEY", "ANTHROPIC_FEDERATION_RULE_ID", "ANTHROPIC_ORGANIZATION_ID", "ANTHROPIC_IDENTITY_TOKEN_FILE", "ANTHROPIC_IDENTITY_TOKEN"):
+        monkeypatch.delenv(nome, raising=False)
     monkeypatch.setattr(ia, "RAIZ", tmp_path)  # sem .env
     with pytest.raises(IAErro, match="ANTHROPIC_API_KEY"):
         ia.criar_cliente()
+
+
+def test_federacao_basta_para_criar_o_cliente(monkeypatch, tmp_path):
+    from curadoria import ia
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setattr(ia, "RAIZ", tmp_path)
+    monkeypatch.setenv("ANTHROPIC_FEDERATION_RULE_ID", "fdrl_teste")
+    monkeypatch.setenv("ANTHROPIC_ORGANIZATION_ID", "org-teste")
+    monkeypatch.setenv("ANTHROPIC_IDENTITY_TOKEN_FILE", str(tmp_path / "jwt"))
+    assert ia.criar_cliente() is not None
