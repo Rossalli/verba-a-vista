@@ -17,6 +17,8 @@ risco:
   cauc_fontes: [transferegov_discricionarias]   # D13: só transferências voluntárias; fundo a fundo fica sem alerta de CAUC
   cauc_tipos: [voluntaria, emenda_finalidade]   # spec §5
   cauc_status: [proposta, aprovada]
+  cauc_ignora_situacoes_fonte:   # D17: situações da fonte em que o alerta de CAUC não vale (proposta que nem foi enviada)
+    - Proposta/Plano de Trabalho Cadastrados
   prazos_monitorados: [clausula_suspensiva, fim_vigencia, prestacao_contas, adesao]
   desligadas: [impedimento_emenda]   # o campo `motivo_impedimento_plano_acao` existe no OpenAPI mas não foi visto em dado real (T1.1); ligar quando houver
   textos:

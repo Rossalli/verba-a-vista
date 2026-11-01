@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D17 — Alerta de CAUC ignora vigência encerrada e proposta não enviada (01/11/2026)
+O "Em risco" da página inicial somava R$ 26,89 mi, e R$ 21,38 mi eram de uma proposta só "Cadastrada" (nem enviada); outras duas verbas (de 2011 e de 2021) tinham a vigência encerrada. Regularizar o CAUC não salva nenhuma das três. O alerta `cauc_sem_comprovacao` deixa de valer para verba com `fim_vigencia` anterior a hoje e para situações da fonte listadas em `risco.cauc_ignora_situacoes_fonte`. Efeito nos dados de 30/10: 9 verbas e R$ 26,89 mi viram 6 e R$ 4,98 mi. O alerta continua valendo para proposta enviada ou aprovada com pendência. Os cartões do resumo passam a dizer "valor das N verbas com alerta": a soma é o valor total dessas verbas, não o que está perdendo.
+
 ## D16 — Quem revisa os rascunhos da IA: a autora, por arquivo YAML (30/10/2026)
 A fase 1 usa `dados/fila/<id>.yaml` editado à mão e `python -m curadoria.aprovar`; sem planilha nem PR obrigatório. Se entrarem outras pessoas, o `--por` já registra quem aprovou.
 

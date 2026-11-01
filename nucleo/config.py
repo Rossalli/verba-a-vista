@@ -79,6 +79,7 @@ class Risco(_Base):
     cauc_fontes: list[str]  # só verbas vindas dessas fontes (transferências voluntárias) recebem o alerta de CAUC
     cauc_tipos: list[Tipo]
     cauc_status: list[StatusSite]
+    cauc_ignora_situacoes_fonte: list[str] = Field(default_factory=list)  # D17: comparadas com `normalizar_situacao`
     prazos_monitorados: list[NomePrazo]
     desligadas: list[CodigoRisco] = Field(default_factory=list)  # regras cujo campo de origem ainda não foi confirmado
     textos: TextosRisco

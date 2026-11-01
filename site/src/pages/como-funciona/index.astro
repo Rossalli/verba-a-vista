@@ -77,7 +77,8 @@ const etapas = Object.entries(taxonomia.status);
     <ol class="etapas">
       {etapas.map(([chave, rotulo]) => <li><span class="pilula" data-status={chave}>{rotulo}</span></li>)}
     </ol>
-    <p><strong>Em risco</strong> não é uma etapa, é um alerta. Aparece quando um prazo vence em menos de {regras.risco.dias_alerta_prazo} dias, quando o município tem pendência no CAUC (em convênios e emendas com proposta ou aprovação) ou quando uma obra está parada há mais de {regras.risco.dias_obra_parada} dias.</p>
+    <p><strong>Em risco</strong> não é uma etapa, é um alerta. Aparece quando um prazo vence em menos de {regras.risco.dias_alerta_prazo} dias, quando o município tem pendência no CAUC (em convênios e emendas com proposta já enviada ou aprovada, e ainda dentro da vigência) ou quando uma obra está parada há mais de {regras.risco.dias_obra_parada} dias.</p>
+    <p>O valor mostrado em “Em risco” é a soma do valor total das verbas com algum alerta. Não é o valor que será perdido: é o que está em jogo nessas verbas.</p>
   </section>
 
   <section class="bloco" id="perdas">

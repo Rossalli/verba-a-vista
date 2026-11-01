@@ -454,13 +454,7 @@
    "valor_contrapartida": 40000,
    "status_site": "proposta",
    "status_fonte": "Proposta/Plano de Trabalho Complementado em Análise",
-   "em_risco": true,
-   "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
-    }
-   ],
+   "em_risco": false,
    "prazos": {
     "proposta": "2021-08-26",
     "fim_vigencia": "2021-12-26",
@@ -1055,13 +1049,7 @@
    "valor_contrapartida": 2200000,
    "status_site": "proposta",
    "status_fonte": "Proposta/Plano de Trabalho Cadastrados",
-   "em_risco": true,
-   "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
-    }
-   ],
+   "em_risco": false,
    "prazos": {
     "proposta": "2025-09-03"
    },
@@ -1313,13 +1301,7 @@
    "valor_contrapartida": 0,
    "status_site": "aprovada",
    "status_fonte": "Proposta/Plano de Trabalho Aprovado",
-   "em_risco": true,
-   "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
-    }
-   ],
+   "em_risco": false,
    "prazos": {
     "proposta": "2011-08-19",
     "fim_vigencia": "2013-09-20",

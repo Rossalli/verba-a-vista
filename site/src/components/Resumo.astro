@@ -6,7 +6,7 @@ const { andamento, risco, perdidas, concluidas } = resumo;
 const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
 const celulas = [
   { tom: "neutro", rotulo: "Em andamento", ...andamento, longo: `${plural(andamento.n, "verba aprovada", "verbas aprovadas")}, em execução ou em prestação de contas` },
-  { tom: "risco", rotulo: "Em risco", ...risco, longo: `${plural(risco.n, "verba", "verbas")} com prazo perto de vencer ou pendência` },
+  { tom: "risco", rotulo: "Em risco", ...risco, longo: risco.n === 1 ? "valor da 1 verba com alerta" : `valor das ${risco.n} verbas com alerta` },
   {
     tom: "perda",
     rotulo: "Perdidas desde 2024",

@@ -13,7 +13,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from datetime import date
 
-from nucleo.config import Config
+from nucleo.config import Config, normalizar_situacao
 from nucleo.modelo import MotivoRisco, Verba
 from nucleo.normaliza import ImpedimentoEmenda, Normalizacao, ObraLigada
 
@@ -50,10 +50,19 @@ def itens_sem_comprovacao(retrato_cauc: dict) -> list[tuple[str, str]]:
     return [(c, legenda.get(c, c)) for c in sorted(itens, key=lambda c: tuple(int(p) for p in c.split(".")))]
 
 
-def motivos_cauc(verba: Verba, itens: list[tuple[str, str]], config: Config) -> list[MotivoRisco]:
-    """`cauc_sem_comprovacao`: um motivo por item sem comprovação, só em verbas do tipo, da etapa e da fonte da regra."""
+def motivos_cauc(verba: Verba, itens: list[tuple[str, str]], config: Config, data: date) -> list[MotivoRisco]:
+    """`cauc_sem_comprovacao`: um motivo por item sem comprovação, só em verbas do tipo, da etapa e da fonte da regra.
+
+    D17: não alerta verba com a vigência já encerrada (regularizar o CAUC não a salva) nem a situação da fonte que a
+    regra ignora (proposta que ainda não foi enviada).
+    """
     risco = config.regras.risco
     if verba.fonte not in risco.cauc_fontes or verba.tipo not in risco.cauc_tipos or verba.status_site not in risco.cauc_status:
+        return []
+    fim_vigencia = verba.prazos.fim_vigencia if verba.prazos else None
+    if fim_vigencia is not None and fim_vigencia < data:
+        return []
+    if normalizar_situacao(verba.status_fonte) in {normalizar_situacao(s) for s in risco.cauc_ignora_situacoes_fonte}:
         return []
     return [MotivoRisco(codigo="cauc_sem_comprovacao", texto=risco.textos.cauc_sem_comprovacao.format(item=codigo, exigencia=exigencia)) for codigo, exigencia in itens]
 
@@ -115,7 +124,7 @@ def aplicar_risco(normalizacao: Normalizacao, retratos: dict[str, dict | None], 
         if "prazo_proximo" in ligadas and (m := motivo_prazo(verba, data, config)):
             motivos.append(m)
         if "cauc_sem_comprovacao" in ligadas:
-            motivos += motivos_cauc(verba, itens_cauc, config)
+            motivos += motivos_cauc(verba, itens_cauc, config, data)
         if "obra_parada" in ligadas and (obra := normalizacao.obras.get(verba.id)) and (m := motivo_obra(verba, obra, data, config)):
             motivos.append(m)
         if "impedimento_emenda" in ligadas and (imp := normalizacao.impedimentos.get(verba.id)) and (m := motivo_impedimento(verba, imp, config)):

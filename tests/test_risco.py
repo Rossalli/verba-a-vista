@@ -80,7 +80,7 @@ ITENS = [("4.2", "Regularidade Previdenciária")]
 
 def test_cauc_uma_verba_elegivel_recebe_um_motivo_por_item(config):
     itens = [("3.2.3", "RREO - Anexo 8 ao Siope"), ("4.2", "Regularidade Previdenciária")]
-    motivos = r.motivos_cauc(verba(status_site="proposta"), itens, config)
+    motivos = r.motivos_cauc(verba(status_site="proposta"), itens, config, DATA)
     assert [m.texto for m in motivos] == ["CAUC: item 3.2.3 sem comprovação (RREO - Anexo 8 ao Siope)", "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"]
     assert {m.codigo for m in motivos} == {"cauc_sem_comprovacao"}
 
@@ -88,7 +88,7 @@ def test_cauc_uma_verba_elegivel_recebe_um_motivo_por_item(config):
 @pytest.mark.parametrize("status", ["proposta", "aprovada"])
 @pytest.mark.parametrize("tipo", ["voluntaria", "emenda_finalidade"])
 def test_cauc_vale_para_voluntaria_e_emenda_nas_etapas_antes_da_liberacao(config, tipo, status):
-    assert len(r.motivos_cauc(verba(tipo=tipo, status_site=status), ITENS, config)) == 1
+    assert len(r.motivos_cauc(verba(tipo=tipo, status_site=status), ITENS, config, DATA)) == 1
 
 
 @pytest.mark.parametrize(
@@ -101,11 +101,46 @@ def test_cauc_vale_para_voluntaria_e_emenda_nas_etapas_antes_da_liberacao(config
     ],
 )
 def test_cauc_nao_vale_fora_do_tipo_da_etapa_e_da_fonte(config, kw):
-    assert r.motivos_cauc(verba(**{"status_site": "aprovada", **kw}), ITENS, config) == []
+    assert r.motivos_cauc(verba(**{"status_site": "aprovada", **kw}), ITENS, config, DATA) == []
 
 
 def test_cauc_sem_itens_sem_comprovacao_nao_alerta(config):
-    assert r.motivos_cauc(verba(), [], config) == []
+    assert r.motivos_cauc(verba(), [], config, DATA) == []
+
+
+# D17: o alerta de CAUC não vale para vigência encerrada nem para proposta que ainda não foi enviada.
+
+
+@pytest.mark.parametrize("dias, alerta", [(-1, False), (-4000, False), (0, True), (1, True), (900, True)])
+def test_cauc_nao_alerta_vigencia_encerrada_mas_a_que_termina_hoje_ainda_vale(config, dias, alerta):
+    assert bool(r.motivos_cauc(em(dias, status_site="aprovada"), ITENS, config, DATA)) is alerta
+
+
+def test_cauc_sem_vigencia_conhecida_continua_alertando(config):
+    assert len(r.motivos_cauc(verba(status_site="proposta"), ITENS, config, DATA)) == 1  # proposta ainda sem prazos
+
+
+@pytest.mark.parametrize("situacao", ["Proposta/Plano de Trabalho Cadastrados", "proposta/plano de trabalho  CADASTRADOS", "Proposta/Plano de Trabalho Cadastrádos"])
+def test_cauc_nao_alerta_proposta_que_so_foi_cadastrada(config, situacao):
+    assert r.motivos_cauc(verba(status_site="proposta", status_fonte=situacao), ITENS, config, DATA) == []
+
+
+@pytest.mark.parametrize("situacao", ["Proposta/Plano de Trabalho Enviado para Análise", "Proposta/Plano de Trabalho Complementado em Análise", "Proposta Aprovada e Plano de Trabalho em Análise"])
+def test_cauc_continua_alertando_proposta_enviada(config, situacao):
+    assert len(r.motivos_cauc(verba(status_site="proposta", status_fonte=situacao), ITENS, config, DATA)) == 1
+
+
+def test_as_exclusoes_do_cauc_sao_configuraveis(config):
+    config.regras.risco.cauc_ignora_situacoes_fonte = []
+    assert len(r.motivos_cauc(verba(status_site="proposta", status_fonte="Proposta/Plano de Trabalho Cadastrados"), ITENS, config, DATA)) == 1
+    config.regras.risco.cauc_ignora_situacoes_fonte = ["Em análise"]
+    assert r.motivos_cauc(verba(status_site="proposta", status_fonte="em analise"), ITENS, config, DATA) == []
+
+
+def test_vigencia_encerrada_nao_tira_o_alerta_de_prazo_nem_cria_cauc_em_aplicar_risco(config):
+    v = em(-10, status_site="aprovada")  # vigência venceu há 10 dias
+    res = aplicar(normalizacao(v), config, {"cauc": CAUC_REAL})
+    assert v.em_risco is False and res.por_codigo == Counter()  # prazo vencido não conta e o CAUC é ignorado
 
 
 def retrato_cauc(linha: dict, legenda: dict[str, str]) -> dict:
@@ -273,12 +308,12 @@ def test_dados_reais_de_hoje(reais, config):
     res = normalizar(reais, config, DATA)
     risco = r.aplicar_risco(res, reais, config, DATA)
     em_risco = {v.id: v for v in res.verbas if v.em_risco}
-    assert len(em_risco) == 9 == risco.verbas_em_risco
-    assert risco.por_codigo == Counter({"cauc_sem_comprovacao": 8, "prazo_proximo": 1}) and risco.avisos == []
+    assert len(em_risco) == 6 == risco.verbas_em_risco  # D17: eram 9 antes de ignorar vigência encerrada e proposta não enviada
+    assert risco.por_codigo == Counter({"cauc_sem_comprovacao": 5, "prazo_proximo": 1}) and risco.avisos == []
     prazo = em_risco["transferegov_discricionarias-1733967"]  # recapeamento, vigência até 20/12/2026
     assert [m.texto for m in prazo.motivos_risco] == ["Prazo em 51 dias"] and prazo.motivos_risco[0].data_limite == date(2026, 12, 20)
     cauc = [v for v in em_risco.values() if v.motivos_risco[0].codigo == "cauc_sem_comprovacao"]
-    assert len(cauc) == 8 and {v.fonte for v in cauc} == {"transferegov_discricionarias"} and {v.status_site for v in cauc} == {"proposta", "aprovada"}
+    assert len(cauc) == 5 and {v.fonte for v in cauc} == {"transferegov_discricionarias"} and {v.status_site for v in cauc} == {"proposta"}  # a aprovada de 2011 saiu (vigência encerrada, D17)
     assert {m.texto for v in cauc for m in v.motivos_risco} == {"CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"}
 
 
@@ -317,14 +352,14 @@ def test_dados_reais_em_01_de_novembro_nao_entram_as_oportunidades(reais, config
 
 def test_pipeline_encadeia_normalizacao_e_risco(config, raiz_sem_publicado):
     p = pipeline.processar(raiz_sem_publicado, DATA, config)
-    assert len(p.normalizacao.verbas) == 46 and p.risco.verbas_em_risco == 9
+    assert len(p.normalizacao.verbas) == 46 and p.risco.verbas_em_risco == 6
 
 
 def test_pipeline_imprime_resumo_do_risco(capsys, raiz_sem_publicado):
     assert pipeline.main(["--data", "2026-10-30", "--raiz", str(raiz_sem_publicado), "--sem-publicar"]) == 0
     saida = capsys.readouterr().out
     assert "Normalização de 2026-10-30: 46 verbas" in saida
-    assert "Em risco: 9 verba(s); motivos: prazo_proximo=1, cauc_sem_comprovacao=8" in saida
+    assert "Em risco: 6 verba(s); motivos: prazo_proximo=1, cauc_sem_comprovacao=5" in saida
     assert "transferegov_discricionarias-1733967 (execucao): Prazo em 51 dias" in saida
 
 

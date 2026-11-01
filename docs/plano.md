@@ -94,6 +94,7 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
   - **B2:** a regra "motivo só com citação e revisão humana" agora está no modelo (`Perda`), no JSON Schema (`if/else` em `schemas/verba.schema.json`) e no carregamento do publicado anterior. O motivo **não é mais copiado do `verbas.json` anterior**: parte sempre de `em_apuracao` e só `dados/curadoria/` o preenche (spec §6.1 atualizada). `aplicar_curadoria` revalida a perda.
   - **404:** `site/src/pages/404.astro` (com faixa, `noindex`) e `site/tests/faixa.test.mjs`, que falha se qualquer HTML gerado ficar sem a faixa de independência.
   - 501 testes Python e 26 de site passam; o publicado real e o pipeline real seguem válidos.
+  *Decisão D17 (01/11/2026), alerta de CAUC:* não vale para verba com a vigência já encerrada nem para proposta só "Cadastrada" (`risco.cauc_ignora_situacoes_fonte` em `config/regras.yaml`; spec §5 e `nucleo/risco.py`). Dados de 30/10 republicados: 9 verbas e R$ 26,89 mi viram 6 e R$ 4,98 mi (só `em_risco`/`motivos_risco` de 3 verbas mudaram). O cartão do resumo diz "valor das N verbas com alerta" e "Como funciona" explica que a soma é o valor total dessas verbas. 515 testes Python e 26 de site passam.
 
 ## Marco 5 — Automação e lançamento
 
