@@ -7,10 +7,12 @@ interface Props {
   descricao?: string;
   /** Rota atual (ex.: "/verbas/"), para marcar o item do menu e montar a URL canônica. */
   rota?: string;
+  /** Espaço entre os blocos da página (padrão 48px; 32px no celular). */
+  espaco?: string;
 }
 
 const NOME = "Verba à Vista — Neves Paulista";
-const { titulo, descricao = "Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido, com o documento oficial citado.", rota = "/" } = Astro.props;
+const { titulo, descricao = "Quanto dinheiro federal Neves Paulista pode receber, quanto já chegou e quanto foi perdido, com o documento oficial citado.", rota = "/", espaco } = Astro.props;
 const tituloCompleto = titulo ? `${titulo} · ${NOME}` : NOME;
 const canonica = new URL(url(rota), Astro.site).href;
 const publicado = carregarPublicado();
@@ -76,7 +78,7 @@ const menu = [
       </div>
     </header>
 
-    <main id="conteudo" class="contentor principal">
+    <main id="conteudo" class="contentor principal" style={espaco ? `--espaco-pagina: ${espaco}` : undefined}>
       <slot />
     </main>
 
@@ -129,8 +131,8 @@ const menu = [
     .marca-nome { font-size: 22px; }
   }
 
-  .principal { flex: 1; padding-top: 40px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 48px; }
-  @media (max-width: 600px) { .principal { padding-top: 24px; padding-bottom: 40px; gap: 32px; } }
+  .principal { flex: 1; padding-top: 40px; padding-bottom: 64px; display: flex; flex-direction: column; gap: var(--espaco-pagina, 48px); }
+  @media (max-width: 600px) { .principal { padding-top: 24px; padding-bottom: 40px; gap: var(--espaco-pagina, 32px); } }
 
   .rodape { background: var(--tinta); color: #b8c4d0; font-size: 14px; }
   .rodape a { color: #e6ecf2; display: inline-flex; align-items: center; min-height: 44px; }

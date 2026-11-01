@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { carregarTaxonomia } from "../src/lib/taxonomia.js";
-import { emRiscoAgora, evitaveis, formatarCompacto, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
+import { emRiscoAgora, evitaveis, formatarCompacto, formatarNomeProprio, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
 
 const taxonomia = carregarTaxonomia();
 const motivo = (codigo, texto = codigo) => ({ codigo, texto });
@@ -72,6 +72,13 @@ test("título em caixa alta vira frase, preservando siglas", () => {
   assert.equal(formatarTitulo("Quadra poliesportiva coberta"), "Quadra poliesportiva coberta");
   assert.equal(formatarTitulo(null), null);
   assert.equal(formatarTitulo("EQUIPAMENTO PARA O MUNICIPIO DE NEVES PAULISTA - SP"), "Equipamento para o municipio de Neves Paulista - SP");
+});
+
+test("nome de órgão em caixa alta", () => {
+  assert.equal(formatarNomeProprio("MINISTÉRIO DA AGRICULTURA E PECUÁRIA"), "Ministério da Agricultura e Pecuária");
+  assert.equal(formatarNomeProprio("FUNDO NACIONAL DE SAÚDE"), "Fundo Nacional de Saúde");
+  assert.equal(formatarNomeProprio("Ministério da Saúde"), "Ministério da Saúde");
+  assert.equal(formatarNomeProprio(null), null);
 });
 
 test("rótulos de alerta e instrumento", () => {

@@ -100,6 +100,21 @@ export function formatarTitulo(texto) {
   return minusculo.charAt(0).toUpperCase() + minusculo.slice(1);
 }
 
+const CONECTORES = new Set(["de", "da", "do", "das", "dos", "e", "em", "para", "a", "o"]);
+
+/** Nome de órgão em caixa alta -> "Ministério da Agricultura e Pecuária" (conectores em minúsculas, siglas preservadas). */
+export function formatarNomeProprio(texto) {
+  if (!texto || texto !== texto.toUpperCase()) return texto;
+  return texto
+    .toLowerCase()
+    .split(/(\s+)/)
+    .map((p, i) => {
+      if (SIGLAS.has(p.toUpperCase())) return p.toUpperCase();
+      return i > 0 && CONECTORES.has(p) ? p : p.charAt(0).toUpperCase() + p.slice(1);
+    })
+    .join("");
+}
+
 const TIPO_CURTO = {
   voluntaria: "Convênio ou contrato de repasse",
   emenda_finalidade: "Emenda parlamentar",

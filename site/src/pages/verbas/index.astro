@@ -1,0 +1,217 @@
+---
+import Base from "../../layouts/Base.astro";
+import { carregarPublicado, formatarReais, url } from "../../lib/dados.js";
+import { carregarTaxonomia } from "../../lib/taxonomia.js";
+import { STATUS, normalizar, ordenarLista } from "../../lib/filtros.js";
+import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
+
+const publicado = carregarPublicado();
+const taxonomia = carregarTaxonomia();
+const verbas = ordenarLista(publicado.verbas);
+const tipos = Object.entries(taxonomia.tipos).filter(([chave]) => verbas.some((v) => v.tipo === chave));
+const rotuloStatus = (v) => (v.status_site ? taxonomia.status[v.status_site] : taxonomia.sem_status);
+const contagem = Object.fromEntries(STATUS.map((s) => [s, verbas.filter((v) => v.status_site === s).length]));
+const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxonomia.status[s], contagem[s]])];
+---
+
+<Base
+  titulo="Todas as verbas federais"
+  descricao="Convênios, contratos de repasse, emendas e programas federais destinados a Neves Paulista desde 2024, com a situação de cada um e o documento oficial."
+  rota="/verbas/"
+  espaco="24px"
+>
+  <div class="cabeca">
+    <h1 class="titulo">Todas as verbas federais</h1>
+    <p>Convênios, contratos de repasse, emendas e programas federais destinados ao município desde 2024. Clique numa verba para ver o histórico e as fontes.</p>
+  </div>
+
+  <form class="filtros" role="search" aria-label="Filtrar verbas" onsubmit="return false">
+    <div role="group" aria-label="Filtrar por situação" class="chips">
+      {chips.map(([chave, rotulo, n], i) => (
+        <button type="button" class="chip" data-chip={chave} aria-pressed={i === 0 ? "true" : "false"}>
+          {rotulo} <span class="mono n" data-contagem>{n}</span>
+        </button>
+      ))}
+    </div>
+    <div class="campos">
+      <label class="campo busca">
+        Buscar
+        <input type="search" name="q" autocomplete="off" placeholder="Nome da verba, órgão ou número do instrumento" />
+      </label>
+      <label class="campo tipo">
+        Tipo
+        <select name="tipo">
+          <option value="">Todos os tipos</option>
+          {tipos.map(([chave, rotulo]) => <option value={chave}>{rotulo}</option>)}
+        </select>
+      </label>
+      <button type="button" class="chip risco-botao" data-risco aria-pressed="false">Só em risco</button>
+    </div>
+  </form>
+
+  <div class="resultado">
+    <span data-resultado role="status" aria-live="polite">{verbas.length} de {verbas.length} verbas</span>
+    <span class="acoes">
+      <button type="button" class="limpar" data-limpar hidden>Limpar filtros</button>
+      <a href={url("/dados/verbas.csv")} download>Baixar em CSV</a>
+    </span>
+  </div>
+
+  <div class="tabela-rolavel" tabindex="0" role="region" aria-label="Tabela de verbas (role para os lados em telas pequenas)">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Verba</th>
+          <th scope="col">Tipo e órgão</th>
+          <th scope="col" class="direita">Valor</th>
+          <th scope="col">Situação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {verbas.map((v) => (
+          <tr
+            data-status={v.status_site ?? "sem_status"}
+            data-risco={v.em_risco ? "1" : "0"}
+            data-tipo={v.tipo}
+            data-busca={normalizar([v.nome, v.objeto, v.orgao_concedente, v.numero_instrumento, v.id_fonte, rotuloInstrumento(v)].filter(Boolean).join(" "))}
+          >
+            <td>
+              <a class="nome" href={url(`/verbas/${v.id}/`)}>{formatarTitulo(v.nome)}</a>
+              <span class="mono codigo">{v.numero_instrumento}</span>
+            </td>
+            <td>
+              {rotuloInstrumento(v)}
+              {v.orgao_concedente && <span class="orgao">{formatarNomeProprio(v.orgao_concedente)}</span>}
+            </td>
+            <td class="direita mono valor">{v.valor_total != null ? formatarReais(v.valor_total) : "a definir"}</td>
+            <td>
+              <span class="pilulas">
+                <span class="pilula" data-status={v.status_site}>{rotuloStatus(v)}</span>
+                {v.em_risco && <span class="pilula risco">Em risco</span>}
+              </span>
+              <span class="orgao">Na fonte: {v.status_fonte}</span>
+            </td>
+          </tr>
+        ))}
+        <tr data-vazio hidden>
+          <td colspan="4">Nenhuma verba com esses filtros.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <noscript><p class="aviso">Sem JavaScript os filtros não funcionam, mas a lista completa está acima.</p></noscript>
+</Base>
+
+<script>
+  import { STATUS, contarPorStatus, corresponde, lerFiltros, normalizar, paraParametros } from "../../lib/filtros.js";
+
+  const $ = (seletor) => document.querySelector(seletor);
+  const linhas = [...document.querySelectorAll("tbody tr[data-status]")].map((el) => ({
+    el,
+    status: el.dataset.status,
+    risco: el.dataset.risco === "1",
+    tipo: el.dataset.tipo,
+    busca: el.dataset.busca,
+  }));
+  const campoBusca = $('input[name="q"]');
+  const campoTipo = $('select[name="tipo"]');
+  const botaoRisco = $("[data-risco]");
+  const chips = [...document.querySelectorAll("[data-chip]")];
+  const tiposValidos = [...campoTipo.options].map((o) => o.value).filter(Boolean);
+  const total = linhas.length;
+
+  let filtros = lerFiltros(new URLSearchParams(location.search), tiposValidos);
+
+  function desenhar() {
+    const contagem = contarPorStatus(linhas, filtros);
+    let visiveis = 0;
+    for (const linha of linhas) {
+      const mostra = corresponde(linha, filtros);
+      linha.el.hidden = !mostra;
+      if (mostra) visiveis += 1;
+    }
+    $("[data-vazio]").hidden = visiveis > 0;
+    for (const chip of chips) {
+      const chave = chip.dataset.chip;
+      chip.setAttribute("aria-pressed", String(chave === filtros.status || (chave === "todas" && filtros.status === "todas")));
+      chip.querySelector("[data-contagem]").textContent = contagem[chave];
+    }
+    botaoRisco.setAttribute("aria-pressed", String(filtros.risco));
+    campoTipo.value = filtros.tipo;
+    if (document.activeElement !== campoBusca) campoBusca.value = filtros.q;
+    $("[data-resultado]").textContent = `${visiveis} de ${total} ${total === 1 ? "verba" : "verbas"}`;
+    const parametros = paraParametros(filtros).toString();
+    $("[data-limpar]").hidden = parametros === "";
+    history.replaceState(null, "", location.pathname + (parametros ? `?${parametros}` : ""));
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener("click", () => {
+      const chave = chip.dataset.chip;
+      filtros = { ...filtros, status: STATUS.includes(chave) && filtros.status !== chave ? chave : "todas" };
+      desenhar();
+    });
+  }
+  botaoRisco.addEventListener("click", () => {
+    filtros = { ...filtros, risco: !filtros.risco };
+    desenhar();
+  });
+  campoTipo.addEventListener("change", () => {
+    filtros = { ...filtros, tipo: campoTipo.value };
+    desenhar();
+  });
+  campoBusca.addEventListener("input", () => {
+    filtros = { ...filtros, q: campoBusca.value };
+    desenhar();
+  });
+  $("[data-limpar]").addEventListener("click", () => {
+    filtros = { status: "todas", risco: false, tipo: "", q: "" };
+    desenhar();
+  });
+  desenhar();
+</script>
+
+<style>
+  .cabeca { display: flex; flex-direction: column; gap: 8px; }
+  .cabeca p { margin: 0; color: var(--tinta-suave); max-width: 70ch; }
+  .titulo { font-size: 44px; line-height: 1.05; }
+
+  .filtros { display: flex; flex-direction: column; gap: 14px; background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: 700 14px var(--fonte-texto); min-height: 44px; padding: 8px 14px; border-radius: var(--raio-pilula); cursor: pointer; border: 1px solid var(--campo-borda); background: var(--superficie); color: var(--tinta); }
+  .chip:hover { border-color: var(--tinta); }
+  .chip[aria-pressed="true"] { border-color: var(--tinta); background: var(--tinta); color: #fff; }
+  .n { opacity: 0.75; font-size: 13px; }
+  .campos { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .campo { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--tinta-suave); }
+  .campo.busca { flex: 1 1 260px; }
+  .campo.tipo { flex: 0 1 280px; }
+  input, select { font: 400 16px var(--fonte-texto); min-height: 44px; padding: 10px 12px; border: 1px solid var(--campo-borda); border-radius: 8px; color: var(--tinta); background: var(--superficie); width: 100%; }
+  .risco-botao[aria-pressed="true"] { border-color: var(--risco); background: var(--risco); }
+
+  .resultado { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; color: var(--tinta-suave); }
+  .resultado a, .limpar { font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; }
+  .limpar { font: 700 14px var(--fonte-texto); background: none; border: 0; color: var(--acento); cursor: pointer; text-decoration: underline; padding: 0 12px; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  [hidden] { display: none !important; }
+
+  table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px; }
+  thead tr { text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); background: #f0f3f7; }
+  th, td { padding: 14px 16px; text-align: left; vertical-align: top; }
+  th { font-weight: 700; padding-top: 12px; padding-bottom: 12px; }
+  .direita { text-align: right; }
+  tbody tr { border-top: 1px solid var(--linha-suave); }
+  .nome { font-weight: 700; color: var(--tinta); }
+  .nome:hover { color: var(--acento-hover); }
+  .codigo, .orgao { display: block; font-size: 12px; color: var(--tinta-suave); }
+  .orgao { font-family: var(--fonte-texto); font-size: 13px; }
+  .valor { white-space: nowrap; }
+  .pilulas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .aviso { color: var(--tinta-suave); margin: 0; }
+
+  @media (max-width: 600px) {
+    .titulo { font-size: 34px; }
+    .filtros { padding: 14px; }
+    .campo.tipo { flex-basis: 100%; }
+  }
+</style>
