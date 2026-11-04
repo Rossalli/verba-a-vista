@@ -1,0 +1,26 @@
+verba_id: transferegov_discricionarias-2113195
+categoria: reprovacao_tecnica
+texto: A prefeitura cadastrou a proposta 42023/2025, para equipamentos agrícolas, e a enviou para análise
+  do Ministério da Agricultura e Pecuária em 19/08/2025 [1]. Em 05/03/2026, o sistema registrou a rejeição
+  da proposta por impedimento técnico [2]. A situação atual da proposta e do plano de trabalho é de rejeição
+  por impedimento técnico [3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: historico-situacao-2113195
+  titulo: 'Transferegov: histórico de situação da proposta 42023/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '19/08/2025: PROPOSTA_ENVIADA_ANALISE'
+- n: 2
+  documento_id: historico-situacao-2113195
+  titulo: 'Transferegov: histórico de situação da proposta 42023/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+- n: 3
+  documento_id: instrumento-2113195
+  titulo: 'Transferegov: proposta 42023/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

@@ -1,0 +1,25 @@
+verba_id: transferegov_discricionarias-2152082
+categoria: reprovacao_tecnica
+texto: A prefeitura enviou à análise do Ministério da Agricultura e Pecuária a proposta 64413/2025, para
+  compra de equipamentos agrícolas no valor de R$ 560.000,00 [1][2]. Em 24/03/2026, o Ministério rejeitou
+  a proposta e o plano de trabalho por impedimento técnico [2][3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: instrumento-2152082
+  titulo: 'Transferegov: proposta 64413/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Objeto: EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP'
+- n: 2
+  documento_id: historico-situacao-2152082
+  titulo: 'Transferegov: histórico de situação da proposta 64413/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '26/11/2025: PROPOSTA_ENVIADA_ANALISE'
+- n: 3
+  documento_id: historico-situacao-2152082
+  titulo: 'Transferegov: histórico de situação da proposta 64413/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '24/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

@@ -1,0 +1,25 @@
+verba_id: transferegov_discricionarias-2113295
+categoria: reprovacao_tecnica
+texto: A prefeitura enviou a proposta ao Ministério da Agricultura e Pecuária em 19/08/2025 [1]. Em 05/03/2026,
+  a proposta foi rejeitada por impedimento técnico [2]. A situação oficial da proposta e do plano de trabalho
+  é "Rejeitados por Impedimento técnico" [3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: historico-situacao-2113295
+  titulo: 'Transferegov: histórico de situação da proposta 42072/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '19/08/2025: PROPOSTA_ENVIADA_ANALISE'
+- n: 2
+  documento_id: historico-situacao-2113295
+  titulo: 'Transferegov: histórico de situação da proposta 42072/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+- n: 3
+  documento_id: instrumento-2113295
+  titulo: 'Transferegov: proposta 42072/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

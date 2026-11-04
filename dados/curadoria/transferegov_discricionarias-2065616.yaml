@@ -1,0 +1,26 @@
+verba_id: transferegov_discricionarias-2065616
+categoria: reprovacao_tecnica
+texto: A prefeitura enviou a proposta de convênio para a aquisição de uma patrulha agrícola ao Ministério
+  da Agricultura e Pecuária em 13/05/2025 [1]. O registro da proposta mostra que ela foi enviada para
+  análise e, em 14/01/2026, aparece como reprovada [2]. A situação atual da proposta é "Proposta/Plano
+  de Trabalho Rejeitados" [3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: historico-situacao-2065616
+  titulo: 'Transferegov: histórico de situação da proposta 8933/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '13/05/2025: PROPOSTA_ENVIADA_ANALISE'
+- n: 2
+  documento_id: historico-situacao-2065616
+  titulo: 'Transferegov: histórico de situação da proposta 8933/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '14/01/2026: PROPOSTA_REPROVADA'
+- n: 3
+  documento_id: instrumento-2065616
+  titulo: 'Transferegov: proposta 8933/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

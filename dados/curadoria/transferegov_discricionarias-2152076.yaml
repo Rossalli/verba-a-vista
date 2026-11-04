@@ -1,0 +1,27 @@
+verba_id: transferegov_discricionarias-2152076
+categoria: reprovacao_tecnica
+texto: A prefeitura cadastrou a proposta de equipamentos agrícolas em 25/11/2025, e ela foi enviada para
+  análise em 26/11/2025 [1]. Em 24/03/2026, o Ministério da Agricultura e Pecuária rejeitou a proposta
+  e o plano de trabalho por impedimento técnico [2][3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: historico-situacao-2152076
+  titulo: 'Transferegov: histórico de situação da proposta 64411/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '25/11/2025: PROPOSTA_CADASTRADA
+
+    26/11/2025: PROPOSTA_ENVIADA_ANALISE'
+- n: 2
+  documento_id: instrumento-2152076
+  titulo: 'Transferegov: proposta 64411/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
+- n: 3
+  documento_id: historico-situacao-2152076
+  titulo: 'Transferegov: histórico de situação da proposta 64411/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '24/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

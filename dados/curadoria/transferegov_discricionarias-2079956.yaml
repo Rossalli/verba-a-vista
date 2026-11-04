@@ -1,0 +1,30 @@
+verba_id: transferegov_discricionarias-2079956
+categoria: reprovacao_tecnica
+texto: A prefeitura enviou ao Ministério da Agricultura e Pecuária a proposta de convênio para comprar
+  uma pá carregadeira, no valor de R$ 850.000,00 de repasse [1][2]. A proposta entrou em análise e foi
+  reprovada em 14/01/2026 [3]. Hoje a situação registrada é "Proposta/Plano de Trabalho Rejeitados" [4].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: instrumento-2079956
+  titulo: 'Transferegov: proposta 20378/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Objeto: AQUISIÇÃO DE PÁ CARREGADEIRA'
+- n: 2
+  documento_id: instrumento-2079956
+  titulo: 'Transferegov: proposta 20378/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Valor do repasse: R$ 850.000,00'
+- n: 3
+  documento_id: historico-situacao-2079956
+  titulo: 'Transferegov: histórico de situação da proposta 20378/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '14/01/2026: PROPOSTA_REPROVADA'
+- n: 4
+  documento_id: instrumento-2079956
+  titulo: 'Transferegov: proposta 20378/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

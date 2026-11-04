@@ -1,0 +1,27 @@
+verba_id: transferegov_discricionarias-1981768
+categoria: reprovacao_tecnica
+texto: A proposta 12684/2024, para aquisição de uma patrulha agrícola, foi enviada ao Ministério da Agricultura
+  e Pecuária em 13/05/2024 [1]. Em 21/01/2025, o sistema registrou a proposta como reprovada [2]. A situação
+  atual é "Proposta/Plano de Trabalho Rejeitados", e o projeto básico consta como não cadastrado [3].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: historico-situacao-1981768
+  titulo: 'Transferegov: histórico de situação da proposta 12684/2024'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '13/05/2024: PROPOSTA_ENVIADA_ANALISE'
+- n: 2
+  documento_id: historico-situacao-1981768
+  titulo: 'Transferegov: histórico de situação da proposta 12684/2024'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '21/01/2025: PROPOSTA_REPROVADA'
+- n: 3
+  documento_id: instrumento-1981768
+  titulo: 'Transferegov: proposta 12684/2024 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados
+
+    Situação do projeto básico: Não Cadastrado'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'

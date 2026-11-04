@@ -1,0 +1,21 @@
+verba_id: transferegov_discricionarias-2113259
+categoria: reprovacao_tecnica
+texto: A prefeitura apresentou a proposta 42055/2025 ao Ministério da Agricultura e Pecuária para a compra
+  de equipamentos agrícolas, no valor de R$ 549.500,00 [1]. Em 05/03/2026, a proposta passou à situação
+  de rejeitada por impedimento técnico [2]. Os documentos disponíveis não detalham qual foi o impedimento
+  [1][2].
+evitavel: indeterminado
+citacoes:
+- n: 1
+  documento_id: instrumento-2113259
+  titulo: 'Transferegov: proposta 42055/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
+- n: 2
+  documento_id: historico-situacao-2113259
+  titulo: 'Transferegov: histórico de situação da proposta 42055/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  trecho: '05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+gerado_por_ia: true
+revisado_por: Bárbara Rossalli
+revisado_em: '2026-11-04'
