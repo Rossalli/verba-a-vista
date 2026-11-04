@@ -120,6 +120,7 @@ Definida em `config/taxonomia.yaml`. Cada perda publicada tem exatamente uma `ca
 Detalhes da fase 1 (T3.4):
 - `python -m curadoria` só mostra o plano; a chamada à IA (cobrada) exige `--executar`. Perda que já tem rascunho ou erro em `dados/fila/` não é enviada de novo sem `--refazer`.
 - `dados/fila/<id>.yaml` traz o `rascunho` (a pessoa edita aqui) e os `documentos` citáveis; a revisão é `python -m curadoria.aprovar <id> --por "<nome>"`, que confere o rascunho de novo antes de aprovar e apaga o arquivo da fila (o histórico é o Git).
+- **Falha de infraestrutura da IA** (chave ausente ou sem workspace, API fora do ar, rede) não é rascunho reprovado: não grava nada em `dados/fila/` (um `.erro.yaml` bloquearia a nova tentativa), interrompe o laço (as demais chamadas falhariam igual), sai com sucesso para não travar a publicação do dia e deixa um aviso no log; a perda é tentada de novo na próxima execução. Só falha do conteúdo (recusa, corte por tamanho, JSON ou citação inválidos) gera `<id>.erro.yaml`.
 - Rascunho `em_apuracao` não se aprova: a perda já aparece como "motivo em apuração".
 - `dados/curadoria/<id>.yaml` (modelo `CuradoriaRevisada`) vira a `perda` publicada; `data` e `valor_perdido` continuam os do pipeline. Arquivo inválido, ou motivo diferente de `em_apuracao` sem citação, para o pipeline.
 - `gerado_por_ia` é sempre `true` na curadoria aprovada (o texto parte do rascunho da IA, mesmo editado).

@@ -10,6 +10,7 @@ Em **Settings** do repositório:
 2. **Secrets and variables → Actions → Secrets:**
    - `PORTAL_TRANSPARENCIA_KEY`: a chave do Portal da Transparência (a mesma do `.env`).
    - `ANTHROPIC_API_KEY`: só se for ligar a curadoria com IA (abaixo).
+   - A chave precisa estar **vinculada a um workspace** da Anthropic. Chave sem workspace faz a API devolver `400` ("not scoped to a workspace") e nenhum rascunho é gerado; nesse caso o dia segue sem a IA e o log mostra um aviso. Crie a chave no Console escolhendo o workspace e atualize o secret.
 3. **Secrets and variables → Actions → Variables:**
    - `CURADORIA_IA`: deixe **sem criar** (ou diferente de `true`) para a IA ficar desligada. Com `true`, o workflow chama a IA (cobrado) para as perdas sem rascunho. É cobrado só por perda nova; perda que já tem rascunho ou erro em `dados/fila/` não é enviada de novo.
 4. **Actions → General → Workflow permissions:** "Read and write permissions" (o workflow já pede `contents`, `issues` e `pages` em `permissions:`; em alguns repositórios o padrão do projeto precisa ser liberado aqui).

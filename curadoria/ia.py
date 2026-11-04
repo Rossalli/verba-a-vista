@@ -20,11 +20,17 @@ SEPARADOR = "\n---\n"  # o prompt de verdade vem depois do primeiro separador do
 
 
 class IAErro(Exception):
-    """A chamada não produziu um rascunho utilizável (API, recusa, corte por tamanho, JSON ou schema inválido)."""
+    """A chamada não produziu um rascunho utilizável.
 
-    def __init__(self, mensagem: str, resposta_bruta: str | None = None) -> None:
+    `retentavel` separa falha de infraestrutura (chave ausente ou sem workspace, API fora do ar, rede) de falha do
+    conteúdo (recusa, corte por tamanho, JSON ou schema inválido). A primeira não diz nada sobre o rascunho: não se
+    grava arquivo na fila e a perda é tentada de novo na próxima execução.
+    """
+
+    def __init__(self, mensagem: str, resposta_bruta: str | None = None, retentavel: bool = False) -> None:
         super().__init__(mensagem)
         self.resposta_bruta = resposta_bruta
+        self.retentavel = retentavel
 
 
 @dataclass
@@ -99,7 +105,7 @@ def criar_cliente():
 
     carregar_dotenv(RAIZ)
     if not os.environ.get("ANTHROPIC_API_KEY"):
-        raise IAErro("ANTHROPIC_API_KEY não definida (ambiente ou .env)")
+        raise IAErro("ANTHROPIC_API_KEY não definida (ambiente ou .env)", retentavel=True)
     return anthropic.Anthropic()
 
 
@@ -121,7 +127,7 @@ def gerar_rascunho(dossie: Dossie, config: Config | None = None, cliente=None, r
             thinking={"type": "between_tools"},
         )
     except anthropic.APIError as erro:
-        raise IAErro(f"falha na API da Anthropic: {type(erro).__name__}: {erro}") from erro
+        raise IAErro(f"falha na API da Anthropic: {type(erro).__name__}: {erro}", retentavel=True) from erro
     if resposta.stop_reason == "refusal":
         raise IAErro("o modelo recusou a requisição (stop_reason=refusal)")
     texto = "".join(b.text for b in resposta.content if b.type == "text")

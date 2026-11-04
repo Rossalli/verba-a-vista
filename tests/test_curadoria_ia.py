@@ -105,8 +105,9 @@ def test_resposta_invalida_vira_erro_com_a_resposta_bruta(texto, trecho):
 
 
 def test_recusa_e_corte_por_tamanho_viram_erro():
-    with pytest.raises(IAErro, match="recusou"):
+    with pytest.raises(IAErro, match="recusou") as recusa:
         gerar_rascunho(dossie(), carregar_config(), ClienteFalso("", "refusal"))
+    assert recusa.value.retentavel is False  # conteúdo: vira arquivo de erro
     with pytest.raises(IAErro, match="max_tokens") as erro:
         gerar_rascunho(dossie(), carregar_config(), ClienteFalso('{"verba_id": "x', "max_tokens"))
     assert erro.value.resposta_bruta == '{"verba_id": "x'
@@ -115,8 +116,9 @@ def test_recusa_e_corte_por_tamanho_viram_erro():
 def test_erro_da_api_vira_iaerro_sem_vazar_a_chave():
     pedido = httpx.Request("POST", "https://api.anthropic.com/v1/messages")
     falha = anthropic.APIConnectionError(request=pedido)
-    with pytest.raises(IAErro, match="APIConnectionError"):
+    with pytest.raises(IAErro, match="APIConnectionError") as erro:
         gerar_rascunho(dossie(), carregar_config(), ClienteFalso("", erro=falha))
+    assert erro.value.retentavel is True  # infraestrutura: tenta de novo depois
 
 
 def test_sem_chave_o_cliente_real_nao_e_criado(monkeypatch, tmp_path):

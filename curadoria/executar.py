@@ -8,6 +8,7 @@ Perda que já tem rascunho ou erro em `dados/fila/` não é enviada de novo sem 
 """
 
 import argparse
+import os
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
@@ -27,6 +28,8 @@ class Resultado:
     sem_documentos: list[str] = field(default_factory=list)
     ja_na_fila: list[str] = field(default_factory=list)
     plano: list[str] = field(default_factory=list)  # só no plano (sem --executar)
+    falha_api: str | None = None  # falha de infraestrutura (chave, API, rede): nada foi gravado e a próxima execução tenta de novo
+    nao_tentadas: int = 0  # perdas que ficaram sem tentativa porque a falha de infraestrutura interrompeu o laço
     tokens_entrada: int = 0
     tokens_saida: int = 0
 
@@ -45,9 +48,8 @@ def executar(raiz: Path = RAIZ, data: date | None = None, config: Config | None 
     resultado = Resultado()
     urls = urls_das_fontes(config)
 
-    for verba_id in proc.historico.precisam_curadoria:
-        if ids and verba_id not in ids:
-            continue
+    alvo = [i for i in proc.historico.precisam_curadoria if not ids or i in ids]
+    for posicao, verba_id in enumerate(alvo):
         if na_fila(raiz, verba_id) and not refazer:
             resultado.ja_na_fila.append(verba_id)
             continue
@@ -59,11 +61,17 @@ def executar(raiz: Path = RAIZ, data: date | None = None, config: Config | None 
         if not enviar:
             resultado.plano.append(f"{verba_id}: {len(dossie.documentos)} documentos")
             continue
-        cliente = cliente or criar_cliente()
         permitidos = permitidos_da_verba(verba, config)
         try:
+            cliente = cliente or criar_cliente()
             rascunho = gerar_rascunho(dossie, config, cliente)  # prompt e schema são do repositório, não da pasta de dados
         except IAErro as erro:
+            if erro.retentavel:
+                # Chave, API ou rede: não diz nada sobre este rascunho. Não grava arquivo (ele bloquearia a nova tentativa)
+                # e para, porque as próximas chamadas falhariam do mesmo jeito.
+                resultado.falha_api = str(erro)
+                resultado.nao_tentadas = sum(1 for restante in alvo[posicao:] if refazer or not na_fila(raiz, restante))
+                break
             gravar_erro(raiz, dossie, [str(erro)], None, erro.resposta_bruta, data)
             resultado.com_erro.append(verba_id)
             continue
@@ -89,6 +97,8 @@ def resumo(resultado: Resultado, enviou: bool) -> str:
     else:
         linhas.append(f"Rascunhos na fila: {len(resultado.na_fila)}; reprovados ou com erro: {len(resultado.com_erro)}")
         linhas.append(f"Tokens: {resultado.tokens_entrada} de entrada, {resultado.tokens_saida} de saída")
+    if resultado.falha_api:
+        linhas.append(f"FALHA NA IA (nada foi gravado; tenta de novo na próxima execução; {resultado.nao_tentadas} perda(s) sem tentativa): {resultado.falha_api}")
     if resultado.ja_na_fila:
         linhas.append(f"Já têm rascunho/erro em dados/fila/ (use --refazer para gerar de novo): {len(resultado.ja_na_fila)}")
     if resultado.sem_documentos:
@@ -109,7 +119,9 @@ def main(argv: list[str] | None = None) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     resultado = executar(args.raiz, args.data, None, args.ids, args.refazer, args.executar)
     print(resumo(resultado, args.executar))
-    return 0
+    if resultado.falha_api and os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::warning title=Curadoria com IA falhou::{resultado.falha_api}")  # anotação visível no resumo da execução
+    return 0  # falha da IA não bloqueia a publicação dos dados do dia
 
 
 if __name__ == "__main__":

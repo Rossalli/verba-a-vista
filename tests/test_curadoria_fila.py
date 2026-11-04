@@ -173,3 +173,62 @@ def test_linha_de_comando(raiz, capsys):
     assert f"{BOA}: 3 documentos" in capsys.readouterr().out
     assert ap.main([BOA, "--por", "Bárbara", "--raiz", str(raiz)]) == 1
     assert "Não aprovado" in capsys.readouterr().out
+
+
+# --- falha de infraestrutura da IA (chave, API, rede): não grava arquivo e tenta de novo depois ---------------
+
+
+class ClienteQueFalha:
+    def __init__(self, erro: Exception) -> None:
+        self.messages, self.erro, self.chamadas = self, erro, 0
+
+    def create(self, **kwargs):
+        self.chamadas += 1
+        raise self.erro
+
+
+def erro_de_api():
+    import anthropic
+    import httpx
+
+    return anthropic.APIConnectionError(request=httpx.Request("POST", "https://api.anthropic.com/v1/messages"))
+
+
+def test_falha_da_api_nao_grava_arquivo_para_na_primeira_e_conta_as_que_sobraram(raiz):
+    cliente = ClienteQueFalha(erro_de_api())
+    r = gerar(raiz, cliente)
+    assert cliente.chamadas == 1  # as próximas falhariam do mesmo jeito
+    assert "APIConnectionError" in r.falha_api and r.nao_tentadas == 3
+    assert (r.na_fila, r.com_erro) == ([], [])
+    assert not (raiz / "dados" / "fila").exists()  # nenhum .erro.yaml: ele bloquearia a nova tentativa
+
+
+def test_depois_da_falha_a_proxima_execucao_tenta_de_novo(raiz):
+    gerar(raiz, ClienteQueFalha(erro_de_api()))
+    cliente = ClienteFalso()
+    r = gerar(raiz, cliente)  # a IA voltou
+    assert r.falha_api is None and r.ja_na_fila == [] and len(cliente.chamadas) == 3 and r.na_fila == [BOA]
+
+
+def test_sem_chave_tambem_nao_grava_arquivo(raiz, monkeypatch, tmp_path):
+    from curadoria import ia
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setattr(ia, "RAIZ", tmp_path)  # sem .env
+    r = executar(raiz, DATA, None, [BOA], enviar=True)
+    assert "ANTHROPIC_API_KEY" in r.falha_api and not (raiz / "dados" / "fila").exists()
+
+
+def test_erro_do_conteudo_continua_gravando_arquivo(raiz):
+    r = gerar(raiz, ClienteFalso())
+    assert r.falha_api is None and SEM_JSON in r.com_erro and caminho_erro(raiz, SEM_JSON).exists()  # JSON ilegível: erro do rascunho, não da infraestrutura
+
+
+def test_linha_de_comando_nao_falha_o_dia_e_avisa_no_actions(raiz, monkeypatch, capsys):
+    from curadoria import executar as ex
+
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setattr(ex, "criar_cliente", lambda: ClienteQueFalha(erro_de_api()))
+    assert main(["--raiz", str(raiz), "--data", "2026-10-30", "--id", BOA, "--executar"]) == 0
+    saida = capsys.readouterr().out
+    assert "FALHA NA IA" in saida and "::warning title=Curadoria com IA falhou::" in saida
