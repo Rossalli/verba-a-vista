@@ -7,6 +7,7 @@ A chave vem de `ANTHROPIC_API_KEY` (ambiente ou `.env`); nunca é impressa nem g
 """
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -80,10 +81,20 @@ def montar_mensagem(dossie: Dossie) -> str:
     return "\n".join(blocos).rstrip() + "\n"
 
 
+CERCA_DE_CODIGO = re.compile(r"```(?:json)?[ \t]*\r?\n(.*?)\r?\n?```", re.DOTALL)
+
+
+def sem_cerca_de_codigo(texto: str) -> str:
+    """O modelo às vezes embrulha o JSON em ```json ... ```, mesmo pedindo JSON puro. Só esse embrulho é tolerado:
+    texto antes ou depois da cerca continua sendo resposta inválida."""
+    achado = CERCA_DE_CODIGO.fullmatch(texto.strip())
+    return achado.group(1).strip() if achado else texto
+
+
 def interpretar_resposta(texto: str, verba_id: str, raiz: Path = RAIZ) -> dict:
     """JSON da resposta validado no schema; levanta `IAErro` se não for JSON, não validar ou for de outra verba."""
     try:
-        dados = json.loads(texto)
+        dados = json.loads(sem_cerca_de_codigo(texto))
     except json.JSONDecodeError as erro:
         raise IAErro(f"resposta não é JSON válido: {erro}", texto) from erro
     try:

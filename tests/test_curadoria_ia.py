@@ -128,3 +128,25 @@ def test_sem_chave_o_cliente_real_nao_e_criado(monkeypatch, tmp_path):
     monkeypatch.setattr(ia, "RAIZ", tmp_path)  # sem .env
     with pytest.raises(IAErro, match="ANTHROPIC_API_KEY"):
         ia.criar_cliente()
+
+
+# --- cerca de código em volta do JSON (o modelo faz isso mesmo pedindo JSON puro) ---------------------------
+
+
+@pytest.mark.parametrize("embrulho", ["```json\n{}\n```", "```\n{}\n```", "  ```json\n{}\n```  \n", "```json\r\n{}\r\n```"])
+def test_json_em_cerca_de_codigo_e_aceito(embrulho):
+    dados = json.dumps(rascunho(), indent=2)
+    assert interpretar_resposta(embrulho.replace("{}", dados), VERBA)["verba_id"] == VERBA
+
+
+@pytest.mark.parametrize("texto", ["Segue o JSON:\n```json\n{}\n```", "```json\n{}\n```\nEspero ter ajudado.", "```json\n{}\n``` e mais ```json\n{}\n```"])
+def test_texto_fora_da_cerca_continua_sendo_resposta_invalida(texto):
+    dados = json.dumps(rascunho())
+    with pytest.raises(IAErro, match="não é JSON"):
+        interpretar_resposta(texto.replace("{}", dados), VERBA)
+
+
+def test_json_em_cerca_ainda_passa_pelo_schema():
+    invalido = "```json\n" + json.dumps(rascunho(categoria="inventada")) + "\n```"
+    with pytest.raises(IAErro, match="fora do schema"):
+        interpretar_resposta(invalido, VERBA)
