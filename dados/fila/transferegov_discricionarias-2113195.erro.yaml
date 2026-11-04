@@ -1,0 +1,28 @@
+verba_id: transferegov_discricionarias-2113195
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-2113195",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura enviou ao Ministério da Agricultura e Pecuária a proposta 42023/2025, para obter equipamentos agrícolas no valor de R$ 373.428,60 [1]. Em 05/03/2026, o órgão rejeitou a proposta por impedimento técnico [2]. A proposta e o plano de trabalho constam como rejeitados e o repasse não seguiu adiante [1].",
+    "evitavel": "indeterminado",
+    "confianca": "media",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "instrumento-2113195",
+        "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
+      },
+      {
+        "n": 2,
+        "documento_id": "historico-situacao-2113195",
+        "trecho": "05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
+      }
+    ],
+    "observacoes_para_revisor": "Os documentos informam apenas que houve rejeição por 'impedimento técnico', sem detalhar qual foi o impedimento (projeto, plano de trabalho, orçamento, documentação etc.). Por isso a categoria 'reprovacao_tecnica' é a mais próxima, mas a confiança é média e 'evitavel' fica indeterminado. Faltam o parecer ou a diligência do Ministério da Agricultura e Pecuária que expliquem o motivo e mostrem se houve prazo para resposta. O CAUC de 29/10/2026 aponta pendência no item 4.2 (Regularidade Previdenciária), mas essa situação é de data posterior à rejeição (05/03/2026) e nenhum documento a liga à rejeição; por isso não foi usada como causa nem citada no texto. Vale checar a situação do CAUC na data da rejeição. A frase final do texto ('o repasse não seguiu adiante') é inferência a partir da situação 'rejeitada' e não tem citação literal sobre repasse; considere remover essa parte se preferir só o que está escrito."
+  }
+  ```

@@ -1,0 +1,33 @@
+verba_id: transferegov_discricionarias-2152082
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-2152082",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura enviou a proposta 64413/2025 para análise do Ministério da Agricultura e Pecuária, para compra de equipamentos agrícolas no valor de R$ 560.000,00 [1][2]. Em 24/03/2026, a proposta foi rejeitada por impedimento técnico [2][3]. Os documentos disponíveis não detalham qual foi o impedimento técnico [3].",
+    "evitavel": "indeterminado",
+    "confianca": "media",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "instrumento-2152082",
+        "trecho": "Órgão concedente: MINISTÉRIO DA AGRICULTURA E PECUÁRIA\nObjeto: EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP"
+      },
+      {
+        "n": 2,
+        "documento_id": "instrumento-2152082",
+        "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
+      },
+      {
+        "n": 3,
+        "documento_id": "historico-situacao-2152082",
+        "trecho": "24/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
+      }
+    ],
+    "observacoes_para_revisor": "Os documentos só informam que houve rejeição por 'impedimento técnico', sem dizer qual (pendência documental, incompatibilidade do objeto, diligência não respondida etc.). Por isso evitavel='indeterminado' e confiança 'media' (instrumento e histórico se complementam, mas a causa específica falta). Seria necessário o parecer ou a diligência do Transferegov para detalhar. O CAUC de 29/10/2026 mostra pendência em 4.2 (Regularidade Previdenciária), mas essa data é posterior à rejeição (24/03/2026) e nenhum documento liga a pendência à rejeição; por isso não foi usada como causa nem citada. Vale checar se a pendência existia em março de 2026. As frases 1 e 3 da redação citam as mesmas fontes, mas a segunda frase foi mantida com [2][3] por reforçar a data. Obs.: o prazo de 26/11/2025 (envio) a 24/03/2026 não indica diligência registrada no histórico."
+  }
+  ```

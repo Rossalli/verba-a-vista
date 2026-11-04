@@ -1,0 +1,33 @@
+verba_id: transferegov_discricionarias-2113259
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-2113259",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura de Neves Paulista enviou em agosto de 2025 uma proposta ao Ministério da Agricultura e Pecuária para obter equipamentos agrícolas, no valor de R$ 549.500,00 [1][2]. Em 05/03/2026, a proposta foi rejeitada por impedimento técnico [3]. Os documentos disponíveis não detalham qual foi o impedimento [3].",
+    "evitavel": "indeterminado",
+    "confianca": "baixa",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "instrumento-2113259",
+        "trecho": "Objeto: EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP"
+      },
+      {
+        "n": 2,
+        "documento_id": "instrumento-2113259",
+        "trecho": "Valor do repasse: R$ 549.500,00"
+      },
+      {
+        "n": 3,
+        "documento_id": "historico-situacao-2113259",
+        "trecho": "05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
+      }
+    ],
+    "observacoes_para_revisor": "Os documentos só informam que a proposta foi rejeitada por 'impedimento técnico'; não há parecer, diligência ou ofício que diga qual foi o impedimento. O histórico mostra a rejeição registrada duas vezes na mesma data (05/03/2026), sem explicação. O CAUC de 29/10/2026 mostra pendência no item 4.2 (Regularidade Previdenciária), mas essa data é posterior à rejeição e nada nos documentos liga a pendência à rejeição; por isso NÃO usei a categoria 'cauc' nem mencionei a pendência no texto. A situação do projeto básico consta como 'Não Cadastrado', mas nenhum documento afirma que isso causou a rejeição. Seria útil obter o parecer técnico ou a notificação do Ministério da Agricultura sobre a rejeição, e verificar se houve diligência não respondida. Se nenhum documento adicional for encontrado, considerar reclassificar como 'em_apuracao'."
+  }
+  ```

@@ -25,6 +25,16 @@
     ],
     "ultimo_mes_fpm": "2026-10"
    }
+  },
+  {
+   "iniciado_em": "2026-11-04T20:35:25-03:00",
+   "terminado_em": "2026-11-04T20:35:25-03:00",
+   "duracao_s": 0.0,
+   "status": "reaproveitado",
+   "erro": null,
+   "requisicoes": 0,
+   "registros": {},
+   "metadados": {}
   }
  ]
 }

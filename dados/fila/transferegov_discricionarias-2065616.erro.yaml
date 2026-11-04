@@ -1,0 +1,33 @@
+verba_id: transferegov_discricionarias-2065616
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-2065616",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura enviou ao Ministério da Agricultura e Pecuária a proposta de convênio para a aquisição de uma patrulha agrícola, no valor de R$ 700.000,00 de repasse [1]. A proposta entrou em análise e foi reprovada em 14/01/2026 [2]. A situação final registrada é \"Proposta/Plano de Trabalho Rejeitados\" [3].",
+    "evitavel": "indeterminado",
+    "confianca": "media",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "instrumento-2065616",
+        "trecho": "Objeto: AQUISIÇÃO DE PATRULHA AGRICOLA"
+      },
+      {
+        "n": 2,
+        "documento_id": "historico-situacao-2065616",
+        "trecho": "14/01/2026: PROPOSTA_REPROVADA"
+      },
+      {
+        "n": 3,
+        "documento_id": "instrumento-2065616",
+        "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados"
+      }
+    ],
+    "observacoes_para_revisor": "Os documentos mostram que a proposta foi reprovada e rejeitada, mas não informam o motivo da reprovação (parecer técnico, diligência não respondida, etc.). Por isso a categoria reprovacao_tecnica é a leitura menos acusatória, e a confiança é média, não alta. O campo \"Situação do projeto básico: Não Cadastrado\" pode ter relação com a reprovação, mas nenhum documento afirma isso, então não foi usado no texto. O CAUC de 29/10/2026 lista pendência em 4.2 Regularidade Previdenciária, mas é uma foto posterior à reprovação (14/01/2026) e não há documento ligando essa pendência à rejeição; por isso a categoria cauc não foi usada. Faltam o parecer ou a motivação da reprovação no Transferegov e o CAUC da data da análise. Evitável ficou como indeterminado porque nenhum documento mostra falha específica da prefeitura (prazo, pendência ou documento não entregue)."
+  }
+  ```

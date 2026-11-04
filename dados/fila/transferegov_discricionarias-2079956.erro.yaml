@@ -1,0 +1,33 @@
+verba_id: transferegov_discricionarias-2079956
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-2079956",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura enviou ao Ministério da Agricultura e Pecuária, em maio de 2025, a proposta de convênio para comprar uma pá carregadeira [1][2]. Em janeiro de 2026, a proposta foi analisada e reprovada [2]. O registro do Transferegov mostra a proposta e o plano de trabalho como rejeitados [1].",
+    "evitavel": "indeterminado",
+    "confianca": "media",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "instrumento-2079956",
+        "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados"
+      },
+      {
+        "n": 2,
+        "documento_id": "historico-situacao-2079956",
+        "trecho": "28/05/2025: PROPOSTA_ENVIADA_ANALISE"
+      },
+      {
+        "n": 3,
+        "documento_id": "historico-situacao-2079956",
+        "trecho": "14/01/2026: PROPOSTA_REPROVADA"
+      }
+    ],
+    "observacoes_para_revisor": "ATENÇÃO: o texto cita [1][2] na 1ª frase e [2] na 2ª, mas a reprovação está na citação [3]; ajustar marcadores antes de publicar (1ª frase: [2]; 2ª frase: [3]; 3ª frase: [1]). Os documentos informam apenas que a proposta foi reprovada, sem registrar o motivo (parecer técnico, diligência não respondida, etc.). Por isso a categoria 'reprovacao_tecnica' é a menos acusatória e a confiança foi limitada a 'media'; um parecer ou despacho do Ministério confirmaria o motivo. O projeto básico consta como 'Não Cadastrado', mas nenhum documento diz que isso causou a reprovação, então não foi usado como causa. O CAUC de 29/10/2026 mostra pendência em 4.2 (Regularidade Previdenciária), porém é uma foto posterior à reprovação e nenhum documento a relaciona à perda; não foi usado. 'Evitável' ficou 'indeterminado' pois não há documento que mostre falha específica da prefeitura. Também não há documento sobre eventual reapresentação da proposta."
+  }
+  ```

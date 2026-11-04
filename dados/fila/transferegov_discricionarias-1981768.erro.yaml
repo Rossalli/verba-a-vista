@@ -1,0 +1,38 @@
+verba_id: transferegov_discricionarias-1981768
+gerado_em: '2026-11-04'
+erros:
+- 'resposta não é JSON válido: Expecting value: line 1 column 1 (char 0)'
+rascunho: null
+resposta_bruta: |-
+  ```json
+  {
+    "verba_id": "transferegov_discricionarias-1981768",
+    "categoria": "reprovacao_tecnica",
+    "texto": "A prefeitura cadastrou e enviou ao Ministério da Agricultura e Pecuária a proposta de convênio para comprar uma patrulha agrícola, no valor de R$ 700.000,00 de repasse [1][2]. Em 21/01/2025, a proposta foi reprovada na análise do órgão [3]. O Transferegov registra a situação final como proposta e plano de trabalho rejeitados [4].",
+    "evitavel": "indeterminado",
+    "confianca": "media",
+    "citacoes": [
+      {
+        "n": 1,
+        "documento_id": "historico-situacao-1981768",
+        "trecho": "13/05/2024: PROPOSTA_ENVIADA_ANALISE"
+      },
+      {
+        "n": 2,
+        "documento_id": "instrumento-1981768",
+        "trecho": "Valor do repasse: R$ 700.000,00"
+      },
+      {
+        "n": 3,
+        "documento_id": "historico-situacao-1981768",
+        "trecho": "21/01/2025: PROPOSTA_REPROVADA"
+      },
+      {
+        "n": 4,
+        "documento_id": "instrumento-1981768",
+        "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados"
+      }
+    ],
+    "observacoes_para_revisor": "Os documentos mostram a reprovação, mas não trazem o parecer do órgão nem o motivo (falha no plano de trabalho, no orçamento, diligência não respondida etc.). Por isso 'evitavel' ficou indeterminado e a confiança é média: o fato da reprovação está claro, mas a causa técnica não. O campo 'Situação do projeto básico: Não Cadastrado' consta no instrumento, mas não há documento que ligue isso à reprovação, então não foi usado como explicação. O CAUC de 29/10/2026 mostra pendência em Regularidade Previdenciária, porém é de data posterior à reprovação (jan/2025) e nada indica que tenha influenciado a decisão, então não foi citado nem usado para classificar como 'cauc'. Faria falta o parecer ou a notificação de reprovação no Transferegov."
+  }
+  ```
