@@ -1,0 +1,73 @@
+verba_id: transferegov_discricionarias-2113295
+gerado_em: '2026-11-04'
+modelo: claude-sonnet-5-5
+id_requisicao: req_011CgimqM8vMxf9YT8KsS3z1
+avisos: []
+permitidos:
+- Neves Paulista
+- MINISTÉRIO DA AGRICULTURA E PECUÁRIA
+- EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP
+- EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP
+rascunho:
+  verba_id: transferegov_discricionarias-2113295
+  categoria: reprovacao_tecnica
+  texto: A prefeitura enviou a proposta ao Ministério da Agricultura e Pecuária em 19/08/2025 [1]. Em
+    05/03/2026, a proposta foi rejeitada por impedimento técnico [2]. A situação oficial da proposta e
+    do plano de trabalho é "Rejeitados por Impedimento técnico" [3].
+  evitavel: indeterminado
+  confianca: baixa
+  citacoes:
+  - n: 1
+    documento_id: historico-situacao-2113295
+    trecho: '19/08/2025: PROPOSTA_ENVIADA_ANALISE'
+  - n: 2
+    documento_id: historico-situacao-2113295
+    trecho: '05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
+  - n: 3
+    documento_id: instrumento-2113295
+    trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
+  observacoes_para_revisor: 'Os documentos mostram a rejeição por impedimento técnico, mas não dizem qual
+    foi o impedimento nem se houve diligência não respondida. Por isso evitável=indeterminado e confiança
+    baixa. Não encontramos o parecer ou a notificação do Ministério. Há ainda um ponto de dúvida na classificação:
+    o instrumento é Termo de Compromisso (discricionária, não emenda), então escolhi reprovacao_tecnica
+    em vez de impedimento_emenda. O CAUC de 29/10/2026 mostra pendência em Regularidade Previdenciária
+    (item 4.2), mas essa data é posterior à rejeição (05/03/2026) e nenhum documento liga a pendência
+    à perda; por isso não usei a categoria cauc nem citei essa pendência no texto. Vale buscar o parecer
+    técnico e o histórico de diligências na plataforma Transferegov.'
+documentos:
+- id: instrumento-2113295
+  titulo: 'Transferegov: proposta 42072/2025 e instrumento'
+  url: https://repositorio.dados.gov.br/seges/detru
+  data_coleta: '2026-10-29T18:19:35-03:00'
+  texto: |-
+    Número da proposta: 42072/2025
+    Ano da proposta: 2025
+    Modalidade: TERMO DE COMPROMISSO
+    Órgão concedente: MINISTÉRIO DA AGRICULTURA E PECUÁRIA
+    Objeto: EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP
+    Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico
+    Situação do projeto básico: Não Cadastrado
+    Data da proposta: 19/08/2025
+    Início da vigência da proposta: 20/08/2025
+    Fim da vigência da proposta: 31/12/2027
+    Valor global: R$ 348.000,00
+    Valor do repasse: R$ 348.000,00
+    Contrapartida: R$ 0,00
+- id: historico-situacao-2113295
+  titulo: 'Transferegov: histórico de situação da proposta 42072/2025'
+  url: https://repositorio.dados.gov.br/seges/detru
+  data_coleta: '2026-10-29T18:19:35-03:00'
+  texto: |-
+    19/08/2025: PROPOSTA_CADASTRADA
+    19/08/2025: PROPOSTA_CADASTRADA
+    19/08/2025: PROPOSTA_ENVIADA_ANALISE
+    05/03/2026: PROPOSTA_EM_ANALISE
+    05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO
+    05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO
+- id: cauc-2026-10-29
+  titulo: 'CAUC: situação do município em 29/10/2026'
+  url: https://www.tesourotransparente.gov.br/ckan/dataset/72b5f371-0c35-4613-8076-c99c821a6410/resource/07af297a-5e59-494a-a88a-55ddfd2f4b01/download/relatorio-situacao-de-varios-entes---municipios---uf-todas---abrangencia-1.csv
+  data_coleta: '2026-10-29T18:17:04-03:00'
+  texto: |-
+    Itens do CAUC sem comprovação:
+    4.2 Regularidade Previdenciária

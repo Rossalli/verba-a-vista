@@ -21,6 +21,16 @@
    "requisicoes": 1,
    "registros": {},
    "metadados": {}
+  },
+  {
+   "iniciado_em": "2026-11-04T20:41:32-03:00",
+   "terminado_em": "2026-11-04T20:41:33-03:00",
+   "duracao_s": 1.02,
+   "status": "erro",
+   "erro": "ColetaErro: https://repositorio.dados.gov.br/seges/detru/data_carga_siconv.txt: HTTP 404 ('<html>\\r\\n<head><title>404 Not Found</title></head>\\r\\n<body>\\r\\n<center><h1>404 Not Found</h1></center>\\r\\n<hr><center>nginx/1.16.1</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+   "requisicoes": 1,
+   "registros": {},
+   "metadados": {}
   }
  ]
 }

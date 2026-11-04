@@ -35,6 +35,16 @@
    "requisicoes": 0,
    "registros": {},
    "metadados": {}
+  },
+  {
+   "iniciado_em": "2026-11-04T20:41:40-03:00",
+   "terminado_em": "2026-11-04T20:41:40-03:00",
+   "duracao_s": 0.0,
+   "status": "reaproveitado",
+   "erro": null,
+   "requisicoes": 0,
+   "registros": {},
+   "metadados": {}
   }
  ]
 }
