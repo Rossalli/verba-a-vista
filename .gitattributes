@@ -7,3 +7,4 @@ dados/brutos/**/*.json text eol=lf
 Makefile text eol=lf
 dados/fila/*.yaml text eol=lf
 dados/curadoria/*.yaml text eol=lf
+docs/revisao-credibilidade/*.csv -text

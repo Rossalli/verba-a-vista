@@ -54,6 +54,7 @@ Sem servidor nem banco. Astro + GitHub Actions + Pages. Os retratos brutos no Gi
 Sem documento: "motivo em apuração".
 
 ## Em aberto
+- **Rótulo de `proposta` para "Cadastrados".** A situação "Proposta/Plano de Trabalho Cadastrados" (proposta que ainda não foi enviada) está em `status_map.yaml` como `proposta`, e o site rotula essa etapa "Proposta enviada". Achado em 04/11/2026 ao montar a amostra da revisão de credibilidade (T5.3). Opções: renomear o rótulo para "Proposta" (simples) ou mapear "Cadastrados" para uma etapa própria (muda a spec §4). Decidir antes do lançamento, de preferência com a opinião de quem revisar.
 - **Fonte do Siconv em lote fora do ar (29/10/2026).** O diretório `repositorio.dados.gov.br/seges/detru/` passou a dar 404 (docs/fontes.md §Discricionárias, alerta). Dele dependem os convênios com o detalhe das regras de risco (cláusula suspensiva, prazos de prestação de contas, histórico), as oportunidades (D10) e a ponte Obrasgov-Siconv. Caminhos possíveis: esperar e monitorar o retorno; achar o novo endereço; ou usar o Portal da Transparência como fonte de convênios (63 registros, mais atual, mas sem o detalhe do Siconv). Decidir antes da T2.2.
 - Onde roda a coleta (GitHub Actions ou servidor no Brasil). A T1.0 (29/10/2026) não encontrou bloqueio do Actions nos hosts testados, então a tendência é GitHub Actions. Fica em aberto até as POCs confirmarem os endpoints reais a partir do Actions (T1.1 e T1.4).
 - Domínio do site.
