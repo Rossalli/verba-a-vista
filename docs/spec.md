@@ -48,7 +48,7 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 | `status_site` | Rótulo | Significado |
 | --- | --- | --- |
 | `oportunidade` | Oportunidade | Programa, edital ou emenda que o município pode pleitear |
-| `proposta` | Proposta enviada | Pedido cadastrado, aguardando análise |
+| `proposta` | Proposta | Pedido cadastrado ou enviado, ainda em análise (D18) |
 | `aprovada` | Aprovada | Proposta e plano de trabalho aprovados ou instrumento assinado, recurso ainda não liberado (a assinatura pode estar pendente; pode haver cláusula suspensiva) |
 | `execucao` | Em execução | Recurso liberado, obra ou compra em andamento |
 | `prestacao` | Prestação de contas | Execução encerrada, contas em análise |

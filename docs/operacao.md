@@ -26,4 +26,4 @@ Primeira execução: **Actions → Coleta diária → Run workflow**. Ela coleta
 
 ## Domínio próprio (quando houver)
 
-Configure em **Settings → Pages → Custom domain**. O `base` do site vem da configuração do Pages (`configure-pages`), então nada muda no código. Atualize o e-mail de contato em `site/src/config.js`.
+Configure em **Settings → Pages → Custom domain**. O `base` do site vem da configuração do Pages (`configure-pages`), então nada muda no código. O e-mail de contato fica em `site/src/config.js`.

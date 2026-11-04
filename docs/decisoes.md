@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D18 — Etapa `proposta` passa a se chamar "Proposta"; e-mail de contato definido (04/11/2026)
+A etapa mostrava "Proposta enviada", mas agrupa situações da fonte que vão de "Cadastrados" (ainda não enviada) a "Enviado para Análise" e "Complementado em Análise". O rótulo agora é só "Proposta" (spec §4 e `config/taxonomia.yaml`); a situação original da fonte continua sempre visível ao lado. O rótulo do prazo `proposta` virou "Data da proposta". O e-mail de contato do site é `barbara.rossalli@gmail.com` (`site/src/config.js`). O domínio continua em aberto.
+
 ## D17 — Alerta de CAUC ignora vigência encerrada e proposta não enviada (01/11/2026)
 O "Em risco" da página inicial somava R$ 26,89 mi, e R$ 21,38 mi eram de uma proposta só "Cadastrada" (nem enviada); outras duas verbas (de 2011 e de 2021) tinham a vigência encerrada. Regularizar o CAUC não salva nenhuma das três. O alerta `cauc_sem_comprovacao` deixa de valer para verba com `fim_vigencia` anterior a hoje e para situações da fonte listadas em `risco.cauc_ignora_situacoes_fonte`. Efeito nos dados de 30/10: 9 verbas e R$ 26,89 mi viram 6 e R$ 4,98 mi. O alerta continua valendo para proposta enviada ou aprovada com pendência. Os cartões do resumo passam a dizer "valor das N verbas com alerta": a soma é o valor total dessas verbas, não o que está perdendo.
 
@@ -54,8 +57,6 @@ Sem servidor nem banco. Astro + GitHub Actions + Pages. Os retratos brutos no Gi
 Sem documento: "motivo em apuração".
 
 ## Em aberto
-- **Rótulo de `proposta` para "Cadastrados".** A situação "Proposta/Plano de Trabalho Cadastrados" (proposta que ainda não foi enviada) está em `status_map.yaml` como `proposta`, e o site rotula essa etapa "Proposta enviada". Achado em 04/11/2026 ao montar a amostra da revisão de credibilidade (T5.3). Opções: renomear o rótulo para "Proposta" (simples) ou mapear "Cadastrados" para uma etapa própria (muda a spec §4). Decidir antes do lançamento, de preferência com a opinião de quem revisar.
 - **Fonte do Siconv em lote fora do ar (29/10/2026).** O diretório `repositorio.dados.gov.br/seges/detru/` passou a dar 404 (docs/fontes.md §Discricionárias, alerta). Dele dependem os convênios com o detalhe das regras de risco (cláusula suspensiva, prazos de prestação de contas, histórico), as oportunidades (D10) e a ponte Obrasgov-Siconv. Caminhos possíveis: esperar e monitorar o retorno; achar o novo endereço; ou usar o Portal da Transparência como fonte de convênios (63 registros, mais atual, mas sem o detalhe do Siconv). Decidir antes da T2.2.
 - Onde roda a coleta (GitHub Actions ou servidor no Brasil). A T1.0 (29/10/2026) não encontrou bloqueio do Actions nos hosts testados, então a tendência é GitHub Actions. Fica em aberto até as POCs confirmarem os endpoints reais a partir do Actions (T1.1 e T1.4).
 - Domínio do site.
-- E-mail de contato do projeto.

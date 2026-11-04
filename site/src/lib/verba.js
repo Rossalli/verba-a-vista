@@ -3,7 +3,7 @@ import { formatarData, formatarReais } from "./dados.js";
 import { formatarTitulo } from "./resumo.js";
 
 export const ROTULO_PRAZO = {
-  proposta: "Proposta enviada em",
+  proposta: "Data da proposta",
   adesao: "Adesão até",
   assinatura: "Assinatura em",
   fim_vigencia: "Fim da vigência",

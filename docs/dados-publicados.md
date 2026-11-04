@@ -38,7 +38,7 @@ Para abrir no Excel ou em qualquer planilha:
 | `nome`, `objeto` | Resumo e texto do objeto. |
 | `orgao_concedente`, `parlamentar` | Órgão que repassa; autor da emenda, quando houver. |
 | `numero_instrumento` | Número do convênio, da parceria ou do programa. |
-| `situacao` | Status do site (Oportunidade, Proposta enviada, Aprovada, Em execução, Prestação de contas, Concluída, Perdida, ou "Situação em análise" quando a situação da fonte ainda não está mapeada). |
+| `situacao` | Status do site (Oportunidade, Proposta, Aprovada, Em execução, Prestação de contas, Concluída, Perdida, ou "Situação em análise" quando a situação da fonte ainda não está mapeada). |
 | `situacao_na_fonte` | A situação original, sempre preservada. |
 | `em_risco`, `alertas` | `sim` ou `não`; os textos dos alertas, separados por ` \| `. |
 | `valor_total_reais`, `contrapartida_reais`, `liberado_reais`, `executado_reais`, `devolvido_reais` | Valores. `valor_total_reais` fica vazio quando a fonte não informa (ex.: oportunidades). |

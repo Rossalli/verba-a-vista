@@ -4,7 +4,7 @@ Critério da spec §12: **alguém que trabalhe com convênios confere uma amostr
 
 ## O que é o Verba à Vista
 
-Um site cidadão e independente que mostra as verbas **federais** destinadas a Neves Paulista (SP): o que está disponível, em que etapa cada uma está e, quando uma é perdida, por quê, sempre com o documento oficial citado. Os dados vêm do Transferegov, do Obrasgov, do Portal da Transparência e do CAUC. O site traduz a situação de cada fonte para sete etapas (Oportunidade, Proposta enviada, Aprovada, Em execução, Prestação de contas, Concluída, Perdida) e **sempre mostra também a situação original da fonte**.
+Um site cidadão e independente que mostra as verbas **federais** destinadas a Neves Paulista (SP): o que está disponível, em que etapa cada uma está e, quando uma é perdida, por quê, sempre com o documento oficial citado. Os dados vêm do Transferegov, do Obrasgov, do Portal da Transparência e do CAUC. O site traduz a situação de cada fonte para sete etapas (Oportunidade, Proposta, Aprovada, Em execução, Prestação de contas, Concluída, Perdida) e **sempre mostra também a situação original da fonte**.
 
 ## O que você precisa fazer (cerca de 1 hora)
 
@@ -33,7 +33,7 @@ Não é preciso conferir tudo de cada linha: o que mais importa é **a situaçã
 
 ## Pontos em que queremos a sua opinião específica
 
-- **"Proposta enviada" para situação "Cadastrados".** A verba `transferegov_discricionarias-2122457` (R$ 21,38 mi) está na fonte como "Proposta/Plano de Trabalho Cadastrados", o que parece ser proposta ainda **não enviada**; o site a mostra como "Proposta enviada". O rótulo está certo?
+- **Etapa "Proposta".** Ela agrupa as situações do Transferegov que vão de "Cadastrados" (a proposta ainda não foi enviada) a "Enviado para Análise" e "Complementado em Análise". Faz sentido ficarem na mesma etapa, ou "Cadastrados" deveria aparecer separada? (Ex.: `transferegov_discricionarias-2122457`, R$ 21,38 mi, situação "Cadastrados".)
 - **Alerta de CAUC.** Aparece para convênios e emendas com proposta já enviada ou aprovada e ainda vigentes, quando o CAUC tem algum item sem comprovação (hoje, o item 4.2, regularidade previdenciária). O alerta diz "sem comprovação", não "irregular", porque o arquivo do Tesouro diz só que não conseguiu comprovar. Faz sentido?
 - **Valor perdido.** É a parte do repasse da União que não foi liberada, mais o que foi devolvido; a contrapartida do município não entra. É assim que você calcularia?
 
