@@ -1,0 +1,30 @@
+{
+ "fonte": "tesouro_constitucionais",
+ "data": "2026-11-04",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-04T20:24:49-03:00",
+   "terminado_em": "2026-11-04T20:25:01-03:00",
+   "duracao_s": 11.84,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 8,
+   "registros": {
+    "transferencias": 18,
+    "por_estado_municipio": 190,
+    "detalhe": 2
+   },
+   "metadados": {
+    "codigo_tesouro": 6751,
+    "codigo_uf": 26,
+    "estado": "São Paulo",
+    "anos": [
+     2024,
+     2025,
+     2026
+    ],
+    "ultimo_mes_fpm": "2026-10"
+   }
+  }
+ ]
+}

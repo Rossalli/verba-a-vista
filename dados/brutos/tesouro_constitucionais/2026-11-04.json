@@ -1,0 +1,2022 @@
+{
+ "coletado_em": "2026-11-04T20:25:01-03:00",
+ "dados": {
+  "detalhe": [
+   {
+    "AN_DISTRIBUICAO": "2026",
+    "CO_IBGE": 3532504,
+    "CO_SIAFI": 6751,
+    "ME_DISTRIBUICAO": "10",
+    "NO_MUNICIPIO": "Neves Paulista",
+    "SG_DETALHE": "FPM",
+    "SG_UF": "SP",
+    "TOTAL": 1017185.04,
+    "VA_PRIMEIRO_DEC": 438787.51,
+    "VA_SEGUNDO_DEC": 183065.35,
+    "VA_TERCEIRO_DEC": 395332.18
+   },
+   {
+    "AN_DISTRIBUICAO": "2026",
+    "CO_IBGE": 3532504,
+    "CO_SIAFI": 6751,
+    "ME_DISTRIBUICAO": "10",
+    "NO_MUNICIPIO": "Neves Paulista",
+    "SG_DETALHE": "ITR",
+    "SG_UF": "SP",
+    "TOTAL": 210542.65,
+    "VA_PRIMEIRO_DEC": 203561.85,
+    "VA_SEGUNDO_DEC": 5138.49,
+    "VA_TERCEIRO_DEC": 1842.31
+   }
+  ],
+  "por_estado_municipio": [
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3514.38,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1081908.19,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 724909.07,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 29228.04,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26261.9,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1471125.7,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 497396.59,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 3671.4,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26822.9,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 917166.2,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 492180.94,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 6625.66,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 25251.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3555.51,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 961973.22,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 577155.63,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 3968.19,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 24945.98,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "AJUSTE FUNDEB",
+    "UF": "SP",
+    "VALOR": -856.31,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1119133.22,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 472164.42,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 4588.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26784.32,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1201762.48,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 488997.09,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 12324.22,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3449.65,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1433057.97,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 549142.87,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 4445.18,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 25468.82,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1018685.08,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 457934.58,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5487.83,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 42231.91,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1117926.32,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 363493.4,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 63832.65,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 39071.89,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 5729.28,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 887357.63,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 670027.53,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 173123,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 27943.22,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1135858.28,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 510640.88,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 37460.32,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26257.38,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1971620.4,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 628180.94,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 30291.2,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3056.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2024",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26809.96,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3789.42,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1149233.85,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 637730.48,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 27294.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26617.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1542139.11,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 546484.34,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5582.16,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 29436.56,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1015569.57,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 521578.51,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 14568.77,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 31486.2,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3483.62,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1031991.97,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 554491.97,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 6279.07,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26341.88,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1316452.06,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 510844.65,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 9004.25,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 29252.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1352177.15,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 385957.47,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 15968.29,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26421.44,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3831.92,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 830053.75,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM 1%",
+    "UF": "SP",
+    "VALOR": 738961.25,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 603469.57,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5359.81,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 25919.44,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1095130.8,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 473335.45,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 10673.55,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 27605.4,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 884207.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM 1%",
+    "UF": "SP",
+    "VALOR": 631945.35,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 552826.63,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 75302.98,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 29647.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 4040.82,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 932065.94,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 469964.13,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 183179.84,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 27540.93,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1266994.23,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 446958.13,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 45037.33,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "11",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 28340.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "AJUSTE FUNDEB",
+    "UF": "SP",
+    "VALOR": 49.16,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1430083.97,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM 1%",
+    "UF": "SP",
+    "VALOR": 762811.06,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 728535.19,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 42169.59,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 3169.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2025",
+    "CO_IBGE": 3532504,
+    "MES": "12",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 28950.78,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 4434.28,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1296268.96,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 646282.93,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 34145.81,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "01",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 23698.76,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1629798.38,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 412364.7,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 6047.73,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "02",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26580.83,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 986941.59,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 731712.53,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5085.4,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "03",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 28127.26,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3499.92,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1162027.84,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 487943.23,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 4704.35,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "04",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 26254.97,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "AJUSTE FUNDEB",
+    "UF": "SP",
+    "VALOR": -408.05,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1406422.59,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 516572.56,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5715.6,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "05",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 44489.43,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1481794.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 589159.3,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 6615.19,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "06",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 48134.56,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 3883.37,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 932534.89,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM 1%",
+    "UF": "SP",
+    "VALOR": 804023.58,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 464321.05,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 5041.12,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "07",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 44314.87,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1250531.26,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 510992.83,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 9520.95,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "08",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 35974.83,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "AJUSTE FUNDEB",
+    "UF": "SP",
+    "VALOR": -1182.67,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1000410.68,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM 1%",
+    "UF": "SP",
+    "VALOR": 815808.72,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 563258.43,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 63543.34,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "09",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 35021.62,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "CIDE-Combustíveis",
+    "UF": "SP",
+    "VALOR": 4533.03,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FPM",
+    "UF": "SP",
+    "VALOR": 1017185.04,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "FUNDEB",
+    "UF": "SP",
+    "VALOR": 505197.74,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "ITR",
+    "UF": "SP",
+    "VALOR": 210542.65,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "LC 176/2020 (ADO25)",
+    "UF": "SP",
+    "VALOR": 2915.69,
+    "codigo_siafi": 6751
+   },
+   {
+    "ANO": "2026",
+    "CO_IBGE": 3532504,
+    "MES": "10",
+    "MUNICIPIO": "Neves Paulista",
+    "TRANSFERENCIA": "Royalties",
+    "UF": "SP",
+    "VALOR": 39433.8,
+    "codigo_siafi": 6751
+   }
+  ],
+  "transferencias": [
+   {
+    "codigo": 1,
+    "transferencia": "CIDE-Combustíveis"
+   },
+   {
+    "codigo": 2,
+    "transferencia": "FEX"
+   },
+   {
+    "codigo": 3,
+    "transferencia": "FPM"
+   },
+   {
+    "codigo": 4,
+    "transferencia": "ITR"
+   },
+   {
+    "codigo": 5,
+    "transferencia": "LC 87/96 (Lei Kandir)"
+   },
+   {
+    "codigo": 6,
+    "transferencia": "IOF-Ouro"
+   },
+   {
+    "codigo": 7,
+    "transferencia": "FPE"
+   },
+   {
+    "codigo": 8,
+    "transferencia": "FUNDEF"
+   },
+   {
+    "codigo": 9,
+    "transferencia": "IPI-Exp"
+   },
+   {
+    "codigo": 10,
+    "transferencia": "FUNDEB"
+   },
+   {
+    "codigo": 11,
+    "transferencia": "AFM/AFE"
+   },
+   {
+    "codigo": 12,
+    "transferencia": "Royalties : ANP, FEP, PEA, ITAIPU, CFH e CFEM"
+   },
+   {
+    "codigo": 13,
+    "transferencia": "Cessão Onerosa"
+   },
+   {
+    "codigo": 14,
+    "transferencia": "AJUSTE FUNDEB"
+   },
+   {
+    "codigo": 15,
+    "transferencia": "LC 173/2020 (PFEC)"
+   },
+   {
+    "codigo": 16,
+    "transferencia": "LC 176/2020 (ADO25)"
+   },
+   {
+    "codigo": 17,
+    "transferencia": "LC 201/2023 – COMPENSAÇÃO ICMS"
+   },
+   {
+    "codigo": 18,
+    "transferencia": "FPM 1%"
+   }
+  ]
+ },
+ "data": "2026-11-04",
+ "fonte": "tesouro_constitucionais",
+ "metadados": {
+  "anos": [
+   2024,
+   2025,
+   2026
+  ],
+  "codigo_tesouro": 6751,
+  "codigo_uf": 26,
+  "estado": "São Paulo",
+  "ultimo_mes_fpm": "2026-10"
+ }
+}

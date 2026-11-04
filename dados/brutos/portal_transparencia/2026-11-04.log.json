@@ -1,0 +1,41 @@
+{
+ "fonte": "portal_transparencia",
+ "data": "2026-11-04",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-04T20:24:26-03:00",
+   "terminado_em": "2026-11-04T20:24:44-03:00",
+   "duracao_s": 17.48,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 38,
+   "registros": {
+    "convenios": 63,
+    "recursos_recebidos": 103,
+    "documentos_pagamento": 10
+   },
+   "metadados": {
+    "cnpjs": [
+     "45145414000147",
+     "13921776000196",
+     "14513724000143"
+    ],
+    "janelas_recursos_recebidos": [
+     [
+      "01/2024",
+      "12/2024"
+     ],
+     [
+      "01/2025",
+      "12/2025"
+     ],
+     [
+      "01/2026",
+      "11/2026"
+     ]
+    ],
+    "fase_documentos": 3
+   }
+  }
+ ]
+}

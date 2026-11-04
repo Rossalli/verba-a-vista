@@ -1,7 +1,7 @@
 {
  "versao": 1,
  "data": "2026-11-04",
- "atualizado_em": "2026-10-29T18:19:41-03:00",
+ "atualizado_em": "2026-11-04T20:25:01-03:00",
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
@@ -14,18 +14,18 @@
   "transferegov_api": {
    "nome": "Transferegov — API pública",
    "url": "https://api-publica.transferegov.gestao.gov.br",
-   "retrato": "2026-10-29",
-   "coletado_em": "2026-10-29T18:16:43-03:00",
-   "data_do_dado": "2026-10-29",
-   "situacao": "defasada"
+   "retrato": "2026-11-04",
+   "coletado_em": "2026-11-04T20:24:18-03:00",
+   "data_do_dado": "2026-11-04",
+   "situacao": "ok"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
    "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-   "retrato": "2026-10-29",
-   "coletado_em": "2026-10-29T18:16:59-03:00",
+   "retrato": "2026-11-04",
+   "coletado_em": "2026-11-04T20:24:44-03:00",
    "data_do_dado": null,
-   "situacao": "defasada"
+   "situacao": "ok"
   },
   "obrasgov": {
    "nome": "Obrasgov",
@@ -38,18 +38,18 @@
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
    "url": "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc",
-   "retrato": "2026-10-29",
-   "coletado_em": "2026-10-29T18:17:04-03:00",
-   "data_do_dado": "2026-10-29",
-   "situacao": "defasada"
+   "retrato": "2026-11-04",
+   "coletado_em": "2026-11-04T20:24:49-03:00",
+   "data_do_dado": "2026-10-30",
+   "situacao": "ok"
   },
   "tesouro_constitucionais": {
    "nome": "Tesouro — Transferências Constitucionais",
    "url": "https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom",
-   "retrato": "2026-10-29",
-   "coletado_em": "2026-10-29T18:17:31-03:00",
+   "retrato": "2026-11-04",
+   "coletado_em": "2026-11-04T20:25:01-03:00",
    "data_do_dado": null,
-   "situacao": "defasada"
+   "situacao": "ok"
   }
  },
  "referencias": {
@@ -82,19 +82,19 @@
     {
      "ano": 2026,
      "transferencia": "FPM",
-     "valor": 1176858374,
+     "valor": 1216391592,
      "meses": 10
     },
     {
      "ano": 2026,
      "transferencia": "ITR",
-     "valor": 34911983,
+     "valor": 35096214,
      "meses": 10
     }
    ],
    "ultimo_mes": {
     "mes": "2026-10",
-    "terceiro_decendio_zerado": true
+    "terceiro_decendio_zerado": false
    }
   }
  },
@@ -525,7 +525,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -621,7 +621,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
   },
@@ -638,7 +638,7 @@
    "parlamentar": null,
    "valor_total": 341125000,
    "valor_contrapartida": 16125000,
-   "valor_liberado": 93875879,
+   "valor_liberado": 97500000,
    "status_site": "execucao",
    "status_fonte": "Em execução",
    "em_risco": false,
@@ -666,7 +666,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -737,6 +737,10 @@
    "status_fonte": "Proposta Aprovada e Plano de Trabalho em Análise",
    "em_risco": true,
    "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
+    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -824,6 +828,10 @@
    "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
    "em_risco": true,
    "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
+    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -1025,7 +1033,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1179,6 +1187,10 @@
    "motivos_risco": [
     {
      "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
+    },
+    {
+     "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
     }
    ],
@@ -1221,6 +1233,10 @@
    "motivos_risco": [
     {
      "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
+    },
+    {
+     "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
     }
    ],
@@ -1261,6 +1277,10 @@
    "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
    "em_risco": true,
    "motivos_risco": [
+    {
+     "codigo": "cauc_sem_comprovacao",
+     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
+    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -1366,7 +1386,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
   },
@@ -1411,7 +1431,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
-     "data_coleta": "2026-10-29T18:16:59-03:00"
+     "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
   },
@@ -1447,7 +1467,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1483,7 +1503,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1517,7 +1537,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1551,7 +1571,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1585,7 +1605,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1619,7 +1639,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1653,7 +1673,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1687,7 +1707,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1721,7 +1741,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1755,7 +1775,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1789,7 +1809,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1823,7 +1843,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1857,7 +1877,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   },
@@ -1891,7 +1911,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias (API)",
      "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
-     "data_coleta": "2026-10-29T18:16:43-03:00"
+     "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
   }
