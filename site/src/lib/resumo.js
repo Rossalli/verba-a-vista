@@ -54,7 +54,23 @@ export function perdasPorMotivo(verbas, taxonomia) {
 /** Das perdas com motivo documentado, quantas a prefeitura poderia ter evitado (`sim`). */
 export function evitaveis(verbas) {
   const documentadas = verbas.filter((v) => v.status_site === "perdida" && motivoDocumentado(v));
-  return { total: documentadas.length, evitaveis: documentadas.filter((v) => v.perda.evitavel === "sim").length };
+  const conta = (valor) => documentadas.filter((v) => v.perda.evitavel === valor).length;
+  return { total: documentadas.length, evitaveis: conta("sim"), indeterminadas: conta("indeterminado") };
+}
+
+/**
+ * Frase sobre quantas perdas a prefeitura poderia ter evitado. "0 das N tinham causa evitável" soaria como
+ * "nenhuma era evitável" quando os documentos só não dizem nada: esse caso tem frase própria.
+ */
+export function fraseEvitavel({ total, evitaveis, indeterminadas }, semMotivo) {
+  if (total === 0) return semMotivo;
+  const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
+  if (evitaveis === 0 && indeterminadas === total) {
+    const quais = total === 1 ? "Na única perda com motivo revisado" : `Nas ${total} perdas com motivo revisado`;
+    return `${quais}, os documentos não mostram se a prefeitura poderia ter evitado a perda.`;
+  }
+  const resto = indeterminadas > 0 ? ` Em ${indeterminadas}, os documentos não permitem dizer.` : "";
+  return `${plural(evitaveis, "perda", "perdas")} de ${total} com motivo documentado ${evitaveis === 1 ? "tinha" : "tinham"} uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.${resto}`;
 }
 
 /** Verbas em risco, as mais urgentes primeiro (prazo, obra parada, emenda, CAUC) e, a seguir, as de maior valor. */

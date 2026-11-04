@@ -7,7 +7,7 @@ import { CONTATO_EMAIL } from "../config.js";
 import { carregarPublicado, formatarData, formatarDataHora, url } from "../lib/dados.js";
 import { carregarTaxonomia } from "../lib/taxonomia.js";
 import { rotuloSituacao } from "../lib/verba.js";
-import { emRiscoAgora, evitaveis, formatarTitulo, perdasPorMotivo, resumir, ultimasMudancas } from "../lib/resumo.js";
+import { emRiscoAgora, evitaveis, fraseEvitavel, formatarTitulo, perdasPorMotivo, resumir, ultimasMudancas } from "../lib/resumo.js";
 
 const publicado = carregarPublicado();
 const taxonomia = carregarTaxonomia();
@@ -60,9 +60,7 @@ const dia = (iso) => dataCompleta(iso).slice(0, 5);
       </div>
       {grupos.length > 0 ? <BarrasPerdas grupos={grupos} /> : <p>Nenhuma verba foi perdida no período.</p>}
       <span class="apoio-curto">
-        {evitavel.total > 0
-          ? `${evitavel.evitaveis} das ${evitavel.total} perdas com motivo documentado tinham uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.`
-          : "Nenhuma perda tem ainda o motivo documentado e revisado; enquanto isso, o valor aparece como “motivo em apuração”."}
+        {fraseEvitavel(evitavel, "Nenhuma perda tem ainda o motivo documentado e revisado; enquanto isso, o valor aparece como “motivo em apuração”.")}
       </span>
     </section>
 

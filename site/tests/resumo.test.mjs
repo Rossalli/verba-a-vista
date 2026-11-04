@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { carregarTaxonomia } from "../src/lib/taxonomia.js";
-import { emRiscoAgora, evitaveis, formatarCompacto, formatarNomeProprio, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
+import { emRiscoAgora, evitaveis, fraseEvitavel, formatarCompacto, formatarNomeProprio, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
 
 const taxonomia = carregarTaxonomia();
 const motivo = (codigo, texto = codigo) => ({ codigo, texto });
@@ -43,8 +43,8 @@ test("perdas por motivo: maior primeiro, barra proporcional, rótulo da taxonomi
 });
 
 test("evitáveis só contam perdas com motivo documentado", () => {
-  assert.deepEqual(evitaveis(verbas), { total: 2, evitaveis: 1 });
-  assert.deepEqual(evitaveis([verba("x", "perdida", 1, { perda: perda("em_apuracao", 1) })]), { total: 0, evitaveis: 0 });
+  assert.deepEqual(evitaveis(verbas), { total: 2, evitaveis: 1, indeterminadas: 0 });
+  assert.deepEqual(evitaveis([verba("x", "perdida", 1, { perda: perda("em_apuracao", 1) })]), { total: 0, evitaveis: 0, indeterminadas: 0 });
 });
 
 test("em risco agora: prazo antes do CAUC, depois o maior valor; respeita o limite", () => {
@@ -88,4 +88,14 @@ test("rótulos de alerta e instrumento", () => {
   assert.equal(rotuloInstrumento({ instrumento: "CONTRATO DE REPASSE", tipo: "voluntaria" }), "Contrato de repasse");
   assert.equal(rotuloInstrumento({ instrumento: "CONVENIO", tipo: "voluntaria" }), "Convênio");
   assert.equal(rotuloInstrumento({ tipo: "programa_adesao" }), "Programa por adesão");
+});
+
+test("frase de perdas evitáveis: não diz \"0 das N\" quando os documentos só não dizem nada", () => {
+  const sem = "sem motivo";
+  assert.equal(fraseEvitavel({ total: 0, evitaveis: 0, indeterminadas: 0 }, sem), sem);
+  assert.equal(fraseEvitavel({ total: 8, evitaveis: 0, indeterminadas: 8 }, sem), "Nas 8 perdas com motivo revisado, os documentos não mostram se a prefeitura poderia ter evitado a perda.");
+  assert.equal(fraseEvitavel({ total: 1, evitaveis: 0, indeterminadas: 1 }, sem), "Na única perda com motivo revisado, os documentos não mostram se a prefeitura poderia ter evitado a perda.");
+  assert.equal(fraseEvitavel({ total: 4, evitaveis: 2, indeterminadas: 1 }, sem), "2 perdas de 4 com motivo documentado tinham uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba. Em 1, os documentos não permitem dizer.");
+  assert.equal(fraseEvitavel({ total: 2, evitaveis: 1, indeterminadas: 0 }, sem), "1 perda de 2 com motivo documentado tinha uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.");
+  assert.equal(fraseEvitavel({ total: 3, evitaveis: 0, indeterminadas: 1 }, sem).startsWith("0 perdas de 3"), true); // há "não" explícito: aí o zero é verdadeiro
 });

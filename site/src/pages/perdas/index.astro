@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import BarrasPerdas from "../../components/BarrasPerdas.astro";
 import { carregarPublicado, formatarData, formatarReais, url } from "../../lib/dados.js";
 import { carregarTaxonomia } from "../../lib/taxonomia.js";
-import { evitaveis, formatarTitulo, perdasPorMotivo, resumir } from "../../lib/resumo.js";
+import { evitaveis, fraseEvitavel, formatarTitulo, perdasPorMotivo, resumir } from "../../lib/resumo.js";
 import { ROTULO_EVITAVEL } from "../../lib/verba.js";
 
 const publicado = carregarPublicado();
@@ -39,9 +39,7 @@ const descricao = (categoria) =>
     <section class="painel" aria-label="Valor perdido por motivo">
       <BarrasPerdas grupos={grupos} />
       <span class="apoio">
-        {evitavel.total > 0
-          ? `${evitavel.evitaveis} das ${evitavel.total} perdas com motivo documentado tinham uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.`
-          : "Nenhuma perda tem ainda o motivo documentado e revisado."}
+        {fraseEvitavel(evitavel, "Nenhuma perda tem ainda o motivo documentado e revisado.")}
       </span>
     </section>
   )}
