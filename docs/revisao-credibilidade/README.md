@@ -33,6 +33,8 @@ Não é preciso conferir tudo de cada linha: o que mais importa é **a situaçã
 
 ## Pontos em que queremos a sua opinião específica
 
+- **Instrumentos antigos ainda "ativos".** A lista inclui 6 instrumentos de antes de 2024 que o Siconv ainda marca como ativos, vários com a vigência encerrada há muitos anos: duas "Festa do Peão" (2009 e 2010) e o "Festival da Viola" (2011), todos em "Prestação de Contas em Análise", uma "Manutenção de Unidade de Atenção Especializada" (2011) como "Aprovada", com vigência até 2013, e duas verbas de 2021. São pendências reais (por exemplo, prestação de contas nunca encerrada) ou registros parados que não deveriam aparecer como em andamento?
+
 - **Etapa "Proposta".** Ela agrupa as situações do Transferegov que vão de "Cadastrados" (a proposta ainda não foi enviada) a "Enviado para Análise" e "Complementado em Análise". Faz sentido ficarem na mesma etapa, ou "Cadastrados" deveria aparecer separada? (Ex.: `transferegov_discricionarias-2122457`, R$ 21,38 mi, situação "Cadastrados".)
 - **Alerta de CAUC.** Aparece para convênios e emendas com proposta já enviada ou aprovada e ainda vigentes, quando o CAUC tem algum item sem comprovação (hoje, o item 4.2, regularidade previdenciária). O alerta diz "sem comprovação", não "irregular", porque o arquivo do Tesouro diz só que não conseguiu comprovar. Faz sentido?
 - **Valor perdido.** É a parte do repasse da União que não foi liberada, mais o que foi devolvido; a contrapartida do município não entra. É assim que você calcularia?

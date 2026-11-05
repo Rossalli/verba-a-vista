@@ -2,7 +2,8 @@
 import Base from "../../layouts/Base.astro";
 import { carregarPublicado, formatarReais, url } from "../../lib/dados.js";
 import { carregarTaxonomia } from "../../lib/taxonomia.js";
-import { SEM_DATA, STATUS, anoDaVerba, normalizar, ordenarLista } from "../../lib/filtros.js";
+import { SEM_DATA, STATUS, anoDaVerba, antesDe, normalizar, ordenarLista } from "../../lib/filtros.js";
+import { carregarRegras } from "../../lib/taxonomia.js";
 import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
 
 const publicado = carregarPublicado();
@@ -10,7 +11,12 @@ const taxonomia = carregarTaxonomia();
 const verbas = ordenarLista(publicado.verbas);
 const tipos = Object.entries(taxonomia.tipos).filter(([chave]) => verbas.some((v) => v.tipo === chave));
 // Anos presentes nos dados, do mais recente para o mais antigo; "Sem data" por último (D19).
-const anos = [...new Set(verbas.map(anoDaVerba))].sort((a, b) => (a === SEM_DATA) - (b === SEM_DATA) || b.localeCompare(a));
+const anoInicio = Number(carregarRegras().municipio.inicio_recorte.slice(0, 4)); // 2024
+const ANTES = antesDe(anoInicio);
+const ordemAno = (a) => (a === SEM_DATA ? 2 : a === ANTES ? 1 : 0); // anos do recorte, depois "Antes de 2024", depois "Sem data"
+const anos = [...new Set(verbas.map((v) => anoDaVerba(v, anoInicio)))].sort((a, b) => ordemAno(a) - ordemAno(b) || b.localeCompare(a));
+const rotuloAno = (a) => (a === SEM_DATA ? "Sem data" : a === ANTES ? `Antes de ${anoInicio}` : a);
+const haAntigas = anos.includes(ANTES);
 const rotuloStatus = (v) => (v.status_site ? taxonomia.status[v.status_site] : taxonomia.sem_status);
 const contagem = Object.fromEntries(STATUS.map((s) => [s, verbas.filter((v) => v.status_site === s).length]));
 const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxonomia.status[s], contagem[s]])];
@@ -24,7 +30,8 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
 >
   <div class="cabeca">
     <h1 class="titulo">Todas as verbas federais</h1>
-    <p>Convênios, contratos de repasse, emendas e programas federais destinados ao município desde 2024. Clique numa verba para ver o histórico e as fontes.</p>
+    <p>Convênios, contratos de repasse, emendas e programas federais destinados ao município desde {anoInicio}. Clique numa verba para ver o histórico e as fontes.</p>
+    {haAntigas && <p class="nota-antigas">Também aparecem instrumentos anteriores a {anoInicio} que a fonte ainda marca como ativos, reunidos no filtro “Antes de {anoInicio}”. Alguns têm a vigência encerrada há anos; <a href={url("/como-funciona/#o-que")}>veja por que eles estão aqui</a>.</p>}
   </div>
 
   <form class="filtros" role="search" aria-label="Filtrar verbas" onsubmit="return false">
@@ -51,7 +58,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
         Ano da proposta
         <select name="ano">
           <option value="">Todos os anos</option>
-          {anos.map((ano) => <option value={ano}>{ano === SEM_DATA ? "Sem data" : ano}</option>)}
+          {anos.map((ano) => <option value={ano}>{rotuloAno(ano)}</option>)}
         </select>
       </label>
       <button type="button" class="chip risco-botao" data-risco aria-pressed="false">Só em risco</button>
@@ -82,7 +89,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
             data-status={v.status_site ?? "sem_status"}
             data-risco={v.em_risco ? "1" : "0"}
             data-tipo={v.tipo}
-            data-ano={anoDaVerba(v)}
+            data-ano={anoDaVerba(v, anoInicio)}
             data-busca={normalizar([v.nome, v.objeto, v.orgao_concedente, v.numero_instrumento, v.id_fonte, rotuloInstrumento(v)].filter(Boolean).join(" "))}
           >
             <td>
@@ -192,6 +199,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
 <style>
   .cabeca { display: flex; flex-direction: column; gap: 8px; }
   .cabeca p { margin: 0; color: var(--tinta-suave); max-width: 70ch; }
+  .nota-antigas { font-size: 14px; }
   .titulo { font-size: 44px; line-height: 1.05; }
 
   .filtros { display: flex; flex-direction: column; gap: 14px; background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 18px; }

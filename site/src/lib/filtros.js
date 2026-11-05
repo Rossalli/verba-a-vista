@@ -10,11 +10,19 @@ export function normalizar(texto) {
 
 export const SEM_DATA = "sem-data";
 
-/** Ano da proposta ou, nos programas por adesão, do prazo de adesão (D19); "sem-data" se a fonte não informa nenhum. */
-export function anoDaVerba(verba) {
+/** Valor do filtro para as verbas anteriores ao recorte (ex.: "antes-de-2024"). */
+export const antesDe = (anoInicio) => `antes-de-${anoInicio}`;
+
+/**
+ * Ano da proposta ou, nos programas por adesão, do prazo de adesão (D19). Antes do ano de início do recorte (2024, de
+ * `regras.yaml`) as verbas vão juntas em "antes-de-2024" (D22); "sem-data" se a fonte não informa nenhum.
+ */
+export function anoDaVerba(verba, anoInicio = 2024) {
   const prazos = verba.prazos ?? {};
   const data = prazos.proposta ?? prazos.adesao;
-  return data ? String(data).slice(0, 4) : SEM_DATA;
+  if (!data) return SEM_DATA;
+  const ano = String(data).slice(0, 4);
+  return Number(ano) < anoInicio ? antesDe(anoInicio) : ano;
 }
 
 /** Filtros a partir de URLSearchParams; valor desconhecido é ignorado em vez de esconder todas as verbas. */

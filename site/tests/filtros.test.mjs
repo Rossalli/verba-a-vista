@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { SEM_DATA, anoDaVerba, contarPorStatus, corresponde, lerFiltros, normalizar, ordenarLista, paraParametros } from "../src/lib/filtros.js";
+import { SEM_DATA, anoDaVerba, antesDe, contarPorStatus, corresponde, lerFiltros, normalizar, ordenarLista, paraParametros } from "../src/lib/filtros.js";
 
 const linha = (status, extra = {}) => ({ status, risco: false, tipo: "voluntaria", busca: normalizar("Ambulância Ministério da Saúde 12345/2024"), ...extra });
 const TIPOS = ["voluntaria", "emenda_finalidade"];
@@ -61,6 +61,14 @@ test("ano da verba: proposta, senão adesão, senão sem data", () => {
   assert.equal(anoDaVerba({ prazos: { fim_vigencia: "2027-01-01" } }), SEM_DATA);
   assert.equal(anoDaVerba({}), SEM_DATA);
   assert.equal(anoDaVerba({ prazos: {} }), SEM_DATA);
+});
+
+test("antes do início do recorte as verbas vão juntas, e o corte vem de fora", () => {
+  assert.equal(antesDe(2024), "antes-de-2024");
+  for (const data of ["2009-05-01", "2011-08-19", "2021-12-28", "2023-12-31"]) assert.equal(anoDaVerba({ prazos: { proposta: data } }), "antes-de-2024", data);
+  assert.equal(anoDaVerba({ prazos: { proposta: "2024-01-01" } }), "2024"); // o próprio ano de início fica de fora do grupo
+  assert.equal(anoDaVerba({ prazos: { proposta: "2021-01-01" } }, 2020), "2021"); // outro corte, outro resultado
+  assert.equal(anoDaVerba({ prazos: { proposta: "2019-01-01" } }, 2020), "antes-de-2020");
 });
 
 test("o ano combina com os outros filtros e com a contagem dos chips", () => {

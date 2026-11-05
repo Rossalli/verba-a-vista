@@ -210,7 +210,7 @@ Layout de referência em `docs/design.md` e `docs/design/telas/`.
 
 Links das fontes (D21): `fontes[].url` é um endereço que uma pessoa abre no navegador, não o de coleta (o do Siconv em lote está fora do ar e o das APIs não é página). É a consulta pública do módulo (Acesso Livre, Parcerias, Fundo a Fundo) ou, no Portal da Transparência, a página do próprio convênio quando o Portal informa o código. O Transferegov não tem link direto por proposta ou instrumento; a página da verba diz o número a buscar e onde clicar.
 
-Filtro por **ano** (D19): é o ano da proposta (`prazos.proposta`) ou, nos programas por adesão, do prazo de adesão (`prazos.adesao`); verba sem nenhuma dessas datas entra em "Sem data". Não é o ano da perda: este aparece na própria linha da verba perdida (`perda.data`).
+Filtro por **ano** (D19): é o ano da proposta (`prazos.proposta`) ou, nos programas por adesão, do prazo de adesão (`prazos.adesao`); verba sem nenhuma dessas datas entra em "Sem data". Os anos anteriores ao início do recorte (`municipio.inicio_recorte`, 2024) vão juntos em "Antes de 2024" (D22): são instrumentos antigos que a fonte ainda marca como ativos (§2), e a lista e "Como funciona" explicam isso. Não é o ano da perda: este aparece na própria linha da verba perdida (`perda.data`).
 
 Requisitos:
 - Faixa "Iniciativa cidadã independente. Não é o site oficial da Prefeitura de Neves Paulista." no topo de toda página.
