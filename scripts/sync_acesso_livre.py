@@ -24,7 +24,7 @@ import sys
 import time
 from datetime import date
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import urlsplit
 
 from coleta import acesso_livre as al
 from coleta.base import agora, gravar_retrato, registrar_log
@@ -153,7 +153,12 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
     saida = []
     for item in itens:
         time.sleep(pausa)
-        page.goto(urljoin(page.url, item["href"]))  # o link do parecer; fica só na memória
+        page.locator(f"a[href*='idParecer={item['id_parecer']}']").first.click()  # o href é um `javascript:`: só o clique o executa
+        try:
+            page.wait_for_selector("textarea[name=parecer]", timeout=30_000)
+        except Exception as erro:  # noqa: BLE001
+            conferir_barreira(page)
+            raise EstruturaMudou(f"o parecer {item['id_parecer']} não abriu: {onde(page)}") from erro
         texto = page.evaluate(JS_TEXTO_PARECER)
         if texto is None:
             raise EstruturaMudou(f"o parecer {item['id_parecer']} não tem o campo de texto: {onde(page)}")
