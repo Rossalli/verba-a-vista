@@ -16,6 +16,8 @@ Em 29/10/2026, um teste feito de um servidor fora do Brasil recebeu bloqueio (pr
 | Tesouro (APIs) | HTTP 500 na URL base de transferências constitucionais: o host responde, mas a URL sem rota não prova o endpoint; confirmar na T1.6 | HTTP 500, igual ao local |
 | Tesouro Transparente (CAUC) | Não testado: URL desconhecida (T1.5) | Não testado |
 
+**Acesso Livre do Transferegov (05/11/2026, a partir do Brasil):** a página do gov.br responde 200; o login único responde **401** ao envio do formulário SAML feito sem navegador (detalhes na seção "Painel público e Acesso Livre do Transferegov"). Sem teste a partir do GitHub Actions.
+
 Testes de 29/10/2026 com `scripts/teste_acesso.py`, sem credenciais: local às 14:57 (America/Sao_Paulo, a partir do Brasil) e no GitHub Actions às 18:02 UTC (runner `ubuntu-latest`, workflow `.github/workflows/teste-acesso.yml`, execução 40926913483). Os dois ambientes deram o mesmo resultado: **o Actions não é bloqueado** nos hosts testados. O teste só prova que o host responde; endpoints, filtros e autenticação continuam A VERIFICAR nas POCs, e o acesso do Actions aos endpoints reais deve ser reconferido na T1.1 e na T1.4 (o Portal exige chave).
 
 ## Transferegov — API pública
@@ -142,7 +144,8 @@ Duas páginas oficiais, sem login, mostram dados **atuais** das Discricionárias
 - Quando "Possui Parecer" é "Sim", a aba Pareceres lista cada parecer do concedente (data, setor, função) com "Visualizar Parecer", e o texto vem num campo de texto. Exemplo (2456/2026, parecer de 25/08/2026): uma **diligência** pedindo ajustes no plano de trabalho, com prazo até 14/09/2026; a rejeição por impedimento técnico veio depois, sem parecer próprio nessa lista.
 - **As 8 perdas atuais (3 "Rejeitados", 5 "Rejeitados por Impedimento técnico") têm "Possui Parecer: Não"**, sem documentos anexados: **não há motivo público** para elas. Por isso `evitavel` fica `indeterminado`.
 - Os pareceres trazem **nome e telefone de servidores**: qualquer uso na curadoria precisa descartá-los (regra: sem nomes de pessoas).
-- Sem link direto estável por proposta (a página de detalhe depende da sessão de visitante). Não se sabe se a automação é permitida; antes de usar como fonte, fazer uma prova de conceito (CLAUDE.md, regra 4).
+- Sem link direto estável por proposta (a página de detalhe depende da sessão de visitante).
+- **PROVA DE CONCEITO (05/11/2026, `scripts/poc_acesso_livre.py`): NÃO é fonte automatizável. O login único responde 401 a um cliente sem navegador.** A página do Acesso Livre (gov.br) é lida normalmente e traz, no próprio HTML, os links de visitante (`.../voluntarias/ForwardAction.do?Usr=...&Pwd=...&modulo=...&path=...`; o usuário e a senha são publicados pelo governo e o script não os imprime nem grava). Abrir o link no módulo devolve HTTP 200 com um formulário SAML de envio automático (campo `SAMLRequest`) para `idp.transferegov.sistema.gov.br/idp/`. O envio desse formulário com `httpx`, identificado como `verba-a-vista/poc`, volta com **HTTP 401, título "Login do Transferegov"**, que redireciona ao login do gov.br (`sso.acesso.gov.br/authorize`). No navegador, com JavaScript, o mesmo link abre a consulta. **A causa do 401 não foi investigada, e o script não imita navegador nem tenta contornar a resposta** (isso seria disfarçar um robô de pessoa). Sem fixtures: nada foi coletado. Para usar como fonte seria preciso a permissão do Transferegov (canal de atendimento) ou um endpoint oficial; até lá a consulta é **manual**.
 
 ## Obrasgov.br — API
 
