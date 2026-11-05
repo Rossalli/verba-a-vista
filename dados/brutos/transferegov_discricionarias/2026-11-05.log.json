@@ -1,0 +1,16 @@
+{
+ "fonte": "transferegov_discricionarias",
+ "data": "2026-11-05",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-05T16:29:03-03:00",
+   "terminado_em": "2026-11-05T16:29:04-03:00",
+   "duracao_s": 0.74,
+   "status": "erro",
+   "erro": "ColetaErro: https://repositorio.dados.gov.br/seges/detru/data_carga_siconv.txt: HTTP 404 ('<html>\\r\\n<head><title>404 Not Found</title></head>\\r\\n<body>\\r\\n<center><h1>404 Not Found</h1></center>\\r\\n<hr><center>nginx/1.16.1</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+   "requisicoes": 1,
+   "registros": {},
+   "metadados": {}
+  }
+ ]
+}

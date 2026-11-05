@@ -1,7 +1,7 @@
 {
  "versao": 1,
  "data": "2026-11-05",
- "atualizado_em": "2026-11-04T20:25:01-03:00",
+ "atualizado_em": "2026-11-05T16:29:30-03:00",
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
@@ -14,18 +14,18 @@
   "transferegov_api": {
    "nome": "Transferegov — API pública",
    "url": "https://portal.transferegov.sistema.gov.br/portal/home",
-   "retrato": "2026-11-04",
-   "coletado_em": "2026-11-04T20:24:18-03:00",
-   "data_do_dado": "2026-11-04",
-   "situacao": "defasada"
+   "retrato": "2026-11-05",
+   "coletado_em": "2026-11-05T16:29:03-03:00",
+   "data_do_dado": "2026-11-05",
+   "situacao": "ok"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
    "url": "https://portaldatransparencia.gov.br/convenios/consulta",
-   "retrato": "2026-11-04",
-   "coletado_em": "2026-11-04T20:24:44-03:00",
+   "retrato": "2026-11-05",
+   "coletado_em": "2026-11-05T16:29:25-03:00",
    "data_do_dado": null,
-   "situacao": "defasada"
+   "situacao": "ok"
   },
   "obrasgov": {
    "nome": "Obrasgov",
@@ -38,10 +38,10 @@
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
    "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc",
-   "retrato": "2026-11-04",
-   "coletado_em": "2026-11-04T20:24:49-03:00",
+   "retrato": "2026-11-05",
+   "coletado_em": "2026-11-05T16:29:30-03:00",
    "data_do_dado": "2026-10-30",
-   "situacao": "defasada"
+   "situacao": "ok"
   },
   "tesouro_constitucionais": {
    "nome": "Tesouro — Transferências Constitucionais",
@@ -533,7 +533,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/925702",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -653,7 +653,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/733022",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     }
    ]
   },
@@ -698,7 +698,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/970941",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1185,7 +1185,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/990509",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1597,7 +1597,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/759463",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     }
    ]
   },
@@ -1642,7 +1642,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/704774",
-     "data_coleta": "2026-11-04T20:24:44-03:00"
+     "data_coleta": "2026-11-05T16:29:25-03:00"
     }
    ]
   },
@@ -1678,7 +1678,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1714,7 +1714,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1748,7 +1748,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1782,7 +1782,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1816,7 +1816,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1850,7 +1850,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1884,7 +1884,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1918,7 +1918,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1952,7 +1952,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -1986,7 +1986,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -2020,7 +2020,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -2054,7 +2054,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -2088,7 +2088,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   },
@@ -2122,7 +2122,75 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-04T20:24:18-03:00"
+     "data_coleta": "2026-11-05T16:29:03-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-91400",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "91400",
+   "numero_instrumento": "202600046078",
+   "nome": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "objeto": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 20000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-04"
+   },
+   "historico": [
+    {
+     "data": "2026-11-05",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-05T16:29:03-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-91401",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "91401",
+   "numero_instrumento": "202600046079",
+   "nome": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "objeto": "INCREMENTO DA MÉDIA E ALTA COMPLEXIDADE (MAC)",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-04"
+   },
+   "historico": [
+    {
+     "data": "2026-11-05",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-05T16:29:03-03:00"
     }
    ]
   }
