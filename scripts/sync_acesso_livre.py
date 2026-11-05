@@ -137,7 +137,14 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
     page.wait_for_selector("table#row")
     time.sleep(pausa)
     page.locator("#row a", has_text=proposta["numero"]).first.click()
-    page.get_by_role("link", name="Pareceres", exact=True).first.click()
+    links = page.get_by_role("link", name="Pareceres", exact=True)
+    visivel = links.locator("visible=true")
+    if visivel.count():
+        visivel.first.click()
+    elif links.count():
+        links.first.evaluate("el => el.click()")  # o do menu lateral recolhido: o clique da pessoa dispara o mesmo onclick/href
+    else:
+        raise EstruturaMudou(f"não achei o link 'Pareceres' na proposta {proposta['numero']}: {onde(page)}")
     page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))")
     itens = [i for i in (page.evaluate(JS_LINHAS_PARECERES) or []) if i["id_parecer"]][:maximo]
     saida = []
