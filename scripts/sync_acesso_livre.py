@@ -122,7 +122,8 @@ def listar_propostas(page, pausa: float) -> tuple[list[dict], dict]:
         if alvo.count() == 0:
             alvo = page.get_by_role("link", name="Próx").first
         alvo.click()
-        page.wait_for_function("n => new RegExp('P[aá]gina ' + n + ' de').test(document.body.innerText)", arg=atual + 1)
+        page.wait_for_function("n => !!document.body && new RegExp('P[aá]gina ' + n + ' de').test(document.body.innerText)", arg=atual + 1)  # body é nulo durante a troca de página
+        page.wait_for_selector("table#row")
     if len(linhas) != total_itens:
         print(f"   AVISO: a lista diz {total_itens} itens e li {len(linhas)}")
     return linhas, {"total_lista": total_itens, "paginas": total_paginas}
