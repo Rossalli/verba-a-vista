@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "data": "2026-11-04",
+ "data": "2026-11-05",
  "atualizado_em": "2026-11-04T20:25:01-03:00",
  "fontes": {
   "transferegov_discricionarias": {
@@ -17,7 +17,7 @@
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:18-03:00",
    "data_do_dado": "2026-11-04",
-   "situacao": "ok"
+   "situacao": "defasada"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
@@ -25,7 +25,7 @@
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:44-03:00",
    "data_do_dado": null,
-   "situacao": "ok"
+   "situacao": "defasada"
   },
   "obrasgov": {
    "nome": "Obrasgov",
@@ -41,7 +41,7 @@
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:49-03:00",
    "data_do_dado": "2026-10-30",
-   "situacao": "ok"
+   "situacao": "defasada"
   },
   "tesouro_constitucionais": {
    "nome": "Tesouro — Transferências Constitucionais",
@@ -49,7 +49,7 @@
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:25:01-03:00",
    "data_do_dado": null,
-   "situacao": "ok"
+   "situacao": "defasada"
   }
  },
  "referencias": {
@@ -497,7 +497,7 @@
    "motivos_risco": [
     {
      "codigo": "prazo_proximo",
-     "texto": "Prazo em 46 dias",
+     "texto": "Prazo em 45 dias",
      "data_limite": "2026-12-20"
     }
    ],
