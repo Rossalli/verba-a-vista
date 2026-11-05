@@ -137,14 +137,17 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
     page.wait_for_selector("table#row")
     time.sleep(pausa)
     page.locator("#row a", has_text=proposta["numero"]).first.click()
-    links = page.get_by_role("link", name="Pareceres", exact=True)
+    links = page.locator("a[href*=DetalharParecerProposta]")  # o menu carrega depois da página: esperar, não contar
+    try:
+        links.first.wait_for(state="attached", timeout=30_000)
+    except Exception as erro:  # noqa: BLE001
+        conferir_barreira(page)
+        raise EstruturaMudou(f"não achei o link 'Pareceres' na proposta {proposta['numero']}: {onde(page)}") from erro
     visivel = links.locator("visible=true")
     if visivel.count():
         visivel.first.click()
-    elif links.count():
-        links.first.evaluate("el => el.click()")  # o do menu lateral recolhido: o clique da pessoa dispara o mesmo onclick/href
     else:
-        raise EstruturaMudou(f"não achei o link 'Pareceres' na proposta {proposta['numero']}: {onde(page)}")
+        links.first.evaluate("el => el.click()")  # o do menu lateral recolhido: o clique da pessoa dispara o mesmo onclick/href
     page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))")
     itens = [i for i in (page.evaluate(JS_LINHAS_PARECERES) or []) if i["id_parecer"]][:maximo]
     saida = []
