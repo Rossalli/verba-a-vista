@@ -131,6 +131,19 @@ Pendências desta fonte:
 - `SITUACAO_CONTRATACAO = Cláusula Suspensiva` aparece em 4 convênios, mas `DATA_RETIRADA_SUSPENSIVA` está preenchida em 14: a regra `prazo_proximo` precisa checar se a suspensão ainda vale (T2.3).
 - Nenhuma tabela traz o **motivo** da rejeição ou da anulação: só a situação e a data (`siconv_historico_situacao`). O motivo continua dependendo de documento (curadoria, spec §7).
 
+## Painel público e Acesso Livre do Transferegov (descobertos em 04/11/2026)
+
+Duas páginas oficiais, sem login, mostram dados **atuais** das Discricionárias e Legais enquanto o lote do Siconv está fora do ar. Nenhuma tem API documentada. Ainda não são fonte do pipeline.
+
+**Painel `https://dd-publico.serpro.gov.br/extensions/painel/painel.html`** (SERPRO). É um painel **Qlik Sense**: os dados chegam por uma sessão interna do Qlik (`/qps/user`), não por API aberta. Páginas para Discricionárias: `DiscricionariasAtosPreparatorios.html` (propostas), `DiscricionariasInstrumentosAssinados.html`, `DiscricionariasConsulta.html` (consulta personalizada de instrumentos assinados: mínimo de 2 filtros, máximo de 15 dimensões e 7 métricas) e as de Especiais, Fundo a Fundo, TED, Parcerias e Obrasgov. Mostra "Atualizado em" a data do dia (04/11/2026). **Não tem motivo de rejeição**: a visão de propostas é a "Lista das Situações Atuais das Propostas" (contagem por situação), filtrável por município.
+- **Conferência com o nosso retrato (04/11 contra 17/07), município de Neves Paulista:** 256 propostas nos dois; as situações batem em todas, **menos uma**: o painel tem 6 "Rejeitados por Impedimento técnico" e 0 "Complementado em Análise"; o retrato tem 5 e 1. A proposta é a **2456/2026** (Ministério da Justiça e Segurança Pública, videomonitoramento, R$ 202.753,08), que o site ainda mostra como `proposta` com alerta de CAUC. Só propostas foram comparadas; instrumentos assinados, não.
+
+**Acesso Livre** (`https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre`, links de visitante para o módulo `discricionarias.transferegov.sistema.gov.br/voluntarias/`). "Consultar Propostas" tem o campo **Número da Proposta** (aceita `12684/2024`), sem captcha. A lista traz situação, órgão, proponente e a coluna **"Possui Parecer"**. O detalhe (`ResultadoDaConsultaDePropostaDetalharProposta.do?idProposta=<ID_PROPOSTA>`) tem as seções Justificativa (a do próprio município), Anexos e **Pareceres**.
+- Quando "Possui Parecer" é "Sim", a aba Pareceres lista cada parecer do concedente (data, setor, função) com "Visualizar Parecer", e o texto vem num campo de texto. Exemplo (2456/2026, parecer de 25/08/2026): uma **diligência** pedindo ajustes no plano de trabalho, com prazo até 14/09/2026; a rejeição por impedimento técnico veio depois, sem parecer próprio nessa lista.
+- **As 8 perdas atuais (3 "Rejeitados", 5 "Rejeitados por Impedimento técnico") têm "Possui Parecer: Não"**, sem documentos anexados: **não há motivo público** para elas. Por isso `evitavel` fica `indeterminado`.
+- Os pareceres trazem **nome e telefone de servidores**: qualquer uso na curadoria precisa descartá-los (regra: sem nomes de pessoas).
+- Sem link direto estável por proposta (a página de detalhe depende da sessão de visitante). Não se sabe se a automação é permitida; antes de usar como fonte, fazer uma prova de conceito (CLAUDE.md, regra 4).
+
 ## Obrasgov.br — API
 
 - Host: `https://api-publica.obrasgov.gestao.gov.br`; **a API fica sob `/obras`** (a raiz é só uma página de apresentação).
