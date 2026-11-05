@@ -95,3 +95,24 @@ def test_sem_retrato_do_siconv_o_dossie_vem_vazio(proc, raiz_sem_publicado, urls
     verba = next(v for v in proc.normalizacao.verbas if v.id == IDS_PERDAS[0])
     retratos = {**proc.retratos, "transferegov_discricionarias": None}
     assert montar_dossie(verba, retratos, raiz_sem_publicado, urls).documentos == []
+
+
+def test_pareceres_do_acesso_livre_entram_no_dossie_sem_contato(proc, raiz_sem_publicado, urls):
+    """D23: cada parecer lido na conferência semanal vira um documento citável (`parecer-<proposta>-<data>`)."""
+    import json
+    from pathlib import Path
+
+    exemplo = json.loads((Path(__file__).parent / "fixtures" / "transferegov_acesso_livre" / "parecer_exemplo.json").read_text(encoding="utf-8"))["bruto"]
+    from coleta import acesso_livre as al
+
+    pareceres = [al.parecer_do_retrato("1981768", exemplo), al.parecer_do_retrato("1981768", {**exemplo, "id_parecer": "2", "data": "26/08/2026"}), al.parecer_do_retrato("2065616", exemplo)]
+    acesso = {"fonte": "transferegov_acesso_livre", "data": "2026-11-05", "coletado_em": "2026-11-05T21:00:00-03:00", "metadados": {}, "dados": {"propostas": [], "pareceres": pareceres}}
+    com_urls = {**urls, "transferegov_acesso_livre": "https://exemplo.gov.br/acesso-livre"}
+    verba = next(v for v in proc.normalizacao.verbas if v.id == IDS_PERDAS[0])
+    dossie = montar_dossie(verba, {**proc.retratos, "transferegov_acesso_livre": acesso}, raiz_sem_publicado, com_urls)
+    docs = [d for d in dossie.documentos if d.id.startswith("parecer-")]
+    assert [d.id for d in docs] == ["parecer-1981768-2026-08-25", "parecer-1981768-2026-08-26"]  # só os desta proposta, em ordem de data
+    assert all(d.url == "https://exemplo.gov.br/acesso-livre" and d.data_coleta == "2026-11-05T21:00:00-03:00" for d in docs)
+    assert "saneados os apontamentos técnicos" in docs[0].texto and "99999" not in docs[0].texto and "Fulano" not in docs[0].texto
+    sem = montar_dossie(verba, {**proc.retratos, "transferegov_acesso_livre": None}, raiz_sem_publicado, com_urls)
+    assert not [d for d in sem.documentos if d.id.startswith("parecer-")]

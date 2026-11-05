@@ -4,7 +4,9 @@ Fase 1: só documentos obtidos automaticamente, todos tirados dos retratos bruto
 - `instrumento-<id>`: dados da proposta, do convênio e das emendas no Transferegov (Siconv em lote);
 - `historico-situacao-<id>`: trilha de datas de cada mudança de situação (traz a data, não o motivo);
 - `cauc-<data>`: itens do CAUC sem comprovação no retrato mais próximo da data da perda;
-- `obrasgov-<projeto>`: histórico de paralisação/cancelamento da obra ligada, com a justificativa em texto livre.
+- `obrasgov-<projeto>`: histórico de paralisação/cancelamento da obra ligada, com a justificativa em texto livre;
+- `parecer-<proposta>-<data>`: parecer do concedente lido na consulta pública do Transferegov (Acesso Livre, D23), sem nome
+  nem contato de servidor; vem da conferência semanal, rodada por uma pessoa (`scripts/sync_acesso_livre.py`).
 
 Os campos de cada documento são escolhidos a dedo: nada de endereço, conta bancária ou nome de parlamentar
 (regra: sem nomes de pessoas nos textos de motivo).
@@ -189,6 +191,25 @@ def _documento_obrasgov(verba: Verba, dados: dict, retrato: dict, url: str, id_p
     )
 
 
+def _documentos_pareceres(verba: Verba, acesso: dict, url: str) -> list[Documento]:
+    """Um documento por parecer do concedente lido no Acesso Livre (já sem nome e contato, `coleta.acesso_livre`)."""
+    saida: list[Documento] = []
+    for parecer in sorted((p for p in acesso["dados"]["pareceres"] if p["id_proposta"] == verba.id_fonte), key=lambda p: (p["data"] or "", p["id_parecer"])):
+        base = f"parecer-{verba.id_fonte}-{parecer['data']}"
+        documento_id = base if all(d.id != base for d in saida) else f"{base}-{parecer['id_parecer']}"  # dois no mesmo dia
+        dia = date.fromisoformat(parecer["data"])
+        saida.append(
+            Documento(
+                id=documento_id,
+                titulo=f"Transferegov (Acesso Livre): parecer do {parecer['parecer_do'].lower()} de {dia:%d/%m/%Y}, proposta {verba.numero_instrumento}",
+                url=url,
+                data_coleta=acesso["coletado_em"],
+                texto=f"Parecer do {parecer['parecer_do']} ({parecer['atribuicao']}), {dia:%d/%m/%Y}:\n{parecer['texto']}",
+            )
+        )
+    return saida
+
+
 def _id_projeto_obrasgov(verba: Verba, siconv: dict, obras: dict) -> str | None:
     convenio = next((c for c in siconv["dados"]["convenio"] if c["ID_PROPOSTA"] == verba.id_fonte), None)
     if convenio is None:
@@ -217,5 +238,8 @@ def montar_dossie(verba: Verba, retratos: dict[str, dict | None], raiz: Path, ur
         id_projeto = _id_projeto_obrasgov(verba, siconv, obras)
         if id_projeto:
             candidatos.append(_documento_obrasgov(verba, obras["dados"], obras, urls["obrasgov"], id_projeto))
+    acesso = retratos.get("transferegov_acesso_livre")
+    if acesso is not None and "transferegov_acesso_livre" in urls:
+        candidatos += _documentos_pareceres(verba, acesso, urls["transferegov_acesso_livre"])
     dossie.documentos = [d for d in candidatos if d is not None]
     return dossie

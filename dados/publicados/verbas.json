@@ -50,6 +50,14 @@
    "coletado_em": "2026-11-04T20:25:01-03:00",
    "data_do_dado": null,
    "situacao": "defasada"
+  },
+  "transferegov_acesso_livre": {
+   "nome": "Transferegov — Acesso Livre (conferência manual semanal)",
+   "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
+   "retrato": null,
+   "coletado_em": null,
+   "data_do_dado": null,
+   "situacao": "sem_retrato"
   }
  },
  "referencias": {

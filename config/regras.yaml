@@ -46,3 +46,4 @@ coleta:
   portal_transparencia_req_por_min: 300   # abaixo do limite de 400 por segurança
   tentativas: 4
   backoff_inicial_s: 2
+  acesso_livre_dias_alerta: 8   # D23: a conferência no Acesso Livre é semanal; passou de 8 dias, o workflow abre o aviso

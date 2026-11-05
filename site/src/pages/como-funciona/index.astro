@@ -16,8 +16,9 @@ const SOBRE_FONTE = {
   portal_transparencia: "Valores liberados e pagos ao município.",
   cauc: "Situação de regularidade do município junto ao Governo Federal (CAUC), do Tesouro Nacional.",
   tesouro_constitucionais: "FPM e ITR repassados ao município, só como número de referência.",
+  transferegov_acesso_livre: "Consulta pública do Transferegov: situação atual das propostas e pareceres do órgão concedente. Conferida por uma pessoa uma vez por semana, enquanto a carga do Siconv está parada.",
 };
-const situacaoFonte = (f) => (f.situacao === "ok" ? "atualizada" : f.situacao === "defasada" ? `último retrato válido, de ${dia(f.retrato)}` : "sem dados");
+const situacaoFonte = (f, chave) => (chave === "transferegov_acesso_livre" && f.situacao === "sem_retrato" ? "ainda sem conferência" : f.situacao === "ok" ? "atualizada" : f.situacao === "manual" ? `conferida por uma pessoa em ${dia(f.retrato)}` : f.situacao === "defasada" ? `último retrato válido, de ${dia(f.retrato)}` : "sem dados");
 const siconv = publicado.fontes.transferegov_discricionarias;
 const etapas = Object.entries(taxonomia.status);
 ---
@@ -68,7 +69,7 @@ const etapas = Object.entries(taxonomia.status);
               <td><a href={f.url}>{f.nome}</a></td>
               <td>{SOBRE_FONTE[chave]}</td>
               <td class="mono">{formatarDataHora(f.coletado_em)}{f.data_do_dado && <span class="fonte">dado de {dia(f.data_do_dado)}</span>}</td>
-              <td>{situacaoFonte(f)}</td>
+              <td>{situacaoFonte(f, chave)}</td>
             </tr>
           ))}
         </tbody>

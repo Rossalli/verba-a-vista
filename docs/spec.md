@@ -131,6 +131,7 @@ Na fase 1, só documentos obtidos automaticamente:
 - histórico de situação do Obrasgov (com motivos e providências);
 - situação e dados da proposta/instrumento no Transferegov;
 - extrato do CAUC mais próximo da data da perda;
+- pareceres do concedente na consulta pública do Transferegov (Acesso Livre), quando a proposta tem "Possui Parecer: Sim" (D23); o texto entra **sem nomes e telefones de servidores**;
 - (fase 1.5) publicações do Diário Oficial do município que citem o número do instrumento.
 
 Cada documento entra com `id`, `titulo`, `url`, `data_coleta` e `texto`.
@@ -188,6 +189,12 @@ A publicação grava `dados/publicados/verbas.json` (objeto com `versao`, `data`
 O histórico é calculado comparando o resultado normalizado do dia com o publicado anterior (`dados/publicados/verbas.json` no Git, um objeto com a lista em `verbas`). Cada mudança na situação do site **ou** na situação da fonte vira uma entrada (`de` e `para` são os status do site; a `nota` diz a mudança na fonte). Sem publicado anterior (primeira execução), cada verba nasce com uma entrada de `de` nulo e a nota "Primeira coleta", que cita desde quando a fonte registra a situação, se informar; uma verba nova depois disso diz "Verba apareceu nas fontes". Uma verba publicada que some das fontes de um dia para o outro **não é publicada** e vai para os avisos, para revisão. Se o publicado anterior existir e não puder ser lido, o pipeline para: o histórico nunca é recomeçado em silêncio.
 
 Execução diária às 09:00 (horário de Brasília), depois da publicação diária do CAUC (~08:11 em dias úteis). Falha de uma fonte não derruba as outras: a fonte com falha mantém os dados do último retrato válido e o site mostra "dados de <fonte> de <data>".
+
+**Conferência semanal no Acesso Livre (D23).** Enquanto o lote do Siconv está fora do ar, uma pessoa roda toda semana, no próprio computador e num Chrome visível, `python scripts/sync_acesso_livre.py`. O script usa o acesso de visitante que o governo oferece, consulta as propostas da prefeitura (CNPJ) e grava o retrato `dados/brutos/transferegov_acesso_livre/AAAA-MM-DD.json` (`origem: manual local`), que a pessoa commita. Fica de fora da coleta diária e **para** se houver captcha, 401 ou bloqueio (nunca tenta contornar). Efeitos no pipeline, só quando o retrato é **mais novo que a carga do Siconv**:
+- a situação atual de uma **proposta sem convênio** passa a vir do Acesso Livre (mesmos nomes de situação, mesmo `status_map`); o `fontes[]` da verba ganha "Transferegov — Acesso Livre (conferido em <data>, coleta manual)"; a data da perda detectada por esse caminho é a da conferência;
+- verba com convênio não muda (a situação do instrumento continua do Siconv), e proposta nova que o Siconv não tem **só vira aviso** (faltam valor e objeto);
+- os pareceres das propostas perdidas entram no dossiê da curadoria (§7.2);
+- o retrato mais velho que 8 dias (ou ausente) gera o aviso "Conferência no Acesso Livre atrasada"; a fonte manual não gera o aviso diário de "fonte sem retrato de hoje".
 
 Detalhes do workflow (`.github/workflows/coleta-diaria.yml`, T5.1):
 - **Disparos:** agenda diária, execução manual e `push` em `dados/curadoria/`, `config/` ou `site/` (quando uma pessoa aprova uma curadoria ou muda uma regra, o site é republicado sem nova coleta). O commit do robô, feito com o token do próprio Actions, não dispara o workflow de novo.

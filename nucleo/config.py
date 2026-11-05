@@ -104,6 +104,7 @@ class RegraColeta(_Base):
     portal_transparencia_req_por_min: int = Field(gt=0)
     tentativas: int = Field(ge=1)
     backoff_inicial_s: float = Field(gt=0)
+    acesso_livre_dias_alerta: int = Field(default=8, ge=1)  # D23: sem conferência no Acesso Livre há mais dias que isso, abre o aviso
 
     @field_validator("fuso")
     @classmethod
@@ -212,6 +213,7 @@ class FonteConfig(_Base):
     url_registro: str | None = None  # modelo de endereço do registro da própria verba, com {codigo} (D21)
     auth: AuthFonte | None = None
     limite_req_min: int | None = Field(default=None, gt=0)
+    manual: bool = False  # coleta feita por uma pessoa (D23): fora da coleta diária e dos avisos de "sem retrato de hoje"
     ativa: bool
 
 

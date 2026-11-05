@@ -40,6 +40,12 @@ fontes:
     url_consulta: https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc   # VERIFICADO 2026-11-05 (HTTP 200)
     ativa: true
 
+  transferegov_acesso_livre:
+    tipo: navegador_manual   # D23: scripts/sync_acesso_livre.py, rodado toda semana por uma pessoa, num Chrome visível
+    manual: true
+    url_consulta: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+    ativa: true
+
   tesouro_constitucionais:
     base_url: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom   # a URL base sozinha dá HTTP 500 "Endpoint não encontrado"
     url_teste: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom/estados

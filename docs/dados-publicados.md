@@ -15,7 +15,7 @@ Objeto com:
 | `referencias.transferencias_constitucionais` | FPM e ITR por ano (centavos) e `ultimo_mes` com o aviso de que o 3º decêndio ainda estava zerado. Só número de referência, sem ciclo de status. |
 | `verbas` | A lista de verbas, ordenada por `id`. |
 
-`situacao` de cada fonte: `ok` (retrato da data de referência), `defasada` (último retrato válido, mais antigo; é o que a spec §9 manda mostrar como "dados de <fonte> de <data>") ou `sem_retrato`. `data_do_dado` é a data a que o dado se refere, quando a fonte informa: a carga do Siconv (hoje 17/07/2026), a pesquisa do CAUC, a atualização das APIs; fica `null` quando não há (Portal da Transparência, Tesouro).
+`situacao` de cada fonte: `ok` (retrato da data de referência), `defasada` (último retrato válido, mais antigo; é o que a spec §9 manda mostrar como "dados de <fonte> de <data>"), `sem_retrato` ou `manual` (fonte conferida por uma pessoa, uma vez por semana, como o Acesso Livre do Transferegov; `retrato` é a data da conferência). `data_do_dado` é a data a que o dado se refere, quando a fonte informa: a carga do Siconv (hoje 17/07/2026), a pesquisa do CAUC, a atualização das APIs; fica `null` quando não há (Portal da Transparência, Tesouro).
 
 Não há hora de geração: reexecutar sem mudança nas fontes gera o mesmo arquivo, e o Git só mostra o que mudou (por exemplo, a contagem de dias de um alerta de prazo).
 

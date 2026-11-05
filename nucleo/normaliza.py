@@ -14,7 +14,7 @@ import json
 import re
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 from nucleo.config import Config, carregar_config, normalizar_situacao
@@ -22,7 +22,7 @@ from nucleo.dinheiro import centavos_reais, centavos_texto
 from nucleo.modelo import FonteRef, Verba
 
 RAIZ = Path(__file__).resolve().parents[1]
-FONTES_BRUTAS = ("transferegov_discricionarias", "transferegov_api", "portal_transparencia", "obrasgov", "cauc", "tesouro_constitucionais")
+FONTES_BRUTAS = ("transferegov_discricionarias", "transferegov_api", "portal_transparencia", "obrasgov", "cauc", "tesouro_constitucionais", "transferegov_acesso_livre")
 CHAVE_SICONV_PROPOSTA = "transferegov_discricionarias_proposta"
 CHAVE_SICONV_CONVENIO = "transferegov_discricionarias_convenio"
 CHAVE_PARCERIAS = "transferegov_parcerias"
@@ -70,6 +70,7 @@ class Normalizacao:
     retratos: dict[str, date | None]  # fonte -> data do retrato usado (None: sem retrato)
     obras: dict[str, ObraLigada] = field(default_factory=dict)  # id da verba -> obra ligada
     impedimentos: dict[str, ImpedimentoEmenda] = field(default_factory=dict)  # id da verba -> impedimento (vazio até haver emendas Pix)
+    conferidas: dict[str, date] = field(default_factory=dict)  # id da verba -> data da conferência no Acesso Livre que mudou a situação (D23)
 
 
 # --- utilidades --------------------------------------------------------------------------------
@@ -186,6 +187,9 @@ class _Contexto:
     data: date
     mapa: MapaStatus
     avisos: list[str] = field(default_factory=list)
+    acesso_livre: dict[str, str] = field(default_factory=dict)  # id_proposta -> situação lida no Acesso Livre (D23); vazio se não vale
+    acesso_livre_retrato: dict | None = None
+    conferidas: dict[str, date] = field(default_factory=dict)
 
     @property
     def inicio_recorte(self) -> date:
@@ -197,6 +201,26 @@ class _Contexto:
 
 
 # --- Siconv ------------------------------------------------------------------------------------
+
+
+def _preparar_acesso_livre(acesso: dict | None, siconv: dict, ctx: _Contexto) -> None:
+    """D23: a conferência manual só vale se for mais nova que a carga do Siconv; proposta que o lote não tem vira aviso."""
+    if acesso is None:
+        return
+    carga = (siconv["metadados"].get("data_carga") or "")[:10]
+    try:
+        dia_carga = datetime.strptime(carga, "%d/%m/%Y").date() if "/" in carga else date.fromisoformat(carga or siconv["data"])
+    except ValueError:
+        dia_carga = date.fromisoformat(siconv["data"])
+    if date.fromisoformat(acesso["data"]) <= dia_carga:
+        return  # o lote do Siconv já é igual ou mais novo
+    propostas = acesso["dados"]["propostas"]
+    ctx.acesso_livre = {p["id_proposta"]: p["situacao"] for p in propostas}
+    ctx.acesso_livre_retrato = acesso
+    conhecidas = {p["ID_PROPOSTA"] for p in [*siconv["dados"]["proposta"], *siconv["dados"]["proposta_cancelada"]]}
+    novas = [p["numero"] for p in propostas if p["id_proposta"] not in conhecidas]
+    if novas:
+        ctx.avisos.append(f"Acesso Livre: {len(novas)} proposta(s) que o lote do Siconv não tem (só aviso, nenhuma vira verba): {', '.join(novas[:8])}")
 
 
 def _por_chave(registros: list[dict], chave: str) -> dict[str, list[dict]]:
@@ -234,10 +258,18 @@ def _verbas_siconv(retrato: dict, ctx: _Contexto) -> list[tuple[Verba, dict | No
             continue  # spec §2: proposta de 2024 em diante ou instrumento ainda ativo
         verba_id = _id("transferegov_discricionarias", id_proposta)
         objeto = re.sub(r"\s+", " ", proposta["OBJETO_PROPOSTA"]).strip()
+        fontes_verba = [_fonte(nome_fonte, url, retrato)]
         if convenio:
             chave, situacao = CHAVE_SICONV_CONVENIO, convenio["SIT_CONVENIO"]
         else:
             chave, situacao = CHAVE_SICONV_PROPOSTA, proposta["SIT_PROPOSTA"]
+            lida = ctx.acesso_livre.get(id_proposta)
+            if lida is not None and lida.strip().casefold() != situacao.strip().casefold():
+                # D23: a conferência manual é mais nova que a carga do Siconv e vale só para proposta sem convênio
+                acesso = ctx.acesso_livre_retrato
+                situacao = lida
+                ctx.conferidas[verba_id] = date.fromisoformat(acesso["data"])
+                fontes_verba.append(_fonte(f"Transferegov — Acesso Livre (conferido em {date.fromisoformat(acesso['data']).strftime('%d/%m/%Y')}, coleta manual)", _url_consulta(ctx.config, "transferegov_acesso_livre"), acesso))
         deputados = list(dict.fromkeys(e["NOME_PARLAMENTAR"].strip() for e in emendas.get(id_proposta, []) if e["NOME_PARLAMENTAR"].strip()))
         origem = convenio or proposta
         sufixo = "CONV" if convenio else "PROP"
@@ -269,7 +301,7 @@ def _verbas_siconv(retrato: dict, ctx: _Contexto) -> list[tuple[Verba, dict | No
             "em_risco": False,
             "prazos": {k: v for k, v in prazos.items() if v is not None},
             "historico": [],
-            "fontes": [_fonte(nome_fonte, url, retrato)],
+            "fontes": fontes_verba,
         }
         saida.append((Verba.model_validate(_limpar(campos)), convenio, proposta))
     return saida
@@ -554,6 +586,7 @@ def normalizar(retratos: dict[str, dict | None], config: Config | None = None, d
     if siconv is None:
         ctx.avisos.append("Siconv sem nenhum retrato: sem convênios, propostas e oportunidades do Siconv (o Portal não os substitui, D11)")
     else:
+        _preparar_acesso_livre(retratos.get("transferegov_acesso_livre"), siconv, ctx)
         do_siconv = _verbas_siconv(siconv, ctx)
         _juntar_portal(do_siconv, retratos.get("portal_transparencia"), ctx)
         obras = _juntar_obrasgov(do_siconv, retratos.get("obrasgov"), ctx)
@@ -579,8 +612,9 @@ def normalizar(retratos: dict[str, dict | None], config: Config | None = None, d
         verbas=sorted(verbas, key=lambda v: v.id),
         nao_mapeadas=ctx.mapa.nao_mapeadas(),
         avisos=ctx.avisos,
-        retratos={f: (date.fromisoformat(r["data"]) if r else None) for f, r in retratos.items()},
+        retratos={f: (date.fromisoformat(r["data"]) if r else None) for f, r in retratos.items() if r or not config.fontes.fontes[f].manual},  # fonte manual ainda sem conferência não é "sem retrato"
         obras=obras,
+        conferidas=ctx.conferidas,
     )
 
 

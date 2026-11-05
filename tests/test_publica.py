@@ -54,6 +54,7 @@ def ler_csv(caminho: Path) -> list[dict]:
 def test_fontes_dizem_o_retrato_a_hora_e_a_data_do_dado(reais, config):
     f = p.montar_fontes(reais, config, DATA)
     assert list(f) == list(p.NOMES_FONTES)
+    assert f.pop("transferegov_acesso_livre")["situacao"] == "sem_retrato"  # sem conferência manual nos dados reais ainda (D23)
     siconv = f["transferegov_discricionarias"]
     assert (siconv["retrato"], siconv["data_do_dado"], siconv["situacao"]) == ("2026-10-29", "2026-07-17", "defasada")  # a carga do Siconv é de julho
     assert f["cauc"]["data_do_dado"] == "2026-10-29" and f["obrasgov"]["data_do_dado"] == "2026-10-29" and f["transferegov_api"]["data_do_dado"] == "2026-10-29"
@@ -63,7 +64,7 @@ def test_fontes_dizem_o_retrato_a_hora_e_a_data_do_dado(reais, config):
 
 def test_situacao_da_fonte_ok_defasada_ou_sem_retrato(reais, config):
     hoje = p.montar_fontes(reais, config, date(2026, 10, 29))
-    assert {x["situacao"] for x in hoje.values()} == {"ok"}
+    assert {x["situacao"] for c, x in hoje.items() if c != "transferegov_acesso_livre"} == {"ok"}
     sem = {**reais, "cauc": None}
     f = p.montar_fontes(sem, config, DATA)
     assert f["cauc"] == {"nome": p.NOMES_FONTES["cauc"], "url": f["cauc"]["url"], "retrato": None, "coletado_em": None, "data_do_dado": None, "situacao": "sem_retrato"}
@@ -81,7 +82,7 @@ def test_referencias_do_tesouro_em_centavos_com_o_aviso_do_ultimo_mes(reais):
 
 def test_atualizado_em_e_a_coleta_mais_recente(reais, config):
     corpo = p.montar_publicado([], reais, config, DATA)
-    assert corpo["atualizado_em"] == max((r["coletado_em"] for r in reais.values()), key=datetime.fromisoformat)
+    assert corpo["atualizado_em"] == max((r["coletado_em"] for r in reais.values() if r), key=datetime.fromisoformat)
     assert corpo["data"] == "2026-10-30" and corpo["versao"] == 1
     assert p.montar_publicado([], {f: None for f in reais}, config, DATA)["atualizado_em"] is None
 
@@ -269,7 +270,7 @@ def test_pipeline_no_dia_seguinte_mantem_as_verbas_e_marca_as_fontes_como_defasa
     assert sem_alertas(antes) == sem_alertas(depois)  # nada mudou nas fontes: histórico e perdas intactos
     prazo = lambda corpo: next(v["motivos_risco"][0]["texto"] for v in corpo["verbas"] if v["id"] == "transferegov_discricionarias-1733967")  # noqa: E731
     assert (prazo(antes), prazo(depois)) == ("Prazo em 51 dias", "Prazo em 50 dias")  # o único que muda é a contagem do prazo
-    assert (antes["data"], depois["data"]) == ("2026-10-30", "2026-10-31") and {f["situacao"] for f in depois["fontes"].values()} == {"defasada"}
+    assert (antes["data"], depois["data"]) == ("2026-10-30", "2026-10-31") and {f["situacao"] for c, f in depois["fontes"].items() if c != "transferegov_acesso_livre"} == {"defasada"}
 
 
 def test_pipeline_sem_publicar_nao_grava(raiz_com_brutos, capsys):

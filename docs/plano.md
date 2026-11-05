@@ -112,6 +112,18 @@ Objetivo: confirmar acesso, endpoints, filtros por município e valores de situa
 - [ ] **T5.3 Revisão de credibilidade** (spec §12) e lançamento.
   *Preparado (falta a pessoa revisar e o lançamento):* `nucleo/amostra.py` (`python -m nucleo.amostra`) gera `docs/revisao-credibilidade/amostra.csv` com 12 verbas determinísticas (3 perdas, 3 em risco, 1 proposta, 2 em andamento, 1 parceria, 1 fundo a fundo, 1 oportunidade), com os dados do site, as chaves para achar cada uma no Transferegov e colunas em branco para as respostas; `docs/revisao-credibilidade/README.md` explica a revisão, traz as perguntas gerais e lista o que já se sabe. 8 testes (534 no total). **Achado ao montar a amostra:** a situação "Proposta/Plano de Trabalho Cadastrados" (proposta ainda não enviada) está mapeada para `proposta`, que o site rotula "Proposta enviada"; o rótulo engana (ver pendência em "Em aberto" de `docs/decisoes.md`).
 
+## Marco 6 — Conferência semanal no Acesso Livre (D23)
+
+Enquanto o lote do Siconv estiver fora do ar. Spec §7.2 e §9. Quem roda é uma pessoa, toda semana, no próprio computador.
+
+- [x] **T6.1 Leitura e retrato.** `coleta/acesso_livre.py`: limpeza dos pareceres (sem nomes e telefones), escolha das propostas que precisam de parecer, montagem e gravação do retrato.
+  *Aceite:* testes com uma página real da lista (20 das 241 propostas) e com parecer de exemplo; nenhum nome ou telefone no retrato.
+- [ ] **T6.2 Script local** *(escrito e importável; falta a primeira execução real, que é da autora).* `scripts/sync_acesso_livre.py` (Playwright dirigindo o Chrome instalado, janela visível, 1 página a cada 3 s, para se for barrado).
+  *Aceite:* a primeira execução real é da autora; a saída e os erros voltam para ajuste.
+- [x] **T6.3 Pipeline.** A situação da proposta sem convênio vem do retrato mais novo; `fontes[]`, data da perda, aviso de proposta nova e aviso de conferência atrasada.
+  *Aceite:* a proposta 2456/2026 sai como perdida ("Rejeitados por Impedimento técnico") com os dados de hoje.
+- [x] **T6.4 Pareceres no dossiê** da curadoria das propostas perdidas. *Feito:* `curadoria/dossie.py` cria um documento `parecer-<proposta>-<data>` por parecer lido; `urls_das_fontes` inclui o Acesso Livre.
+
 ## Fase 1.5 (depois do lançamento)
 
 - Coleta do Diário Oficial do município (PDF) e inclusão no dossiê.

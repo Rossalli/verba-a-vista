@@ -19,7 +19,7 @@
         "retrato": { "$ref": "#/$defs/dataOuNulo", "description": "Data do retrato bruto usado (o último válido)." },
         "coletado_em": { "type": ["string", "null"], "format": "date-time" },
         "data_do_dado": { "$ref": "#/$defs/dataOuNulo", "description": "Data a que o dado se refere, quando a fonte a informa (ex.: carga do Siconv)." },
-        "situacao": { "enum": ["ok", "defasada", "sem_retrato"], "description": "ok: retrato da data de referência; defasada: último retrato válido, mais antigo; sem_retrato: fonte nunca coletada." }
+        "situacao": { "enum": ["ok", "defasada", "sem_retrato", "manual"], "description": "ok: retrato da data de referência; defasada: último retrato válido, mais antigo; sem_retrato: fonte nunca coletada; manual: fonte coletada por uma pessoa, fora da rotina diária (D23), com a data da última conferência." }
       }
     },
     "valorAno": {

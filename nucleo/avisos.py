@@ -15,12 +15,15 @@ from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
 
+from nucleo.config import carregar_config
 from nucleo.normaliza import RAIZ, SituacaoNaoMapeada
 from nucleo.pipeline import processar
 
 TITULO_FILA = "Rascunhos de curadoria para revisar"
 TITULO_NAO_MAPEADAS = "Situações de fonte sem mapeamento"
 TITULO_FONTES = "Fonte sem retrato de hoje"
+TITULO_ACESSO_LIVRE = "Conferência no Acesso Livre atrasada"
+FONTE_ACESSO_LIVRE = "transferegov_acesso_livre"
 
 
 @dataclass
@@ -78,8 +81,21 @@ def aviso_nao_mapeadas(nao_mapeadas: list[SituacaoNaoMapeada]) -> Aviso | None:
     return Aviso("nao_mapeadas", TITULO_NAO_MAPEADAS, "\n".join(linhas))
 
 
+def aviso_acesso_livre(fontes: dict[str, dict], hoje: date, dias_alerta: int) -> Aviso | None:
+    """D23: a conferência semanal depende de uma pessoa; sem retrato recente, avisa em vez de deixar o site envelhecer calado."""
+    f = fontes.get(FONTE_ACESSO_LIVRE)
+    if f is None:
+        return None
+    dias = (hoje - date.fromisoformat(f["retrato"])).days if f.get("retrato") else None
+    if dias is not None and dias <= dias_alerta:
+        return None
+    ultima = f"A última foi em {date.fromisoformat(f['retrato']).strftime('%d/%m/%Y')} ({dias} dias)." if dias is not None else "Ainda não houve nenhuma."
+    corpo = f"A conferência no Acesso Livre do Transferegov está atrasada (alerta a partir de {dias_alerta} dias). {ultima}\n\nEnquanto isso, as propostas sem convênio podem estar com a situação desatualizada no site. Para fazer: `python scripts/sync_acesso_livre.py`, depois commit e push de `dados/brutos/transferegov_acesso_livre/` (veja `docs/operacao.md`)."
+    return Aviso("acesso_livre", TITULO_ACESSO_LIVRE, corpo)
+
+
 def aviso_fontes(fontes: dict[str, dict], hoje: date) -> Aviso | None:
-    problemas = {c: f for c, f in fontes.items() if f.get("situacao") != "ok"}
+    problemas = {c: f for c, f in fontes.items() if f.get("situacao") not in ("ok", "manual") and c != FONTE_ACESSO_LIVRE}
     if not problemas:
         return None
     linhas = [f"Em {hoje.strftime('%d/%m/%Y')} estas fontes não tinham retrato do dia. O site mostra o último retrato válido de cada uma, com a data:", "", "| Fonte | Situação | Último retrato | Data do dado |", "| --- | --- | --- | --- |"]
@@ -89,8 +105,8 @@ def aviso_fontes(fontes: dict[str, dict], hoje: date) -> Aviso | None:
     return Aviso("fontes", TITULO_FONTES, "\n".join(linhas))
 
 
-def montar_avisos(*, nao_mapeadas: list[SituacaoNaoMapeada], fila_pendente: list[str], fila_erros: list[str], fila_novos: set[str], fontes: dict[str, dict], hoje: date) -> list[Aviso]:
-    candidatos = [aviso_fila(fila_pendente, fila_erros, fila_novos), aviso_nao_mapeadas(nao_mapeadas), aviso_fontes(fontes, hoje)]
+def montar_avisos(*, nao_mapeadas: list[SituacaoNaoMapeada], fila_pendente: list[str], fila_erros: list[str], fila_novos: set[str], fontes: dict[str, dict], hoje: date, dias_acesso_livre: int = 8) -> list[Aviso]:
+    candidatos = [aviso_fila(fila_pendente, fila_erros, fila_novos), aviso_nao_mapeadas(nao_mapeadas), aviso_fontes(fontes, hoje), aviso_acesso_livre(fontes, hoje, dias_acesso_livre)]
     return [a for a in candidatos if a is not None]
 
 
@@ -135,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
         fila_novos=novos,
         fontes=publicado["fontes"],
         hoje=hoje,
+        dias_acesso_livre=carregar_config().regras.coleta.acesso_livre_dias_alerta,
     )
     print(json.dumps([asdict(a) for a in avisos], ensure_ascii=False, indent=1))
     if args.abrir_issues:

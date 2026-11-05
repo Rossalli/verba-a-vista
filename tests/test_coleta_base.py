@@ -293,4 +293,4 @@ def test_fonte_desconhecida_e_erro_de_uso(tmp_path):
 
 
 def test_todas_as_fontes_da_config_tem_coletor_registrado():
-    assert set(base.FONTES) == {f for f, c in carregar_config().fontes.fontes.items() if c.ativa}
+    assert set(base.FONTES) == {f for f, c in carregar_config().fontes.fontes.items() if c.ativa and not c.manual}  # as manuais (D23) são rodadas por uma pessoa, sem coletor

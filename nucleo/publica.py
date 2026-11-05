@@ -33,6 +33,7 @@ NOMES_FONTES = {
     "obrasgov": "Obrasgov",
     "cauc": "CAUC (Tesouro Nacional)",
     "tesouro_constitucionais": "Tesouro — Transferências Constitucionais",
+    "transferegov_acesso_livre": "Transferegov — Acesso Livre (conferência manual semanal)",
 }
 PRAZOS = ("proposta", "assinatura", "clausula_suspensiva", "fim_vigencia", "prestacao_contas", "adesao")
 CABECALHO_CSV = [
@@ -79,6 +80,9 @@ def montar_fontes(retratos: dict[str, dict | None], config: Config, data: date) 
             fontes[chave] = {"nome": nome, "url": url, "retrato": None, "coletado_em": None, "data_do_dado": None, "situacao": "sem_retrato"}
             continue
         dia = date.fromisoformat(retrato["data"])
+        if cfg is not None and cfg.manual:  # D23: coleta feita por uma pessoa, fora da rotina diária; nunca "defasada" por não ser de hoje
+            fontes[chave] = {"nome": nome, "url": url, "retrato": dia.isoformat(), "coletado_em": retrato["coletado_em"], "data_do_dado": dia.isoformat(), "situacao": "manual"}
+            continue
         fontes[chave] = {
             "nome": nome, "url": url, "retrato": dia.isoformat(), "coletado_em": retrato["coletado_em"],
             "data_do_dado": (d.isoformat() if (d := _data_do_dado(chave, retrato)) else None),
@@ -108,7 +112,8 @@ def montar_referencias(retrato_tesouro: dict | None) -> dict:
 
 
 def montar_publicado(verbas: list[Verba], retratos: dict[str, dict | None], config: Config, data: date) -> dict:
-    coletas = [r["coletado_em"] for r in retratos.values() if r]
+    manuais = {c for c, f in config.fontes.fontes.items() if f.manual}  # a conferência semanal não diz quando o robô coletou (D23)
+    coletas = [r["coletado_em"] for c, r in retratos.items() if r and c not in manuais]
     return {
         "versao": VERSAO,
         "data": data.isoformat(),

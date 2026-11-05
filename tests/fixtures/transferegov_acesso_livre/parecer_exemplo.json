@@ -1,0 +1,11 @@
+{
+  "_comentario": "Parecer de exemplo com a estrutura do parecer real da proposta 002456/2026 (lido em 04/11/2026). O nome e o telefone de contato são FICTÍCIOS: o original traz os dados de um servidor, que nunca entram no repositório.",
+  "id_proposta": "2175551",
+  "bruto": {
+    "id_parecer": "2040854",
+    "data": "25/08/2026",
+    "parecer_do": "CONCEDENTE",
+    "atribuicao": "Analista Técnico do Concedente",
+    "texto": "Registra-se Diligência COCEL Nº 140/2026/Propostas-COCEL/COCEL/CGCR/DGFNSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido. Prazo para atendimento: 14/09/2026. Contato: Fulano de Tal, (61) 99999-0000."
+  }
+}

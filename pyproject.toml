@@ -21,6 +21,9 @@ dev = [
     "pytest",
     "respx",
 ]
+local = [
+    "playwright",  # só para scripts/sync_acesso_livre.py (conferência semanal rodada por uma pessoa); usa o Chrome instalado
+]
 
 [tool.setuptools]
 # layout plano com várias pastas na raiz: lista explícita evita a descoberta automática

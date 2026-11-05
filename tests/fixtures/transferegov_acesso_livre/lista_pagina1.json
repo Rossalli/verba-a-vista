@@ -1,0 +1,26 @@
+{
+  "_comentario": "Página 1 de 13 (241 itens) da consulta de propostas por CNPJ da prefeitura no Acesso Livre, lida em 04/11/2026 pelo mesmo trecho de JavaScript que o script usa. Dados que a própria consulta pública publica.",
+  "pagina": "Página 1 de 13 (241 item(s))",
+  "rows": [
+    {"id_proposta": "2227151", "numero": "030106/2026", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "2227146", "numero": "030102/2026", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "2175551", "numero": "002456/2026", "orgao": "30000 - MINISTERIO DA JUSTICA E SEGURANCA PUBLICA", "possui_parecer": "Sim", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2152082", "numero": "064413/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2152076", "numero": "064411/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2113295", "numero": "042072/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2113259", "numero": "042055/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2113195", "numero": "042023/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"},
+    {"id_proposta": "2113518", "numero": "041390/2025", "orgao": "56000 - MINISTERIO DAS CIDADES", "possui_parecer": "Sim", "situacao": "Em execução"},
+    {"id_proposta": "2084546", "numero": "024031/2025", "orgao": "53000 - MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "2079956", "numero": "020378/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados"},
+    {"id_proposta": "2076013", "numero": "017544/2025", "orgao": "56000 - MINISTERIO DAS CIDADES", "possui_parecer": "Sim", "situacao": "Proposta Aprovada e Plano de Trabalho em Análise"},
+    {"id_proposta": "2065616", "numero": "008933/2025", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados"},
+    {"id_proposta": "2031354", "numero": "033961/2024", "orgao": "56000 - MINISTERIO DAS CIDADES", "possui_parecer": "Sim", "situacao": "Em execução"},
+    {"id_proposta": "1981768", "numero": "012684/2024", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados"},
+    {"id_proposta": "1931667", "numero": "061674/2023", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho Rejeitados"},
+    {"id_proposta": "1914612", "numero": "052155/2023", "orgao": "51000 - MINISTERIO DO ESPORTE", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "1907378", "numero": "047828/2023", "orgao": "51000 - MINISTERIO DO ESPORTE", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "1876690", "numero": "027119/2023", "orgao": "51000 - MINISTERIO DO ESPORTE", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"},
+    {"id_proposta": "1876499", "numero": "026928/2023", "orgao": "51000 - MINISTERIO DO ESPORTE", "possui_parecer": "Não", "situacao": "Proposta/Plano de Trabalho enviado para Análise"}
+  ]
+}

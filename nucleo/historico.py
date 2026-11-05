@@ -123,7 +123,7 @@ def aplicar_historico(
 
     for verba in normalizacao.verbas:
         antes = anteriores.get(verba.id)
-        desde = datas_fonte.get(verba.id)
+        desde = normalizacao.conferidas.get(verba.id) or datas_fonte.get(verba.id)  # D23: a conferência no Acesso Livre é a data mais nova
         if antes is None:
             nota = "Primeira coleta" if resultado.primeira_execucao else "Verba apareceu nas fontes"
             if desde:

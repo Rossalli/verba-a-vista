@@ -25,6 +25,20 @@ Primeira execução: **Actions → Coleta diária → Run workflow**. Ela coleta
 - **Issue "Fonte sem retrato de hoje":** veja o log da execução e `dados/brutos/<fonte>/<data>.log.json`. O site continua no ar com o último retrato válido e mostra a data dele.
 - **Falha do workflow (e-mail do GitHub):** erro no pipeline (por exemplo, arquivo de curadoria inválido) para tudo e nada é publicado nem implantado; o site fica como estava.
 
+## Conferência semanal no Acesso Livre (enquanto o lote do Siconv estiver fora do ar)
+
+Uma vez por semana, no seu computador (D23). Precisa do Chrome instalado; o script abre uma janela e navega sozinho por alguns minutos, sem você mexer nela.
+
+```
+git pull
+pip install -e ".[local]"                    # só na primeira vez
+python scripts/sync_acesso_livre.py          # --sem-gravar para só olhar; --sem-pareceres para só a lista
+git add dados/brutos/transferegov_acesso_livre
+git commit -m "conferência no Acesso Livre" && git push
+```
+
+O script mostra o que mudou desde o lote do Siconv e grava o retrato do dia. O push de `dados/brutos/` não republica o site sozinho: a próxima coleta (09:00) ou **Actions → Coleta diária → Run workflow** já usa o retrato. Se aparecer captcha, login do gov.br ou a página mudar, ele para sem gravar e diz em que passo: **não tente contornar**, avise o projeto. Com mais de 8 dias sem conferência, a issue "Conferência no Acesso Livre atrasada" é aberta. Depois de uma perda nova, rode `python -m curadoria --executar` para os pareceres entrarem no rascunho da IA (a revisão continua sendo sua).
+
 ## Lançamento: liberar a indexação
 
 Até o lançamento o site é público mas pede aos buscadores para **não** indexá-lo (`noindex` em todas as páginas). Depois da revisão de credibilidade (spec §12), crie a variável em **Settings → Secrets and variables → Actions → Variables**: `SITE_INDEXAR` = `true`, e rode o workflow (Actions → Coleta diária → Run workflow). O `noindex` só some no deploy seguinte. Para voltar a bloquear, apague a variável ou mude o valor e rode de novo.
