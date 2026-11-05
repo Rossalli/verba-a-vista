@@ -175,8 +175,8 @@ def main(argv: list[str] | None = None) -> int:
     pausa = max(args.pausa, 2.0)
     try:
         from playwright.sync_api import sync_playwright
-    except ImportError:
-        print('Falta o Playwright. Rode uma vez:  pip install -e ".[local]"')
+    except ImportError as erro:
+        print(f'Não consegui carregar o Playwright: {erro!r}\nPython em uso: {sys.executable} ({sys.version.split()[0]})\nSe ele não estiver instalado nesse Python, rode:  {sys.executable} -m pip install -e ".[local]"')
         return 2
 
     inicio = time.time()
