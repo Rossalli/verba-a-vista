@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { carregarTaxonomia } from "../src/lib/taxonomia.js";
-import { emRiscoAgora, evitaveis, fraseEvitavel, formatarCompacto, formatarNomeProprio, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
+import { emRiscoAgora, evitaveis, fraseEvitavel, perdasPorAno, formatarCompacto, formatarNomeProprio, formatarTitulo, perdasPorMotivo, resumir, rotuloInstrumento, rotuloRisco, ultimasMudancas } from "../src/lib/resumo.js";
 
 const taxonomia = carregarTaxonomia();
 const motivo = (codigo, texto = codigo) => ({ codigo, texto });
@@ -98,4 +98,16 @@ test("frase de perdas evitáveis: não diz \"0 das N\" quando os documentos só 
   assert.equal(fraseEvitavel({ total: 4, evitaveis: 2, indeterminadas: 1 }, sem), "2 perdas de 4 com motivo documentado tinham uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba. Em 1, os documentos não permitem dizer.");
   assert.equal(fraseEvitavel({ total: 2, evitaveis: 1, indeterminadas: 0 }, sem), "1 perda de 2 com motivo documentado tinha uma causa que a prefeitura poderia ter evitado, segundo os documentos citados em cada verba.");
   assert.equal(fraseEvitavel({ total: 3, evitaveis: 0, indeterminadas: 1 }, sem).startsWith("0 perdas de 3"), true); // há "não" explícito: aí o zero é verdadeiro
+});
+
+test("perdas por ano da perda: ano mais recente primeiro, totais, barras e ordem das verbas", () => {
+  const com = (id, data, valor) => verba(id, "perdida", 1, { perda: perda("em_apuracao", valor, { data }) });
+  const lista = perdasPorAno([com("a", "2025-01-21", 100_00), com("b", "2026-03-24", 300_00), com("c", "2026-01-14", 500_00), com("d", "2026-03-24", 700_00), verba("x", "aprovada", 1)]);
+  assert.deepEqual(lista.map((g) => [g.ano, g.n, g.valor, g.largura, g.ancora]), [["2026", 3, 1500_00, 100, "ano-2026"], ["2025", 1, 100_00, 7, "ano-2025"]]);
+  assert.deepEqual(lista[0].verbas.map((v) => v.id), ["d", "b", "c"]); // 24/03 (maior valor primeiro), depois 14/01
+  assert.deepEqual(perdasPorAno([verba("x", "aprovada", 1)]), []);
+});
+
+test("perdas por motivo continuam apontando para a própria categoria", () => {
+  assert.equal(perdasPorMotivo(verbas, taxonomia)[0].ancora, "em_apuracao");
 });

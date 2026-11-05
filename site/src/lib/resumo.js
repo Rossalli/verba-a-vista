@@ -47,8 +47,29 @@ export function perdasPorMotivo(verbas, taxonomia) {
   return lista.map((g) => ({
     ...g,
     rotulo: g.categoria === "em_apuracao" ? "Motivo em apuração" : (taxonomia.categorias[g.categoria]?.rotulo ?? g.categoria),
+    ancora: g.categoria,
     largura: Math.max(2, Math.round((g.valor / maior) * 100)),
   }));
+}
+
+/**
+ * Perdas por ano da perda (`perda.data`: o último registro da situação na fonte), do ano mais recente para o mais
+ * antigo; `verbas` da perda mais recente para a mais antiga e, no mesmo dia, do maior valor perdido.
+ */
+export function perdasPorAno(verbas) {
+  const grupos = new Map();
+  for (const v of verbas.filter((x) => x.status_site === "perdida" && x.perda)) {
+    const ano = v.perda.data.slice(0, 4);
+    const g = grupos.get(ano) ?? { ano, n: 0, valor: 0, verbas: [] };
+    g.n += 1;
+    g.valor += v.perda.valor_perdido ?? 0;
+    g.verbas.push(v);
+    grupos.set(ano, g);
+  }
+  for (const g of grupos.values()) g.verbas.sort((a, b) => b.perda.data.localeCompare(a.perda.data) || (b.perda.valor_perdido ?? 0) - (a.perda.valor_perdido ?? 0));
+  const lista = [...grupos.values()].sort((a, b) => b.ano.localeCompare(a.ano));
+  const maior = Math.max(1, ...lista.map((g) => g.valor));
+  return lista.map((g) => ({ ...g, categoria: `ano-${g.ano}`, ancora: `ano-${g.ano}`, rotulo: g.ano, largura: Math.max(2, Math.round((g.valor / maior) * 100)) }));
 }
 
 /** Das perdas com motivo documentado, quantas a prefeitura poderia ter evitado (`sim`). */

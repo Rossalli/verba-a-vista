@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D20 — Perdas agrupadas por motivo ou por ano da perda (05/11/2026)
+A página Perdas ganhou um alternador "Por motivo | Por ano da perda" (`?por=ano`; os links `#ano-2026` abrem a visão por ano). O ano da perda é o de `perda.data`, o último registro da situação na fonte (spec §6.1), e não o da proposta: hoje as 8 perdas somam R$ 4.660.929, sendo R$ 3.960.929 (7 verbas) em 2026 e R$ 700.000 (1) em 2025. Sem JavaScript as duas visões aparecem, uma depois da outra. Isso responde à dúvida da D19: o filtro "Ano da proposta" da lista não serve para perguntar "quanto perdemos em cada ano".
+
 ## D19 — Filtro por ano da proposta e site sem indexação até o lançamento (05/11/2026)
 **Ano:** a lista ganhou o filtro "Ano da proposta" (`?ano=2025`), com o ano de `prazos.proposta` ou, nos programas por adesão, de `prazos.adesao`; verba sem essas datas fica em "Sem data". Não é o ano da perda: filtrar "Perdida" + 2026 mostra 0, porque as perdas de 2026 foram propostas em 2025. **Indexação:** todas as páginas saem com `<meta name="robots" content="noindex">` enquanto a variável do repositório `SITE_INDEXAR` não for `true` (a 404 nunca é indexada). Um `robots.txt` não adiantaria: no GitHub Pages de projeto ele ficaria em `/verba-a-vista/`, e os buscadores só leem o da raiz do domínio.
 

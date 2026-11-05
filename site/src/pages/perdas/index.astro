@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import BarrasPerdas from "../../components/BarrasPerdas.astro";
 import { carregarPublicado, formatarData, formatarReais, url } from "../../lib/dados.js";
 import { carregarTaxonomia } from "../../lib/taxonomia.js";
-import { evitaveis, fraseEvitavel, formatarTitulo, perdasPorMotivo, resumir } from "../../lib/resumo.js";
+import { evitaveis, fraseEvitavel, formatarTitulo, perdasPorAno, perdasPorMotivo, resumir } from "../../lib/resumo.js";
 import { ROTULO_EVITAVEL } from "../../lib/verba.js";
 
 const publicado = carregarPublicado();
@@ -11,17 +11,20 @@ const taxonomia = carregarTaxonomia();
 const verbas = publicado.verbas;
 const resumo = resumir(verbas);
 const grupos = perdasPorMotivo(verbas, taxonomia);
+const anos = perdasPorAno(verbas);
 const evitavel = evitaveis(verbas);
 const dia = (iso) => formatarData(`${iso}T12:00:00-03:00`);
+const rotuloMotivo = (categoria) => (categoria === "em_apuracao" ? "Em apuração" : (taxonomia.categorias[categoria]?.rotulo ?? categoria));
 const descricao = (categoria) =>
   categoria === "em_apuracao"
     ? "Ainda não encontramos um documento oficial que explique estas perdas. Quando encontrarmos, cada uma passa para o grupo do seu motivo, com o trecho citado."
     : taxonomia.categorias[categoria]?.descricao;
+const plural = (n) => `${n} ${n === 1 ? "verba" : "verbas"}`;
 ---
 
 <Base
   titulo="Perdas"
-  descricao="Verbas federais que Neves Paulista perdeu desde 2024, agrupadas pelo motivo, com o valor perdido e o documento oficial de cada uma."
+  descricao="Verbas federais que Neves Paulista perdeu desde 2024, por motivo e por ano, com o valor perdido e o documento oficial de cada uma."
   rota="/perdas/"
   espaco="32px"
 >
@@ -30,55 +33,140 @@ const descricao = (categoria) =>
     <p>
       {resumo.perdidas.n === 0
         ? "Nenhuma verba federal foi perdida no período acompanhado (desde 2024)."
-        : <>Desde 2024, <strong>{resumo.perdidas.n} {resumo.perdidas.n === 1 ? "verba" : "verbas"}</strong> deixaram de chegar ao município, num total de <strong class="mono">{formatarReais(resumo.perdidas.valor)}</strong>. Aqui elas estão agrupadas pelo motivo.</>}
+        : <>Desde 2024, <strong>{resumo.perdidas.n} {resumo.perdidas.n === 1 ? "verba" : "verbas"}</strong> deixaram de chegar ao município, num total de <strong class="mono">{formatarReais(resumo.perdidas.valor)}</strong>. Veja as perdas agrupadas pelo motivo ou pelo ano em que foram perdidas.</>}
     </p>
     <p class="apoio">Valor perdido: parte do repasse da União que não foi liberada, mais o que foi devolvido. O motivo só é publicado com o documento oficial citado; sem ele, a perda fica “em apuração”. <a href={url("/como-funciona/#perdas")}>Como explicamos as perdas</a>.</p>
   </div>
 
-  {grupos.length > 0 && (
-    <section class="painel" aria-label="Valor perdido por motivo">
-      <BarrasPerdas grupos={grupos} />
-      <span class="apoio">
-        {fraseEvitavel(evitavel, "Nenhuma perda tem ainda o motivo documentado e revisado.")}
-      </span>
-    </section>
+  {resumo.perdidas.n > 0 && (
+    <div class="alternador" role="group" aria-label="Agrupar as perdas por" hidden>
+      <button type="button" class="chip" data-botao="motivo" aria-pressed="true">Por motivo</button>
+      <button type="button" class="chip" data-botao="ano" aria-pressed="false">Por ano da perda</button>
+    </div>
   )}
 
-  {grupos.map((g) => (
-    <section class="grupo" id={g.categoria} aria-labelledby={`t-${g.categoria}`}>
-      <div class="titulo-grupo">
-        <h2 id={`t-${g.categoria}`}>{g.rotulo}</h2>
-        <span class="mono total">{formatarReais(g.valor)} · {g.n} {g.n === 1 ? "verba" : "verbas"}</span>
-      </div>
-      <p class="apoio">{descricao(g.categoria)}</p>
-      <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas: ${g.rotulo}`}>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Verba</th>
-              <th scope="col">Perdida em</th>
-              <th scope="col">Evitável?</th>
-              <th scope="col" class="direita">Valor perdido</th>
-            </tr>
-          </thead>
-          <tbody>
-            {g.verbas.map((v) => (
-              <tr>
-                <td>
-                  <a class="nome" href={url(`/verbas/${v.id}/`)}>{formatarTitulo(v.nome)}</a>
-                  <span class="fonte">Na fonte: {v.status_fonte}</span>
-                </td>
-                <td class="mono">{dia(v.perda.data)}</td>
-                <td>{v.perda.categoria === "em_apuracao" ? "—" : ROTULO_EVITAVEL[v.perda.evitavel]}</td>
-                <td class="direita mono">{formatarReais(v.perda.valor_perdido)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  ))}
+  <div class="visoes" data-ativa="ambas">
+    <div class="visao" data-visao="motivo">
+      {grupos.length > 0 && (
+        <>
+          <h2 class="titulo-visao">Por motivo</h2>
+          <section class="painel" aria-label="Valor perdido por motivo">
+            <BarrasPerdas grupos={grupos} />
+            <span class="apoio">
+              {fraseEvitavel(evitavel, "Nenhuma perda tem ainda o motivo documentado e revisado.")}
+            </span>
+          </section>
+        </>
+      )}
+
+      {grupos.map((g) => (
+        <section class="grupo" id={g.categoria} aria-labelledby={`t-${g.categoria}`}>
+          <div class="titulo-grupo">
+            <h2 id={`t-${g.categoria}`}>{g.rotulo}</h2>
+            <span class="mono total">{formatarReais(g.valor)} · {plural(g.n)}</span>
+          </div>
+          <p class="apoio">{descricao(g.categoria)}</p>
+          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas: ${g.rotulo}`}>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Verba</th>
+                  <th scope="col">Perdida em</th>
+                  <th scope="col">Evitável?</th>
+                  <th scope="col" class="direita">Valor perdido</th>
+                </tr>
+              </thead>
+              <tbody>
+                {g.verbas.map((v) => (
+                  <tr>
+                    <td>
+                      <a class="nome" href={url(`/verbas/${v.id}/`)}>{formatarTitulo(v.nome)}</a>
+                      <span class="fonte">Na fonte: {v.status_fonte}</span>
+                    </td>
+                    <td class="mono">{dia(v.perda.data)}</td>
+                    <td>{v.perda.categoria === "em_apuracao" ? "—" : ROTULO_EVITAVEL[v.perda.evitavel]}</td>
+                    <td class="direita mono">{formatarReais(v.perda.valor_perdido)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="visao" data-visao="ano">
+      {anos.length > 0 && (
+        <>
+          <h2 class="titulo-visao">Por ano da perda</h2>
+          <section class="painel" aria-label="Valor perdido por ano">
+            <BarrasPerdas grupos={anos} />
+            <span class="apoio">O ano da perda é o do último registro da situação na fonte (a rejeição ou o cancelamento), não o da proposta.</span>
+          </section>
+        </>
+      )}
+
+      {anos.map((g) => (
+        <section class="grupo" id={g.ancora} aria-labelledby={`t-${g.ancora}`}>
+          <div class="titulo-grupo">
+            <h2 id={`t-${g.ancora}`}>Perdas de {g.ano}</h2>
+            <span class="mono total">{formatarReais(g.valor)} · {plural(g.n)}</span>
+          </div>
+          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas em ${g.ano}`}>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Verba</th>
+                  <th scope="col">Perdida em</th>
+                  <th scope="col">Motivo</th>
+                  <th scope="col" class="direita">Valor perdido</th>
+                </tr>
+              </thead>
+              <tbody>
+                {g.verbas.map((v) => (
+                  <tr>
+                    <td>
+                      <a class="nome" href={url(`/verbas/${v.id}/`)}>{formatarTitulo(v.nome)}</a>
+                      <span class="fonte">Na fonte: {v.status_fonte}</span>
+                    </td>
+                    <td class="mono">{dia(v.perda.data)}</td>
+                    <td>{rotuloMotivo(v.perda.categoria)}</td>
+                    <td class="direita mono">{formatarReais(v.perda.valor_perdido)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
 </Base>
+
+<script>
+  // Alternador de visão. Sem JavaScript as duas visões aparecem, uma depois da outra.
+  const raiz = document.querySelector(".visoes");
+  const alternador = document.querySelector(".alternador");
+  const botoes = [...document.querySelectorAll("[data-botao]")];
+
+  function mostrar(visao, { rolar = false } = {}) {
+    raiz.dataset.ativa = visao;
+    for (const b of botoes) b.setAttribute("aria-pressed", String(b.dataset.botao === visao));
+    const parametros = new URLSearchParams(location.search);
+    if (visao === "ano") parametros.set("por", "ano");
+    else parametros.delete("por");
+    const consulta = parametros.toString();
+    history.replaceState(null, "", location.pathname + (consulta ? `?${consulta}` : "") + location.hash);
+    if (rolar && location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
+  }
+
+  if (raiz && alternador) {
+    alternador.hidden = false;
+    const daUrl = new URLSearchParams(location.search).get("por") === "ano" || location.hash.startsWith("#ano-");
+    mostrar(daUrl ? "ano" : "motivo", { rolar: true });
+    for (const b of botoes) b.addEventListener("click", () => mostrar(b.dataset.botao));
+  }
+</script>
 
 <style>
   .cabeca { display: flex; flex-direction: column; gap: 10px; max-width: 70ch; }
@@ -86,6 +174,18 @@ const descricao = (categoria) =>
   .titulo { font-size: 44px; line-height: 1.05; }
   .apoio { margin: 0; font-size: 14px; color: var(--tinta-suave); max-width: 70ch; }
   .painel { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+
+  .alternador { display: flex; flex-wrap: wrap; gap: 8px; }
+  .alternador[hidden] { display: none; }
+  .chip { font: 700 14px var(--fonte-texto); min-height: 44px; padding: 8px 16px; border-radius: var(--raio-pilula); cursor: pointer; border: 1px solid var(--campo-borda); background: var(--superficie); color: var(--tinta); }
+  .chip:hover { border-color: var(--tinta); }
+  .chip[aria-pressed="true"] { border-color: var(--tinta); background: var(--tinta); color: #fff; }
+
+  .visoes { display: flex; flex-direction: column; gap: 48px; }
+  .visao { display: flex; flex-direction: column; gap: 32px; }
+  .visoes[data-ativa="motivo"] .visao[data-visao="ano"],
+  .visoes[data-ativa="ano"] .visao[data-visao="motivo"] { display: none; }
+  .visoes:not([data-ativa="ambas"]) .titulo-visao { display: none; }
 
   .grupo { display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 16px; }
   .titulo-grupo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }

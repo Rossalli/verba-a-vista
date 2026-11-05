@@ -7,7 +7,7 @@ const { grupos } = Astro.props;
 
 <div class="barras">
   {grupos.map((g) => (
-    <a class="barra" href={url(`/perdas/#${g.categoria}`)}>
+    <a class="barra" href={url(`/perdas/#${g.ancora ?? g.categoria}`)}>
       <span class="linha-barra">
         <span>{g.rotulo} <span class="n">({g.n})</span></span>
         <span class="mono"><span class="longo">{formatarReais(g.valor)}</span><span class="curto">{formatarCompacto(g.valor)}</span></span>
