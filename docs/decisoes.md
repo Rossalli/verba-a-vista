@@ -2,6 +2,9 @@
 
 Registro curto de decisões tomadas. Uma nova decisão entra no topo.
 
+## D19 — Filtro por ano da proposta e site sem indexação até o lançamento (05/11/2026)
+**Ano:** a lista ganhou o filtro "Ano da proposta" (`?ano=2025`), com o ano de `prazos.proposta` ou, nos programas por adesão, de `prazos.adesao`; verba sem essas datas fica em "Sem data". Não é o ano da perda: filtrar "Perdida" + 2026 mostra 0, porque as perdas de 2026 foram propostas em 2025. **Indexação:** todas as páginas saem com `<meta name="robots" content="noindex">` enquanto a variável do repositório `SITE_INDEXAR` não for `true` (a 404 nunca é indexada). Um `robots.txt` não adiantaria: no GitHub Pages de projeto ele ficaria em `/verba-a-vista/`, e os buscadores só leem o da raiz do domínio.
+
 ## D18 — Etapa `proposta` passa a se chamar "Proposta"; e-mail de contato definido (04/11/2026)
 A etapa mostrava "Proposta enviada", mas agrupa situações da fonte que vão de "Cadastrados" (ainda não enviada) a "Enviado para Análise" e "Complementado em Análise". O rótulo agora é só "Proposta" (spec §4 e `config/taxonomia.yaml`); a situação original da fonte continua sempre visível ao lado. O rótulo do prazo `proposta` virou "Data da proposta". O e-mail de contato do site é `barbara.rossalli@gmail.com` (`site/src/config.js`). O domínio continua em aberto.
 

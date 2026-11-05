@@ -2,13 +2,15 @@
 import Base from "../../layouts/Base.astro";
 import { carregarPublicado, formatarReais, url } from "../../lib/dados.js";
 import { carregarTaxonomia } from "../../lib/taxonomia.js";
-import { STATUS, normalizar, ordenarLista } from "../../lib/filtros.js";
+import { SEM_DATA, STATUS, anoDaVerba, normalizar, ordenarLista } from "../../lib/filtros.js";
 import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
 
 const publicado = carregarPublicado();
 const taxonomia = carregarTaxonomia();
 const verbas = ordenarLista(publicado.verbas);
 const tipos = Object.entries(taxonomia.tipos).filter(([chave]) => verbas.some((v) => v.tipo === chave));
+// Anos presentes nos dados, do mais recente para o mais antigo; "Sem data" por último (D19).
+const anos = [...new Set(verbas.map(anoDaVerba))].sort((a, b) => (a === SEM_DATA) - (b === SEM_DATA) || b.localeCompare(a));
 const rotuloStatus = (v) => (v.status_site ? taxonomia.status[v.status_site] : taxonomia.sem_status);
 const contagem = Object.fromEntries(STATUS.map((s) => [s, verbas.filter((v) => v.status_site === s).length]));
 const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxonomia.status[s], contagem[s]])];
@@ -45,6 +47,13 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
           {tipos.map(([chave, rotulo]) => <option value={chave}>{rotulo}</option>)}
         </select>
       </label>
+      <label class="campo ano">
+        Ano da proposta
+        <select name="ano">
+          <option value="">Todos os anos</option>
+          {anos.map((ano) => <option value={ano}>{ano === SEM_DATA ? "Sem data" : ano}</option>)}
+        </select>
+      </label>
       <button type="button" class="chip risco-botao" data-risco aria-pressed="false">Só em risco</button>
     </div>
   </form>
@@ -73,6 +82,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
             data-status={v.status_site ?? "sem_status"}
             data-risco={v.em_risco ? "1" : "0"}
             data-tipo={v.tipo}
+            data-ano={anoDaVerba(v)}
             data-busca={normalizar([v.nome, v.objeto, v.orgao_concedente, v.numero_instrumento, v.id_fonte, rotuloInstrumento(v)].filter(Boolean).join(" "))}
           >
             <td>
@@ -111,16 +121,19 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
     status: el.dataset.status,
     risco: el.dataset.risco === "1",
     tipo: el.dataset.tipo,
+    ano: el.dataset.ano,
     busca: el.dataset.busca,
   }));
   const campoBusca = $('input[name="q"]');
   const campoTipo = $('select[name="tipo"]');
+  const campoAno = $('select[name="ano"]');
   const botaoRisco = $("[data-risco]");
   const chips = [...document.querySelectorAll("[data-chip]")];
   const tiposValidos = [...campoTipo.options].map((o) => o.value).filter(Boolean);
+  const anosValidos = [...campoAno.options].map((o) => o.value).filter(Boolean);
   const total = linhas.length;
 
-  let filtros = lerFiltros(new URLSearchParams(location.search), tiposValidos);
+  let filtros = lerFiltros(new URLSearchParams(location.search), tiposValidos, anosValidos);
 
   function desenhar() {
     const contagem = contarPorStatus(linhas, filtros);
@@ -138,6 +151,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
     }
     botaoRisco.setAttribute("aria-pressed", String(filtros.risco));
     campoTipo.value = filtros.tipo;
+    campoAno.value = filtros.ano;
     if (document.activeElement !== campoBusca) campoBusca.value = filtros.q;
     $("[data-resultado]").textContent = `${visiveis} de ${total} ${total === 1 ? "verba" : "verbas"}`;
     const parametros = paraParametros(filtros).toString();
@@ -160,12 +174,16 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
     filtros = { ...filtros, tipo: campoTipo.value };
     desenhar();
   });
+  campoAno.addEventListener("change", () => {
+    filtros = { ...filtros, ano: campoAno.value };
+    desenhar();
+  });
   campoBusca.addEventListener("input", () => {
     filtros = { ...filtros, q: campoBusca.value };
     desenhar();
   });
   $("[data-limpar]").addEventListener("click", () => {
-    filtros = { status: "todas", risco: false, tipo: "", q: "" };
+    filtros = { status: "todas", risco: false, tipo: "", ano: "", q: "" };
     desenhar();
   });
   desenhar();
@@ -186,6 +204,7 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
   .campo { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--tinta-suave); }
   .campo.busca { flex: 1 1 260px; }
   .campo.tipo { flex: 0 1 280px; }
+  .campo.ano { flex: 0 1 170px; }
   input, select { font: 400 16px var(--fonte-texto); min-height: 44px; padding: 10px 12px; border: 1px solid var(--campo-borda); border-radius: 8px; color: var(--tinta); background: var(--superficie); width: 100%; }
   .risco-botao[aria-pressed="true"] { border-color: var(--risco); background: var(--risco); }
 
@@ -213,5 +232,6 @@ const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxon
     .titulo { font-size: 34px; }
     .filtros { padding: 14px; }
     .campo.tipo { flex-basis: 100%; }
+    .campo.ano { flex-basis: 100%; }
   }
 </style>

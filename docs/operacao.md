@@ -25,6 +25,12 @@ Primeira execução: **Actions → Coleta diária → Run workflow**. Ela coleta
 - **Issue "Fonte sem retrato de hoje":** veja o log da execução e `dados/brutos/<fonte>/<data>.log.json`. O site continua no ar com o último retrato válido e mostra a data dele.
 - **Falha do workflow (e-mail do GitHub):** erro no pipeline (por exemplo, arquivo de curadoria inválido) para tudo e nada é publicado nem implantado; o site fica como estava.
 
+## Lançamento: liberar a indexação
+
+Até o lançamento o site é público mas pede aos buscadores para **não** indexá-lo (`noindex` em todas as páginas). Depois da revisão de credibilidade (spec §12), crie a variável em **Settings → Secrets and variables → Actions → Variables**: `SITE_INDEXAR` = `true`, e rode o workflow (Actions → Coleta diária → Run workflow). O `noindex` só some no deploy seguinte. Para voltar a bloquear, apague a variável ou mude o valor e rode de novo.
+
+O `noindex` é um pedido, não uma trava: quem tem o link abre o site normalmente.
+
 ## Domínio próprio (quando houver)
 
 Configure em **Settings → Pages → Custom domain**. O `base` do site vem da configuração do Pages (`configure-pages`), então nada muda no código. O e-mail de contato fica em `site/src/config.js`.

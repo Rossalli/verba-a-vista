@@ -203,10 +203,12 @@ Layout de referência em `docs/design.md` e `docs/design/telas/`.
 | Página | Rota | Conteúdo |
 | --- | --- | --- |
 | Início | `/` | Frase-tese, resumo (em andamento, em risco, perdidas desde 2024, concluídas), "Em risco agora", perdas por motivo, últimas mudanças, como funciona |
-| Lista | `/verbas/` | Filtros por situação, "só em risco", tipo, área, busca; tabela; link para CSV |
+| Lista | `/verbas/` | Filtros por situação, "só em risco", tipo, **ano**, área, busca; tabela; link para CSV |
 | Verba | `/verbas/<id>/` | Cabeçalho com status do site + status da fonte, valores, bloco de perda (se houver) com selo de IA e citações, histórico, registros originais, "encontrou um erro?" |
 | Perdas | `/perdas/` | Todas as perdas agrupadas por categoria, com totais |
 | Como funciona | `/como-funciona/` | Fontes, frequência, método de curadoria com IA, limitações, contato |
+
+Filtro por **ano** (D19): é o ano da proposta (`prazos.proposta`) ou, nos programas por adesão, do prazo de adesão (`prazos.adesao`); verba sem nenhuma dessas datas entra em "Sem data". Não é o ano da perda: este aparece na própria linha da verba perdida (`perda.data`).
 
 Requisitos:
 - Faixa "Iniciativa cidadã independente. Não é o site oficial da Prefeitura de Neves Paulista." no topo de toda página.

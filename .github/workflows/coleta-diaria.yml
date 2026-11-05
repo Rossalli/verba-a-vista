@@ -109,6 +109,7 @@ jobs:
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
           SITE_BASE: ${{ steps.pages.outputs.base_path }}/
+          SITE_INDEXAR: ${{ vars.SITE_INDEXAR }}   # sem "true", todas as páginas saem com noindex (pré-lançamento)
         run: |
           npm ci
           npm run build
