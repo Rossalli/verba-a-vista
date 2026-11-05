@@ -1,0 +1,17 @@
+{
+ "fonte": "transferegov_acesso_livre",
+ "data": "2026-11-04",
+ "execucoes": [
+  {
+   "origem": "manual local",
+   "inicio": "2026-11-04T23:28:32-03:00",
+   "duracao_s": 215.8,
+   "contagens": {
+    "propostas": 241,
+    "pareceres": 27
+   },
+   "mudaram": 7,
+   "novas": 0
+  }
+ ]
+}
