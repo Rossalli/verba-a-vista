@@ -1,0 +1,124 @@
+verba_id: transferegov_discricionarias-2175551
+gerado_em: '2026-11-05'
+modelo: claude-sonnet-5-5
+id_requisicao: req_011CgizrEiFdctSVmDTVNUbr
+avisos: []
+permitidos:
+- Neves Paulista
+- MINISTERIO DA JUSTICA E SEGURANCA PUBLICA
+- MODERNIZAÇAO DO SISTEMA DE VIDEOMONITORAMENTO DO MUNICIPIO DE NEVES PAULISTA-SP
+- MODERNIZAÇAO DO SISTEMA DE VIDEOMONITORAMENTO DO MUNICIPIO DE NEVES PAULISTA-SP
+rascunho:
+  verba_id: transferegov_discricionarias-2175551
+  categoria: em_apuracao
+  texto: Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.
+  evitavel: indeterminado
+  confianca: baixa
+  citacoes: []
+  observacoes_para_revisor: 'Nenhum documento declara que a verba foi perdida: a proposta 2456/2026 (convênio
+    de R$ 200.000,00 de repasse para videomonitoramento, emenda individual impositiva) aparece como "Proposta/Plano
+    de Trabalho Complementado em Análise" no instrumento, e o último evento do histórico é PROPOSTA_COMPLEMENTADA_EM_ANALISE
+    em 08/07/2026. Não há registro de rejeição, cancelamento, extinção ou perda de prazo. Houve várias
+    diligências técnicas do concedente (30/06, 22/07, 27/07 e 25/08/2026), mas os pareceres não detalham
+    os apontamentos (ficam em notas técnicas e anexos que não foram fornecidos), e não há documento mostrando
+    que alguma diligência deixou de ser respondida. Os pareceres mencionam um possível "remanejamento"
+    do recurso, sem explicar o contexto; o fato pode ser relevante, mas não sustenta nenhuma categoria.
+    O CAUC de 04/11/2026 mostra duas pendências (3.2.4 e 4.2), mas é posterior aos demais documentos e
+    não há registro de que a proposta tenha sido barrada por elas ou de qual data de assinatura era exigida,
+    então não é possível classificar como "cauc". Faltam: o desfecho da proposta após 25/08/2026, as notas
+    técnicas 783, 820 e 821/2026 e as diligências COCEL 98 e 140/2026, os registros das respostas do município
+    e o documento que classificou esta verba como perdida. Vale também confirmar se a proposta continua
+    em tramitação, caso em que talvez não devesse constar como perda. Observação: os pareceres de 22/07,
+    27/07 e 25/08/2026 trazem prazos de atendimento (08/07 e 14/09/2026) possivelmente copiados de outros
+    registros, o que merece conferência na fonte.'
+documentos:
+- id: instrumento-2175551
+  titulo: 'Transferegov: proposta 2456/2026 e instrumento'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-10-29T18:19:35-03:00'
+  texto: |-
+    Número da proposta: 2456/2026
+    Ano da proposta: 2026
+    Modalidade: CONVENIO
+    Órgão concedente: MINISTERIO DA JUSTICA E SEGURANCA PUBLICA
+    Objeto: MODERNIZAÇAO DO SISTEMA DE VIDEOMONITORAMENTO DO MUNICIPIO DE NEVES PAULISTA-SP
+    Situação da proposta: Proposta/Plano de Trabalho Complementado em Análise
+    Situação do projeto básico: Em Análise
+    Data da proposta: 23/02/2026
+    Início da vigência da proposta: 23/02/2026
+    Fim da vigência da proposta: 31/12/2028
+    Valor global: R$ 202.753,08
+    Valor do repasse: R$ 200.000,00
+    Contrapartida: R$ 2.753,08
+
+    Número da emenda: 27960009
+    Tipo de autoria: INDIVIDUAL
+    Impositiva: SIM
+- id: historico-situacao-2175551
+  titulo: 'Transferegov: histórico de situação da proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-10-29T18:19:35-03:00'
+  texto: |-
+    23/02/2026: PROPOSTA_CADASTRADA
+    13/03/2026: PROPOSTA_ENVIADA_ANALISE
+    01/04/2026: PROPOSTA_EM_ANALISE
+    01/04/2026: PROPOSTA_EM_COMPLEMENTACAO
+    14/04/2026: PROPOSTA_COMPLEMENTADA_ENVIADA_ANALISE
+    15/04/2026: PROPOSTA_COMPLEMENTADA_EM_ANALISE
+    15/05/2026: PROPOSTA_EM_COMPLEMENTACAO
+    02/06/2026: PROPOSTA_EM_COMPLEMENTACAO
+    02/06/2026: PROPOSTA_COMPLEMENTADA_ENVIADA_ANALISE
+    03/06/2026: PROPOSTA_COMPLEMENTADA_EM_ANALISE
+    12/06/2026: PROPOSTA_EM_COMPLEMENTACAO
+    07/07/2026: PROPOSTA_COMPLEMENTADA_ENVIADA_ANALISE
+    08/07/2026: PROPOSTA_COMPLEMENTADA_EM_ANALISE
+- id: cauc-2026-11-04
+  titulo: 'CAUC: situação do município em 04/11/2026'
+  url: https://www.tesourotransparente.gov.br/ckan/dataset/72b5f371-0c35-4613-8076-c99c821a6410/resource/07af297a-5e59-494a-a88a-55ddfd2f4b01/download/relatorio-situacao-de-varios-entes---municipios---uf-todas---abrangencia-1.csv
+  data_coleta: '2026-11-04T20:24:49-03:00'
+  texto: |-
+    Itens do CAUC sem comprovação:
+    3.2.4 Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops
+    4.2 Regularidade Previdenciária
+- id: parecer-2175551-2026-06-30
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 30/06/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 30/06/2026:
+    Registra-se Diligência - NOTA TÉCNICA Nº 783/2026/ATF/COAM/CGSUSP/DSUSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 08/07/2026.
+- id: parecer-2175551-2026-07-22
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 22/07/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 22/07/2026:
+    Registra-se Diligência - Diligência COCEL Nº 98/2026/Propostas-COCEL/COCEL/CGCR/DGFNSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 08/07/2026.
+- id: parecer-2175551-2026-07-22-2031629
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 22/07/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 22/07/2026:
+    Registra-se Diligência - Diligência COCEL Nº 98/2026/Propostas-COCEL/COCEL/CGCR/DGFNSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 08/07/2026.
+- id: parecer-2175551-2026-07-27
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 27/07/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 27/07/2026:
+    Registra-se Diligência -NOTA TÉCNICA Nº 820/2026/ATF/COAM/CGSUSP/DSUSP/SENASP/MJ e NOTA TÉCNICA Nº 821/2026/ATF/COAM/CGSUSP/DSUSP/SENASP/MJ - PLANO DE TRABALHO E ADERENCIA A POLITICA. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 08/07/2026.
+- id: parecer-2175551-2026-08-25
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 25/08/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 25/08/2026:
+    Registra-se Diligência COCEL Nº 140/2026/Propostas-COCEL/COCEL/CGCR/DGFNSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 14/09/2026.
+- id: parecer-2175551-2026-08-25-2040854
+  titulo: 'Transferegov (Acesso Livre): parecer do concedente de 25/08/2026, proposta 2456/2026'
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
+  data_coleta: '2026-11-04T23:28:32-03:00'
+  texto: |-
+    Parecer do CONCEDENTE (Analista Técnico do Concedente), 25/08/2026:
+    Registra-se Diligência COCEL Nº 140/2026/Propostas-COCEL/COCEL/CGCR/DGFNSP/SENASP/MJ - ANÁLISE DO PLANO DE TRABALHO. Enquanto a emenda permanecer vinculada à proposta, deverão ser saneados os apontamentos técnicos constantes nas notas/anexos inseridos na plataforma. Assim, a proposta será colocada em complementação, para que o proponente promova os ajustes necessários à continuidade da análise. O atendimento deverá ocorrer no prazo estabelecido, independentemente de eventual decisão posterior sobre o remanejamento, considerando que a proposta permanece em tramitação e deve ser mantida tecnicamente apta caso o recurso indicado seja preservado. Prazo para atendimento: 14/09/2026.

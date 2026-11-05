@@ -54,10 +54,10 @@
   "transferegov_acesso_livre": {
    "nome": "Transferegov — Acesso Livre (conferência manual semanal)",
    "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
-   "retrato": null,
-   "coletado_em": null,
-   "data_do_dado": null,
-   "situacao": "sem_retrato"
+   "retrato": "2026-11-04",
+   "coletado_em": "2026-11-04T23:28:32-03:00",
+   "data_do_dado": "2026-11-04",
+   "situacao": "manual"
   }
  },
  "referencias": {
@@ -1381,21 +1381,20 @@
    "parlamentar": "ALEXANDRE LEITE",
    "valor_total": 20275308,
    "valor_contrapartida": 275308,
-   "status_site": "proposta",
-   "status_fonte": "Proposta/Plano de Trabalho Complementado em Análise",
-   "em_risco": true,
-   "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
-    },
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
-    }
-   ],
+   "status_site": "perdida",
+   "status_fonte": "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico",
+   "em_risco": false,
    "prazos": {
     "proposta": "2026-02-23"
+   },
+   "perda": {
+    "categoria": "em_apuracao",
+    "texto": "Motivo em apuração. Ainda não encontramos documento oficial que explique esta perda.",
+    "citacoes": [],
+    "evitavel": "indeterminado",
+    "data": "2026-11-04",
+    "valor_perdido": 20000000,
+    "gerado_por_ia": false
    },
    "historico": [
     {
@@ -1404,6 +1403,13 @@
      "para": "proposta",
      "fonte": "transferegov_discricionarias",
      "nota": "Primeira coleta; situação registrada na fonte desde 08/07/2026"
+    },
+    {
+     "data": "2026-11-05",
+     "de": "proposta",
+     "para": "perdida",
+     "fonte": "transferegov_discricionarias",
+     "nota": "Situação na fonte: Proposta/Plano de Trabalho Complementado em Análise → Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
     }
    ],
    "fontes": [
@@ -1411,6 +1417,11 @@
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
+    },
+    {
+     "nome": "Transferegov — Acesso Livre (conferido em 04/11/2026, coleta manual)",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
+     "data_coleta": "2026-11-04T23:28:32-03:00"
     }
    ]
   },
