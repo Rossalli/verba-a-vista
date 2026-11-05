@@ -8,17 +8,17 @@ citacoes:
 - n: 1
   documento_id: historico-situacao-1981768
   titulo: 'Transferegov: histórico de situação da proposta 12684/2024'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: '13/05/2024: PROPOSTA_ENVIADA_ANALISE'
 - n: 2
   documento_id: historico-situacao-1981768
   titulo: 'Transferegov: histórico de situação da proposta 12684/2024'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: '21/01/2025: PROPOSTA_REPROVADA'
 - n: 3
   documento_id: instrumento-1981768
   titulo: 'Transferegov: proposta 12684/2024 e instrumento'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados
 
     Situação do projeto básico: Não Cadastrado'

@@ -39,6 +39,16 @@ const etapas = Object.entries(taxonomia.status);
     <p>Ficam de fora, por enquanto, as verbas estaduais e municipais. Não fazemos ranking nem opinião sobre pessoas.</p>
   </section>
 
+  <section class="bloco" id="tipos">
+    <h2>Tipos de verba</h2>
+    <p>Cada verba mostra o tipo de repasse a que pertence. Em linguagem simples:</p>
+    <dl class="glossario">
+      {Object.entries(taxonomia.tipos).map(([chave, rotulo]) => (
+        <div><dt>{rotulo}</dt><dd>{taxonomia.descricao_tipos[chave]}</dd></div>
+      ))}
+    </dl>
+  </section>
+
   <section class="bloco" id="fontes">
     <h2>De onde vêm os dados</h2>
     <p>Todas as fontes são oficiais e abertas. Cada verba traz, na sua página, os links para os registros originais e a data da coleta.</p>
@@ -74,9 +84,11 @@ const etapas = Object.entries(taxonomia.status);
   <section class="bloco" id="situacoes">
     <h2>Situação do site e situação na fonte</h2>
     <p>Cada fonte usa palavras diferentes. Para comparar, traduzimos a situação de cada verba para uma das etapas abaixo, e <strong>sempre mostramos também a situação original da fonte</strong>, ao lado.</p>
-    <ol class="etapas">
-      {etapas.map(([chave, rotulo]) => <li><span class="pilula" data-status={chave}>{rotulo}</span></li>)}
-    </ol>
+    <dl class="glossario">
+      {etapas.map(([chave, rotulo]) => (
+        <div><dt><span class="pilula" data-status={chave}>{rotulo}</span></dt><dd>{taxonomia.descricao_status[chave]}</dd></div>
+      ))}
+    </dl>
     <p><strong>Em risco</strong> não é uma etapa, é um alerta. Aparece quando um prazo vence em menos de {regras.risco.dias_alerta_prazo} dias, quando o município tem pendência no CAUC (em convênios e emendas com proposta já enviada ou aprovada, e ainda dentro da vigência) ou quando uma obra está parada há mais de {regras.risco.dias_obra_parada} dias.</p>
     <p>O valor mostrado em “Em risco” é a soma do valor total das verbas com algum alerta. Não é o valor que será perdido: é o que está em jogo nessas verbas.</p>
   </section>
@@ -92,6 +104,7 @@ const etapas = Object.entries(taxonomia.status);
     <h2>Limitações</h2>
     <ul>
       <li>Os dados de convênios e contratos de repasse (Siconv) são publicados em lote pelo Governo Federal e podem ter atraso. A carga mais recente que usamos é de <span class="mono">{dia(siconv.data_do_dado)}</span>; mudanças posteriores só aparecem quando o Governo publicar uma nova carga.</li>
+      <li>Os repasses fundo a fundo da saúde (Fundo Nacional de Saúde) podem estar incompletos nesta primeira versão.</li>
       <li>Nem toda perda tem o motivo documentado. As fontes automáticas dizem <em>que</em> a verba foi perdida e <em>quando</em>, mas raramente dizem <em>por quê</em>.</li>
       <li>A tradução da situação da fonte para as etapas do site é nossa e pode estar errada em casos raros. Por isso a situação original está sempre visível.</li>
       <li>Nomes de verbas vêm das fontes, que às vezes escrevem sem acento ou em caixa alta; ajustamos só a apresentação.</li>
@@ -122,7 +135,11 @@ const etapas = Object.entries(taxonomia.status);
   .bloco:has(.tabela-rolavel) { max-width: none; }
   .bloco p, .bloco li { margin: 0; color: var(--tinta-2); }
   .bloco ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
-  .etapas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .glossario { margin: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--linha); }
+  .glossario > div { display: grid; grid-template-columns: minmax(180px, 1fr) 3fr; gap: 6px 24px; padding: 14px 0; border-bottom: 1px solid var(--linha); }
+  .glossario dt { font-weight: 700; color: var(--tinta); }
+  .glossario dd { margin: 0; color: var(--tinta-2); font-size: 15px; }
+  @media (max-width: 700px) { .glossario > div { grid-template-columns: 1fr; } }
   .bloco h2 { scroll-margin-top: 16px; }
 
   table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px; }

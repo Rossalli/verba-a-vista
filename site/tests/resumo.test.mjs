@@ -87,6 +87,7 @@ test("rótulos de alerta e instrumento", () => {
   assert.equal(rotuloRisco(motivo("prazo_proximo", "Prazo em 51 dias")), "Prazo em 51 dias");
   assert.equal(rotuloInstrumento({ instrumento: "CONTRATO DE REPASSE", tipo: "voluntaria" }), "Contrato de repasse");
   assert.equal(rotuloInstrumento({ instrumento: "CONVENIO", tipo: "voluntaria" }), "Convênio");
+  assert.equal(rotuloInstrumento({ instrumento: "FUNDO_A_FUNDO", tipo: "fundo_a_fundo" }), "Fundo a fundo");
   assert.equal(rotuloInstrumento({ tipo: "programa_adesao" }), "Programa por adesão");
 });
 

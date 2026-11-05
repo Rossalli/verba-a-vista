@@ -204,9 +204,11 @@ Layout de referência em `docs/design.md` e `docs/design/telas/`.
 | --- | --- | --- |
 | Início | `/` | Frase-tese, resumo (em andamento, em risco, perdidas desde 2024, concluídas), "Em risco agora", perdas por motivo, últimas mudanças, como funciona |
 | Lista | `/verbas/` | Filtros por situação, "só em risco", tipo, **ano**, área, busca; tabela; link para CSV |
-| Verba | `/verbas/<id>/` | Cabeçalho com status do site + status da fonte, valores, bloco de perda (se houver) com selo de IA e citações, histórico, registros originais, "encontrou um erro?" |
+| Verba | `/verbas/<id>/` | Cabeçalho com status do site + status da fonte, valores, bloco de perda (se houver) com selo de IA e citações, histórico, registros originais, "encontrou um erro?"; **"O que é esta verba"** (uma frase com instrumento, objeto, valor e concedente, mais o que o tipo e a etapa significam, D21); em "Registros originais", links que abrem e, quando o Transferegov não tem link direto, o número a buscar e onde clicar |
 | Perdas | `/perdas/` | Todas as perdas agrupadas por motivo **ou por ano da perda** (alternável, D20), com totais |
-| Como funciona | `/como-funciona/` | Fontes, frequência, método de curadoria com IA, limitações, contato |
+| Como funciona | `/como-funciona/` | Fontes, frequência, método de curadoria com IA, limitações, contato; definição de cada tipo de verba e de cada etapa (D21) |
+
+Links das fontes (D21): `fontes[].url` é um endereço que uma pessoa abre no navegador, não o de coleta (o do Siconv em lote está fora do ar e o das APIs não é página). É a consulta pública do módulo (Acesso Livre, Parcerias, Fundo a Fundo) ou, no Portal da Transparência, a página do próprio convênio quando o Portal informa o código. O Transferegov não tem link direto por proposta ou instrumento; a página da verba diz o número a buscar e onde clicar.
 
 Filtro por **ano** (D19): é o ano da proposta (`prazos.proposta`) ou, nos programas por adesão, do prazo de adesão (`prazos.adesao`); verba sem nenhuma dessas datas entra em "Sem data". Não é o ano da perda: este aparece na própria linha da verba perdida (`perda.data`).
 

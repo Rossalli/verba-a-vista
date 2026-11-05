@@ -4,7 +4,7 @@ import { CONTATO_EMAIL } from "../../config.js";
 import { carregarPublicado, formatarData, formatarDataHora, formatarReais, url } from "../../lib/dados.js";
 import { carregarRegras, carregarTaxonomia } from "../../lib/taxonomia.js";
 import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
-import { ROTULO_EVITAVEL, descricaoMeta, historicoOrdenado, partesComCitacoes, rotuloSituacao, seloDaPerda, valoresDaVerba } from "../../lib/verba.js";
+import { ROTULO_EVITAVEL, comoAchar, descricaoDaVerba, descricaoMeta, historicoOrdenado, partesComCitacoes, rotuloSituacao, seloDaPerda, valoresDaVerba } from "../../lib/verba.js";
 
 export function getStaticPaths() {
   return carregarPublicado().verbas.map((verba) => ({ params: { id: verba.id }, props: { verba } }));
@@ -16,6 +16,8 @@ const taxonomia = carregarTaxonomia();
 const regras = carregarRegras();
 
 const nome = formatarTitulo(verba.nome);
+const oQueE = descricaoDaVerba(verba, taxonomia);
+const achar = comoAchar(verba);
 const rotuloStatus = verba.status_site ? taxonomia.status[verba.status_site] : taxonomia.sem_status;
 const perda = verba.perda;
 const categoria = perda ? taxonomia.categorias[perda.categoria] : null;
@@ -42,6 +44,13 @@ const linhaTopo = [rotuloInstrumento(verba), verba.orgao_concedente && formatarN
         Status na fonte: <span class="mono">“{verba.status_fonte}”</span> ({nomeFonte(verba.fonte)}, consultado em {formatarData(fontePrimaria.data_coleta)})
       </span>
     </div>
+  </section>
+
+  <section class="o-que-e" aria-labelledby="o-que-e-titulo">
+    <h2 id="o-que-e-titulo" class="h3">O que é esta verba</h2>
+    <p class="resumo-verba">{oQueE.resumo}</p>
+    <p><strong>{oQueE.tipo.rotulo}.</strong> {oQueE.tipo.texto}</p>
+    {oQueE.etapa && <p><strong>Etapa atual: {oQueE.etapa.rotulo}.</strong> {oQueE.etapa.texto} <a href={url("/como-funciona/#situacoes")}>Todas as etapas</a></p>}
   </section>
 
   <dl class="quadro">
@@ -126,6 +135,11 @@ const linhaTopo = [rotuloInstrumento(verba), verba.orgao_concedente && formatarN
       <div class="caixa">
         <h2 class="h3">Registros originais</h2>
         {verba.fontes.map((f) => <a href={f.url}>{f.nome}</a>)}
+        {achar && (
+          <p class="como-achar">
+            O Transferegov não tem link direto para esta página. Abra o link do Transferegov acima, {achar.onde} e busque pelo {achar.rotulo} <strong class="mono">{achar.numero}</strong>.
+          </p>
+        )}
         <span class="fonte">Última coleta: {formatarDataHora(ultimaColeta)}</span>
       </div>
       <div class="caixa">
@@ -157,6 +171,10 @@ const linhaTopo = [rotuloInstrumento(verba), verba.orgao_concedente && formatarN
   dd { margin: 2px 0 0; font-size: 18px; }
   dd.mono { font-size: 18px; }
 
+  .o-que-e { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .o-que-e p { margin: 0; color: var(--tinta-2); max-width: 78ch; }
+  .o-que-e .resumo-verba { color: var(--tinta); font-size: 17px; }
+  .como-achar { font-size: 14px; }
   .alertas { background: var(--risco-fundo); border: 1px solid var(--risco-borda); border-radius: var(--raio); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
   .alertas h2 { color: var(--risco); }
   .alertas ul { margin: 0; padding-left: 20px; color: var(--tinta); }

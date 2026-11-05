@@ -8,22 +8,22 @@ citacoes:
 - n: 1
   documento_id: instrumento-2079956
   titulo: 'Transferegov: proposta 20378/2025 e instrumento'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: 'Objeto: AQUISIÇÃO DE PÁ CARREGADEIRA'
 - n: 2
   documento_id: instrumento-2079956
   titulo: 'Transferegov: proposta 20378/2025 e instrumento'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: 'Valor do repasse: R$ 850.000,00'
 - n: 3
   documento_id: historico-situacao-2079956
   titulo: 'Transferegov: histórico de situação da proposta 20378/2025'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: '14/01/2026: PROPOSTA_REPROVADA'
 - n: 4
   documento_id: instrumento-2079956
   titulo: 'Transferegov: proposta 20378/2025 e instrumento'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados'
 gerado_por_ia: true
 revisado_por: Bárbara Rossalli

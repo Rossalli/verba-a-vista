@@ -5,7 +5,7 @@
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
-   "url": "https://repositorio.dados.gov.br/seges/detru",
+   "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
    "retrato": "2026-10-29",
    "coletado_em": "2026-10-29T18:19:35-03:00",
    "data_do_dado": "2026-07-17",
@@ -13,7 +13,7 @@
   },
   "transferegov_api": {
    "nome": "Transferegov — API pública",
-   "url": "https://api-publica.transferegov.gestao.gov.br",
+   "url": "https://portal.transferegov.sistema.gov.br/portal/home",
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:18-03:00",
    "data_do_dado": "2026-11-04",
@@ -21,7 +21,7 @@
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
-   "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+   "url": "https://portaldatransparencia.gov.br/convenios/consulta",
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:44-03:00",
    "data_do_dado": null,
@@ -29,7 +29,7 @@
   },
   "obrasgov": {
    "nome": "Obrasgov",
-   "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+   "url": "https://www.gov.br/transferegov/pt-br",
    "retrato": "2026-10-29",
    "coletado_em": "2026-10-29T18:19:41-03:00",
    "data_do_dado": "2026-10-29",
@@ -37,7 +37,7 @@
   },
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
-   "url": "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc",
+   "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc",
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:24:49-03:00",
    "data_do_dado": "2026-10-30",
@@ -45,7 +45,7 @@
   },
   "tesouro_constitucionais": {
    "nome": "Tesouro — Transferências Constitucionais",
-   "url": "https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom",
+   "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios",
    "retrato": "2026-11-04",
    "coletado_em": "2026-11-04T20:25:01-03:00",
    "data_do_dado": null,
@@ -128,7 +128,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -162,7 +162,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -196,7 +196,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -230,7 +230,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -264,7 +264,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -298,7 +298,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -332,7 +332,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -366,7 +366,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -400,7 +400,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -434,7 +434,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Programas (Siconv) (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -472,7 +472,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -519,17 +519,17 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/925702",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
-     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "url": "https://www.gov.br/transferegov/pt-br",
      "data_coleta": "2026-10-29T18:19:41-03:00"
     }
    ]
@@ -561,21 +561,21 @@
       "n": 1,
       "documento_id": "historico-situacao-1981768",
       "titulo": "Transferegov: histórico de situação da proposta 12684/2024",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "13/05/2024: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-1981768",
       "titulo": "Transferegov: histórico de situação da proposta 12684/2024",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "21/01/2025: PROPOSTA_REPROVADA"
      },
      {
       "n": 3,
       "documento_id": "instrumento-1981768",
       "titulo": "Transferegov: proposta 12684/2024 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados\nSituação do projeto básico: Não Cadastrado"
      }
     ],
@@ -598,7 +598,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -639,12 +639,12 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/733022",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
@@ -684,17 +684,17 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/970941",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
-     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "url": "https://www.gov.br/transferegov/pt-br",
      "data_coleta": "2026-10-29T18:19:41-03:00"
     }
    ]
@@ -726,21 +726,21 @@
       "n": 1,
       "documento_id": "historico-situacao-2065616",
       "titulo": "Transferegov: histórico de situação da proposta 8933/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "13/05/2025: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-2065616",
       "titulo": "Transferegov: histórico de situação da proposta 8933/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "14/01/2026: PROPOSTA_REPROVADA"
      },
      {
       "n": 3,
       "documento_id": "instrumento-2065616",
       "titulo": "Transferegov: proposta 8933/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados"
      }
     ],
@@ -763,7 +763,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -809,7 +809,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -841,28 +841,28 @@
       "n": 1,
       "documento_id": "instrumento-2079956",
       "titulo": "Transferegov: proposta 20378/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Objeto: AQUISIÇÃO DE PÁ CARREGADEIRA"
      },
      {
       "n": 2,
       "documento_id": "instrumento-2079956",
       "titulo": "Transferegov: proposta 20378/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Valor do repasse: R$ 850.000,00"
      },
      {
       "n": 3,
       "documento_id": "historico-situacao-2079956",
       "titulo": "Transferegov: histórico de situação da proposta 20378/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "14/01/2026: PROPOSTA_REPROVADA"
      },
      {
       "n": 4,
       "documento_id": "instrumento-2079956",
       "titulo": "Transferegov: proposta 20378/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados"
      }
     ],
@@ -885,7 +885,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -931,7 +931,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -963,21 +963,21 @@
       "n": 1,
       "documento_id": "historico-situacao-2113195",
       "titulo": "Transferegov: histórico de situação da proposta 42023/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "19/08/2025: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-2113195",
       "titulo": "Transferegov: histórico de situação da proposta 42023/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
      },
      {
       "n": 3,
       "documento_id": "instrumento-2113195",
       "titulo": "Transferegov: proposta 42023/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
      }
     ],
@@ -1000,7 +1000,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1032,14 +1032,14 @@
       "n": 1,
       "documento_id": "instrumento-2113259",
       "titulo": "Transferegov: proposta 42055/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-2113259",
       "titulo": "Transferegov: histórico de situação da proposta 42055/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
      }
     ],
@@ -1062,7 +1062,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1094,21 +1094,21 @@
       "n": 1,
       "documento_id": "historico-situacao-2113295",
       "titulo": "Transferegov: histórico de situação da proposta 42072/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "19/08/2025: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-2113295",
       "titulo": "Transferegov: histórico de situação da proposta 42072/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
      },
      {
       "n": 3,
       "documento_id": "instrumento-2113295",
       "titulo": "Transferegov: proposta 42072/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
      }
     ],
@@ -1131,7 +1131,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1171,17 +1171,17 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/990509",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     },
     {
      "nome": "Obrasgov",
-     "url": "https://api-publica.obrasgov.gestao.gov.br/obras",
+     "url": "https://www.gov.br/transferegov/pt-br",
      "data_coleta": "2026-10-29T18:19:41-03:00"
     }
    ]
@@ -1217,7 +1217,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1249,21 +1249,21 @@
       "n": 1,
       "documento_id": "historico-situacao-2152076",
       "titulo": "Transferegov: histórico de situação da proposta 64411/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "25/11/2025: PROPOSTA_CADASTRADA\n26/11/2025: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 2,
       "documento_id": "instrumento-2152076",
       "titulo": "Transferegov: proposta 64411/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"
      },
      {
       "n": 3,
       "documento_id": "historico-situacao-2152076",
       "titulo": "Transferegov: histórico de situação da proposta 64411/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "24/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
      }
     ],
@@ -1286,7 +1286,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1318,21 +1318,21 @@
       "n": 1,
       "documento_id": "instrumento-2152082",
       "titulo": "Transferegov: proposta 64413/2025 e instrumento",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "Objeto: EQUIPAMENTO(S) AGRICOLA(S) PARA O MUNICIPIO DE NEVES PAULISTA - SP"
      },
      {
       "n": 2,
       "documento_id": "historico-situacao-2152082",
       "titulo": "Transferegov: histórico de situação da proposta 64413/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "26/11/2025: PROPOSTA_ENVIADA_ANALISE"
      },
      {
       "n": 3,
       "documento_id": "historico-situacao-2152082",
       "titulo": "Transferegov: histórico de situação da proposta 64413/2025",
-      "url": "https://repositorio.dados.gov.br/seges/detru",
+      "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
       "trecho": "24/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO"
      }
     ],
@@ -1355,7 +1355,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1401,7 +1401,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1447,7 +1447,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1493,7 +1493,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1531,7 +1531,7 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     }
    ]
@@ -1572,12 +1572,12 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/759463",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
@@ -1617,12 +1617,12 @@
    "fontes": [
     {
      "nome": "Transferegov — Discricionárias e Legais (carga de 17/07/2026)",
-     "url": "https://repositorio.dados.gov.br/seges/detru",
+     "url": "https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre",
      "data_coleta": "2026-10-29T18:19:35-03:00"
     },
     {
      "nome": "Portal da Transparência",
-     "url": "https://api.portaldatransparencia.gov.br/api-de-dados",
+     "url": "https://portaldatransparencia.gov.br/convenios/704774",
      "data_coleta": "2026-11-04T20:24:44-03:00"
     }
    ]
@@ -1657,8 +1657,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Fundo a Fundo (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
+     "nome": "Transferegov — Fundo a Fundo",
+     "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1693,8 +1693,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Fundo a Fundo (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/fundoafundo/docs",
+     "nome": "Transferegov — Fundo a Fundo",
+     "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1727,8 +1727,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1761,8 +1761,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1795,8 +1795,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1829,8 +1829,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1863,8 +1863,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1897,8 +1897,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1931,8 +1931,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1965,8 +1965,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -1999,8 +1999,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -2033,8 +2033,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -2067,8 +2067,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]
@@ -2101,8 +2101,8 @@
    ],
    "fontes": [
     {
-     "nome": "Transferegov — Gestão de Parcerias (API)",
-     "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/docs",
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
      "data_coleta": "2026-11-04T20:24:18-03:00"
     }
    ]

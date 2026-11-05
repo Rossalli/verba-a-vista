@@ -173,13 +173,20 @@ class Taxonomia(_Base):
     status: dict[StatusSite, str]
     sem_status: str  # rótulo da verba sem status mapeado (spec §4)
     tipos: dict[Tipo, str]
+    descricao_status: dict[StatusSite, str]  # o que cada etapa significa (spec §4)
+    descricao_tipos: dict[Tipo, str]  # o que cada tipo de verba é, em linguagem simples (spec §3)
 
     @model_validator(mode="after")
     def _todas_as_categorias(self):
         faltam = set(get_args(Categoria)) - set(self.categorias)
         if faltam:
             raise ValueError(f"categorias ausentes na taxonomia: {', '.join(sorted(faltam))}")
-        for nome, esperado, atual in (("status", set(get_args(StatusSite)), set(self.status)), ("tipos", set(get_args(Tipo)), set(self.tipos))):
+        for nome, esperado, atual in (
+            ("status", set(get_args(StatusSite)), set(self.status)),
+            ("tipos", set(get_args(Tipo)), set(self.tipos)),
+            ("descricao_status", set(get_args(StatusSite)), set(self.descricao_status)),
+            ("descricao_tipos", set(get_args(Tipo)), set(self.descricao_tipos)),
+        ):
             if esperado - atual:
                 raise ValueError(f"{nome} ausentes na taxonomia: {', '.join(sorted(esperado - atual))}")
         return self
@@ -200,6 +207,9 @@ class FonteConfig(_Base):
     tipo: str | None = None
     url: str | None = None
     url_teste: str | None = None   # endereço que responde 200 sem parâmetros, para scripts/teste_acesso.py
+    url_consulta: str | None = None  # página pública que uma pessoa abre no navegador (D21); `url`/`base_url` são de coleta e podem não abrir
+    consulta_por_modulo: dict[str, str] | None = None  # `url_consulta` de cada módulo da mesma fonte (ex.: parcerias e fundoafundo na API do Transferegov)
+    url_registro: str | None = None  # modelo de endereço do registro da própria verba, com {codigo} (D21)
     auth: AuthFonte | None = None
     limite_req_min: int | None = Field(default=None, gt=0)
     ativa: bool

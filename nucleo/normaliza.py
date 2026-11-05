@@ -106,6 +106,18 @@ def _limpar(campos: dict) -> dict:
     return {k: v for k, v in campos.items() if not (k in _SO_COM_VALOR and v is None)}
 
 
+def _url_consulta(config: Config, chave: str) -> str:
+    """Endereço que uma pessoa consegue abrir (D21); `url` e `base_url` são de coleta e podem estar fora do ar."""
+    f = config.fontes.fontes[chave]
+    return f.url_consulta or f.url or f.base_url
+
+
+def _url_modulo(config: Config, chave: str, modulo: str) -> str:
+    """Endereço de consulta do módulo (parcerias, fundoafundo...) dentro de uma fonte que tem vários (D21)."""
+    f = config.fontes.fontes[chave]
+    return (f.consulta_por_modulo or {}).get(modulo) or _url_consulta(config, chave)
+
+
 def _fonte(nome: str, url: str, retrato: dict) -> dict:
     return {"nome": nome, "url": url, "data_coleta": retrato["coletado_em"]}
 
@@ -211,7 +223,7 @@ def _verbas_siconv(retrato: dict, ctx: _Contexto) -> list[tuple[Verba, dict | No
     meta = retrato["metadados"]
     carga = (meta.get("data_carga") or "")[:10]
     nome_fonte = "Transferegov — Discricionárias e Legais" + (f" (carga de {carga})" if carga else "")
-    url = ctx.config.fontes.fontes["transferegov_discricionarias"].url
+    url = _url_consulta(ctx.config, "transferegov_discricionarias")
     saida = []
     for proposta in [*d["proposta"], *d["proposta_cancelada"]]:
         id_proposta = proposta["ID_PROPOSTA"]
@@ -272,7 +284,7 @@ def _juntar_portal(verbas_siconv: list[tuple[Verba, dict | None, dict]], portal:
         ctx.avisos.append("Portal da Transparência sem retrato: valor_liberado fica como no Siconv")
         return
     convenios = portal["dados"]["convenios"]
-    url = ctx.config.fontes.fontes["portal_transparencia"].base_url
+    url = _url_consulta(ctx.config, "portal_transparencia")
     por_numero = _por_chave([{**c, "_k": normalizar_numero(c["dimConvenio"]["numero"])} for c in convenios], "_k")
     por_processo = _por_chave([{**c, "_k": normalizar_numero(c["numeroProcesso"])} for c in convenios if c.get("numeroProcesso")], "_k")
     usados: dict[int, str] = {}
@@ -299,7 +311,10 @@ def _juntar_portal(verbas_siconv: list[tuple[Verba, dict | None, dict]], portal:
             if verba.valor_liberado is not None and liberado < verba.valor_liberado:
                 ctx.avisos.append(f"Portal: valorLiberado de {verba.id} ({liberado}) menor que o do Siconv ({verba.valor_liberado}); usado o do Portal")
             verba.valor_liberado = liberado
-        verba.fontes.append(_fonte_modelo("Portal da Transparência", url, portal))
+        modelo = ctx.config.fontes.fontes["portal_transparencia"].url_registro
+        codigo = c["dimConvenio"].get("codigo")
+        # Página do próprio convênio quando o Portal informa o código; senão, a consulta de convênios (D21).
+        verba.fontes.append(_fonte_modelo("Portal da Transparência", modelo.format(codigo=codigo) if modelo and codigo else url, portal))
 
 
 def _fonte_modelo(nome: str, url: str, retrato: dict) -> FonteRef:
@@ -319,7 +334,7 @@ def _juntar_obrasgov(verbas_siconv: list[tuple[Verba, dict | None, dict]], obras
         ctx.avisos.append("Obrasgov sem retrato: execucao_fisica_pct fica vazio")
         return ligadas
     d = obras["dados"]
-    url = ctx.config.fontes.fontes["obrasgov"].base_url
+    url = _url_consulta(ctx.config, "obrasgov")
     ponte = {r["nr_instrumento"]: r["id_projeto_investimento"] for r in d["ponte_siconv"]}
     projetos = {p["id_projeto_investimento"]: p for p in d["projeto_investimento"]}
     execucoes = _por_chave(d["execucao_fisica"], "id_projeto_investimento")
@@ -353,7 +368,7 @@ def _verbas_parcerias(retrato: dict, ctx: _Contexto) -> list[Verba]:
     d = retrato["dados"]
     parcerias = _por_chave(d["parcerias.parceria"], "id_proposta")
     programas = {p["id_programa"]: p for p in d["parcerias.programa"]}
-    url = ctx.config.fontes.fontes["transferegov_api"].base_url + "/parcerias/docs"
+    url = _url_modulo(ctx.config, "transferegov_api", "parcerias")
     saida = []
     for proposta in d["parcerias.proposta"]:
         data_proposta = data_br(proposta["dt_proposta"])
@@ -382,7 +397,7 @@ def _verbas_parcerias(retrato: dict, ctx: _Contexto) -> list[Verba]:
             "em_risco": False,
             "prazos": {k: v for k, v in {"proposta": data_proposta, "assinatura": data_br(parceria["dh_assinatura"]) if parceria else None}.items() if v is not None},
             "historico": [],
-            "fontes": [_fonte("Transferegov — Gestão de Parcerias (API)", url, retrato)],
+            "fontes": [_fonte("Transferegov — Gestão de Parcerias", url, retrato)],
         }
         saida.append(Verba.model_validate(_limpar(campos)))
     return saida
@@ -392,7 +407,7 @@ def _verbas_fundoafundo(retrato: dict, ctx: _Contexto) -> list[Verba]:
     d = retrato["dados"]
     termos = _por_chave(d["fundoafundo.termos_adesao"], "id_plano_acao")
     programas = {p["id_programa"]: p for p in d["fundoafundo.programas"]}
-    url = ctx.config.fontes.fontes["transferegov_api"].base_url + "/fundoafundo/docs"
+    url = _url_modulo(ctx.config, "transferegov_api", "fundoafundo")
     saida = []
     for plano in d["fundoafundo.planos_acao"]:
         fim = data_br(plano["data_fim_vigencia_plano_acao"])
@@ -421,7 +436,7 @@ def _verbas_fundoafundo(retrato: dict, ctx: _Contexto) -> list[Verba]:
             "em_risco": False,
             "prazos": {k: v for k, v in {"assinatura": data_br(termo["data_assinatura_termo_adesao"]) if termo else None, "fim_vigencia": fim}.items() if v is not None},
             "historico": [],
-            "fontes": [_fonte("Transferegov — Fundo a Fundo (API)", url, retrato)],
+            "fontes": [_fonte("Transferegov — Fundo a Fundo", url, retrato)],
         }
         saida.append(Verba.model_validate(_limpar(campos)))
     return saida
@@ -446,7 +461,7 @@ def _verbas_oportunidades(retrato: dict, ctx: _Contexto) -> list[Verba]:
     meta = retrato["metadados"]
     carga = (meta.get("data_carga") or "")[:10]
     nome_fonte = "Transferegov — Programas (Siconv)" + (f" (carga de {carga})" if carga else "")
-    url = ctx.config.fontes.fontes["transferegov_discricionarias"].url
+    url = _url_consulta(ctx.config, "transferegov_discricionarias")
     fins: dict[str, list[date]] = defaultdict(list)
     linhas: dict[str, dict] = {}
     for linha in d["programa"]:

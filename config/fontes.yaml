@@ -5,21 +5,29 @@ fontes:
     base_url: https://api-publica.transferegov.gestao.gov.br
     modulos: [especiais, fundoafundo, parcerias]
     docs: "{base_url}/{modulo}/docs"
+    url_consulta: https://portal.transferegov.sistema.gov.br/portal/home   # VERIFICADO 2026-11-05 no navegador: cartões de cada módulo (D21)
+    consulta_por_modulo:  # VERIFICADO 2026-11-05 no navegador: abrem sem login; não há link direto por registro, busca-se pelo número (D21)
+      parcerias: https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home   # "Acesso Livre": pesquisa pelo menu lateral
+      fundoafundo: https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta   # pede Código do Plano de Ação, Órgão/Ente Repassador ou Unidade Recebedora
     auth: null            # VERIFICADO 2026-10-29: sem autenticação
     ativa: true
 
   transferegov_discricionarias:
     tipo: csv_lote
-    url: https://repositorio.dados.gov.br/seges/detru   # VERIFICADO 2026-10-29 (T1.2); um zip por tabela: siconv_<tabela>.csv.zip
+    url: https://repositorio.dados.gov.br/seges/detru   # VERIFICADO 2026-10-29 (T1.2); um zip por tabela: siconv_<tabela>.csv.zip. FORA DO AR desde 29/10/2026 (HTTP 404)
+    url_consulta: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre   # VERIFICADO 2026-11-05 no navegador: página do Acesso Livre com "Consultar Propostas", "Consultar Pré-Instrumentos/Instrumentos" e "Consultar Programas" (o módulo exige login gov.br; estes links são de visitante). É o que o site mostra, no lugar do `url` acima (D21)
     ativa: true
 
   obrasgov:
     base_url: https://api-publica.obrasgov.gestao.gov.br/obras   # VERIFICADO 2026-10-29 (T1.3): a API fica sob /obras
+    url_consulta: https://www.gov.br/transferegov/pt-br   # VERIFICADO 2026-11-05 (HTTP 200); o Obrasgov é o módulo de obras do Transferegov (D21)
     auth: null            # VERIFICADO 2026-10-29: sem autenticação
     ativa: true
 
   portal_transparencia:
     base_url: https://api.portaldatransparencia.gov.br/api-de-dados
+    url_consulta: https://portaldatransparencia.gov.br/convenios/consulta   # consulta de convênios do Portal (D21)
+    url_registro: https://portaldatransparencia.gov.br/convenios/{codigo}   # página do convênio; `codigo` = dimConvenio.codigo do registro do Portal. 734297 deu HTTP 200 (05/11/2026); depois o Portal passou a devolver 202 (desafio anti-robô) ao curl
     auth:
       header: chave-api-dados
       env: PORTAL_TRANSPARENCIA_KEY
@@ -29,10 +37,12 @@ fontes:
   cauc:
     tipo: ckan_csv        # VERIFICADO 2026-10-29 (T1.5): CSV do dataset `cauc` no CKAN do Tesouro Transparente
     url: https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=cauc   # achar o recurso pelo nome (docs/fontes.md)
+    url_consulta: https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc   # VERIFICADO 2026-11-05 (HTTP 200)
     ativa: true
 
   tesouro_constitucionais:
     base_url: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom   # a URL base sozinha dá HTTP 500 "Endpoint não encontrado"
     url_teste: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom/estados
+    url_consulta: https://www.tesourotransparente.gov.br/temas/estados-e-municipios   # VERIFICADO 2026-11-05 (HTTP 200)
     auth: null            # VERIFICADO 2026-10-29 (T1.6): sem autenticação
     ativa: true

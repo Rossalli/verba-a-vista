@@ -36,7 +36,7 @@ class Resultado:
 
 def urls_das_fontes(config: Config) -> dict[str, str]:
     fontes = config.fontes.fontes
-    return {chave: fontes[chave].url or fontes[chave].base_url for chave in ("transferegov_discricionarias", "cauc", "obrasgov")}
+    return {chave: fontes[chave].url_consulta or fontes[chave].url or fontes[chave].base_url for chave in ("transferegov_discricionarias", "cauc", "obrasgov")}
 
 
 def executar(raiz: Path = RAIZ, data: date | None = None, config: Config | None = None, ids: list[str] | None = None, refazer: bool = False, enviar: bool = False, cliente=None) -> Resultado:

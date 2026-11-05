@@ -165,6 +165,6 @@ const TIPO_CURTO = {
 
 /** "Contrato de repasse" quando o instrumento é conhecido; senão o tipo em poucas palavras. */
 export function rotuloInstrumento(verba) {
-  if (verba.instrumento) return formatarTitulo(verba.instrumento).replace(/^Convenio$/, "Convênio");
+  if (verba.instrumento) return formatarTitulo(verba.instrumento.replace(/_/g, " ")).replace(/^Convenio$/, "Convênio");
   return TIPO_CURTO[verba.tipo] ?? verba.tipo;
 }

@@ -74,7 +74,7 @@ def montar_fontes(retratos: dict[str, dict | None], config: Config, data: date) 
     for chave, nome in NOMES_FONTES.items():
         retrato = retratos.get(chave)
         cfg = config.fontes.fontes.get(chave)
-        url = (cfg.url or cfg.base_url) if cfg else None
+        url = (cfg.url_consulta or cfg.url or cfg.base_url) if cfg else None
         if retrato is None:
             fontes[chave] = {"nome": nome, "url": url, "retrato": None, "coletado_em": None, "data_do_dado": None, "situacao": "sem_retrato"}
             continue

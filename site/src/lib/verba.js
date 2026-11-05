@@ -1,6 +1,6 @@
 // Montagem da página de uma verba (T4.4). Funções puras: recebem a verba de verbas.json e devolvem dados prontos.
 import { formatarData, formatarReais } from "./dados.js";
-import { formatarTitulo } from "./resumo.js";
+import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "./resumo.js";
 
 export const ROTULO_PRAZO = {
   proposta: "Data da proposta",
@@ -72,4 +72,44 @@ export function seloDaPerda(perda, textoSeloIa) {
 /** O histórico guarda a chave do status ("perdida") ou a situação da fonte; a chave vira o rótulo do site. */
 export function rotuloSituacao(valor, taxonomia) {
   return taxonomia.status[valor] ?? valor;
+}
+
+/**
+ * "O que é esta verba": uma frase montada só com os dados da própria verba (instrumento, objeto, valor, concedente),
+ * mais o que o tipo e a etapa significam (definições em config/taxonomia.yaml). Nada é inventado nem gerado por IA.
+ */
+export function descricaoDaVerba(verba, taxonomia) {
+  const objeto = formatarTitulo(verba.objeto || verba.nome);
+  const valor = verba.valor_total != null ? `, no valor de ${formatarReais(verba.valor_total)}` : "";
+  const concedente = verba.orgao_concedente ? ` (concedente: ${formatarNomeProprio(verba.orgao_concedente)})` : "";
+  return {
+    resumo: `${rotuloInstrumento(verba)}: “${objeto}”${valor}${concedente}.`,
+    tipo: { rotulo: taxonomia.tipos[verba.tipo], texto: taxonomia.descricao_tipos[verba.tipo] },
+    etapa: verba.status_site ? { rotulo: taxonomia.status[verba.status_site], texto: taxonomia.descricao_status[verba.status_site] } : null,
+  };
+}
+
+/**
+ * O Transferegov não oferece link direto para a página de uma proposta ou instrumento (a consulta pública é uma busca),
+ * então o site diz onde clicar e qual número buscar. Devolve null se a verba não é do Transferegov ou não tem número.
+ * O que cada número é: proposta ou instrumento (discricionárias), código da parceria, Código do Plano de Ação
+ * (fundo a fundo) e código do programa.
+ */
+export function comoAchar(verba) {
+  const numero = verba.numero_instrumento;
+  if (!numero) return null;
+  switch (verba.fonte) {
+    case "transferegov_discricionarias":
+      return numero.includes("/")
+        ? { numero, rotulo: "número da proposta", onde: "clique em “Consultar Propostas”" }
+        : { numero, rotulo: "número do instrumento", onde: "clique em “Consultar Pré-Instrumentos/Instrumentos”" };
+    case "siconv_programa":
+      return { numero, rotulo: "código do programa", onde: "clique em “Consultar Programas”" };
+    case "transferegov_parcerias":
+      return { numero, rotulo: "código da parceria", onde: "use a pesquisa do menu lateral" };
+    case "transferegov_fundoafundo":
+      return { numero, rotulo: "Código do Plano de Ação", onde: "preencha o campo do código" };
+    default:
+      return null;
+  }
 }

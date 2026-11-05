@@ -11,7 +11,7 @@ Objeto com:
 | `versao` | Versão do formato (hoje `1`). |
 | `data` | Data de referência do processamento (America/Sao_Paulo). |
 | `atualizado_em` | A coleta mais recente entre os retratos usados (data e hora, com fuso). É o "Atualizado em" do site. |
-| `fontes` | Uma entrada por fonte: `nome`, `url`, `retrato` (data do retrato bruto usado), `coletado_em`, `data_do_dado` e `situacao`. |
+| `fontes` | Uma entrada por fonte: `nome`, `url` (página de consulta que uma pessoa abre, não o endereço de coleta; D21), `retrato` (data do retrato bruto usado), `coletado_em`, `data_do_dado` e `situacao`. |
 | `referencias.transferencias_constitucionais` | FPM e ITR por ano (centavos) e `ultimo_mes` com o aviso de que o 3º decêndio ainda estava zerado. Só número de referência, sem ciclo de status. |
 | `verbas` | A lista de verbas, ordenada por `id`. |
 

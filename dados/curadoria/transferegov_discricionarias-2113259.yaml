@@ -9,12 +9,12 @@ citacoes:
 - n: 1
   documento_id: instrumento-2113259
   titulo: 'Transferegov: proposta 42055/2025 e instrumento'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: 'Situação da proposta: Proposta/Plano de Trabalho Rejeitados por Impedimento técnico'
 - n: 2
   documento_id: historico-situacao-2113259
   titulo: 'Transferegov: histórico de situação da proposta 42055/2025'
-  url: https://repositorio.dados.gov.br/seges/detru
+  url: https://www.gov.br/transferegov/pt-br/sistemas/acesso-livre
   trecho: '05/03/2026: PROPOSTA_REJEITADA_IMPEDIMENTO_TECNICO'
 gerado_por_ia: true
 revisado_por: Bárbara Rossalli

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { descricaoMeta, historicoOrdenado, partesComCitacoes, seloDaPerda, valoresDaVerba } from "../src/lib/verba.js";
+import { comoAchar, descricaoDaVerba, descricaoMeta, historicoOrdenado, partesComCitacoes, seloDaPerda, valoresDaVerba } from "../src/lib/verba.js";
 
 test("citações [n] viram pedaços, sem HTML cru", () => {
   assert.deepEqual(partesComCitacoes("A obra parou [1]. Houve prazo [2][3]."), [
@@ -45,4 +45,34 @@ test("rótulo da situação: chave do status vira o rótulo; texto da fonte pass
   const taxonomia = { status: { perdida: "Perdida", execucao: "Em execução" } };
   assert.equal(rotuloSituacao("perdida", taxonomia), "Perdida");
   assert.equal(rotuloSituacao("Proposta enviada", taxonomia), "Proposta enviada");
+});
+
+const taxonomia = {
+  tipos: { voluntaria: "Convênio, contrato de repasse ou termo de compromisso", programa_adesao: "Programa por adesão ou seleção" },
+  status: { perdida: "Perdida", oportunidade: "Oportunidade" },
+  descricao_tipos: { voluntaria: "Acordo em que a União transfere dinheiro.", programa_adesao: "Programa federal aberto aos municípios." },
+  descricao_status: { perdida: "Município não recebeu ou teve de devolver o recurso.", oportunidade: "Programa que o município pode pleitear." },
+};
+
+test("descrição da verba: só dados dela, mais o que o tipo e a etapa significam", () => {
+  const d = descricaoDaVerba({ instrumento: "CONVENIO", tipo: "voluntaria", status_site: "perdida", nome: "AQUISIÇÃO DE PATRULHA AGRICOLA", objeto: "AQUISIÇÃO DE PATRULHA AGRICOLA", orgao_concedente: "MINISTÉRIO DA AGRICULTURA E PECUÁRIA", valor_total: 70075000 }, taxonomia);
+  assert.equal(d.resumo, "Convênio: “Aquisição de patrulha agricola”, no valor de R$ 700.750 (concedente: Ministério da Agricultura e Pecuária).");
+  assert.deepEqual(d.tipo, { rotulo: "Convênio, contrato de repasse ou termo de compromisso", texto: "Acordo em que a União transfere dinheiro." });
+  assert.deepEqual(d.etapa, { rotulo: "Perdida", texto: "Município não recebeu ou teve de devolver o recurso." });
+});
+
+test("descrição da verba sem valor, sem concedente e sem etapa não inventa nada", () => {
+  const d = descricaoDaVerba({ tipo: "programa_adesao", status_site: null, nome: "Novo PAC - Seleção", valor_total: null }, taxonomia);
+  assert.equal(d.resumo, "Programa por adesão: “Novo PAC - Seleção”.");
+  assert.equal(d.etapa, null);
+});
+
+test("como achar no Transferegov: o clique, o número e o que ele é em cada módulo", () => {
+  assert.deepEqual(comoAchar({ fonte: "transferegov_discricionarias", numero_instrumento: "12684/2024" }), { numero: "12684/2024", rotulo: "número da proposta", onde: "clique em “Consultar Propostas”" });
+  assert.deepEqual(comoAchar({ fonte: "transferegov_discricionarias", numero_instrumento: "970941" }), { numero: "970941", rotulo: "número do instrumento", onde: "clique em “Consultar Pré-Instrumentos/Instrumentos”" });
+  assert.deepEqual(comoAchar({ fonte: "siconv_programa", numero_instrumento: "5600020260007" }), { numero: "5600020260007", rotulo: "código do programa", onde: "clique em “Consultar Programas”" });
+  assert.equal(comoAchar({ fonte: "transferegov_fundoafundo", numero_instrumento: "30882120230006-013785" }).rotulo, "Código do Plano de Ação");
+  assert.equal(comoAchar({ fonte: "transferegov_parcerias", numero_instrumento: "202500017102" }).rotulo, "código da parceria");
+  assert.equal(comoAchar({ fonte: "obrasgov", numero_instrumento: "1" }), null);
+  assert.equal(comoAchar({ fonte: "transferegov_parcerias" }), null);
 });

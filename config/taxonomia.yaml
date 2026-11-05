@@ -10,6 +10,25 @@ status:
   concluida: Concluída
   perdida: Perdida
 
+# O que cada etapa significa (spec §4) e o que cada tipo de verba é, em linguagem simples (spec §3). O site usa estes
+# textos na página "Como funciona" e em cada verba.
+descricao_status:
+  oportunidade: Programa, edital ou emenda que o município pode pleitear.
+  proposta: Pedido cadastrado ou enviado, ainda em análise.
+  aprovada: Proposta e plano de trabalho aprovados ou instrumento assinado, recurso ainda não liberado (a assinatura pode estar pendente; pode haver cláusula suspensiva).
+  execucao: Recurso liberado, obra ou compra em andamento.
+  prestacao: Execução encerrada, contas em análise.
+  concluida: Contas aprovadas.
+  perdida: Município não recebeu ou teve de devolver o recurso.
+
+descricao_tipos:
+  voluntaria: Acordo em que a União transfere dinheiro ao município para um projeto específico, como uma obra ou uma compra. O município apresenta uma proposta e um plano de trabalho, em geral oferece uma contrapartida e depois presta contas. Pode ser convênio, contrato de repasse (operado por um banco público, em geral a Caixa) ou termo de compromisso.
+  emenda_finalidade: Dinheiro que um deputado ou senador federal indica, no orçamento da União, para uma finalidade definida no município (por exemplo, uma ambulância). O recurso chega por um convênio, contrato de repasse ou plano de ação, e o município precisa cumprir as etapas desse instrumento.
+  emenda_pix: Emenda parlamentar paga direto ao município, sem convênio. O dinheiro vai para a conta do município, que apresenta um plano de ação, e o uso é fiscalizado depois.
+  fundo_a_fundo: Repasse contínuo de um fundo nacional (como o da saúde ou o da assistência social) para o fundo do município, para manter serviços da área. Não precisa de convênio, mas o município precisa estar habilitado e cumprir as regras do programa.
+  programa_adesao: Programa federal aberto aos municípios que aderem ou são selecionados dentro de um prazo (por exemplo, programas do FNDE e do Novo PAC). Quem não adere ou não se candidata a tempo perde a oportunidade.
+  constitucional: Parte da arrecadação federal que a Constituição manda repassar aos municípios (como o FPM e o ITR). É automática e aqui aparece só como número de referência.
+
 sem_status: Situação em análise   # verba cuja situação na fonte ainda não está no status_map (spec §4)
 
 tipos:
