@@ -1,7 +1,7 @@
 {
  "versao": 1,
- "data": "2026-11-05",
- "atualizado_em": "2026-11-05T16:29:30-03:00",
+ "data": "2026-11-06",
+ "atualizado_em": "2026-11-06T15:52:25-03:00",
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
@@ -17,13 +17,13 @@
    "retrato": "2026-11-05",
    "coletado_em": "2026-11-05T16:29:03-03:00",
    "data_do_dado": "2026-11-05",
-   "situacao": "ok"
+   "situacao": "defasada"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
    "url": "https://portaldatransparencia.gov.br/convenios/consulta",
-   "retrato": "2026-11-05",
-   "coletado_em": "2026-11-05T16:29:25-03:00",
+   "retrato": "2026-11-06",
+   "coletado_em": "2026-11-06T15:52:20-03:00",
    "data_do_dado": null,
    "situacao": "ok"
   },
@@ -38,9 +38,9 @@
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
    "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc",
-   "retrato": "2026-11-05",
-   "coletado_em": "2026-11-05T16:29:30-03:00",
-   "data_do_dado": "2026-10-30",
+   "retrato": "2026-11-06",
+   "coletado_em": "2026-11-06T15:52:25-03:00",
+   "data_do_dado": "2026-11-06",
    "situacao": "ok"
   },
   "tesouro_constitucionais": {
@@ -505,7 +505,7 @@
    "motivos_risco": [
     {
      "codigo": "prazo_proximo",
-     "texto": "Prazo em 45 dias",
+     "texto": "Prazo em 44 dias",
      "data_limite": "2026-12-20"
     }
    ],
@@ -533,7 +533,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/925702",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -653,7 +653,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/733022",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     }
    ]
   },
@@ -698,7 +698,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/970941",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -793,10 +793,6 @@
    "status_fonte": "Proposta Aprovada e Plano de Trabalho em Análise",
    "em_risco": true,
    "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
-    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -915,10 +911,6 @@
    "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
    "em_risco": true,
    "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
-    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -1185,7 +1177,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/990509",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1444,10 +1436,6 @@
    "motivos_risco": [
     {
      "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
-    },
-    {
-     "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
     }
    ],
@@ -1488,10 +1476,6 @@
    "status_fonte": "Proposta/Plano de Trabalho Enviado para Análise",
    "em_risco": true,
    "motivos_risco": [
-    {
-     "codigo": "cauc_sem_comprovacao",
-     "texto": "CAUC: item 3.2.4 sem comprovação (Encaminhamento do Anexo 12 do Relatório Resumido de Execução Orçamentária ao Siops)"
-    },
     {
      "codigo": "cauc_sem_comprovacao",
      "texto": "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)"
@@ -1597,7 +1581,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/759463",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     }
    ]
   },
@@ -1642,7 +1626,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/704774",
-     "data_coleta": "2026-11-05T16:29:25-03:00"
+     "data_coleta": "2026-11-06T15:52:20-03:00"
     }
    ]
   },

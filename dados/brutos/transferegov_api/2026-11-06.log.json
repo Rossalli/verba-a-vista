@@ -1,0 +1,16 @@
+{
+ "fonte": "transferegov_api",
+ "data": "2026-11-06",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-06T15:51:45-03:00",
+   "terminado_em": "2026-11-06T15:51:59-03:00",
+   "duracao_s": 14.5,
+   "status": "erro",
+   "erro": "ColetaErro: https://api-publica.transferegov.gestao.gov.br/parcerias/data-atualizacao: 4 tentativas falharam (último erro: ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1011))",
+   "requisicoes": 4,
+   "registros": {},
+   "metadados": {}
+  }
+ ]
+}
