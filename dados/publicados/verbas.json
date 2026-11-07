@@ -1,7 +1,7 @@
 {
  "versao": 1,
- "data": "2026-11-06",
- "atualizado_em": "2026-11-06T15:52:25-03:00",
+ "data": "2026-11-07",
+ "atualizado_em": "2026-11-07T14:24:47-03:00",
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
@@ -14,16 +14,16 @@
   "transferegov_api": {
    "nome": "Transferegov — API pública",
    "url": "https://portal.transferegov.sistema.gov.br/portal/home",
-   "retrato": "2026-11-05",
-   "coletado_em": "2026-11-05T16:29:03-03:00",
-   "data_do_dado": "2026-11-05",
-   "situacao": "defasada"
+   "retrato": "2026-11-07",
+   "coletado_em": "2026-11-07T14:24:14-03:00",
+   "data_do_dado": "2026-11-07",
+   "situacao": "ok"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
    "url": "https://portaldatransparencia.gov.br/convenios/consulta",
-   "retrato": "2026-11-06",
-   "coletado_em": "2026-11-06T15:52:20-03:00",
+   "retrato": "2026-11-07",
+   "coletado_em": "2026-11-07T14:24:41-03:00",
    "data_do_dado": null,
    "situacao": "ok"
   },
@@ -38,8 +38,8 @@
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
    "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc",
-   "retrato": "2026-11-06",
-   "coletado_em": "2026-11-06T15:52:25-03:00",
+   "retrato": "2026-11-07",
+   "coletado_em": "2026-11-07T14:24:47-03:00",
    "data_do_dado": "2026-11-06",
    "situacao": "ok"
   },
@@ -505,7 +505,7 @@
    "motivos_risco": [
     {
      "codigo": "prazo_proximo",
-     "texto": "Prazo em 44 dias",
+     "texto": "Prazo em 43 dias",
      "data_limite": "2026-12-20"
     }
    ],
@@ -533,7 +533,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/925702",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -653,7 +653,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/733022",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     }
    ]
   },
@@ -698,7 +698,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/970941",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1177,7 +1177,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/990509",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1581,7 +1581,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/759463",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     }
    ]
   },
@@ -1626,7 +1626,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/704774",
-     "data_coleta": "2026-11-06T15:52:20-03:00"
+     "data_coleta": "2026-11-07T14:24:41-03:00"
     }
    ]
   },
@@ -1662,7 +1662,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1698,7 +1698,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1732,7 +1732,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1766,7 +1766,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1800,7 +1800,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1834,7 +1834,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1868,7 +1868,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1902,7 +1902,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1936,7 +1936,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -1970,7 +1970,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2004,7 +2004,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2038,7 +2038,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2072,7 +2072,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2106,7 +2106,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2140,7 +2140,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   },
@@ -2174,7 +2174,143 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-05T16:29:03-03:00"
+     "data_coleta": "2026-11-07T14:24:14-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-92573",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "92573",
+   "numero_instrumento": "202600047249",
+   "nome": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 10000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-06"
+   },
+   "historico": [
+    {
+     "data": "2026-11-07",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-07T14:24:14-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-92574",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "92574",
+   "numero_instrumento": "202600047250",
+   "nome": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 3500000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-06"
+   },
+   "historico": [
+    {
+     "data": "2026-11-07",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-07T14:24:14-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-92575",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "92575",
+   "numero_instrumento": "202600047251",
+   "nome": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 3500000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-06"
+   },
+   "historico": [
+    {
+     "data": "2026-11-07",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-07T14:24:14-03:00"
+    }
+   ]
+  },
+  {
+   "id": "transferegov_parcerias-92576",
+   "fonte": "transferegov_parcerias",
+   "id_fonte": "92576",
+   "numero_instrumento": "202600047252",
+   "nome": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTO E MATERIAL PERMANENTE PARA UNIDADE BÁSICA DE SAÚDE",
+   "tipo": "emenda_finalidade",
+   "instrumento": "Transferências Fundo a Fundo da Saúde",
+   "orgao_concedente": "Ministério da Saúde",
+   "valor_total": 3000000,
+   "status_site": "aprovada",
+   "status_fonte": "Aprovada",
+   "em_risco": false,
+   "prazos": {
+    "proposta": "2026-11-06"
+   },
+   "historico": [
+    {
+     "data": "2026-11-07",
+     "de": null,
+     "para": "aprovada",
+     "fonte": "transferegov_parcerias",
+     "nota": "Verba apareceu nas fontes"
+    }
+   ],
+   "fontes": [
+    {
+     "nome": "Transferegov — Gestão de Parcerias",
+     "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
+     "data_coleta": "2026-11-07T14:24:14-03:00"
     }
    ]
   }
