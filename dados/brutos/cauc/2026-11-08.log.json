@@ -1,0 +1,33 @@
+{
+ "fonte": "cauc",
+ "data": "2026-11-08",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-08T15:38:10-03:00",
+   "terminado_em": "2026-11-08T15:38:15-03:00",
+   "duracao_s": 4.69,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 2,
+   "registros": {
+    "entes": 1,
+    "legenda": 39
+   },
+   "metadados": {
+    "data_pesquisa": "2026-11-06",
+    "tipo_ente": "Municípios",
+    "abrangencia": "CNPJ principal dos Entes Federados",
+    "recurso": {
+     "url": "https://www.tesourotransparente.gov.br/ckan/dataset/72b5f371-0c35-4613-8076-c99c821a6410/resource/07af297a-5e59-494a-a88a-55ddfd2f4b01/download/relatorio-situacao-de-varios-entes---municipios---uf-todas---abrangencia-1.csv",
+     "last_modified": "2026-11-06T11:10:05.987484",
+     "size": "1941318"
+    },
+    "http": {
+     "last_modified": "Fri, 06 Nov 2026 11:10:06 GMT",
+     "etag": "\"1793963406.2-1941318\""
+    },
+    "entes_no_arquivo": 5569
+   }
+  }
+ ]
+}

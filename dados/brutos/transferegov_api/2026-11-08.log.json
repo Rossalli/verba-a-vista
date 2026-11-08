@@ -1,0 +1,45 @@
+{
+ "fonte": "transferegov_api",
+ "data": "2026-11-08",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-08T15:37:37-03:00",
+   "terminado_em": "2026-11-08T15:37:50-03:00",
+   "duracao_s": 13.33,
+   "status": "ok",
+   "erro": null,
+   "requisicoes": 44,
+   "registros": {
+    "parcerias.proposta": 18,
+    "parcerias.parceria": 18,
+    "parcerias.programa": 6,
+    "parcerias.beneficiario_emenda_parlamentar": 15,
+    "fundoafundo.planos_acao": 2,
+    "fundoafundo.termos_adesao": 2,
+    "fundoafundo.programas_beneficiarios": 6,
+    "fundoafundo.programas": 6,
+    "especiais.beneficiarios": 0,
+    "especiais.planos_acao": 0,
+    "especiais.planos_trabalho": 0
+   },
+   "metadados": {
+    "data_atualizacao": {
+     "parcerias": {
+      "data_ultima_atualizacao": "2026-11-08T00:00:00"
+     },
+     "fundoafundo": {
+      "data_ultima_atualizacao": "2026-11-08T06:02:02"
+     },
+     "especiais": {
+      "data_ultima_atualizacao": "2026-11-08T00:00:00"
+     }
+    },
+    "cnpjs_consultados": [
+     "45145414000147",
+     "13921776000196",
+     "14513724000143"
+    ]
+   }
+  }
+ ]
+}
