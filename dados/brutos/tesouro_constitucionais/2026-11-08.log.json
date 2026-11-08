@@ -11,6 +11,16 @@
    "requisicoes": 4,
    "registros": {},
    "metadados": {}
+  },
+  {
+   "iniciado_em": "2026-11-08T17:22:51-03:00",
+   "terminado_em": "2026-11-08T17:23:07-03:00",
+   "duracao_s": 15.22,
+   "status": "erro",
+   "erro": "ColetaErro: https://apiapex.tesouro.gov.br/aria/v1/transferencias_constitucionais/custom/transferencias: 4 tentativas falharam (último erro: HTTP 503)",
+   "requisicoes": 4,
+   "registros": {},
+   "metadados": {}
   }
  ]
 }
