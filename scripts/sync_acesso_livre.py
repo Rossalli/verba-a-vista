@@ -99,7 +99,7 @@ def abrir_consulta(page, pausa: float) -> None:
     time.sleep(pausa)
     ir(page, href)  # leva o acesso de visitante; o endereço não é impresso (nem na mensagem de erro)
     try:
-        page.wait_for_selector("select[name=tipoIdentificacao]", timeout=40_000)
+        page.wait_for_selector("select[name=tipoIdentificacao]", timeout=60_000)
     except Exception as erro:  # noqa: BLE001
         conferir_barreira(page)
         raise Barrado(f"a consulta não abriu em 40 s: {onde(page)}") from erro
@@ -108,9 +108,9 @@ def abrir_consulta(page, pausa: float) -> None:
 def consultar_por_cnpj(page, cnpj: str) -> None:
     page.select_option("select[name=tipoIdentificacao]", "1")  # 1 = CNPJ
     page.fill("input[name=identificacao]", cnpj)
-    page.locator("input[type=button][onclick*=CONSULTA_COMPLETA]").last.click()
+    page.locator("input[type=button][onclick*=CONSULTA_COMPLETA]").last.click(no_wait_after=True)
     try:
-        page.wait_for_selector("table#row", timeout=40_000)
+        page.wait_for_selector("table#row", timeout=60_000)
     except Exception as erro:  # noqa: BLE001
         conferir_barreira(page)
         raise EstruturaMudou(f"a tabela de propostas não apareceu: {onde(page)}") from erro
@@ -135,7 +135,7 @@ def listar_propostas(page, pausa: float) -> tuple[list[dict], dict]:
         alvo = page.locator("a", has_text=re.compile(rf"^{atual + 1}$")).first
         if alvo.count() == 0:
             alvo = page.get_by_role("link", name="Próx").first
-        alvo.click()
+        alvo.click(no_wait_after=True)
         page.wait_for_function("n => !!document.body && new RegExp('P[aá]gina ' + n + ' de').test(document.body.innerText)", arg=atual + 1)  # body é nulo durante a troca de página
         page.wait_for_selector("table#row")
     if len(linhas) != total_itens:
@@ -147,23 +147,23 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
     """Abre a proposta pelo número, vai à aba Pareceres e lê o texto de cada parecer (os mais recentes primeiro)."""
     ir(page, CONSULTA)
     page.fill("input[name=numeroProposta]", proposta["numero"].lstrip("0"))
-    page.locator("input[type=button][onclick*=CONSULTA_COMPLETA]").first.click()
+    page.locator("input[type=button][onclick*=CONSULTA_COMPLETA]").first.click(no_wait_after=True)
     page.wait_for_selector("table#row")
     time.sleep(pausa)
-    page.locator("#row a", has_text=proposta["numero"]).first.click()
+    page.locator("#row a", has_text=proposta["numero"]).first.click(no_wait_after=True)
     links = page.locator("a[href*=DetalharParecerProposta]")  # o menu carrega depois da página: esperar, não contar
     try:
-        links.first.wait_for(state="attached", timeout=30_000)
+        links.first.wait_for(state="attached", timeout=60_000)
     except Exception as erro:  # noqa: BLE001
         conferir_barreira(page)
         raise EstruturaMudou(f"não achei o link 'Pareceres' na proposta {proposta['numero']}: {onde(page)}") from erro
     visivel = links.locator("visible=true")
     if visivel.count():
-        visivel.first.click()
+        visivel.first.click(no_wait_after=True)
     else:
         links.first.evaluate("el => el.click()")  # o do menu lateral recolhido: o clique da pessoa dispara o mesmo onclick/href
     try:
-        page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))", timeout=15_000)
+        page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))", timeout=30_000)
     except Exception:  # noqa: BLE001
         conferir_barreira(page)
         print(f"   {proposta['numero']}: a aba Pareceres não tem lista (sem pareceres)")
@@ -172,9 +172,9 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
     saida = []
     for item in itens:
         time.sleep(pausa)
-        page.locator(f"a[href*='idParecer={item['id_parecer']}']").first.click()  # o href é um `javascript:`: só o clique o executa
+        page.locator(f"a[href*='idParecer={item['id_parecer']}']").first.click(no_wait_after=True)  # o href é um `javascript:`: só o clique o executa
         try:
-            page.wait_for_selector("textarea[name=parecer]", timeout=30_000)
+            page.wait_for_selector("textarea[name=parecer]", timeout=60_000)
         except Exception as erro:  # noqa: BLE001
             conferir_barreira(page)
             raise EstruturaMudou(f"o parecer {item['id_parecer']} não abriu: {onde(page)}") from erro
@@ -227,7 +227,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Não consegui abrir o Chrome ({erro}). Instale o Chrome, ou rode `playwright install chromium` e use --navegador chromium.")
             return 2
         page = navegador.new_context(locale="pt-BR").new_page()
-        page.set_default_timeout(30_000)
+        page.set_default_timeout(60_000)
         try:
             print("1) abrindo a consulta de propostas")
             abrir_consulta(page, pausa)
@@ -250,6 +250,11 @@ def main(argv: list[str] | None = None) -> int:
         except EstruturaMudou as erro:
             print(f"\nPAROU, a página não é a esperada: {erro}\nNada foi gravado. Avise o projeto com esta mensagem.")
             return 2
+        except Exception as erro:  # noqa: BLE001
+            if type(erro).__name__ != "TimeoutError":
+                raise
+            print(f"\nPAROU: o site demorou demais para responder (60 s) em {onde(page)}.\nNada foi gravado. Tente de novo daqui a pouco; se repetir sempre neste ponto, mande esta mensagem.")
+            return 1
         finally:
             navegador.close()
 
