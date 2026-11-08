@@ -1,6 +1,6 @@
 # Operação
 
-O que configurar no GitHub para o workflow diário funcionar, e o que fazer no dia a dia. O comportamento do workflow está em `docs/spec.md` §9.
+O que configurar no GitHub para os workflows (coleta semanal e publicação) funcionarem, e o que fazer no dia a dia. O comportamento do workflow está em `docs/spec.md` §9.
 
 ## Configuração do repositório (uma vez)
 
@@ -16,7 +16,7 @@ Em **Settings** do repositório:
 4. **Actions → General → Workflow permissions:** "Read and write permissions" (o workflow já pede `contents`, `issues` e `pages` em `permissions:`; em alguns repositórios o padrão do projeto precisa ser liberado aqui).
 5. Se o branch `main` tiver proteção, permita que `github-actions[bot]` faça push nele, ou o commit dos dados falha.
 
-Primeira execução: **Actions → Coleta diária → Run workflow**. Ela coleta, publica, abre as issues de aviso que couberem, implanta o site e mostra a URL no passo `deploy`.
+Primeira execução: **Actions → Coleta semanal → Run workflow**. Ela coleta, publica, abre as issues de aviso que couberem e chama a publicação, que implanta o site e mostra a URL no passo `deploy`. Para republicar sem coletar (por exemplo depois de subir um retrato do Acesso Livre): **Actions → Publicar site → Run workflow**. A coleta agendada roda toda segunda-feira, 09:00 de Brasília.
 
 ## Dia a dia
 
@@ -37,11 +37,11 @@ git add dados/brutos/transferegov_acesso_livre
 git commit -m "conferência no Acesso Livre" && git push
 ```
 
-O script mostra o que mudou desde o lote do Siconv e grava o retrato do dia. O push de `dados/brutos/` não republica o site sozinho: a próxima coleta (09:00) ou **Actions → Coleta diária → Run workflow** já usa o retrato. Se aparecer captcha, login do gov.br ou a página mudar, ele para sem gravar e diz em que passo: **não tente contornar**, avise o projeto. Com mais de 8 dias sem conferência, a issue "Conferência no Acesso Livre atrasada" é aberta. Depois de uma perda nova, rode `python -m curadoria --executar` para os pareceres entrarem no rascunho da IA (a revisão continua sendo sua).
+O script mostra o que mudou desde o lote do Siconv e grava o retrato do dia. O push de `dados/brutos/` não republica o site sozinho: rode **Actions → Publicar site → Run workflow** (ou espere a coleta de segunda): a publicação já usa o retrato. Se aparecer captcha, login do gov.br ou a página mudar, ele para sem gravar e diz em que passo: **não tente contornar**, avise o projeto. Com mais de 8 dias sem conferência, a issue "Conferência no Acesso Livre atrasada" é aberta. Depois de uma perda nova, rode `python -m curadoria --executar` para os pareceres entrarem no rascunho da IA (a revisão continua sendo sua).
 
 ## Lançamento: liberar a indexação
 
-Até o lançamento o site é público mas pede aos buscadores para **não** indexá-lo (`noindex` em todas as páginas). Depois da revisão de credibilidade (spec §12), crie a variável em **Settings → Secrets and variables → Actions → Variables**: `SITE_INDEXAR` = `true`, e rode o workflow (Actions → Coleta diária → Run workflow). O `noindex` só some no deploy seguinte. Para voltar a bloquear, apague a variável ou mude o valor e rode de novo.
+Até o lançamento o site é público mas pede aos buscadores para **não** indexá-lo (`noindex` em todas as páginas). Depois da revisão de credibilidade (spec §12), crie a variável em **Settings → Secrets and variables → Actions → Variables**: `SITE_INDEXAR` = `true`, e rode o workflow (Actions → Publicar site → Run workflow). O `noindex` só some no deploy seguinte. Para voltar a bloquear, apague a variável ou mude o valor e rode de novo.
 
 O `noindex` é um pedido, não uma trava: quem tem o link abre o site normalmente.
 

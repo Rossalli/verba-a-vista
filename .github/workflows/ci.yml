@@ -1,4 +1,4 @@
-# Testes em todo push e pull request (o workflow diário só coleta, publica e implanta).
+# Testes em todo push e pull request (a coleta semanal e a publicação ficam em `coleta-semanal.yml` e `deploy.yml`).
 
 name: Testes
 

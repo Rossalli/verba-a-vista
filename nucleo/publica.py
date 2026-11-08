@@ -86,7 +86,7 @@ def montar_fontes(retratos: dict[str, dict | None], config: Config, data: date) 
         fontes[chave] = {
             "nome": nome, "url": url, "retrato": dia.isoformat(), "coletado_em": retrato["coletado_em"],
             "data_do_dado": (d.isoformat() if (d := _data_do_dado(chave, retrato)) else None),
-            "situacao": "ok" if dia == data else "defasada",
+            "situacao": "ok" if (data - dia).days < config.regras.coleta.retrato_valido_dias else "defasada",
         }
     return fontes
 

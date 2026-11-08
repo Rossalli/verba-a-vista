@@ -19,7 +19,7 @@ Leia antes de qualquer tarefa:
 
 - **Coleta, normalização, regras e curadoria:** Python 3.12, `httpx`, `pydantic` v2, `pandas` (só para os CSV em lote), `pyyaml`, `anthropic`. Testes com `pytest` e `respx`.
 - **Site:** Astro (estático), sem framework de UI. CSS próprio com os tokens de `docs/design.md`.
-- **Agendamento:** GitHub Actions (`.github/workflows/coleta-diaria.yml`). Se as APIs bloquearem servidores fora do Brasil, a coleta roda num servidor no Brasil e só faz push dos dados.
+- **Agendamento:** GitHub Actions (`.github/workflows/coleta-semanal.yml`, segundas 09:00 BRT; `deploy.yml` publica o site e pode ser disparado à mão). Se as APIs bloquearem servidores fora do Brasil, a coleta roda num servidor no Brasil e só faz push dos dados.
 - **Hospedagem:** GitHub Pages ou Cloudflare Pages.
 - Sem banco de dados. Os dados vivem em arquivos versionados no Git.
 

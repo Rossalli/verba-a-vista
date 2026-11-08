@@ -16,6 +16,7 @@ from nucleo.modelo import Verba
 from nucleo.normaliza import carregar_retratos
 
 RAIZ = Path(__file__).resolve().parents[1]
+SEMANA_DEPOIS = date(2026, 11, 5)  # 7 dias depois dos retratos de 29/10: passou da validade (D24)
 DATA = date(2026, 10, 30)
 FONTE = {"nome": "Transferegov", "url": "https://exemplo.gov.br", "data_coleta": "2026-10-29T18:00:00-03:00"}
 
@@ -52,7 +53,7 @@ def ler_csv(caminho: Path) -> list[dict]:
 
 
 def test_fontes_dizem_o_retrato_a_hora_e_a_data_do_dado(reais, config):
-    f = p.montar_fontes(reais, config, DATA)
+    f = p.montar_fontes(reais, config, SEMANA_DEPOIS)
     assert list(f) == list(p.NOMES_FONTES)
     assert f.pop("transferegov_acesso_livre")["situacao"] == "sem_retrato"  # sem conferência manual nos dados reais ainda (D23)
     siconv = f["transferegov_discricionarias"]
@@ -66,7 +67,7 @@ def test_situacao_da_fonte_ok_defasada_ou_sem_retrato(reais, config):
     hoje = p.montar_fontes(reais, config, date(2026, 10, 29))
     assert {x["situacao"] for c, x in hoje.items() if c != "transferegov_acesso_livre"} == {"ok"}
     sem = {**reais, "cauc": None}
-    f = p.montar_fontes(sem, config, DATA)
+    f = p.montar_fontes(sem, config, SEMANA_DEPOIS)
     assert f["cauc"] == {"nome": p.NOMES_FONTES["cauc"], "url": f["cauc"]["url"], "retrato": None, "coletado_em": None, "data_do_dado": None, "situacao": "sem_retrato"}
     assert f["obrasgov"]["situacao"] == "defasada"
 
@@ -240,9 +241,14 @@ def test_falha_ao_montar_o_csv_nao_troca_nem_o_json(config, tmp_path, monkeypatc
 # --- pipeline de ponta a ponta -----------------------------------------------------------------
 
 
+def _so_ate_29_10(pasta, nomes):
+    """Os testes usam os retratos de 29/10/2026; os mais novos (coletas seguintes) mudariam os números esperados."""
+    return [n for n in nomes if n[:2] == "20" and n[:10] > "2026-10-29"]
+
+
 @pytest.fixture
 def raiz_com_brutos(tmp_path):
-    shutil.copytree(RAIZ / "dados" / "brutos", tmp_path / "dados" / "brutos")
+    shutil.copytree(RAIZ / "dados" / "brutos", tmp_path / "dados" / "brutos", ignore=_so_ate_29_10)
     return tmp_path
 
 
@@ -258,10 +264,10 @@ def test_pipeline_publica_e_a_segunda_execucao_le_o_publicado_sem_mudar_nada(rai
     assert (pasta / "verbas.json").read_bytes() == primeiro_json and (pasta / "verbas.csv").read_bytes() == primeiro_csv
 
 
-def test_pipeline_no_dia_seguinte_mantem_as_verbas_e_marca_as_fontes_como_defasadas(raiz_com_brutos, capsys):
+def test_pipeline_uma_semana_depois_mantem_as_verbas_e_marca_as_fontes_como_defasadas(raiz_com_brutos, capsys):
     pipeline.main(["--data", "2026-10-30", "--raiz", str(raiz_com_brutos)])
     antes = json.loads((raiz_com_brutos / "dados" / "publicados" / "verbas.json").read_text(encoding="utf-8"))
-    pipeline.main(["--data", "2026-10-31", "--raiz", str(raiz_com_brutos)])
+    pipeline.main(["--data", "2026-11-05", "--raiz", str(raiz_com_brutos)])
     depois = json.loads((raiz_com_brutos / "dados" / "publicados" / "verbas.json").read_text(encoding="utf-8"))
 
     def sem_alertas(corpo):
@@ -269,8 +275,8 @@ def test_pipeline_no_dia_seguinte_mantem_as_verbas_e_marca_as_fontes_como_defasa
 
     assert sem_alertas(antes) == sem_alertas(depois)  # nada mudou nas fontes: histórico e perdas intactos
     prazo = lambda corpo: next(v["motivos_risco"][0]["texto"] for v in corpo["verbas"] if v["id"] == "transferegov_discricionarias-1733967")  # noqa: E731
-    assert (prazo(antes), prazo(depois)) == ("Prazo em 51 dias", "Prazo em 50 dias")  # o único que muda é a contagem do prazo
-    assert (antes["data"], depois["data"]) == ("2026-10-30", "2026-10-31") and {f["situacao"] for c, f in depois["fontes"].items() if c != "transferegov_acesso_livre"} == {"defasada"}
+    assert (prazo(antes), prazo(depois)) == ("Prazo em 51 dias", "Prazo em 45 dias")  # o único que muda é a contagem do prazo
+    assert (antes["data"], depois["data"]) == ("2026-10-30", "2026-11-05") and {f["situacao"] for c, f in depois["fontes"].items() if c != "transferegov_acesso_livre"} == {"defasada"}
 
 
 def test_pipeline_sem_publicar_nao_grava(raiz_com_brutos, capsys):

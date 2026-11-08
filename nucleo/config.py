@@ -104,6 +104,7 @@ class RegraColeta(_Base):
     portal_transparencia_req_por_min: int = Field(gt=0)
     tentativas: int = Field(ge=1)
     backoff_inicial_s: float = Field(gt=0)
+    retrato_valido_dias: int = Field(default=1, ge=1)  # D24: o retrato com menos dias que isso conta como "ok" (coleta semanal: 7)
     acesso_livre_dias_alerta: int = Field(default=8, ge=1)  # D23: sem conferência no Acesso Livre há mais dias que isso, abre o aviso
 
     @field_validator("fuso")

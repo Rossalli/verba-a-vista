@@ -1,18 +1,15 @@
-# Workflow diário (spec §9, T5.1): coleta -> normaliza -> curadoria (gera fila) -> avisos -> commit dos dados -> build -> deploy.
-# Configuração necessária no repositório: docs/operacao.md.
-# Se as APIs bloquearem servidores do GitHub (T1.0), mova a coleta para um servidor no Brasil
-# e deixe aqui só build + deploy disparados por push em dados/publicados/.
+# Publicação do site (spec §9, D24): normaliza os dados que já estão no repositório -> commit -> build -> deploy.
+# Não coleta nada. Disparos: à mão (Actions -> Publicar site -> Run workflow), `push` em `dados/curadoria/`, `config/`
+# ou `site/` (aprovar uma curadoria ou mudar uma regra republica o site) e chamada do workflow `coleta-semanal.yml`.
+# O commit do robô (token do Actions) não dispara este workflow de novo.
 
-name: Coleta diária
+name: Publicar site
 
 on:
-  schedule:
-    - cron: "0 12 * * *"   # 09:00 em Brasília (UTC-3), depois da publicação do CAUC (D9)
   workflow_dispatch:
+  workflow_call:
   push:
     branches: [main]
-    # Aprovar uma curadoria ou mudar uma regra republica o site sem nova coleta. O commit do robô (token do
-    # Actions) não dispara este workflow de novo.
     paths:
       - "dados/curadoria/**"
       - "config/**"
@@ -20,7 +17,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
   pages: write
   id-token: write
 
@@ -33,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # na chamada pela coleta semanal, o branch já com o commit do robô
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -40,42 +38,8 @@ jobs:
           cache-dependency-path: pyproject.toml
       - run: pip install -e ".[dev]"
 
-      - name: Coleta
-        id: coleta
-        if: github.event_name != 'push'
-        # Uma fonte com falha não derruba o dia (spec §9): `make coleta` sai com erro, mas as demais já foram gravadas.
-        continue-on-error: true
-        env:
-          PORTAL_TRANSPARENCIA_KEY: ${{ secrets.PORTAL_TRANSPARENCIA_KEY }}
-        run: make coleta
-      - name: Coleta com falha em alguma fonte
-        if: steps.coleta.outcome == 'failure'
-        run: echo "::warning::Alguma fonte falhou na coleta; o site usa o último retrato válido dela (veja o aviso 'Fonte sem retrato de hoje')."
-
       - name: Normaliza e publica os dados
         run: make normaliza
-
-      - name: Rascunhos da IA (desligado até CURADORIA_IA=true)
-        if: github.event_name != 'push'
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CURADORIA_IA: ${{ vars.CURADORIA_IA }}
-        run: |
-          if [ "$CURADORIA_IA" = "true" ]; then
-            make curadoria ARGS="--executar"
-          else
-            echo "Curadoria com IA desligada (variável CURADORIA_IA != true). Plano do dia, sem custo:"
-            make curadoria
-          fi
-
-      - name: Avisos (issues)
-        if: github.event_name != 'push'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          git status --porcelain -uall dados/fila > fila_novos.txt || true
-          python -m nucleo.avisos --fila-novos fila_novos.txt --abrir-issues
-          rm -f fila_novos.txt
 
       - name: Commit dos dados
         run: |

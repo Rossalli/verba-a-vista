@@ -42,6 +42,7 @@ curadoria:
 
 coleta:
   horario: "09:00"   # depois da publicação do CAUC (~08:11 BRT em dias úteis); D9
+  retrato_valido_dias: 7   # D24: coleta semanal (segunda); até 6 dias depois o retrato ainda é o "atual", e só 7 ou mais é "defasado"
   fuso: America/Sao_Paulo
   portal_transparencia_req_por_min: 300   # abaixo do limite de 400 por segurança
   tentativas: 4

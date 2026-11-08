@@ -57,8 +57,8 @@ def test_sem_nada_a_avisar_a_lista_e_vazia():
 
 @pytest.fixture
 def raiz_publicada(tmp_path):
-    shutil.copytree(RAIZ / "dados" / "brutos", tmp_path / "dados" / "brutos")
-    assert pipeline.main(["--data", "2026-10-30", "--raiz", str(tmp_path)]) == 0
+    shutil.copytree(RAIZ / "dados" / "brutos", tmp_path / "dados" / "brutos", ignore=lambda pasta, nomes: [n for n in nomes if n[:2] == "20" and n[:10] > "2026-10-29"])  # só os retratos de 29/10
+    assert pipeline.main(["--data", "2026-11-05", "--raiz", str(tmp_path)]) == 0
     return tmp_path
 
 
@@ -68,17 +68,17 @@ def test_linha_de_comando_com_dados_reais(raiz_publicada, capsys):
     novos = raiz_publicada / "novos.txt"
     novos.write_text("?? dados/fila/transferegov_discricionarias-1981768.yaml\n", encoding="utf-8")
     capsys.readouterr()
-    assert a.main(["--raiz", str(raiz_publicada), "--data", "2026-10-30", "--fila-novos", str(novos)]) == 0
+    assert a.main(["--raiz", str(raiz_publicada), "--data", "2026-11-05", "--fila-novos", str(novos)]) == 0
     saida = json.loads(capsys.readouterr().out)
     por_chave = {x["chave"]: x for x in saida}
-    assert set(por_chave) == {"fila", "fontes", "acesso_livre"}  # dados reais (sem nenhuma conferência no Acesso Livre ainda, D23): nenhuma situação sem mapeamento; retratos de 29/10 são "defasados" em 30/10
+    assert set(por_chave) == {"fila", "fontes", "acesso_livre"}  # dados reais (sem nenhuma conferência no Acesso Livre ainda, D23): nenhuma situação sem mapeamento; retratos de 29/10 já são "defasados" em 05/11 (7 dias, D24) são "defasados" em 30/10
     assert "transferegov_discricionarias-1981768" in por_chave["fila"]["corpo"] and por_chave["fila"]["comentar"] is True
     assert "Transferegov" in por_chave["fontes"]["corpo"]
 
 
 def test_linha_de_comando_sem_fila_nem_novos_avisa_so_das_fontes(raiz_publicada, capsys):
     capsys.readouterr()
-    assert a.main(["--raiz", str(raiz_publicada), "--data", "2026-10-30"]) == 0
+    assert a.main(["--raiz", str(raiz_publicada), "--data", "2026-11-05"]) == 0
     assert [x["chave"] for x in json.loads(capsys.readouterr().out)] == ["fontes", "acesso_livre"]
 
 
