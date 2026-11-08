@@ -106,11 +106,13 @@ def test_pareceres_do_acesso_livre_entram_no_dossie_sem_contato(proc, raiz_sem_p
     from coleta import acesso_livre as al
 
     pareceres = [al.parecer_do_retrato("1981768", exemplo), al.parecer_do_retrato("1981768", {**exemplo, "id_parecer": "2", "data": "26/08/2026"}), al.parecer_do_retrato("2065616", exemplo)]
-    acesso = {"fonte": "transferegov_acesso_livre", "data": "2026-11-05", "coletado_em": "2026-11-05T21:00:00-03:00", "metadados": {}, "dados": {"propostas": [], "pareceres": pareceres}}
+    acesso = {"fonte": "transferegov_acesso_livre", "data": "2026-11-05", "coletado_em": "2026-11-05T21:00:00-03:00", "metadados": {}, "dados": {"propostas": [{"id_proposta": "1981768", "numero": "012684/2024", "situacao": "Proposta/Plano de Trabalho Rejeitados", "orgao": "22000 - Ministério da Agricultura e Pecuária", "possui_parecer": False}], "pareceres": pareceres}}
     com_urls = {**urls, "transferegov_acesso_livre": "https://exemplo.gov.br/acesso-livre"}
     verba = next(v for v in proc.normalizacao.verbas if v.id == IDS_PERDAS[0])
     dossie = montar_dossie(verba, {**proc.retratos, "transferegov_acesso_livre": acesso}, raiz_sem_publicado, com_urls)
     docs = [d for d in dossie.documentos if d.id.startswith("parecer-")]
+    situacao = next(d for d in dossie.documentos if d.id.startswith("situacao-acesso-livre-"))
+    assert situacao.id.endswith("-2026-11-05") and situacao.texto.startswith("Situação da proposta") and "conferida em 05/11/2026" in situacao.texto
     assert [d.id for d in docs] == ["parecer-1981768-2026-08-25", "parecer-1981768-2026-08-26"]  # só os desta proposta, em ordem de data
     assert all(d.url == "https://exemplo.gov.br/acesso-livre" and d.data_coleta == "2026-11-05T21:00:00-03:00" for d in docs)
     assert "saneados os apontamentos técnicos" in docs[0].texto and "99999" not in docs[0].texto and "Fulano" not in docs[0].texto

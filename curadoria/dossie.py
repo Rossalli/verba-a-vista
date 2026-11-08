@@ -5,6 +5,8 @@ Fase 1: só documentos obtidos automaticamente, todos tirados dos retratos bruto
 - `historico-situacao-<id>`: trilha de datas de cada mudança de situação (traz a data, não o motivo);
 - `cauc-<data>`: itens do CAUC sem comprovação no retrato mais próximo da data da perda;
 - `obrasgov-<projeto>`: histórico de paralisação/cancelamento da obra ligada, com a justificativa em texto livre;
+- `situacao-acesso-livre-<proposta>-<data>`: a situação da proposta lida na conferência (D23), que o lote do Siconv ainda
+  não tem; diz que a proposta foi rejeitada e quando foi conferida, mas não o motivo;
 - `parecer-<proposta>-<data>`: parecer do concedente lido na consulta pública do Transferegov (Acesso Livre, D23), sem nome
   nem contato de servidor; vem da conferência semanal, rodada por uma pessoa (`scripts/sync_acesso_livre.py`).
 
@@ -191,6 +193,26 @@ def _documento_obrasgov(verba: Verba, dados: dict, retrato: dict, url: str, id_p
     )
 
 
+def _documento_situacao_acesso(verba: Verba, acesso: dict, url: str) -> Documento | None:
+    """A situação atual da proposta na consulta pública (Acesso Livre), com a data da conferência."""
+    proposta = next((p for p in acesso["dados"]["propostas"] if p["id_proposta"] == verba.id_fonte), None)
+    if proposta is None:
+        return None
+    dia = date.fromisoformat(acesso["data"])
+    linhas = [
+        f"Situação da proposta {proposta['numero']} na consulta pública do Transferegov (Acesso Livre), conferida em {dia:%d/%m/%Y}: {proposta['situacao']}.",
+        f"Órgão concedente: {proposta['orgao']}.",
+        f"Possui parecer na lista: {'sim' if proposta['possui_parecer'] else 'não'}.",
+    ]
+    return Documento(
+        id=f"situacao-acesso-livre-{verba.id_fonte}-{dia.isoformat()}",
+        titulo=f"Transferegov (Acesso Livre): situação da proposta {proposta['numero']} em {dia:%d/%m/%Y}",
+        url=url,
+        data_coleta=acesso["coletado_em"],
+        texto="\n".join(linhas),
+    )
+
+
 def _documentos_pareceres(verba: Verba, acesso: dict, url: str) -> list[Documento]:
     """Um documento por parecer do concedente lido no Acesso Livre (já sem nome e contato, `coleta.acesso_livre`)."""
     saida: list[Documento] = []
@@ -240,6 +262,7 @@ def montar_dossie(verba: Verba, retratos: dict[str, dict | None], raiz: Path, ur
             candidatos.append(_documento_obrasgov(verba, obras["dados"], obras, urls["obrasgov"], id_projeto))
     acesso = retratos.get("transferegov_acesso_livre")
     if acesso is not None and "transferegov_acesso_livre" in urls:
+        candidatos.append(_documento_situacao_acesso(verba, acesso, urls["transferegov_acesso_livre"]))
         candidatos += _documentos_pareceres(verba, acesso, urls["transferegov_acesso_livre"])
     dossie.documentos = [d for d in candidatos if d is not None]
     return dossie
