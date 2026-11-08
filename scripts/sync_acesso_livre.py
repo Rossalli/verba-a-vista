@@ -68,12 +68,21 @@ class SemResposta(Exception):
 
 def ir(page, endereco: str) -> None:
     """Abre uma página esperando só o HTML principal (o gov.br demora para terminar de carregar os scripts)."""
-    try:
-        page.goto(endereco, wait_until="domcontentloaded", timeout=60_000)
-    except Exception as erro:  # noqa: BLE001
-        if type(erro).__name__ != "TimeoutError":
-            raise
-        raise SemResposta(f"o site não respondeu em 60 s: {urlsplit(endereco).netloc}{urlsplit(endereco).path}") from erro
+    tentativas = 3
+    for tentativa in range(1, tentativas + 1):
+        try:
+            page.goto(endereco, wait_until="domcontentloaded", timeout=60_000)
+            return
+        except Exception as erro:  # noqa: BLE001
+            # só o que é rede (prazo, DNS, conexão): nada de mexer no que a página respondeu
+            rede = type(erro).__name__ == "TimeoutError" or "net::ERR_" in str(erro)
+            if not rede:
+                raise
+            local = f"{urlsplit(endereco).netloc}{urlsplit(endereco).path}"
+            if tentativa == tentativas:
+                raise SemResposta(f"sem resposta de {local} depois de {tentativas} tentativas ({str(erro).splitlines()[0]})") from erro
+            print(f"   sem resposta de {local} ({str(erro).splitlines()[0][:80]}); nova tentativa em 10 s")
+            time.sleep(10)
 
 
 class EstruturaMudou(Exception):
