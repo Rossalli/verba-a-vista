@@ -39,7 +39,7 @@ export function valoresDaVerba(verba) {
     if (verba.prazos?.[chave]) itens.push({ rotulo, valor: dia(verba.prazos[chave]), mono: true });
   }
   if (verba.parlamentar) itens.push({ rotulo: "Autor da emenda", valor: verba.parlamentar, mono: false });
-  if (verba.perda) itens.push({ rotulo: "Perdida em", valor: dia(verba.perda.data), mono: true });
+  if (verba.perda) itens.push({ rotulo: "Situação desde", valor: dia(verba.perda.data), mono: true });
   return itens;
 }
 

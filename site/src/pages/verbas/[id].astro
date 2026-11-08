@@ -71,7 +71,7 @@ const linhaTopo = [rotuloInstrumento(verba), verba.orgao_concedente && formatarN
   {perda && (
     <section class="perda" aria-labelledby="porque">
       <div class="perda-topo">
-        <h2 id="porque">Por que esta verba foi perdida</h2>
+        <h2 id="porque">Por que esta verba foi {rotuloStatus.toLowerCase()}</h2>
         {selo && (
           <span class="selo">
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.6 3.6 3.9.4-2.9 2.6.8 3.9L8 10l-3.4 2 .8-3.9-2.9-2.6 3.9-.4z" fill="none" stroke="#2B3A48" stroke-width="1.3" stroke-linejoin="round"></path></svg>

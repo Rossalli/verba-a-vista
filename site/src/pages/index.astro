@@ -58,7 +58,7 @@ const dia = (iso) => dataCompleta(iso).slice(0, 5);
         <h2 class="h2-menor">Onde o dinheiro se perdeu</h2>
         <span class="apoio-curto">Valor perdido por motivo, desde 2024</span>
       </div>
-      {grupos.length > 0 ? <BarrasPerdas grupos={grupos} /> : <p>Nenhuma verba foi perdida no período.</p>}
+      {grupos.length > 0 ? <BarrasPerdas grupos={grupos} /> : <p>Nenhuma verba foi rejeitada no período.</p>}
       <span class="apoio-curto">
         {fraseEvitavel(evitavel, "Nenhuma perda tem ainda o motivo documentado e revisado; enquanto isso, o valor aparece como “motivo em apuração”.")}
       </span>

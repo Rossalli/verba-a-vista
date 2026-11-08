@@ -211,7 +211,7 @@ Layout de referência em `docs/design.md` e `docs/design/telas/`.
 
 | Página | Rota | Conteúdo |
 | --- | --- | --- |
-| Início | `/` | Frase-tese, resumo (em andamento, em risco, perdidas desde 2024, concluídas), "Em risco agora", perdas por motivo, últimas mudanças, como funciona |
+| Início | `/` | Frase-tese, resumo (em andamento, em risco, rejeitadas desde 2024, concluídas), "Em risco agora", perdas por motivo, últimas mudanças, como funciona |
 | Lista | `/verbas/` | Filtros por situação, "só em risco", tipo, **ano**, área, busca; tabela; link para CSV |
 | Verba | `/verbas/<id>/` | Cabeçalho com status do site + status da fonte, valores, bloco de perda (se houver) com selo de IA e citações, histórico, registros originais, "encontrou um erro?"; **"O que é esta verba"** (uma frase com instrumento, objeto, valor e concedente, mais o que o tipo e a etapa significam, D21); em "Registros originais", links que abrem e, quando o Transferegov não tem link direto, o número a buscar e onde clicar |
 | Perdas | `/perdas/` | Todas as perdas agrupadas por motivo **ou por ano da perda** (alternável, D20), com totais |

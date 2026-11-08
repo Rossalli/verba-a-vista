@@ -24,16 +24,16 @@ const plural = (n) => `${n} ${n === 1 ? "verba" : "verbas"}`;
 
 <Base
   titulo="Perdas"
-  descricao="Verbas federais que Neves Paulista perdeu desde 2024, por motivo e por ano, com o valor perdido e o documento oficial de cada uma."
+  descricao="Verbas federais rejeitadas para Neves Paulista desde 2024, por motivo e por ano, com o valor perdido e o documento oficial de cada uma."
   rota="/perdas/"
   espaco="32px"
 >
   <div class="cabeca">
-    <h1 class="titulo">Verbas perdidas</h1>
+    <h1 class="titulo">Verbas rejeitadas</h1>
     <p>
       {resumo.perdidas.n === 0
-        ? "Nenhuma verba federal foi perdida no período acompanhado (desde 2024)."
-        : <>Desde 2024, <strong>{resumo.perdidas.n} {resumo.perdidas.n === 1 ? "verba" : "verbas"}</strong> deixaram de chegar ao município, num total de <strong class="mono">{formatarReais(resumo.perdidas.valor)}</strong>. Veja as perdas agrupadas pelo motivo ou pelo ano em que foram perdidas.</>}
+        ? "Nenhuma verba federal foi rejeitada no período acompanhado (desde 2024)."
+        : <>Desde 2024, <strong>{resumo.perdidas.n} {resumo.perdidas.n === 1 ? "verba" : "verbas"}</strong> deixaram de chegar ao município, num total de <strong class="mono">{formatarReais(resumo.perdidas.valor)}</strong>. Veja as perdas agrupadas pelo motivo ou pelo ano em que foram rejeitadas.</>}
     </p>
     <p class="apoio">Valor perdido: parte do repasse da União que não foi liberada, mais o que foi devolvido. O motivo só é publicado com o documento oficial citado; sem ele, a perda fica “em apuração”. <a href={url("/como-funciona/#perdas")}>Como explicamos as perdas</a>.</p>
   </div>
@@ -66,12 +66,12 @@ const plural = (n) => `${n} ${n === 1 ? "verba" : "verbas"}`;
             <span class="mono total">{formatarReais(g.valor)} · {plural(g.n)}</span>
           </div>
           <p class="apoio">{descricao(g.categoria)}</p>
-          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas: ${g.rotulo}`}>
+          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas rejeitadas: ${g.rotulo}`}>
             <table>
               <thead>
                 <tr>
                   <th scope="col">Verba</th>
-                  <th scope="col">Perdida em</th>
+                  <th scope="col">Situação desde</th>
                   <th scope="col">Evitável?</th>
                   <th scope="col" class="direita">Valor perdido</th>
                 </tr>
@@ -112,12 +112,12 @@ const plural = (n) => `${n} ${n === 1 ? "verba" : "verbas"}`;
             <h2 id={`t-${g.ancora}`}>Perdas de {g.ano}</h2>
             <span class="mono total">{formatarReais(g.valor)} · {plural(g.n)}</span>
           </div>
-          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas perdidas em ${g.ano}`}>
+          <div class="tabela-rolavel" tabindex="0" role="region" aria-label={`Verbas rejeitadas em ${g.ano}`}>
             <table>
               <thead>
                 <tr>
                   <th scope="col">Verba</th>
-                  <th scope="col">Perdida em</th>
+                  <th scope="col">Situação desde</th>
                   <th scope="col">Motivo</th>
                   <th scope="col" class="direita">Valor perdido</th>
                 </tr>

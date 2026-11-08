@@ -9,7 +9,7 @@ const celulas = [
   { tom: "risco", rotulo: "Em risco", ...risco, longo: risco.n === 1 ? "valor da 1 verba com alerta" : `valor das ${risco.n} verbas com alerta` },
   {
     tom: "perda",
-    rotulo: "Perdidas desde 2024",
+    rotulo: "Rejeitadas desde 2024",
     ...perdidas,
     longo: perdidas.documentadas === perdidas.n ? `${plural(perdidas.n, "verba", "verbas")}, cada uma com o motivo documentado` : `${plural(perdidas.n, "verba", "verbas")}; motivo documentado em ${perdidas.documentadas}, o resto em apuração`,
   },

@@ -14,7 +14,7 @@ test("citações [n] viram pedaços, sem HTML cru", () => {
 test("valores: só o que existe, contrapartida zero é \"Não exige\", valor nulo é \"A definir\"", () => {
   const itens = valoresDaVerba({ valor_total: 70075000, valor_liberado: 0, valor_contrapartida: 0, prazos: { proposta: "2024-05-13" }, perda: { data: "2025-01-21" } });
   assert.deepEqual(itens.map((i) => [i.rotulo, i.valor]), [
-    ["Valor da verba", "R$ 700.750"], ["Valor liberado", "R$ 0"], ["Contrapartida", "Não exige"], ["Data da proposta", "13/05/2024"], ["Perdida em", "21/01/2025"],
+    ["Valor da verba", "R$ 700.750"], ["Valor liberado", "R$ 0"], ["Contrapartida", "Não exige"], ["Data da proposta", "13/05/2024"], ["Situação desde", "21/01/2025"],
   ]);
   assert.deepEqual(valoresDaVerba({ valor_total: null }).map((i) => [i.rotulo, i.valor]), [["Valor da verba", "A definir"]]);
   assert.equal(valoresDaVerba({ valor_total: 1, parlamentar: "FULANO" }).find((i) => i.rotulo === "Autor da emenda").valor, "FULANO");

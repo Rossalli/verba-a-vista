@@ -79,7 +79,7 @@ Google Fonts: `Archivo:wdth,wght@75..125,500..800`, `Atkinson+Hyperlegible:wght@
 ## Padrões
 
 - **Faixa de independência:** fundo `--tinta`, texto claro, topo de toda página.
-- **Resumo:** grade de 4 células separadas por 1 px de `--linha`; "Em risco" e "Perdidas" têm sublinhado interno de 4 px na cor semântica.
+- **Resumo:** grade de 4 células separadas por 1 px de `--linha`; "Em risco" e "Rejeitadas" têm sublinhado interno de 4 px na cor semântica.
 - **Cartão em risco:** borda `--risco-borda`, pílula laranja com o motivo curto ("Prazo em 38 dias"), título, uma frase, rodapé com tipo · status e valor em mono.
 - **Pílula de status:** fundo e texto dos tokens `--st-*`; "Em risco" é uma pílula extra, laranja, ao lado.
 - **Bloco de perda:** borda superior de 6 px `--perda`, título vermelho "Por que esta verba foi perdida", selo de IA, texto em 20 px com citações sobrescritas `[n]`, lista de documentos com trecho em mono e link.
