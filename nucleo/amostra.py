@@ -99,7 +99,7 @@ def linha(numero: int, grupo: str, v: dict, taxonomia) -> list[str]:
     campos = [
         str(numero), grupo, v["id"], v["nome"], taxonomia.tipos[v["tipo"]], v.get("instrumento") or "", v.get("orgao_concedente") or "",
         v.get("numero_instrumento") or "", v["id_fonte"], _reais(v["valor_total"]), _reais(v.get("valor_liberado")),
-        taxonomia.status[v["status_site"]] if v["status_site"] else taxonomia.sem_status, v["status_fonte"],
+        taxonomia.rotulo_status(v["status_site"], v["status_fonte"]), v["status_fonte"],
         "; ".join(m["texto"] for m in v["motivos_risco"]) if v["em_risco"] else "",
         ("Em apuração" if perda["categoria"] == "em_apuracao" else taxonomia.categorias[perda["categoria"]].rotulo) if perda else "",
         _reais(perda["valor_perdido"]) if perda else "", _data(perda["data"]) if perda else "",

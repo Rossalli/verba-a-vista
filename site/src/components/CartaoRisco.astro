@@ -1,5 +1,6 @@
 ---
 import { carregarTaxonomia } from "../lib/taxonomia.js";
+import { rotuloStatus as rotuloStatusVerba } from "../lib/verba.js";
 import { formatarData, formatarReais, url } from "../lib/dados.js";
 import { formatarTitulo, rotuloInstrumento, rotuloRisco } from "../lib/resumo.js";
 
@@ -15,7 +16,7 @@ const mais = verba.motivos_risco.length - 1;
   <span class="h3">{formatarTitulo(verba.nome)}</span>
   <span class="frase">{frase}</span>
   <span class="rodape-cartao">
-    <span>{rotuloInstrumento(verba)} · {taxonomia.status[verba.status_site]}</span>
+    <span>{rotuloInstrumento(verba)} · {rotuloStatusVerba(verba, taxonomia)}</span>
     <span class="mono valor">{verba.valor_total != null ? formatarReais(verba.valor_total) : "valor não informado"}</span>
   </span>
 </a>

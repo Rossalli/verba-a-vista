@@ -10,6 +10,13 @@ status:
   concluida: Concluída
   perdida: Rejeitada
 
+# A etapa "perdida" aparece como "Rejeitada", a menos que a situação na fonte diga outra coisa: vale a primeira regra cuja
+# palavra (sem distinguir maiúsculas) aparece em `status_fonte`. A chave interna continua `perdida`.
+rotulos_perda:
+  - {contem: cancelad, rotulo: Cancelada}
+  - {contem: rescindid, rotulo: Rescindida}
+  - {contem: anulad, rotulo: Anulada}
+
 # O que cada etapa significa (spec §4) e o que cada tipo de verba é, em linguagem simples (spec §3). O site usa estes
 # textos na página "Como funciona" e em cada verba.
 descricao_status:

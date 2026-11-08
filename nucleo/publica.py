@@ -179,7 +179,7 @@ def linha_csv(verba: Verba, config: Config) -> list[str]:
         texto_seguro(verba.orgao_concedente),
         texto_seguro(verba.parlamentar),
         texto_seguro(verba.numero_instrumento),
-        tax.status[verba.status_site] if verba.status_site else tax.sem_status,
+        tax.rotulo_status(verba.status_site, verba.status_fonte),
         texto_seguro(verba.status_fonte),
         _sim_nao(verba.em_risco),
         texto_seguro(" | ".join(m.texto for m in (verba.motivos_risco or []))),

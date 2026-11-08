@@ -76,3 +76,19 @@ test("como achar no Transferegov: o clique, o número e o que ele é em cada mó
   assert.equal(comoAchar({ fonte: "obrasgov", numero_instrumento: "1" }), null);
   assert.equal(comoAchar({ fonte: "transferegov_parcerias" }), null);
 });
+
+test("a etapa perdida vira Cancelada, Rescindida ou Anulada conforme a situação na fonte; senão, Rejeitada", async () => {
+  const { rotuloStatus } = await import("../src/lib/verba.js");
+  const taxonomia = {
+    sem_status: "Situação em análise",
+    status: { perdida: "Rejeitada", execucao: "Em execução" },
+    rotulos_perda: [{ contem: "cancelad", rotulo: "Cancelada" }, { contem: "rescindid", rotulo: "Rescindida" }, { contem: "anulad", rotulo: "Anulada" }],
+  };
+  const v = (status_site, status_fonte) => ({ status_site, status_fonte });
+  assert.equal(rotuloStatus(v("perdida", "Proposta/Plano de Trabalho Cancelados"), taxonomia), "Cancelada");
+  assert.equal(rotuloStatus(v("perdida", "Convênio Rescindido"), taxonomia), "Rescindida");
+  assert.equal(rotuloStatus(v("perdida", "Convênio Anulado"), taxonomia), "Anulada");
+  assert.equal(rotuloStatus(v("perdida", "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico"), taxonomia), "Rejeitada");
+  assert.equal(rotuloStatus(v("execucao", "Convênio Cancelado"), taxonomia), "Em execução"); // só a etapa perdida troca de rótulo
+  assert.equal(rotuloStatus(v(null, "x"), taxonomia), "Situação em análise");
+});

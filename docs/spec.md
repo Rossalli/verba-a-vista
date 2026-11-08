@@ -55,6 +55,8 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 | `concluida` | Concluída | Contas aprovadas |
 | `perdida` | Rejeitada | Proposta rejeitada ou instrumento encerrado sem sucesso; o município não recebeu ou teve de devolver o recurso (a chave interna continua `perdida`) |
 
+**Rótulo da `perdida` conforme a fonte.** A etapa aparece como "Rejeitada", mas quando a situação na fonte diz outra coisa o rótulo acompanha: "cancelad…" vira **Cancelada**, "rescindid…" vira **Rescindida** e "anulad…" vira **Anulada** (regras em `rotulos_perda`, `config/taxonomia.yaml`; vale a primeira que casar). Só o rótulo muda (site, CSV e amostra); a etapa, os filtros e as contagens seguem `perdida`.
+
 `em_risco` **não é status**. É um alerta (booleano + lista de motivos) que pode existir em `proposta`, `aprovada`, `execucao` e `prestacao`.
 
 O mapeamento de cada situação de cada fonte para `status_site` vive em `config/status_map.yaml`. **Papel do Obrasgov:** é fonte auxiliar e **não define `status_site`** (o cadastro dos gestores fica desatualizado: obras "Cadastrada" sem medição, com convênio "Em execução" no Siconv). Um projeto do Obrasgov só entra quando a prefeitura (CNPJ em `executores`) é a executora e ele se liga a um instrumento do Transferegov/Siconv (ponte `siconv_dados_obrasgov_geral`); ele alimenta o alerta `obra_parada`, `execucao_fisica_pct` e o dossiê da curadoria. Projetos de outros executores (ex.: manutenção rodoviária do DNIT) ficam de fora.

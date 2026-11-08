@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { carregarPublicado, formatarReais, url } from "../../lib/dados.js";
 import { carregarTaxonomia } from "../../lib/taxonomia.js";
+import { rotuloStatus as rotuloStatusVerba } from "../../lib/verba.js";
 import { SEM_DATA, STATUS, anoDaVerba, antesDe, normalizar, ordenarLista } from "../../lib/filtros.js";
 import { carregarRegras } from "../../lib/taxonomia.js";
 import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
@@ -17,7 +18,7 @@ const ordemAno = (a) => (a === SEM_DATA ? 2 : a === ANTES ? 1 : 0); // anos do r
 const anos = [...new Set(verbas.map((v) => anoDaVerba(v, anoInicio)))].sort((a, b) => ordemAno(a) - ordemAno(b) || b.localeCompare(a));
 const rotuloAno = (a) => (a === SEM_DATA ? "Sem data" : a === ANTES ? `Antes de ${anoInicio}` : a);
 const haAntigas = anos.includes(ANTES);
-const rotuloStatus = (v) => (v.status_site ? taxonomia.status[v.status_site] : taxonomia.sem_status);
+const rotuloStatus = (v) => rotuloStatusVerba(v, taxonomia);
 const contagem = Object.fromEntries(STATUS.map((s) => [s, verbas.filter((v) => v.status_site === s).length]));
 const chips = [["todas", "Todas", verbas.length], ...STATUS.map((s) => [s, taxonomia.status[s], contagem[s]])];
 ---

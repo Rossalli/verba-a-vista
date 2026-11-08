@@ -69,6 +69,17 @@ export function seloDaPerda(perda, textoSeloIa) {
   return perda.gerado_por_ia ? `${textoSeloIa} · ${revisao}` : `Explicação ${revisao}`;
 }
 
+/** Rótulo da etapa da verba: a "perdida" vira Cancelada, Rescindida... quando a situação na fonte diz isso (taxonomia.rotulos_perda). */
+export function rotuloStatus(verba, taxonomia) {
+  if (!verba.status_site) return taxonomia.sem_status;
+  if (verba.status_site === "perdida") {
+    const fonte = (verba.status_fonte ?? "").toLowerCase();
+    const regra = (taxonomia.rotulos_perda ?? []).find((r) => fonte.includes(r.contem.toLowerCase()));
+    if (regra) return regra.rotulo;
+  }
+  return taxonomia.status[verba.status_site];
+}
+
 /** O histórico guarda a chave do status ("perdida") ou a situação da fonte; a chave vira o rótulo do site. */
 export function rotuloSituacao(valor, taxonomia) {
   return taxonomia.status[valor] ?? valor;
@@ -85,7 +96,7 @@ export function descricaoDaVerba(verba, taxonomia) {
   return {
     resumo: `${rotuloInstrumento(verba)}: “${objeto}”${valor}${concedente}.`,
     tipo: { rotulo: taxonomia.tipos[verba.tipo], texto: taxonomia.descricao_tipos[verba.tipo] },
-    etapa: verba.status_site ? { rotulo: taxonomia.status[verba.status_site], texto: taxonomia.descricao_status[verba.status_site] } : null,
+    etapa: verba.status_site ? { rotulo: rotuloStatus(verba, taxonomia), texto: taxonomia.descricao_status[verba.status_site] } : null,
   };
 }
 

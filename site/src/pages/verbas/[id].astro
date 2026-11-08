@@ -4,7 +4,7 @@ import { CONTATO_EMAIL } from "../../config.js";
 import { carregarPublicado, formatarData, formatarDataHora, formatarReais, url } from "../../lib/dados.js";
 import { carregarRegras, carregarTaxonomia } from "../../lib/taxonomia.js";
 import { formatarNomeProprio, formatarTitulo, rotuloInstrumento } from "../../lib/resumo.js";
-import { ROTULO_EVITAVEL, comoAchar, descricaoDaVerba, descricaoMeta, historicoOrdenado, partesComCitacoes, rotuloSituacao, seloDaPerda, valoresDaVerba } from "../../lib/verba.js";
+import { ROTULO_EVITAVEL, comoAchar, descricaoDaVerba, descricaoMeta, historicoOrdenado, partesComCitacoes, rotuloSituacao, rotuloStatus as rotuloStatusVerba, seloDaPerda, valoresDaVerba } from "../../lib/verba.js";
 
 export function getStaticPaths() {
   return carregarPublicado().verbas.map((verba) => ({ params: { id: verba.id }, props: { verba } }));
@@ -18,7 +18,7 @@ const regras = carregarRegras();
 const nome = formatarTitulo(verba.nome);
 const oQueE = descricaoDaVerba(verba, taxonomia);
 const achar = comoAchar(verba);
-const rotuloStatus = verba.status_site ? taxonomia.status[verba.status_site] : taxonomia.sem_status;
+const rotuloStatus = rotuloStatusVerba(verba, taxonomia);
 const perda = verba.perda;
 const categoria = perda ? taxonomia.categorias[perda.categoria] : null;
 const rotuloCategoria = perda?.categoria === "em_apuracao" ? "Em apuração" : (categoria?.rotulo ?? perda?.categoria);

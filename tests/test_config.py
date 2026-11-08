@@ -149,3 +149,13 @@ def test_arquivo_que_nao_e_mapa(copia):
 def test_normalizar_situacao():
     assert normalizar_situacao("  Prestação   de  Contas ") == "prestacao de contas"
     assert normalizar_situacao("EM EXECUÇÃO") == normalizar_situacao("em execucao")
+
+
+def test_rotulo_da_etapa_perdida_depende_da_situacao_na_fonte():
+    tax = carregar_config().taxonomia
+    assert tax.rotulo_status("perdida", "Proposta/Plano de Trabalho Rejeitados por Impedimento técnico") == "Rejeitada"
+    assert tax.rotulo_status("perdida", "Proposta/Plano de Trabalho Cancelados") == "Cancelada"
+    assert tax.rotulo_status("perdida", "Convênio Rescindido") == "Rescindida"
+    assert tax.rotulo_status("perdida", "Convênio Anulado") == "Anulada"
+    assert tax.rotulo_status("execucao", "Convênio Cancelado") == "Em execução"  # só a etapa perdida troca de rótulo
+    assert tax.rotulo_status(None, "x") == tax.sem_status

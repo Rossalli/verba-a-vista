@@ -168,6 +168,11 @@ class CategoriaPerda(_Base):
     evitavel_tipico: Evitavel
 
 
+class RotuloPerda(_Base):
+    contem: str  # palavra procurada na situação da fonte, sem distinguir maiúsculas
+    rotulo: str
+
+
 class Taxonomia(_Base):
     """Vocabulário do site: categorias de perda (§6.2), rótulos de status (§4) e nomes de tipo (§3)."""
 
@@ -175,8 +180,19 @@ class Taxonomia(_Base):
     status: dict[StatusSite, str]
     sem_status: str  # rótulo da verba sem status mapeado (spec §4)
     tipos: dict[Tipo, str]
+    rotulos_perda: list[RotuloPerda] = []  # etapa `perdida` com rótulo próprio conforme a situação na fonte (cancelada, rescindida...)
     descricao_status: dict[StatusSite, str]  # o que cada etapa significa (spec §4)
     descricao_tipos: dict[Tipo, str]  # o que cada tipo de verba é, em linguagem simples (spec §3)
+
+    def rotulo_status(self, status_site: str | None, status_fonte: str | None = None) -> str:
+        """Rótulo da etapa; a `perdida` troca de rótulo quando a situação da fonte diz cancelada, rescindida ou anulada."""
+        if status_site is None:
+            return self.sem_status
+        if status_site == "perdida":
+            for regra in self.rotulos_perda:
+                if regra.contem.casefold() in (status_fonte or "").casefold():
+                    return regra.rotulo
+        return self.status[status_site]
 
     @model_validator(mode="after")
     def _todas_as_categorias(self):
