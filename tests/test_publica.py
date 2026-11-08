@@ -155,7 +155,7 @@ def test_csv_valores_em_reais_com_virgula_e_datas_em_iso(processamento, tmp_path
 def test_csv_perda_alerta_e_oportunidade(processamento, tmp_path):
     linhas = {l["id"]: l for l in ler_csv(p.publicar(processamento.normalizacao.verbas, processamento.retratos, processamento.config, DATA, tmp_path).csv)}
     perdida = linhas["transferegov_discricionarias-2113259"]
-    assert (perdida["situacao"], perdida["perda_categoria"], perdida["perda_valor_reais"], perdida["perda_data"], perdida["perda_gerada_por_ia"]) == ("Perdida", "Motivo em apuração", "549500,00", "2026-03-05", "não")
+    assert (perdida["situacao"], perdida["perda_categoria"], perdida["perda_valor_reais"], perdida["perda_data"], perdida["perda_gerada_por_ia"]) == ("Rejeitada", "Motivo em apuração", "549500,00", "2026-03-05", "não")
     assert perdida["perda_texto"].startswith("Motivo em apuração.") and perdida["perda_evitavel"] == "indeterminado" and perdida["perda_revisada_por"] == ""
     risco = linhas["transferegov_discricionarias-2227146"]
     assert (risco["em_risco"], risco["alertas"]) == ("sim", "CAUC: item 4.2 sem comprovação (Regularidade Previdenciária)")

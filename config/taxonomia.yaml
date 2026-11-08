@@ -8,7 +8,7 @@ status:
   execucao: Em execução
   prestacao: Prestação de contas
   concluida: Concluída
-  perdida: Perdida
+  perdida: Rejeitada
 
 # O que cada etapa significa (spec §4) e o que cada tipo de verba é, em linguagem simples (spec §3). O site usa estes
 # textos na página "Como funciona" e em cada verba.
@@ -19,7 +19,7 @@ descricao_status:
   execucao: Recurso liberado, obra ou compra em andamento.
   prestacao: Execução encerrada, contas em análise.
   concluida: Contas aprovadas.
-  perdida: Município não recebeu ou teve de devolver o recurso.
+  perdida: Proposta rejeitada ou instrumento encerrado sem sucesso; o município não recebeu ou teve de devolver o recurso.
 
 descricao_tipos:
   voluntaria: Acordo em que a União transfere dinheiro ao município para um projeto específico, como uma obra ou uma compra. O município apresenta uma proposta e um plano de trabalho, em geral oferece uma contrapartida e depois presta contas. Pode ser convênio, contrato de repasse (operado por um banco público, em geral a Caixa) ou termo de compromisso.

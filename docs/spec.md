@@ -53,7 +53,7 @@ Sete valores. O status original da fonte é sempre guardado em `status_fonte` e 
 | `execucao` | Em execução | Recurso liberado, obra ou compra em andamento |
 | `prestacao` | Prestação de contas | Execução encerrada, contas em análise |
 | `concluida` | Concluída | Contas aprovadas |
-| `perdida` | Perdida | Município não recebeu ou teve de devolver o recurso |
+| `perdida` | Rejeitada | Proposta rejeitada ou instrumento encerrado sem sucesso; o município não recebeu ou teve de devolver o recurso (a chave interna continua `perdida`) |
 
 `em_risco` **não é status**. É um alerta (booleano + lista de motivos) que pode existir em `proposta`, `aprovada`, `execucao` e `prestacao`.
 

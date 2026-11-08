@@ -77,7 +77,7 @@ def test_planilha_tem_dados_do_site_e_colunas_de_resposta_em_branco(tmp_path):
     assert linhas[0] == a.COLUNAS_FIXAS + a.COLUNAS_RESPOSTA and len(linhas) == 13
     assert all(len(l) == len(linhas[0]) for l in linhas)
     perda = next(dict(zip(linhas[0], l)) for l in linhas[1:] if l[1].startswith("Perda"))
-    assert perda["situação no site"] == "Perdida" and perda["perda: motivo"] == "Em apuração" and perda["perda em"] == "21/01/2025" and perda["valor total (R$)"] == "12345,67"
+    assert perda["situação no site"] == "Rejeitada" and perda["perda: motivo"] == "Em apuração" and perda["perda em"] == "21/01/2025" and perda["valor total (R$)"] == "12345,67"
     risco = next(dict(zip(linhas[0], l)) for l in linhas[1:] if l[1].startswith("Em risco: alerta"))
     assert risco["alerta de risco"] == "alerta cauc_sem_comprovacao" and risco["página no site"].startswith("/verbas/")
     assert all(not any(l[len(a.COLUNAS_FIXAS):]) for l in linhas[1:])  # colunas de resposta vazias
