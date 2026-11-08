@@ -62,6 +62,20 @@ class Barrado(Exception):
     """A página pediu login, captcha ou recusou o acesso: parar, nunca contornar."""
 
 
+class SemResposta(Exception):
+    """O site não respondeu no prazo (está lento ou fora do ar): tentar de novo mais tarde."""
+
+
+def ir(page, endereco: str) -> None:
+    """Abre uma página esperando só o HTML principal (o gov.br demora para terminar de carregar os scripts)."""
+    try:
+        page.goto(endereco, wait_until="domcontentloaded", timeout=60_000)
+    except Exception as erro:  # noqa: BLE001
+        if type(erro).__name__ != "TimeoutError":
+            raise
+        raise SemResposta(f"o site não respondeu em 60 s: {urlsplit(endereco).netloc}{urlsplit(endereco).path}") from erro
+
+
 class EstruturaMudou(Exception):
     """A página não tem o que o script espera (o Transferegov mudou?)."""
 
@@ -78,12 +92,12 @@ def conferir_barreira(page) -> None:
 
 
 def abrir_consulta(page, pausa: float) -> None:
-    page.goto(PAGINA)
+    ir(page, PAGINA)
     href = page.get_by_role("link", name="Consultar Propostas", exact=True).first.get_attribute("href")
     if not href:
         raise EstruturaMudou("o link 'Consultar Propostas' não está na página do Acesso Livre")
     time.sleep(pausa)
-    page.goto(href)  # leva o acesso de visitante; não imprimir
+    ir(page, href)  # leva o acesso de visitante; o endereço não é impresso (nem na mensagem de erro)
     try:
         page.wait_for_selector("select[name=tipoIdentificacao]", timeout=40_000)
     except Exception as erro:  # noqa: BLE001
@@ -131,7 +145,7 @@ def listar_propostas(page, pausa: float) -> tuple[list[dict], dict]:
 
 def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]:
     """Abre a proposta pelo número, vai à aba Pareceres e lê o texto de cada parecer (os mais recentes primeiro)."""
-    page.goto(CONSULTA)
+    ir(page, CONSULTA)
     page.fill("input[name=numeroProposta]", proposta["numero"].lstrip("0"))
     page.locator("input[type=button][onclick*=CONSULTA_COMPLETA]").first.click()
     page.wait_for_selector("table#row")
@@ -227,6 +241,9 @@ def main(argv: list[str] | None = None) -> int:
                 lidos = ler_pareceres(page, a, args.maximo_pareceres, pausa)
                 print(f"   {a['numero']}: {len(lidos)} parecer(es)")
                 pareceres += lidos
+        except SemResposta as erro:
+            print(f"\nPAROU: {erro}.\nNada foi gravado. Provavelmente o gov.br ou o Transferegov está lento ou fora do ar; tente de novo daqui a pouco.")
+            return 1
         except Barrado as erro:
             print(f"\nPAROU, barrado: {erro}\nNada foi gravado. Não tente contornar; avise o projeto (docs/fontes.md, Acesso Livre).")
             return 1
