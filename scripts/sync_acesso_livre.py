@@ -148,7 +148,12 @@ def ler_pareceres(page, proposta: dict, maximo: int, pausa: float) -> list[dict]
         visivel.first.click()
     else:
         links.first.evaluate("el => el.click()")  # o do menu lateral recolhido: o clique da pessoa dispara o mesmo onclick/href
-    page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))")
+    try:
+        page.wait_for_function("() => [...document.querySelectorAll('table#row')].some(t => t.rows.length && /Parecer do/.test(t.rows[0].innerText))", timeout=15_000)
+    except Exception:  # noqa: BLE001
+        conferir_barreira(page)
+        print(f"   {proposta['numero']}: a aba Pareceres não tem lista (sem pareceres)")
+        return []
     itens = [i for i in (page.evaluate(JS_LINHAS_PARECERES) or []) if i["id_parecer"]][:maximo]
     saida = []
     for item in itens:

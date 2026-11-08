@@ -80,6 +80,13 @@ def test_so_as_que_mudaram_novas_ou_perdidas_com_parecer_valem_a_leitura(lista, 
     assert [p["numero"] for p in mais] == ["002456/2026", "041390/2025"]
 
 
+def test_perdida_entra_mesmo_com_possui_parecer_nao(lista, siconv):
+    antes = al.situacoes_do_siconv(siconv)
+    assert next(p for p in lista if p["id_proposta"] == "2152082")["possui_parecer"] is False
+    escolhidas = al.propostas_para_pareceres(lista, antes, perdidas={"2152082"})
+    assert [p["numero"] for p in escolhidas] == ["002456/2026", "064413/2025"]  # a que mudou primeiro; a perdida sem "Sim" vem em seguida
+
+
 def test_proposta_que_o_lote_nao_tem_conta_como_novidade(lista):
     escolhidas = al.propostas_para_pareceres(lista, {}, perdidas=set())  # sem lote nenhum: tudo é novo, mas só com parecer
     assert {p["numero"] for p in escolhidas} == {"002456/2026", "041390/2025", "017544/2025", "033961/2024"}

@@ -15,7 +15,7 @@ from coleta.base import RetratoBruto
 FONTE = "transferegov_acesso_livre"
 ORIGEM = "manual local"
 LIMITE_PARECERES_POR_PROPOSTA = 6
-LIMITE_PROPOSTAS_COM_PARECER = 12
+LIMITE_PROPOSTAS_COM_PARECER = 20
 
 # Telefone com DDD entre parênteses ou com hífen no meio: não casa data nem número de proposta ("14/09/2026", "140/2026").
 TELEFONE = re.compile(r"\(\d{2}\)\s*9?\d{4}-?\d{4}|\b\d{2}\s?9?\d{4}-\d{4}\b")
@@ -86,7 +86,9 @@ def situacoes_do_siconv(retrato_siconv: dict | None) -> dict[str, str]:
 
 
 def propostas_para_pareceres(propostas: list[dict], situacoes_siconv: dict[str, str], perdidas: set[str], limite: int = LIMITE_PROPOSTAS_COM_PARECER) -> list[dict]:
-    """Propostas com parecer cujos textos valem a leitura: as que mudaram desde o lote, as que ele não tem e as perdidas.
+    """Propostas cujos pareceres valem a leitura: as que mudaram desde o lote ou que ele não tem (se a lista diz que têm
+    parecer) e todas as perdidas, **mesmo com "Possui Parecer: Não"**: o parecer é onde está o motivo da rejeição, e a
+    coluna da lista pode não refletir isso (quem confere é a aba "Pareceres" da proposta).
 
     As que mudaram ou são novas vêm primeiro (são o que o site ainda não sabe).
     """
@@ -94,7 +96,7 @@ def propostas_para_pareceres(propostas: list[dict], situacoes_siconv: dict[str, 
         antes = situacoes_siconv.get(p["id_proposta"])
         return antes is None or antes.strip().casefold() != p["situacao"].strip().casefold()
 
-    candidatas = [p for p in propostas if p["possui_parecer"] and (novidade(p) or p["id_proposta"] in perdidas)]
+    candidatas = [p for p in propostas if (p["possui_parecer"] and novidade(p)) or p["id_proposta"] in perdidas]
     candidatas.sort(key=lambda p: (not novidade(p), p["numero"]))
     return candidatas[:limite]
 
