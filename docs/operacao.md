@@ -18,6 +18,8 @@ Em **Settings** do repositório:
 
 Primeira execução: **Actions → Coleta semanal → Run workflow**. Ela coleta, publica, abre as issues de aviso que couberem e chama a publicação, que implanta o site e mostra a URL no passo `deploy`. Para republicar sem coletar (por exemplo depois de subir um retrato do Acesso Livre): **Actions → Publicar site → Run workflow**. A coleta agendada roda toda segunda-feira, 09:00 de Brasília.
 
+**Rascunho da IA sob demanda:** no disparo manual da **Coleta semanal** há três opções: **ia** (chama a IA nesta execução, cobrado, sem precisar ligar `CURADORIA_IA`), **refazer** (gera de novo o rascunho de quem já tem um em `dados/fila/`) e **verba** (só este id). Por exemplo, para refazer a 2456/2026: `ia` e `refazer` marcados e `verba` = `transferegov_discricionarias-2175551`. O rascunho novo vai para `dados/fila/` e você revisa e aprova como sempre.
+
 ## Dia a dia
 
 - **Issue "Rascunhos de curadoria para revisar":** abra o arquivo em `dados/fila/<id>.yaml`, confira os trechos contra os documentos que estão no próprio arquivo, edite o `rascunho` se precisar e rode `python -m curadoria.aprovar <id> --por "<seu nome>"`. Faça commit de `dados/curadoria/<id>.yaml`: o push republica o site sozinho.

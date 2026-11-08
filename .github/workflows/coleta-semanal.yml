@@ -8,6 +8,19 @@ on:
   schedule:
     - cron: "0 12 * * 1"   # segunda-feira, 09:00 em Brasília (UTC-3), depois da publicação do CAUC (D9)
   workflow_dispatch:
+    inputs:
+      ia:
+        description: "Chamar a IA nesta execução (cobrado), mesmo com CURADORIA_IA desligada"
+        type: boolean
+        default: false
+      refazer:
+        description: "Gerar de novo o rascunho de quem já tem um em dados/fila/ (só vale com a IA ligada)"
+        type: boolean
+        default: false
+      verba:
+        description: "Só esta verba (id, por exemplo transferegov_discricionarias-2175551); vazio = todas as pendentes"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -49,9 +62,22 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CURADORIA_IA: ${{ vars.CURADORIA_IA }}
+          # opções do disparo manual (vazias na agenda); entram por variável de ambiente, nunca direto no script
+          PEDIDO_IA: ${{ inputs.ia }}
+          PEDIDO_REFAZER: ${{ inputs.refazer }}
+          PEDIDO_VERBA: ${{ inputs.verba }}
         run: |
-          if [ "$CURADORIA_IA" = "true" ]; then
-            make curadoria ARGS="--executar"
+          if [ "$CURADORIA_IA" = "true" ] || [ "$PEDIDO_IA" = "true" ]; then
+            args="--executar"
+            if [ "$PEDIDO_REFAZER" = "true" ]; then args="$args --refazer"; fi
+            if [ -n "$PEDIDO_VERBA" ]; then
+              case "$PEDIDO_VERBA" in
+                *[!A-Za-z0-9_-]*) echo "::error::id de verba inválido: use só letras, números, _ e -"; exit 1 ;;
+              esac
+              args="$args --id $PEDIDO_VERBA"
+            fi
+            echo "Curadoria com IA: python -m curadoria $args"
+            make curadoria ARGS="$args"
           else
             echo "Curadoria com IA desligada (variável CURADORIA_IA != true). Plano da semana, sem custo:"
             make curadoria
