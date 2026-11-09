@@ -1,0 +1,16 @@
+{
+ "fonte": "obrasgov",
+ "data": "2026-11-09",
+ "execucoes": [
+  {
+   "iniciado_em": "2026-11-09T18:59:06-03:00",
+   "terminado_em": "2026-11-09T18:59:14-03:00",
+   "duracao_s": 7.66,
+   "status": "erro",
+   "erro": "ColetaErro: https://repositorio.dados.gov.br/seges/detru/siconv_dados_obrasgov_geral.zip: HTTP 404 ('<html>\\r\\n<head><title>404 Not Found</title></head>\\r\\n<body>\\r\\n<center><h1>404 Not Found</h1></center>\\r\\n<hr><center>nginx/1.16.1</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+   "requisicoes": 23,
+   "registros": {},
+   "metadados": {}
+  }
+ ]
+}

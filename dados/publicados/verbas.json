@@ -1,7 +1,7 @@
 {
  "versao": 1,
- "data": "2026-11-08",
- "atualizado_em": "2026-11-08T15:38:15-03:00",
+ "data": "2026-11-09",
+ "atualizado_em": "2026-11-09T18:59:31-03:00",
  "fontes": {
   "transferegov_discricionarias": {
    "nome": "Transferegov — Discricionárias e Legais (Siconv)",
@@ -14,16 +14,16 @@
   "transferegov_api": {
    "nome": "Transferegov — API pública",
    "url": "https://portal.transferegov.sistema.gov.br/portal/home",
-   "retrato": "2026-11-08",
-   "coletado_em": "2026-11-08T15:37:50-03:00",
-   "data_do_dado": "2026-11-08",
+   "retrato": "2026-11-09",
+   "coletado_em": "2026-11-09T18:59:05-03:00",
+   "data_do_dado": "2026-11-09",
    "situacao": "ok"
   },
   "portal_transparencia": {
    "nome": "Portal da Transparência",
    "url": "https://portaldatransparencia.gov.br/convenios/consulta",
-   "retrato": "2026-11-08",
-   "coletado_em": "2026-11-08T15:38:10-03:00",
+   "retrato": "2026-11-09",
+   "coletado_em": "2026-11-09T18:59:25-03:00",
    "data_do_dado": null,
    "situacao": "ok"
   },
@@ -38,9 +38,9 @@
   "cauc": {
    "nome": "CAUC (Tesouro Nacional)",
    "url": "https://www.tesourotransparente.gov.br/temas/estados-e-municipios/cauc",
-   "retrato": "2026-11-08",
-   "coletado_em": "2026-11-08T15:38:15-03:00",
-   "data_do_dado": "2026-11-06",
+   "retrato": "2026-11-09",
+   "coletado_em": "2026-11-09T18:59:31-03:00",
+   "data_do_dado": "2026-11-09",
    "situacao": "ok"
   },
   "tesouro_constitucionais": {
@@ -505,7 +505,7 @@
    "motivos_risco": [
     {
      "codigo": "prazo_proximo",
-     "texto": "Prazo em 42 dias",
+     "texto": "Prazo em 41 dias",
      "data_limite": "2026-12-20"
     }
    ],
@@ -533,7 +533,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/925702",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -653,7 +653,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/733022",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     }
    ]
   },
@@ -698,7 +698,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/970941",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1177,7 +1177,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/990509",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     },
     {
      "nome": "Obrasgov",
@@ -1612,7 +1612,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/759463",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     }
    ]
   },
@@ -1657,7 +1657,7 @@
     {
      "nome": "Portal da Transparência",
      "url": "https://portaldatransparencia.gov.br/convenios/704774",
-     "data_coleta": "2026-11-08T15:38:10-03:00"
+     "data_coleta": "2026-11-09T18:59:25-03:00"
     }
    ]
   },
@@ -1693,7 +1693,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1729,7 +1729,7 @@
     {
      "nome": "Transferegov — Fundo a Fundo",
      "url": "https://fundos.transferegov.sistema.gov.br/transferencia/plano-acao/consulta",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1763,7 +1763,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1797,7 +1797,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1831,7 +1831,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1865,7 +1865,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1899,7 +1899,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1933,7 +1933,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -1967,7 +1967,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2001,7 +2001,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2035,7 +2035,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2069,7 +2069,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2103,7 +2103,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2137,7 +2137,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2171,7 +2171,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2205,7 +2205,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2239,7 +2239,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2273,7 +2273,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2307,7 +2307,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   },
@@ -2341,7 +2341,7 @@
     {
      "nome": "Transferegov — Gestão de Parcerias",
      "url": "https://parcerias.transferegov.sistema.gov.br/ep-atos-prep-web/home",
-     "data_coleta": "2026-11-08T15:37:50-03:00"
+     "data_coleta": "2026-11-09T18:59:05-03:00"
     }
    ]
   }
